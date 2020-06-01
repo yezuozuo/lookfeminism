@@ -1,15 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://yezuozuo.github.io/posts/202005%E8%AF%BB%E4%B9%A6/</loc>
+    <lastmod>2020-05-27T13:44:11+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yezuozuo.github.io/posts/</loc>
-    <lastmod>2020-05-18T18:05:49+08:00</lastmod>
+    <lastmod>2020-05-27T13:44:11+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://yezuozuo.github.io/</loc>
-    <lastmod>2020-05-18T18:05:49+08:00</lastmod>
+    <lastmod>2020-05-27T13:44:11+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yezuozuo.github.io/posts/%E8%81%8A%E8%81%8A%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2020-05-21T13:32:23+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yezuozuo.github.io/posts/%E9%87%8D%E8%BF%94%E7%BE%8E%E4%B8%BD%E6%96%B0%E4%B8%96%E7%95%8C/</loc>
+    <lastmod>2020-05-20T13:18:55+08:00</lastmod>
   </url>
   
   <url>
@@ -329,7 +344,6 @@
   
   <url>
     <loc>http://yezuozuo.github.io/story/section-1/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
