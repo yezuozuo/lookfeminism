@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programs on zoco</title>
+    <link>http://yezuozuo.github.io/program/</link>
+    <description>Recent content in Programs on zoco</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 16 Jun 2020 10:53:35 +0800</lastBuildDate>
+    
+	<atom:link href="http://yezuozuo.github.io/program/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>机械同感</title>
+      <link>http://yezuozuo.github.io/program/%E6%9C%BA%E6%A2%B0%E5%90%8C%E6%84%9F/</link>
+      <pubDate>Tue, 16 Jun 2020 10:53:35 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/%E6%9C%BA%E6%A2%B0%E5%90%8C%E6%84%9F/</guid>
+      <description>机械同感 本篇一部分翻译自Go and CPU Caches - Teiva Harsanyi - Medium，和 【译】CPU 高速缓存原理和应用 - 云+社区 - 腾讯云。
+其中代码部分亲自做了基准测试，和作者的有出入，本文会加入我的解释。
+ 很早很早以前，面试过一个同学，他说他对底层非常感兴趣，看过很多底层设计的书，我问他说这些对日常的工作有什么帮助吗，他说每天的工作就是CURD，底层知识几乎用不到，所以很苦恼。
+这里想解释一个词，叫机械同感 (Mechanical Sympathy)。
+曾三次获得 F1 世界冠军的杰基* 斯图尔特 (Jackie Stewart) 表示，了解汽车的工作原理让他成为了一名更好的驾驶员。
+ “你并不需要先成为一个工程师才能去做一个赛车手，但是你得有一种机械同感”。
+ 简而言之，了解计算机底层硬件能让我们作为一个更优秀的开发者去设计算法、数据结构等等。
+CPU 高速缓存基本原理 现代计算机处理器是基于一种叫对称多处理 (symmetric multiprocessing, SMP) 的概念。在一个 SMP 系统里，处理器的设计使两个或多个核心连接到一片共享内存 (也叫做主存，RAM)。另外，为了加速内存访问，处理器有着不同级别的缓存，分别是 L1、L2 和 L3。确切的体系结构可能因供应商、处理器模型等等而异。然而，目前最流行的模型是把 L1 和 L2 缓存内嵌在 CPU 核心本地，而把 L3 缓存设计成跨核心共享：
+越靠近 CPU 核心的缓存，容量就越小，同时访问延迟就越低 (越快)：
+同样的，这些具体的数字因不同的处理器模型而异。不过，我们可以做一个粗略的估算：假设 CPU 访问主存需要耗费 60 ns，那么访问 L1 缓存会快上 50 倍。
+在处理器的世界里，有一个很重要的概念叫访问局部性 (locality of reference)，当处理器访问某个特定的内存地址时，有很大的概率会发生下面的情况：</description>
+    </item>
+    
+  </channel>
+</rss>
