@@ -5,10 +5,30 @@
     <link>http://yezuozuo.github.io/</link>
     <description>Recent content on zoco</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 18 Jun 2020 09:52:12 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2020 14:16:50 +0800</lastBuildDate>
     
 	<atom:link href="http://yezuozuo.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>镜中</title>
+      <link>http://yezuozuo.github.io/poem/%E9%95%9C%E4%B8%AD/</link>
+      <pubDate>Fri, 19 Jun 2020 14:16:50 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/poem/%E9%95%9C%E4%B8%AD/</guid>
+      <description>镜中 张枣 只要想起一生中后悔的事
+梅花便落了下来
+比如看她游泳到河的另一岸
+比如登上一株松木梯子
+危险的事固然美丽
+不如看她骑马归来
+面颊温暖
+羞惭。低下头，回答着皇帝
+一面镜子永远等候她
+让她坐到镜中常坐的地方
+望着窗外，只要想起一生中后悔的事
+梅花便落满了南山</description>
+    </item>
     
     <item>
       <title>孤独</title>
@@ -324,26 +344,6 @@ clipboardTriggerTime = Timer.periodic( const Duration(seconds: 5), (timer) { Cli
 1980年，沈从文应邀访美。
 1985年，一名女记者问道沈从文在文化大革命中打扫女厕所的经历，沈从文抱着她的肩膀，号啕大哭，惊呆了周围的人。
 1988年5月10日，沈从文因心脏病猝发在家中病逝，享年86岁，临终遗言：“我对这个世界没有什么好说的。”</description>
-    </item>
-    
-    <item>
-      <title>镜中</title>
-      <link>http://yezuozuo.github.io/poem/%E9%95%9C%E4%B8%AD/</link>
-      <pubDate>Thu, 07 May 2020 14:16:50 +0800</pubDate>
-      
-      <guid>http://yezuozuo.github.io/poem/%E9%95%9C%E4%B8%AD/</guid>
-      <description>镜中 张枣 只要想起一生中后悔的事
-梅花便落了下来
-比如看她游泳到河的另一岸
-比如登上一株松木梯子
-危险的事固然美丽
-不如看她骑马归来
-面颊温暖
-羞惭。低下头，回答着皇帝
-一面镜子永远等候她
-让她坐到镜中常坐的地方
-望着窗外，只要想起一生中后悔的事
-梅花便落满了南山</description>
     </item>
     
     <item>
