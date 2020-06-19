@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>php级别性能优化分享 - zoco</title>
+    <meta property="og:title" content="php级别性能优化分享 - zoco">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="指导思想：能自动化的，要自动化；不能自动化的，要半自动化。
+性能分析最理想的方式是强智能，也就是让机器独立处理所有事情，自动发现问题并解决问题。但是需要用到人工智能，深度学习等等。要学的东西还很多，暂时还做不了那么牛逼的事，既然现在强智能还不够强，那么我们暂时先用弱智能&#43;人工确认的方式，来实现「半智能化」：用机器帮咱们做预选，人工来做最终选择，虽然依然包含了人工干预，但却可以把生产效率提升几十倍。 &amp;hellip;">
+      <meta property="og:description" content="指导思想：能自动化的，要自动化；不能自动化的，要半自动化。
+性能分析最理想的方式是强智能，也就是让机器独立处理所有事情，自动发现问题并解决问题。但是需要用到人工智能，深度学习等等。要学的东西还很多，暂时还做不了那么牛逼的事，既然现在强智能还不够强，那么我们暂时先用弱智能&#43;人工确认的方式，来实现「半智能化」：用机器帮咱们做预选，人工来做最终选择，虽然依然包含了人工干预，但却可以把生产效率提升几十倍。 &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="program">
+    <header class="masthead">
+      <h1><a href="/">zoco</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/book/">书单</a></li>
+  
+  <li><a href="/posts/">日志</a></li>
+  
+  <li><a href="/program/">程序</a></li>
+  
+  <li><a href="/poem/">诗</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>php级别性能优化分享</h1>
+
+<h3>
+  2017-05-17</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="前言">前言</h2>
+<p>指导思想：能自动化的，要自动化；不能自动化的，要半自动化。</p>
+<p>性能分析最理想的方式是强智能，也就是让机器独立处理所有事情，自动发现问题并解决问题。但是需要用到人工智能，深度学习等等。要学的东西还很多，暂时还做不了那么牛逼的事，既然现在强智能还不够强，那么我们暂时先用弱智能+人工确认的方式，来实现「半智能化」：用机器帮咱们做预选，人工来做最终选择，虽然依然包含了人工干预，但却可以把生产效率提升几十倍。</p>
+<h2 id="性能分析">性能分析</h2>
+<ol>
+<li>方法、工具、思路</li>
+<li>查找瓶颈</li>
+<li>重点优化（耗时多、请求多、超过150ms的接口）</li>
+<li>查看单个请求调用链（次数，时间）</li>
+<li>各个性能参数变化率</li>
+<li>机器流量，负载，内存，qps，php.ini+php-fpm.conf</li>
+</ol>
+<h2 id="性能分析-工具">性能分析-工具</h2>
+<p>xhprof源码分析： <a href="https://zoco.fun/program/Xhprof">https://zoco.fun/program/Xhprof</a>源码分析</p>
+<h2 id="性能分析-方法">性能分析-方法</h2>
+<ol>
+<li>耗时</li>
+<li>次数</li>
+<li>聚合分析</li>
+<li>增量分析</li>
+<li>实时分析</li>
+<li>数据报表</li>
+<li>性能报表</li>
+</ol>
+<h2 id="耗时">耗时</h2>
+<p>原则：耗时是可控的</p>
+<ol>
+<li>找到耗时最多的调用：发现递归，循环，不合理的用法，异常的服务。</li>
+<li>数据源调用耗时异常，去推动他们优化。</li>
+<li>curl替代file_get_contents并且增加超时时间。</li>
+<li>微服务的超时时间在合理的范围内尽量小一些。</li>
+</ol>
+<h2 id="次数">次数</h2>
+<p>原则：越少越好</p>
+<ol>
+<li>找到调用次数异常的调用：寻找批量方案或者预加载方案。</li>
+<li>对多个无上下关联的数据源并行化或者异步化。</li>
+</ol>
+<h2 id="聚合分析">聚合分析</h2>
+<ol>
+<li>能看到当前接口所有运行过的函数。</li>
+<li>平均值处理，也避免了程序运行中的不规律事件。</li>
+<li>统计值比孤立值更具说服力。</li>
+<li>为增量统计做准备。</li>
+</ol>
+<h2 id="增量分析">增量分析</h2>
+<p>检测每个接口多余出的方法以及此类方法的耗时从而得出业务变化对性能的影响。（对新上的代码）</p>
+<h2 id="实时分析">实时分析</h2>
+<p>因为数据量相对较少，所以每小时跑一次数据，暂时针对各个数据源整体耗时和该接口所有微服务进行聚合。</p>
+<p>如果有全量的日志，那么这个做起来就很有意义了。</p>
+<h2 id="数据报表">数据报表</h2>
+<p>项目性能分析总览，调用次数，总耗时，平均耗时，趋势。</p>
+<ol>
+<li>单日性能统计，天级别（次数、平均耗时、最大耗时、平均内存、最大内存）</li>
+<li>所有uri性能总览，uri级别（uri、次数、平均耗时、最大耗时、平均内存、最大内存、微服务(Max)、Redis(Max)、Mongo(Max)）</li>
+<li>单个uri性能分析（时间、耗时、内存、微服务、Redis、Mongo、Host）</li>
+<li>单个uri性能整合分析（耗时分布饼图、整体耗时、耗时分布面积图、耗时折线图、各功能耗时、实时数据）</li>
+<li>xhprof html</li>
+<li>xhprof graph</li>
+</ol>
+<h2 id="性能报表">性能报表</h2>
+<p>这里是根据已有的数据进行二次分析</p>
+<ol>
+<li>邮件汇总接口图表（每日邮件数据汇总）</li>
+<li>超出150ms的接口（重点分析）</li>
+<li>所有接口分析（接口内的方法聚合）</li>
+<li>微服务分析（每个接口调用了哪些微服务）</li>
+<li>微服务排行榜（所有微服务调用的耗时和次数）</li>
+</ol>
+<h2 id="性能分析优化方案">性能分析－优化方案</h2>
+<ol>
+<li>预加载</li>
+<li>批量</li>
+<li>短路</li>
+<li>降维</li>
+<li>并行和异步化</li>
+<li>抽象</li>
+<li>缓存</li>
+</ol>
+<h2 id="预加载">预加载</h2>
+<p>事先将请求到的数据放到内存中，同一次请求同一份数据不要取两次，用的时候随时取（bridge）。</p>
+<h2 id="批量">批量</h2>
+<p>尽量减少同一个微服务的调用，在写业务代码的时候尽量让微服务提供方提供批量的接口。</p>
+<h2 id="短路">短路</h2>
+<p>将经常判断的条件放在if中条件的前面(尤其是判断条件是从数据源中取数据)</p>
+<p>案例：</p>
+<pre><code>优化前：
+     if($sex == ‘F’ &amp;&amp; $region == ‘美国’ &amp;&amp; $age &gt;90) {}
+优化后：
+     if($age &gt; 90 &amp;&amp; $region == ‘美国’ &amp;&amp; $sex == ’F’) {}
+代码实例：
+	 if (($charlet = $this-&gt;outputChatlet()) &amp;&amp; ($this-&gt;ctx-&gt;old-&gt;loginUser-&gt;isLocal())) {}
+</code></pre><h2 id="降维">降维</h2>
+<p>案例：API output时候需要对输出结果进行过滤</p>
+<pre><code>优化前：
+	array_walk_recursive递归进行正则处理
+优化后：
+	将数组通过json_encode降维成字符串，一次正则即可
+</code></pre><h2 id="并行和异步化">并行和异步化</h2>
+<p>在完全串行运行的系统里，一次请求总响应时间满足如下公式：</p>
+<pre><code>一次请求总耗时=解析请求耗时 + ∑(获取数据耗时+处理数据耗时) + 组装返回结果耗时
+
+多次请求耗时=∑(一次请求总耗时)
+</code></pre><p>解决方法：</p>
+<p>将微服务调用并行化，将互相不依赖的微服务使用专门的服务打包调用。</p>
+<p>并行化后请求时间总耗时公式：</p>
+<pre><code>多次请求总耗时=解析请求耗时 + Max(单次请求耗时) + 组装返回结果耗时
+</code></pre><h2 id="抽象">抽象</h2>
+<p>尽量构建公共方法，优化的时候会有蝴蝶效应的惊喜，风险是有，但收益更大，要大胆试错。</p>
+<h2 id="缓存">缓存</h2>
+<p>科学的设置缓存</p>
+<ol>
+<li>查询量</li>
+<li>缓存item数量</li>
+<li>命中率</li>
+<li>查询耗时</li>
+<li>占用内存</li>
+</ol>
+<h2 id="性能分析自动化开发中">性能分析－自动化（开发中）</h2>
+<p>根据聚合分析和增量分析</p>
+<ol>
+<li>找出接口的瓶颈</li>
+<li>新上的业务（或者下掉的业务）对性能的影响</li>
+<li>每天报表中性能波动的原因</li>
+</ol>
+<h2 id="实例如何进行一次简单的性能分析">实例：如何进行一次简单的性能分析</h2>
+<p><a href="https://zoco.fun/program/">https://zoco.fun/program/</a>如何进行一次简单的性能分析</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+
+
+
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">zoco</a> 2020</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

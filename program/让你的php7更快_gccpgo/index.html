@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>让你的PHP7更快 GCC PGO - zoco</title>
+    <meta property="og:title" content="让你的PHP7更快 GCC PGO - zoco">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="依据来源：让你的PHP7更快(GCC PGO) | 风雪之隅
+[&amp;hellip;] 下载最新的 php-7.2.0RC4.tar.gz https://downloads.php.net/~remi/php-7.2.0RC4.tar.gz
+./configure --enable-fpm --with-config-file-path=/etc &amp;hellip;">
+      <meta property="og:description" content="依据来源：让你的PHP7更快(GCC PGO) | 风雪之隅
+[&amp;hellip;] 下载最新的 php-7.2.0RC4.tar.gz https://downloads.php.net/~remi/php-7.2.0RC4.tar.gz
+./configure --enable-fpm --with-config-file-path=/etc &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="program">
+    <header class="masthead">
+      <h1><a href="/">zoco</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/book/">书单</a></li>
+  
+  <li><a href="/posts/">日志</a></li>
+  
+  <li><a href="/program/">程序</a></li>
+  
+  <li><a href="/poem/">诗</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>让你的PHP7更快 GCC PGO</h1>
+
+<h3>
+  2017-09-11</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>依据来源：<a href="http://www.laruence.com/2015/06/19/3063.html">让你的PHP7更快(GCC PGO) | 风雪之隅</a></p>
+<h2 id="执行步骤">执行步骤</h2>
+<p>下载最新的 php-7.2.0RC4.tar.gz <a href="https://downloads.php.net/~remi/php-7.2.0RC4.tar.gz">https://downloads.php.net/~remi/php-7.2.0RC4.tar.gz</a></p>
+<pre><code>./configure --enable-fpm --with-config-file-path=/etc --with-config-file-scan-dir=/etc/php.d
+</code></pre><p>第一遍编译PHP7, 让它生成会产生profile数据的可执行文件</p>
+<pre><code>make prof-gen -j 8
+</code></pre><p>prof-gen参数是PHP7的Makefile特有的。</p>
+<p>然后, 开始训练GCC:</p>
+<p>需要在文件app.php中指定file和controller，不然会报404或者其他错误，这里的更改只是为了训练用，训练结束还需要将代码改回去。</p>
+<pre><code>$file = 'nearby_controller.php';
+
+$controller = 'nearby_controller'
+</code></pre><p>在nearby_controller.php中指定id和count，不然之后的代码无法训练到（尽量训练多的代码）。</p>
+<p>进行训练，可以是100或者更多次，要注意看报错</p>
+<pre><code>sapi/cgi/php-cgi -T 100 /api_v2.php
+</code></pre><p>训练结束，开始安装</p>
+<pre><code>make prof-clean
+make prof-use -j 8 
+sudo make install
+</code></pre><h2 id="压测结果">压测结果</h2>
+<p>训练之前：</p>
+<pre><code>Requests per second:    326.02 [#/sec] (mean)
+</code></pre><p>训练之后：</p>
+<pre><code>Requests per second:    361.31 [#/sec] (mean)
+</code></pre><p>这个结果压测多次，发现有时训练之后的qps比训练之前的或高或低，但差距都不是很明显。</p>
+<h2 id="最终结论">最终结论</h2>
+<p>GCC PGO在api的代码中优化效果不明显，而且操作起来较为复杂，不具备上线条件。</p>
+<h2 id="pgo相关解释">PGO相关解释</h2>
+<p>有编译器用到概率的，但我不知道最先进的编译器用到的概型有哪些先进的做法。编译器使用到概率的地方，最常见是跟profile-guided optimization（PGO）相关的。通过收集profile信息来估算某些代码执行的频繁程度，并对其做相应的优化。</p>
+<p>例如说，</p>
+<ol>
+<li>cold code outlining</li>
+</ol>
+<p>如果有：</p>
+<pre><code>if (cond) {
+  // then...
+} else {
+  // else...
+}
+// next
+</code></pre><p>并且收集到的profile说cond有超过90%都走到then分支上，那么就把then分支放在fallthrough位置上，而把else分支放到主干代码的“更后面”。于是生成的代码会是这样：</p>
+<pre><code>if !cond goto Label_else
+  // then...
+// next...
+...
+Label_else:
+  // else...
+</code></pre><p>这样，高概率执行的代码就都放在一起了，低概率执行的代码则会放到“外面”去。</p>
+<ol start="2">
+<li>guarded devirtualization</li>
+</ol>
+<p>例如说有这样一个虚函数调用：</p>
+<pre><code>o-&gt;foo()
+</code></pre><p>如果profile收集到信息说，有80%的可能调用到A :: foo()，有11%的可能调用到B :: foo()，有9%未知，那么一种可能的代码生成策略是：</p>
+<pre><code>if (o.type == A) {
+  A::foo(o)  // devirtualized
+} else if (o.type == B) {
+  B::foo(o)  // devirtualized
+} else {
+  o-&gt;vtable[slotid(#foo)](o) // virtual call fallback
+}
+</code></pre><p>像上面这两种使用profile所收集到的概率来引导编译器优化的就是PGO。</p>
+<p>其中，概率显然是要涉及到“嵌套/叠加”的：</p>
+<ul>
+<li>假如有嵌套分支，概率要如何算？</li>
+<li>假如有嵌套的虚函数调用+内联，而profile是扁平的（不带caller context）的话，被内联的callee里概率要怎么算？</li>
+<li>假如有循环，概率要如何调整计算？</li>
+<li>…等等。</li>
+</ul>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+
+
+
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">zoco</a> 2020</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

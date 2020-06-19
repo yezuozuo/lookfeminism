@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>深入php redis pconnect - zoco</title>
+    <meta property="og:title" content="深入php redis pconnect - zoco">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="pconnect是phpredis中用于client连接server的api。
+API文档中的一句原文：
+[&amp;hellip;] The connection will not be closed on close or end of request until the php process ends.
+[&amp;hellip;] 那么问题来了：
+[&amp;hellip;] 带着这两个问题，我们做下实验，深入 &amp;hellip;">
+      <meta property="og:description" content="pconnect是phpredis中用于client连接server的api。
+API文档中的一句原文：
+[&amp;hellip;] The connection will not be closed on close or end of request until the php process ends.
+[&amp;hellip;] 那么问题来了：
+[&amp;hellip;] 带着这两个问题，我们做下实验，深入 &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="program">
+    <header class="masthead">
+      <h1><a href="/">zoco</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/book/">书单</a></li>
+  
+  <li><a href="/posts/">日志</a></li>
+  
+  <li><a href="/program/">程序</a></li>
+  
+  <li><a href="/poem/">诗</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>深入php redis pconnect</h1>
+
+<h3>
+  2015-10-08</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>pconnect是phpredis中用于client连接server的api。</p>
+<p>API文档中的一句原文：</p>
+<blockquote>
+<p>The connection will not be closed on close or end of request until the php process ends.</p>
+</blockquote>
+<p>那么问题来了：</p>
+<ol>
+<li>php process ends是指一次php执行完结，还是fpm的终结？如果是后者，那意味着即使一次php执行完毕，redis连接也不会被释放，下一次执行时redis连接会被重用。</li>
+<li>The connection will not be closed on close是 说如果使用了pconnect, 即使在代码中显示的调用close(), 也不会关闭连接？</li>
+</ol>
+<p>带着这两个问题，我们做下实验，深入看一下pconnect究竟做了些什么。</p>
+<h2 id="准备工作">准备工作</h2>
+<p>环境：</p>
+<pre><code>nginx + fpm
+php5.3
+</code></pre><p>我们将fpm配置为</p>
+<pre><code>pm.max_children =1
+pm.start_servers =1
+pm.max_spare_servers =1
+</code></pre><p>这样，我们的页面请求会由一个确定的fpm进程执行，方便strace跟踪。</p>
+<p>对应页面请求的php代码：</p>
+<pre><code>$ip=“10.136.30.144”;
+$port=7777;
+$redis=newRedis();
+$redis-&gt;pconnect($ip,$port,1);
+$key=“test”;
+$value=“this is test”;
+$redis-&gt;set($key,$value);
+$d=$redis-&gt;get($key);
+
+var_dump($d);
+</code></pre><p>代码的功能很简单，连接redis，先设置一个值，再取出。</p>
+<h2 id="测试问题一">测试问题一</h2>
+<p>思路：</p>
+<p>使用strace观察fpm的系统调用，如果连接的生命周期是一次php执行，那么每次页面调用，都会有connect系统调用，用以连接redis；如果连接的生命周期是fpm的终结，那么只有第一次页面调用会有connect系统调用 ，之后由于连接被重用，无需connect，直接发命令请求即可。
+启动一个新的fpm（进程号28082）。</p>
+<p>执行</p>
+<pre><code>strace -p 28082 -s 1024 -o redis_1
+</code></pre><p>可以看到进程先建立了socket连接（文件描述符为9）。然后给reids发一系列命令，最终取到“this is test”的结果串。且没有关闭连接相关的redis命令或系统调用。</p>
+<p>页面请求结束后，我们执行</p>
+<pre><code>lsof -n -p 28082
+</code></pre><p>可以看到，fpm进程仍然保有一个到10.136.30.144的reids连接，其文件描述符为9（这与strace的结果一致）。</p>
+<p>执行</p>
+<pre><code>strace -p 28082 -s 1024 -o redis_2
+</code></pre><p>与第一次请求的区别是：省去了建立连接的过程，直接发送reids命令，得到结果！</p>
+<p>再使用lsof -n -p 28082查看fpm打开的文件描述符，结果与上文件相同。
+说明，连接的确是被重用的，没有新建。
+执行第6次页面请求（因为我们在准备工作中的配置，此时fpm已经是一个新的进程了），用lsof查看进程打开的文件描述符。
+我们发现，虽然仍然有描述符为9的reids连接，但两个tcp连接的临时端口不同了，也就是连接改变了！</p>
+<p>至此，我们得出问题1的结论：</p>
+<p><strong>当使用pconnect时，连接会被重用，连接的生命周期是fpm进程的生命周期，而非一次php的执行。</strong>。</p>
+<h2 id="测试问题二">测试问题二</h2>
+<p>为了对比，我们先看一下，使用connect连接redis，并调用redis-&gt;close()的系统调用。（将上述代码中的pconnect改为connect, 同时在最后加入redis-&gt;close()）
+我们看到，除了建立连接外，在程序结尾，还向reids发送了quit命令，并关闭了连接的文件描述符。</p>
+<p>接下来，我们看在使用pconnect后，redis-&gt;close()有何表现
+代码调整为：</p>
+<pre><code>$ip=“10.136.30.144”;
+$port=7777;
+$redis=newRedis();
+$redis-&gt;pconnect($ip,$port,1);
+$key=“test”;
+$value=“this is test”;
+$redis-&gt;set($key,$value);
+$d=$redis-&gt;get($key);
+
+var_dump($d);
+$redis-&gt;close();
+$redis-&gt;get($key);
+</code></pre><p>我们直接看第2次执行页面请求的系统调用</p>
+<p>并没有建立连接，同样是直接发送命令得到结果。说明连接被重用。同时，没有向reids server发送quit命令，也无关闭连接的系统调用。</p>
+<p>至此，我们得出问题2的结论：</p>
+<p><strong>如果代码中使用pconnect， close的作用仅是使当前php不能再进行redis请求，但无法真正关闭redis长连接，连接在后续请求中仍然会被重用，直至fpm进程生命周期结束。</strong></p>
+<h2 id="结论">结论</h2>
+<ol>
+<li>当使用pconnect时，连接会被重用，连接的生命周期是fpm进程的生命周期，而非一次php的执行。</li>
+<li>如果代码中使用pconnect， close的作用仅是使当前php不能再进行redis请求，但无法真正关闭redis长连接，连接在后续请求中仍然会被重用，直至fpm进程生命周期结束。</li>
+</ol>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+
+
+
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">zoco</a> 2020</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

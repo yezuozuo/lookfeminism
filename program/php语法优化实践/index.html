@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>php语法优化实践 - zoco</title>
+    <meta property="og:title" content="php语法优化实践 - zoco">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="比如想要对一个多位数组的内容进行过滤 使用array_walk_recursive的写法为
+function outputFilter(&amp;amp;$value) { $value = preg_replace(&#39;&#39;, &#39;&#39;, $value); } } array_walk_recursive($output, &#39;outputFilter&#39;); 其实我们可以把多维数组降成一维，使 &amp;hellip;">
+      <meta property="og:description" content="比如想要对一个多位数组的内容进行过滤 使用array_walk_recursive的写法为
+function outputFilter(&amp;amp;$value) { $value = preg_replace(&#39;&#39;, &#39;&#39;, $value); } } array_walk_recursive($output, &#39;outputFilter&#39;); 其实我们可以把多维数组降成一维，使 &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="program">
+    <header class="masthead">
+      <h1><a href="/">zoco</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/book/">书单</a></li>
+  
+  <li><a href="/posts/">日志</a></li>
+  
+  <li><a href="/program/">程序</a></li>
+  
+  <li><a href="/poem/">诗</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>php语法优化实践</h1>
+
+<h3>
+  2015-02-19</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h4 id="1-避免使用array_walk_recursive或其他形式的递归">1. 避免使用array_walk_recursive或其他形式的递归</h4>
+<p>比如想要对一个多位数组的内容进行过滤
+使用array_walk_recursive的写法为</p>
+<pre><code>function outputFilter(&amp;$value) {
+	$value = preg_replace('', '', $value);
+    }
+}
+array_walk_recursive($output, 'outputFilter');
+
+</code></pre><p>其实我们可以把多维数组降成一维，使用array_reduce或者json_encode将数组变为字符串进行处理。</p>
+<pre><code>function outputFilter_u(&amp;$value) {
+    $value = preg_replace('', '', $value);
+}
+$json = json_encode($output);
+outputFilter_u($json);
+
+</code></pre><h4 id="2-用isset代替in_array">2. 用isset代替in_array</h4>
+<p>尤其是越大的数组这种对比越明显</p>
+<p>避免</p>
+<pre><code>if (in_array('1', $array)) {}
+</code></pre><p>使用</p>
+<pre><code>if (isset($array['1'])) {}
+</code></pre><h4 id="3-少用错误抑制符">3. 少用@错误抑制符</h4>
+<p>虽然会减少了warning和notice，但是实际上会带来性能的下降</p>
+<p>避免</p>
+<pre><code>@test();
+</code></pre><h4 id="4避免deep-array">4.避免Deep Array</h4>
+<p>对于C来说, 符号在执行器都会变成地址(绝大部分), 而对于PHP来说, 符号都需要经过查找(Hash Lookup)才能使用, 于是我也看到了类似下面的代码</p>
+<pre><code>for ($i=0; i&lt;10;i++) {
+   $arr[1][2][3][4][5] = $i;
+}
+</code></pre><p>这样的话，每一次循环, 都会带来6次的Hash Lookup…..</p>
+<h4 id="5-变量先定义再引用">5. 变量先定义再引用</h4>
+<p>这样不仅会在性能上得到一定的提升，而且最重要的是代码的可读性会提升，毕竟看代码看的看的突然出现一个不知道什么意思的变量，你懂的……</p>
+<h4 id="6-用issetstring5代替strlenstring不建议在生产环境使用">6. 用isset($string[5])代替strlen($string)（不建议在生产环境使用）</h4>
+<p>避免</p>
+<pre><code>if (strlen($strings) &gt; 10) {}
+</code></pre><p>改为</p>
+<pre><code>if (isset($strings[10])) {}
+</code></pre><h4 id="7-用--代替-">7. 用 === 代替 ==</h4>
+<p>除了隐式转换规则外, 还有一点就是如果使用===, 对于日后的维护或者阅读你代码的人也会很舒服:”在这个时刻, 这一行语句, 这个变量就是这个类型的!”。</p>
+<h4 id="8-用-null--a-代替-is_nulla">8. 用 null === $a 代替 is_null($a)</h4>
+<h4 id="9-用str开头的函数代替preg开头的函数">9. 用str开头的函数代替preg开头的函数</h4>
+<p>例如strtok、strstr、strpos、str_replace、substr、explode、implode等等。</p>
+<h4 id="10-避免循环定义中的操作">10. 避免循环定义中的操作</h4>
+<p>避免</p>
+<pre><code>for ($i = 0; $i &lt; sizeof($array); $i++) {}
+
+</code></pre><p>改为</p>
+<pre><code>$count = sizeof($array);
+for ($i = 0; $i &lt; $count; $i++) {}
+</code></pre><h4 id="11-类中的function能改为static的话最好改成static不建议在生产环境使用">11. 类中的function能改为static的话最好改成static（不建议在生产环境使用）</h4>
+<h4 id="12-对纯字符串用单引号来代替双引号">12. 对纯字符串用单引号来代替双引号</h4>
+<h4 id="13-变量使用完最好unset掉">13. 变量使用完最好unset掉</h4>
+<h4 id="13-用include和require代替include_once和require_once">13. 用include和require代替include_once和require_once</h4>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+
+
+
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">zoco</a> 2020</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

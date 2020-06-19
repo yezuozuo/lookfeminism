@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Nginx&#43;php Fpm模式php内存泄漏探究 - zoco</title>
+    <meta property="og:title" content="Nginx&#43;php Fpm模式php内存泄漏探究 - zoco">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="昨天遇到过一次服务器内存告警，查看后发现有个php-fpm进程占用了2G的内存。但我明明在php.ini文件里面，有配置 memory_limit = 256M，那为什么会有占用2G内存的php-fpm进程呢？
+这里先简单说一下nginx&#43;php-fpm模式的工作原理。 [&amp;hellip;] 这里要重点说一下第三步骤。第三步涉及到php-fpm进程生命周期的东西。一个php-fpm的生命周期大致是 &amp;hellip;">
+      <meta property="og:description" content="昨天遇到过一次服务器内存告警，查看后发现有个php-fpm进程占用了2G的内存。但我明明在php.ini文件里面，有配置 memory_limit = 256M，那为什么会有占用2G内存的php-fpm进程呢？
+这里先简单说一下nginx&#43;php-fpm模式的工作原理。 [&amp;hellip;] 这里要重点说一下第三步骤。第三步涉及到php-fpm进程生命周期的东西。一个php-fpm的生命周期大致是 &amp;hellip;">
+      
+    
+
+    
+    
+    <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1270516-5201af6a5497357e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="program">
+    <header class="masthead">
+      <h1><a href="/">zoco</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/book/">书单</a></li>
+  
+  <li><a href="/posts/">日志</a></li>
+  
+  <li><a href="/program/">程序</a></li>
+  
+  <li><a href="/poem/">诗</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Nginx&#43;php Fpm模式php内存泄漏探究</h1>
+
+<h3>
+  2016-09-23</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>昨天遇到过一次服务器内存告警，查看后发现有个php-fpm进程占用了2G的内存。但我明明在php.ini文件里面，有配置 memory_limit = 256M，那为什么会有占用2G内存的php-fpm进程呢？</p>
+<p>这里先简单说一下nginx+php-fpm模式的工作原理。 </p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1270516-5201af6a5497357e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="a.png"></p>
+<ol>
+<li>nginx服务器fork出n个子进程（worker），php-fpm管理器fork出n个子进程。</li>
+<li>当有用户请求，nginx的一个worker接收请求，并将请求抛到socket中。</li>
+<li>php-fpm空闲的子进程监听到socket中有请求，接收并处理请求。</li>
+</ol>
+<p>这里要重点说一下第三步骤。第三步涉及到php-fpm进程生命周期的东西。一个php-fpm的生命周期大致是这样的：模块初始化（MINIT）-&gt; 模块激活（RINIT）-&gt; 请求处理 -&gt; 模块停用（RSHUTDOWN） -&gt; 模块激活（RINIT）-&gt; 请求处理 -&gt; 模块停用（RSHUTDOWN）……. 模块激活（RINIT）-&gt; 请求处理 -&gt; 模块停用（RSHUTDOWN）-&gt; 模块关闭（MSHUTDOWN）。在一个php-fpm进程的生命周期里，会有多次的模块激活（RINIT）-&gt; 请求处理 -&gt; 模块停用（RSHUTDOWN）的过程。这个“请求处理”的大致过程是这样的：php读取相应的php文件，对其进行词法分析，生成opcode，zend虚拟机执行opcode。</p>
+<p>回到一开始说的PHP配置文件里面的memory_limit 这个东西，其实，它限制的只是这个“请求处理”的内存。所以，这个参数跟php-fpm进程占用的内存并没有什么关系。那为什么会有占用2G大小的php-fpm进程呢？原因是这样的：php是用c写的，所以，难免又会一些内存泄露。也就是说，在“请求处理”这个过程结束后，有些变量没有被销毁，然后就导致一个php-fpm进程占用的内存越来越大。</p>
+<p>那么，有什么办法能阻止这个问题呢？方法一：写不泄漏内存的php程序；方法二：在php-fpm配置文件中，将pm.max_requests这个参数设置小一点。这个参数的含义是：一个php-fpm子进程最多处理pm.max_requests个用户请求后，就会被销毁。当一个php-fpm进程被销毁后，它所占用的所有内存都会被回收。</p>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">zoco</a> 2020</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

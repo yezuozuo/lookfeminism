@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>一个php编译器的问题 - zoco</title>
+    <meta property="og:title" content="一个php编译器的问题 - zoco">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="看一个问题$a=1; $a&#43;$a&#43;&#43; 的值是多少
+答案是3，根据下图，先执行$a&#43;&#43;,在执行&#43;。
+$a &#43; ($a&#43;&#43;) = 3
+那么$a&#43;$a&#43;$a&#43;&#43;呢？是4吗
+看下图
+答案还是3，执行过程是($a&#43;$a) &#43; ($a&#43;&#43;) = 3。
+那么$a&#43;$a&#43;$a&#43;$a&#43;&#43;呢？是4吗？
+答案也不是5，答案是4
+(($a&#43;$a)&#43;$a) &#43; ($a&#43;&#43;) = 4。
+原因：
+也就是 这个问题没啥意义……  &amp;hellip;">
+      <meta property="og:description" content="看一个问题$a=1; $a&#43;$a&#43;&#43; 的值是多少
+答案是3，根据下图，先执行$a&#43;&#43;,在执行&#43;。
+$a &#43; ($a&#43;&#43;) = 3
+那么$a&#43;$a&#43;$a&#43;&#43;呢？是4吗
+看下图
+答案还是3，执行过程是($a&#43;$a) &#43; ($a&#43;&#43;) = 3。
+那么$a&#43;$a&#43;$a&#43;$a&#43;&#43;呢？是4吗？
+答案也不是5，答案是4
+(($a&#43;$a)&#43;$a) &#43; ($a&#43;&#43;) = 4。
+原因：
+也就是 这个问题没啥意义……  &amp;hellip;">
+      
+    
+
+    
+    
+    <meta name="twitter:image" content="https://s1.ax1x.com/2020/06/18/NnPiyF.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="program">
+    <header class="masthead">
+      <h1><a href="/">zoco</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/book/">书单</a></li>
+  
+  <li><a href="/posts/">日志</a></li>
+  
+  <li><a href="/program/">程序</a></li>
+  
+  <li><a href="/poem/">诗</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>一个php编译器的问题</h1>
+
+<h3>
+  2018-06-23</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>看一个问题$a=1; $a+$a++ 的值是多少</p>
+<p>答案是3，根据下图，先执行$a++,在执行+。</p>
+<p>$a + ($a++) = 3</p>
+<p><img src="https://s1.ax1x.com/2020/06/18/NnPiyF.png" alt="NnPiyF.png"></p>
+<p>那么$a+$a+$a++呢？是4吗</p>
+<p>看下图</p>
+<p><img src="https://s1.ax1x.com/2020/06/18/NnPFL4.png" alt="NnPFL4.png"></p>
+<p>答案还是3，执行过程是($a+$a) + ($a++) = 3。</p>
+<p>那么$a+$a+$a+$a++呢？是4吗？</p>
+<p><img src="https://s1.ax1x.com/2020/06/18/NnPmJx.png" alt="NnPmJx.png"></p>
+<p>答案也不是5，答案是4</p>
+<p>(($a+$a)+$a) + ($a++) = 4。</p>
+<p>原因：</p>
+<p><img src="https://s1.ax1x.com/2020/06/18/NnPnW6.png" alt="NnPnW6.png"></p>
+<p>也就是  这个问题没啥意义……  每个编译器都不一样。</p>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">zoco</a> 2020</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

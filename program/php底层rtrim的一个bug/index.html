@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>php底层rtrim的一个“bug” - zoco</title>
+    <meta property="og:title" content="php底层rtrim的一个“bug” - zoco">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="trim系列函数是用于去除字符串中首尾的空格或其他字符。ltrim函数只去除掉字符串首部的字符，rtrim函数只去除字符串尾部的字符。
+string trim ( string $str [, string $character_mask = &amp;quot; \t\n\r\0\x0B&amp;quot; ] ) 看一个例子：
+$str = &amp;quot;e?type&amp;quot;; echo $str; &amp;hellip;">
+      <meta property="og:description" content="trim系列函数是用于去除字符串中首尾的空格或其他字符。ltrim函数只去除掉字符串首部的字符，rtrim函数只去除字符串尾部的字符。
+string trim ( string $str [, string $character_mask = &amp;quot; \t\n\r\0\x0B&amp;quot; ] ) 看一个例子：
+$str = &amp;quot;e?type&amp;quot;; echo $str; &amp;hellip;">
+      
+    
+
+    
+    
+    <meta name="twitter:image" content="https://s1.ax1x.com/2020/06/18/NmqrdO.png">
+    
+    
+
+    
+
+    
+    
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="program">
+    <header class="masthead">
+      <h1><a href="/">zoco</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/book/">书单</a></li>
+  
+  <li><a href="/posts/">日志</a></li>
+  
+  <li><a href="/program/">程序</a></li>
+  
+  <li><a href="/poem/">诗</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>php底层rtrim的一个“bug”</h1>
+
+<h3>
+  2017-10-19</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="背景">背景</h2>
+<p>trim系列函数是用于去除字符串中首尾的空格或其他字符。ltrim函数只去除掉字符串首部的字符，rtrim函数只去除字符串尾部的字符。</p>
+<pre><code>string trim ( string $str [, string $character_mask = &quot; \t\n\r\0\x0B&quot; ] )
+</code></pre><p>看一个例子：</p>
+<pre><code>$str = &quot;e?type&quot;;
+
+echo $str;
+echo &quot;\n&quot;;
+
+echo rtrim($str, '?type');
+echo &quot;\n&quot;;
+</code></pre><p>不知道别人怎么想，我觉得这个返回的应该是”e”吧。</p>
+<p>但是实际上返回了一个空的字符串。</p>
+<p>又是一个黑魔法吗？</p>
+<h2 id="源码">源码</h2>
+<p>看一下php的底层实现：</p>
+<p><img src="https://s1.ax1x.com/2020/06/18/NmqrdO.png" alt="NmqrdO.png"></p>
+<p>这个是php7 trim系列函数的源码，红框内就是rtrim的代码。</p>
+<p><img src="https://s1.ax1x.com/2020/06/18/NmqXyq.png" alt="NmqXyq.png"></p>
+<p>这个是php_charmask的源码。</p>
+<h2 id="执行步骤">执行步骤</h2>
+<h3 id="trim执行步骤">trim执行步骤</h3>
+<p>trim、ltrim、rtrim三个函数都是调用了php_do_trim函数，区别在于第二个参数mode的不同。本文主要对trim函数进行分析，ltrim和rtrim函数跟trim的类似。然后php_do_trim会调用了php_trim来实现功能，因此trim函数的核心函数时php_trim函数。其执行步骤如下：</p>
+<ol>
+<li>根据what的值设置保存过滤字符的mask数组</li>
+<li>过滤在字符串首部的待过滤字符</li>
+<li>过滤在字符串尾部的待过滤字符</li>
+</ol>
+<p>php_trim函数执行的流程图如下：</p>
+<p><img src="https://s1.ax1x.com/2020/06/18/NmLA61.png" alt="NmLA61.png"></p>
+<h2 id="源码解读">源码解读</h2>
+<p>php_trim函数先调用了php_charmask，这个函数试将过滤字符设置为mask[char] = 1的形式，这样就是一个哈希数组，然后可用于后面的判断。如果第二个参数是范围值时，调用了memset函数给mask数组赋值。</p>
+<p>根据源码提炼出了以下的小demo:</p>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+void php_charmask(unsigned char *input, size_t len, char *mask);
+char *rtrim(char *str,char *character_mask);
+
+int main(int argc, char const *argv[])
+{
+    printf(&quot;%s\n&quot;,rtrim(&quot;e?type&quot;,&quot;?type&quot;));    
+    return 0;
+}
+
+char *rtrim(char *str,char *character_mask)
+{
+    char *res;
+    char mask[256];
+    register size_t i;
+    
+    size_t len = strlen(str);
+    
+    php_charmask((unsigned char*)character_mask, strlen(character_mask), mask);
+    
+    if (len &gt; 0) {
+        i = len - 1;
+        do {
+            if (mask[(unsigned char)str[i]]) {
+                len--;
+            } else {
+                break;
+            }
+        } while (i-- != 0);
+    }
+    
+    res = (char *) malloc(sizeof(char) * (len+1));
+    memcpy(res,str,len);
+    
+    return res;
+}
+
+void php_charmask(unsigned char *input, size_t len, char *mask)
+{
+    unsigned char *end;
+    unsigned char c;
+    
+    memset(mask, 0, 256);
+    
+    for (end = input+len; input &lt; end; input++) {
+        c = *input;
+        mask[c]= 1;
+    }
+}
+</code></pre><p>在php_charmask中，构造了一个简单的hash数组</p>
+<p><img src="https://s1.ax1x.com/2020/06/18/NmLB1s.png" alt="NmLB1s.png"></p>
+<p>在最上面的例子中，?type分别落到了这个数组中的不同位置（这也就是为什么mask的大小要设置成256，和ASCII的数量一致）。</p>
+<p>所以在最上面的例子中，从后往前e,p,y,t,?,e都命中了hash。</p>
+<h2 id="结论">结论</h2>
+<p>其实这也不算一个bug，文档说的很清楚，trim系列函数是字符级别的，可是惯性就让我们以为是字符串级别的，以后想清楚了再用。</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+
+
+
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">zoco</a> 2020</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

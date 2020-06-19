@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>xhprof源码分析 - zoco</title>
+    <meta property="og:title" content="xhprof源码分析 - zoco">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="源码位置：/path/xhprof/extension/xhprof.c
+[&amp;hellip;] 两个重要的数据结构：
+typedef struct hp_entry_t { char *name_hprof; /* function name */ int rlvl_hprof; /* recursion level for function */ uint64 tsc_start; /* &amp;hellip;">
+      <meta property="og:description" content="源码位置：/path/xhprof/extension/xhprof.c
+[&amp;hellip;] 两个重要的数据结构：
+typedef struct hp_entry_t { char *name_hprof; /* function name */ int rlvl_hprof; /* recursion level for function */ uint64 tsc_start; /* &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="program">
+    <header class="masthead">
+      <h1><a href="/">zoco</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/book/">书单</a></li>
+  
+  <li><a href="/posts/">日志</a></li>
+  
+  <li><a href="/program/">程序</a></li>
+  
+  <li><a href="/poem/">诗</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>xhprof源码分析</h1>
+
+<h3>
+  2015-06-04</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>源码位置：/path/xhprof/extension/xhprof.c</p>
+<h2 id="数据结构">数据结构</h2>
+<p>两个重要的数据结构：</p>
+<pre><code>typedef struct hp_entry_t {
+  char                   *name_hprof;                       /* function name */
+  int                     rlvl_hprof;        /* recursion level for function */
+  uint64                  tsc_start;         /* start value for TSC counter  */
+  long int                mu_start_hprof;                    /* memory usage */
+  long int                pmu_start_hprof;              /* peak memory usage */
+  struct rusage           ru_start_hprof;             /* user/sys time start */
+  struct hp_entry_t      *prev_hprof;    /* ptr to prev entry being profiled */
+  uint8                   hash_code;     /* hash_code for the function name  */
+} hp_entry_t;
+</code></pre><pre><code>typedef struct hp_global_t {
+  /*       ----------   Global attributes:  -----------       */
+
+  /* Indicates if xhprof is currently enabled */
+  int              enabled;
+
+  /* Indicates if xhprof was ever enabled during this request */
+  int              ever_enabled;
+
+  /* Holds all the xhprof statistics */
+  zval            *stats_count;
+
+  /* Indicates the current xhprof mode or level */
+  int              profiler_level;
+
+  /* Top of the profile stack */
+  hp_entry_t      *entries;
+
+  /* freelist of hp_entry_t chunks for reuse... */
+  hp_entry_t      *entry_free_list;
+
+  /* Callbacks for various xhprof modes */
+  hp_mode_cb       mode_cb;
+
+  /*       ----------   Mode specific attributes:  -----------       */
+
+  /* Global to track the time of the last sample in time and ticks */
+  struct timeval   last_sample_time;
+  uint64           last_sample_tsc;
+  /* XHPROF_SAMPLING_INTERVAL in ticks */
+  uint64           sampling_interval_tsc;
+
+  /* This array is used to store cpu frequencies for all available logical
+   * cpus.  For now, we assume the cpu frequencies will not change for power
+   * saving or other reasons. If we need to worry about that in the future, we
+   * can use a periodical timer to re-calculate this arrary every once in a
+   * while (for example, every 1 or 5 seconds). */
+  double *cpu_frequencies;
+
+  /* The number of logical CPUs this machine has. */
+  uint32 cpu_num;
+
+  /* The saved cpu affinity. */
+  cpu_set_t prev_mask;
+
+  /* The cpu id current process is bound to. (default 0) */
+  uint32 cur_cpu_id;
+
+  /* XHProf flags */
+  uint32 xhprof_flags;
+
+  /* counter table indexed by hash value of function names. */
+  uint8  func_hash_counters[256];
+
+  /* Table of ignored function names and their filter */
+  char  **ignored_function_names;
+  uint8   ignored_function_filter[XHPROF_IGNORED_FUNCTION_FILTER_SIZE];
+
+} hp_global_t;
+</code></pre><p>第一个 hp_entry_t</p>
+<p>name_hprof 为 函数名称</p>
+<p>rlvl_hprof 为 递归调用深度</p>
+<p>tsc_start 为 函数开始的时钟 通过rdtsc指令获得时钟周期</p>
+<p>mu_start_hprof 为 函数内存使用量 通过 zend_memory_usage(0 TSRMLS_CC)获得</p>
+<p>pmu_start_hprof 为 函数的内存峰值使用量 通过 zend_memory_peak_usage(0 TSRMLS_CC)获得</p>
+<p>ru_start_hprof 通过 getrusage()获得CPU使用情况</p>
+<p>prev_hprof 为 上一个hp_entry_t的指针</p>
+<p>hash_code 为 函数名的哈希值</p>
+<hr>
+<p>第二个 hp_global_t</p>
+<p>enabled 为 xhprof现在是否启用</p>
+<p>ever_enabled 为 xhprof在这次请求中是否被启用过，作用在于是否需要将hp_globals.entries设置为NULL</p>
+<p>stats_count 为 存储统计信息的数组，key为函数名，val为统计信息</p>
+<p>profiler_level 为 当前xhprof的模式(XHPROF_MODE_HIERARCHICAL/XHPROF_MODE_SAMPLED)</p>
+<p>entries 为 分析堆栈的顶部</p>
+<p>entry_free_list 用完的hp_entry_t不会被马上释放，而是放到这个列表中</p>
+<p>mode_cb 为 不同xhprof模式设置的回调</p>
+<p>last_sample_time 为 上一次采样时间点</p>
+<p>last_sample_tsc 为 上一次采样时钟周期数</p>
+<p>sampling_interval_tsc 为 采样的时钟周期间隔</p>
+<p>cpu_frequencies 为 各个CPU和的时钟频率</p>
+<p>cpu_num 为 机器拥有的逻辑CPU核数</p>
+<p>prev_mask 为 保存的CPU亲和性</p>
+<p>cur_cpu_id 为 当前绑定的CPU id</p>
+<p>xhprof_flags 为 xhprof的标志，分为 XHPROF_FLAGS_NO_BUILTINS（跳过所有内置逻辑）、XHPROF_FLAGS_CPU（输出的性能数据中添加CPU的数据）、XHPROF_FLAGS_MEMORY（输出的性能数据中添加内存数据）</p>
+<p>func_hash_counters 为 当前的分析堆栈中，函数的调用计算</p>
+<p>ignored_function_names 为 忽略分析的函数名称数组</p>
+<p>ignored_function_filter 为 用于快速判断一个函数是否应该被分析</p>
+<h2 id="模式">模式</h2>
+<p>XHPROF_MODE_HIERARCHICAL模式，该模式是详细分析整个PHP代码的执行情况，对应xhprof_enable()和xhprof_disable()函数。其输出的分析数据如下：</p>
+<pre><code>&lt;?php
+array(7) {
+  [&quot;main()==&gt;load::./inc.php&quot;]=&gt;
+  array(5) {
+    ……
+  }
+  [&quot;main()==&gt;run_init::Test/inc.php&quot;]=&gt;
+  array(5) {
+    ……
+  }
+  [&quot;bar==&gt;echoHello&quot;]=&gt;
+  array(5) {
+    ……
+  }
+  [&quot;foo==&gt;bar&quot;]=&gt;
+  array(5) {
+    ……
+  }
+  [&quot;main()==&gt;foo&quot;]=&gt;
+  array(5) {
+    ……
+  }
+  [&quot;main()==&gt;xhprof_disable&quot;]=&gt;
+  array(5) {
+    ……
+  }
+  [&quot;main()&quot;]=&gt;
+  array(5) {
+    [&quot;ct&quot;]=&gt;
+    int(1)
+    [&quot;wt&quot;]=&gt;
+    int(390372)
+    [&quot;cpu&quot;]=&gt;
+    int(392000)
+    [&quot;mu&quot;]=&gt;
+    int(15040)
+    [&quot;pmu&quot;]=&gt;
+    int(10024)
+  }}
+</code></pre><p>XHPROF_MODE_SAMPLED模式，该模式每隔0.1秒取样一次，记录当前执行的堆栈，对应xhprof_sample_enable()和xhprof_sample_disable()函数。其输出的分析数据如下：</p>
+<pre><code>&lt;?php
+array(5) {
+  [&quot;1460294938.300000&quot;]=&gt;
+  string(30) 
+&quot;main()==&gt;foo==&gt;bar==&gt;echoHello&quot;
+  [&quot;1460294938.400000&quot;]=&gt;
+  string(30) 
+&quot;main()==&gt;foo==&gt;bar==&gt;echoHello&quot;
+  [&quot;1460294938.500000&quot;]=&gt;
+  string(30) 
+&quot;main()==&gt;foo==&gt;bar==&gt;echoHello&quot;
+  [&quot;1460294938.600000&quot;]=&gt;
+  string(30) 
+&quot;main()==&gt;foo==&gt;bar==&gt;echoHello&quot;
+  [&quot;1460294938.700000&quot;]=&gt;
+  string(30) 
+&quot;main()==&gt;foo==&gt;bar==&gt;echoHello&quot;
+}
+</code></pre><h2 id="xhprof_mode_hierarchical模式分析">XHPROF_MODE_HIERARCHICAL模式分析</h2>
+<p><strong>xhprof_enable([ int $flags = 0 [, array $options ]] )</strong></p>
+<p>$flags为分析添加额外信息的可选标记。例如，XHPROF_FLAGS_MEMORY可以开启内存的分析。</p>
+<p>$options为array的可选选项，就是通过传递&rsquo;ignored_functions&rsquo;选项来忽略性能分析中的某些函数。</p>
+<p>在 xhprof_enable() 中会先执行：</p>
+<ol>
+<li>hp_get_ignored_functions_from_arg(optional_array)，将要忽略的函数存储到char **hp_globals.ignored_function_names中。</li>
+<li>接着执行hp_ignored_functions_filter_init()初始化hp_globals.ignored_function_filter[XHPROF_IGNORED_FUNCTION_FILTER_SIZE]。</li>
+</ol>
+<p><strong>打点采集性能数据的实现</strong></p>
+<p>在hp_begin(long level, long xhprof_flags TSRMLS_DC)中，替换掉了zend内核execute_data的执行函数以及一些编译代码的函数，相当于加了一层proxy，部分代码如下：</p>
+<pre><code>_zend_compile_file=zend_compile_file;
+zend_compile_file=hp_compile_file;
+_zend_compile_string=zend_compile_string;
+zend_compile_string=hp_compile_string;
+_zend_execute_ex=zend_execute_ex;
+zend_execute_ex=hp_execute_ex;
+_zend_execute_internal=zend_execute_internal;
+zend_execute_internal=hp_execute_internal;
+</code></pre><p>在每一层proxy中，都会调用BEGIN_PROFILING和END_PROFILING，以hp_execute_ex为例：</p>
+<pre><code>ZEND_DLEXPORT void hp_execute_ex (zend_execute_data *execute_data TSRMLS_DC) {
+  ……
+  //函数执行前打点
+  BEGIN_PROFILING(&amp;hp_globals.entries, func, hp_profile_flag);
+#if PHP_VERSION_ID &lt; 50500  
+_zend_execute(ops TSRMLS_CC);
+#else  
+_zend_execute_ex(execute_data TSRMLS_CC);
+#endif  
+if (hp_globals.entries) {
+    END_PROFILING(&amp;hp_globals.entries, hp_profile_flag);
+   //函数执行结束记录统计信息  
+  } 
+efree(func);
+}
+</code></pre><p><strong>xhprof_disable输出数据中ct和wt的实现</strong></p>
+<p>ct是当前代码块被执行的次数，在END_PROFILING-&gt;hp_globals.mode_cb.end_fn_cb-&gt;hp_mode_hier_endfn_cb-&gt;hp_mode_shared_endfn_cb中：</p>
+<pre><code>hp_inc_count(counts, &quot;ct&quot;, 1  TSRMLS_CC)
+</code></pre><p>在每次代码块执行结束后就会对其对应的ct增1。</p>
+<p>wt是当前代码块总的执行时间（wall clock time），在END_PROFILING-&gt;hp_globals.mode_cb.end_fn_cb-&gt;hp_mode_hier_endfn_cb-&gt;hp_mode_shared_endfn_cb中：</p>
+<pre><code>tsc_end = cycle_timer();
+hp_inc_count(counts, &quot;wt&quot;, get_us_from_tsc(tsc_end - top-&gt;tsc_start,hp_globals.cpu_frequencies[hp_globals.cur_cpu_id]) 
+TSRMLS_CC);
+</code></pre><p>top-&gt;tsc_start是在BEGIN_PROFILING-&gt;hp_globals.mode_cb.begin_fn_cb-&gt;hp_mode_hier_beginfn_cb()中通过cycle_timer()获得的，具体代码：</p>
+<pre><code>//通过rdtsc汇编指令获取CPU时钟周期
+static inline uint64 cycle_timer() {
+  uint32 __a,__d;
+  uint64 val;
+  asm volatile(&quot;rdtsc&quot;:&quot;=a&quot; (__a),&quot;=d&quot; (__d));
+  (val)=((uint64)__a)|(((uint64)__d)&lt;&lt;32);
+  return val;
+}
+</code></pre><p>hp_globals.cpu_frequencies[hp_globals.cur_cpu_id]存储了各个CPU对应的时钟频率，时钟频率的获取是通过如下方式：</p>
+<pre><code>static double get_cpu_frequency() {
+  struct timeval start;
+  struct timeval end;
+
+  if (gettimeofday(&amp;start, 0)) {
+    perror(&quot;gettimeofday&quot;);
+    return 0.0;
+  }
+  uint64 tsc_start = cycle_timer();
+  usleep(5000);
+  if (gettimeofday(&amp;end, 0)) {
+    perror(&quot;gettimeofday&quot;);
+    return 0.0;
+  }
+  uint64 tsc_end = cycle_timer();
+  // 时钟周期数/时间 = 时钟频率  
+  return (tsc_end - tsc_start) * 1.0 / (get_us_interval(&amp;start, &amp;end));
+}
+
+static void get_all_cpu_frequencies() {
+  int id;
+  double frequency;
+
+  hp_globals.cpu_frequencies = malloc(sizeof(double) * hp_globals.cpu_num);
+  if (hp_globals.cpu_frequencies == NULL) {
+    return;
+  }
+
+  /* Iterate over all cpus found on the machine. */
+  for (id = 0; id &lt; hp_globals.cpu_num; ++id) {
+    /* Only get the previous cpu affinity mask for the first call. */
+    if (bind_to_cpu(id)) {
+      //为了测定每个CPU核的时钟频率，
+      //需要先绑定到指定的核上运行 
+      clear_frequencies();
+      return;
+    }
+    /* Make sure the current process gets scheduled to the target cpu. 
+    This might not be necessary though. */
+    usleep(0);
+
+    frequency = get_cpu_frequency();
+    if (frequency == 0.0) {
+      clear_frequencies();
+      return;
+    }
+    hp_globals.cpu_frequencies[id] = frequency;
+  }
+}
+</code></pre><p>在获取了每个核的CPU时钟频率后，会随机地绑定到某个核上继续执行。
+最后在get_us_from_tsc()中，通过代码块执行花费的时钟周期数/当前CPU时钟频率得到代码块执行的时间wt。采用这种方式应该能更精确地获取wt。</p>
+<p><strong>xhprof_disable输出数据中cpu的实现</strong></p>
+<p>在END_PROFILING-&gt; hp_globals.mode_cb.end_fn_cb -&gt; hp_mode_hier_endfn_cb中：</p>
+<pre><code>if (hp_globals.xhprof_flags &amp; XHPROF_FLAGS_CPU) {
+  /* Get CPU usage */
+  getrusage(RUSAGE_SELF, &amp;ru_end);
+
+  //系统调用，获取当前进程的资源使用情况/* Bump CPU stats in the counts hashtable */
+  hp_inc_count(counts, &quot;cpu&quot;, 
+  (get_us_interval(
+        &amp;(top-&gt;ru_start_hprof.ru_utime),
+        &amp;(ru_end.ru_utime)) +
+        get_us_interval(
+        &amp;(top-&gt;ru_start_hprof.ru_stime),
+        &amp;(ru_end.ru_stime)))
+        TSRMLS_CC
+   );
+  }
+</code></pre><p>top-&gt;ru_start_hprof是在hp_mode_hier_beginfn_cb()中通过getrusage()设置的。
+ru_utime为user time，ru_stime为system time，两者加起来就得到cpu time了。</p>
+<p><strong>xhprof_disable输出数据中mu和pmu的实现</strong></p>
+<p>在END_PROFILING -&gt; hp_globals.mode_cb.end_fn_cb -&gt; hp_mode_hier_endfn_cb中：</p>
+<pre><code>
+if (hp_globals.xhprof_flags &amp; XHPROF_FLAGS_MEMORY) {
+  /* Get Memory usage */
+  mu_end  = zend_memory_usage(0 TSRMLS_CC);
+  pmu_end = zend_memory_peak_usage(0 TSRMLS_CC);
+  /* Bump Memory stats in the counts hashtable */
+  hp_inc_count(counts, &quot;mu&quot;,  mu_end - top-&gt;mu_start_hprof TSRMLS_CC);
+  hp_inc_count(counts, &quot;pmu&quot;, pmu_end - top-&gt;pmu_start_hprof TSRMLS_CC);}
+</code></pre><p>top-&gt;mu_start_hprof和top-&gt;pmu_start_hprof已在BEGIN_PROFILING-&gt;hp_globals.mode_cb.begin_fn_cb-&gt;hp_mode_hier_beginfn_cb中通过zend_memory_usage和zend_memory_peak_usage赋值。这两个zend函数的实现：</p>
+<pre><code>ZEND_API size_t zend_memory_usage
+(int real_usage TSRMLS_DC){
+  if (real_usage) {
+    return AG(mm_heap)-&gt;real_size;
+    //PHP实际占用了的系统内存    
+  } else {
+    size_t usage = AG(mm_heap)-&gt;size;
+    #if ZEND_MM_CACHE        
+    usage -= AG(mm_heap)-&gt;cached;
+    #endif        
+    return usage;
+  }
+}
+
+ZEND_API size_t zend_memory_peak_usage
+(int real_usage TSRMLS_DC){
+  if (real_usage) {
+    return AG(mm_heap)-&gt;real_peak;
+  } else {
+    return AG(mm_heap)-&gt;peak;
+  }    
+}
+</code></pre><p>可见，这里获取的mu和pmu是当前使用到的内存，不包括已从系统申请的但未使用的。</p>
+<h2 id="xhprof_mode_sampled模式分析">XHPROF_MODE_SAMPLED模式分析</h2>
+<p>该模式不支持过滤掉不想被profile的函数。打点方式与XHPROF_MODE_HIERARCHICAL模式相同，不同点在于BEGIN_PROFILING调用的是hp_mode_sampled_beginfn_cb，END_PROFILING调用的是hp_mode_sampled_endfn_cb，而在这两个函数中都只调用了hp_sample_check()，其代码如下：</p>
+<pre><code>void hp_sample_check(hp_entry_t **entries  TSRMLS_DC) {
+  /* Validate input */
+  if (!entries || !(*entries)) {
+    return;
+  }
+
+  while (
+    (cycle_timer() - hp_globals.last_sample_tsc) &gt; hp_globals.sampling_interval_tsc) {
+    //如果当前时钟周期数 - 上一次的时钟周期数 &gt; 采样的时钟周期间隔则继续采样
+    hp_globals.last_sample_tsc += hp_globals.sampling_interval_tsc;
+
+    //将上一次的时钟周期数加上采样的时钟周期数间隔
+    incr_us_interval(&amp;hp_globals.last_sample_time,XHPROF_SAMPLING_INTERVAL);
+
+    //更新上一次的采样时间点
+    hp_sample_stack(entries  TSRMLS_CC);
+   //采样数据  
+  }
+  return;
+}
+</code></pre><p>在hp_sample_stack()中就是往hp_globals.stats_count中添加：函数调用栈 =&gt; 采样时间点。
+在hp_begin-&gt;hp_init_profiler_state-&gt;hp_globals.mode_cb.init_cb-&gt;hp_mode_sampled_init_cb中做了一些初始化工作：</p>
+<pre><code>void hp_mode_sampled_init_cb(TSRMLS_D) {
+  struct timeval  now;
+  uint64 truncated_us;
+  uint64 truncated_tsc;
+  double cpu_freq =  hp_globals.cpu_frequencies[hp_globals.cur_cpu_id];
+
+  /* Init the last_sample in tsc */
+  hp_globals.last_sample_tsc = cycle_timer();
+
+  /* Find the microseconds that need to be truncated */
+  gettimeofday(&amp;hp_globals.last_sample_time, 0);
+  //初始化开始采样的时钟周期数
+  now = hp_globals.last_sample_time;
+  //hp_trunc_time的作用是将hp_globals.last_sample_time更新为XHPROF_SAMPLING_INTERVAL的整数倍
+  hp_trunc_time(&amp;hp_globals.last_sample_time, XHPROF_SAMPLING_INTERVAL);
+
+  /* Subtract truncated time from last_sample_tsc */
+  truncated_us  = get_us_interval(&amp;hp_globals.last_sample_time, &amp;now);
+  truncated_tsc = get_tsc_from_us(truncated_us, cpu_freq);
+  if (hp_globals.last_sample_tsc &gt; truncated_tsc) {
+    /* just to be safe while subtracting unsigned ints */
+    hp_globals.last_sample_tsc -= truncated_tsc;
+  }
+
+  /* Convert sampling interval to ticks */
+  //为了使last_sample_tsc和last_sample_time保持同步,对于hp_globals.last_sample_tsc&lt;= truncated_tsc的情况，出现的可能性非常小，即使真的出现了也只是漏了第一次采样
+  hp_globals.sampling_interval_tsc =
+    get_tsc_from_us(XHPROF_SAMPLING_INTERVAL, cpu_freq);
+}
+</code></pre><p><strong>函数调用堆栈的实现</strong></p>
+<p>对于每一个hp_entry_t（即分析点），都会有一个prev_hprof属性指向上一层的分析点，hp_get_function_stack(hp_entry_t *entry, int level, char *result_buf, size_t result_len)就是通过这个将函数调用堆栈的函数名串起来，在XHPROF_MODE_SAMPLED模式下level传参是INT_MAX，也就是说尽可能的将整个函数调用栈的函数名串起来返回，而在XHPROF_MODE_HIERARCHICAL模式下level传参是2，也就是说只取当前跟其上一级的函数名串起来返回，从两种模式的输出结果就可以看出来了。</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+
+
+
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">zoco</a> 2020</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

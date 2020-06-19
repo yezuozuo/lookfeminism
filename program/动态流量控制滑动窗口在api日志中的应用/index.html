@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>动态流量控制（滑动窗口）在api日志中的应用 - zoco</title>
+    <meta property="og:title" content="动态流量控制（滑动窗口）在api日志中的应用 - zoco">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="现在api的所有php-fpm日志都打到了elasticsearch里，我们可以拿这些日志来做很多东西，但首先第一步是怎么取这些数据。
+这些日志的量大概每天有几百万条的规模。
+首先我尝试的是通过from&#43;size的方式取数据，但是elasticsearch默认情况下只可以取from&#43;size&amp;lt;10000的数据（当然也可以调大from&#43;size，但是会带来一个问题就是数据取到最后越来越慢） &amp;hellip;">
+      <meta property="og:description" content="现在api的所有php-fpm日志都打到了elasticsearch里，我们可以拿这些日志来做很多东西，但首先第一步是怎么取这些数据。
+这些日志的量大概每天有几百万条的规模。
+首先我尝试的是通过from&#43;size的方式取数据，但是elasticsearch默认情况下只可以取from&#43;size&amp;lt;10000的数据（当然也可以调大from&#43;size，但是会带来一个问题就是数据取到最后越来越慢） &amp;hellip;">
+      
+    
+
+    
+    
+    <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1270516-a80fb64e418c4d66.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+    
+
+    
+
+    
+    
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="program">
+    <header class="masthead">
+      <h1><a href="/">zoco</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/book/">书单</a></li>
+  
+  <li><a href="/posts/">日志</a></li>
+  
+  <li><a href="/program/">程序</a></li>
+  
+  <li><a href="/poem/">诗</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>动态流量控制（滑动窗口）在api日志中的应用</h1>
+
+<h3>
+  2016-06-18</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>现在api的所有php-fpm日志都打到了elasticsearch里，我们可以拿这些日志来做很多东西，但首先第一步是怎么取这些数据。</p>
+<p>这些日志的量大概每天有几百万条的规模。</p>
+<p>首先我尝试的是通过from+size的方式取数据，但是elasticsearch默认情况下只可以取from+size&lt;10000的数据（当然也可以调大from+size，但是会带来一个问题就是数据取到最后越来越慢）</p>
+<blockquote>
+<p>Result window is too large, from + size must be less than or equal to: [10000] but was [10020]. See the scroll api for a more efficient way to request large data sets. This limit can be set by changing the [index.max_result_window] index level parameter</p>
+</blockquote>
+<p>那么就采取第二个方案，就是按时间来取数据。</p>
+<p>那么问题来了，按多久取一次数据呢？</p>
+<p>之前的取数据一般是按分钟取，但是会遇到一个问题。</p>
+<p>先看下面的图，是redis_warning一天（20170110）的分布情况：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1270516-a80fb64e418c4d66.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>从图里我们可以看到两个特点：</p>
+<ol>
+<li>请求包括报错的分布都是有高峰的。</li>
+<li>正常情况下数据的涨跌都不是跳崖式的波动，都是有一个涨跌的过渡过程（当然突然某个redis或者moa挂掉会导致一个突发的增长，这种情况也应该考虑到）。</li>
+</ol>
+<p>我们的请求包括报错的分布都是有高峰的，所以说在高峰的时候按分钟取也可能出现from+size&gt;10000的情况，那么我们就来按秒取，按秒取的话一天相当于要请求elasticsearch的接口86400次，在非高峰的时候这样无疑是对带宽的一种浪费。而且执行一次脚本所需要的时间很长，测试和出数据的的时候极其不方便（redis_warning按秒执行一次的时间大概是90分钟）。</p>
+<p>下面就是我现在所采用的方案，就是动态流量控制（滑动窗口）。</p>
+<p>既然非高峰的时候我可以多取一段时间的数据，非高峰的时候少取一些数据，那么我就建立一个模型让脚本动态地根据上一次获得的数据来决定下一次请求所要获取的数据多少。</p>
+<pre><code>if(count($res) == 10000) {
+    //说明此次请求获取的数据超过阈值
+    //丢弃掉此次请求的数据
+    //将下一次请求的时间间隔/2（滑动窗口缩小）
+} else if (count($res) &lt; 2000) {
+    //说明此次请求的数据太少
+    //保留此次数据
+    //将下一次请求的时间间隔*2（滑动窗口扩大）
+}
+</code></pre><p>上面例子中的2000是可以调整的。</p>
+<p>经过测试，这样能够较优地平衡带宽、时间和数据。</p>
+<p>现在redis_warning脚本的执行时间已经降低到平均2分钟。</p>
+<p>这其中细节有很多</p>
+<ol>
+<li>每次请求的时长应该是2的倍数，否则在除以2（窗口缩小）的时候会出现小数。</li>
+<li>窗口不能太大，否则出现突然的波动窗口会多次调整，容易出现内存爆了的情况。</li>
+<li>防止出现死锁的情况，就是说窗口扩大后不满足要求然后窗口缩小后也不满足要求的情况，这样会导致窗口不断的扩大缩小导致最终内存爆了。防止这种情况的出现是纪录窗口扩大和缩小的次数，超过一定次数就不再对窗口进行操作，保留现在的数据并请求下一个时间窗口的数据。</li>
+</ol>
+<p>这种模型也不是我想出来的，在很多地方都在用，最著名的就是TCP的流量控制(<a href="http://blog.jobbole.com/105500/">http://blog.jobbole.com/105500/</a>)。还有手机QQ的上传模型（http://weibo.com/ttarticle/p/show?id=2309404050024081266569）。</p>
+<blockquote>
+<p>在上传一个文件（图片）的过程中，应当尽可能动态增大分片大小（例如，后一片是前一片的 N 倍），以减少分片数量。</p>
+</blockquote>
+<p>这种模型可以应用到很多地方，这里就不一一例举。</p>
+<p>这也给我们带来一个值得去努力的地方：能自动化的，要自动化；不能自动化的，要半自动化。我们可以用弱智能+人工确认的方式，来实现“半智能化”：用机器帮你做预选，你来做最终选择，虽然依然包含了人工干预，但却可以把生产效率提升几十倍。</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+
+
+
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">zoco</a> 2020</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

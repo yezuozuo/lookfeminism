@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>PHP是世界上最好的语言！之…… - zoco</title>
+    <meta property="og:title" content="PHP是世界上最好的语言！之…… - zoco">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="&amp;lt;?php $a = null; $a &#43;&#43;; var_dump($a); echo &amp;quot;\n&amp;quot;; $a = null; $a --; var_dump($a); 执行结果为
+int(1) NULL &#43;&#43;的时候为1我还可以理解 &amp;ndash;的时候为null我就凌乱了
+解决这种&#43;&#43;和&amp;ndash;中的不一致的办法就是根本不用它们，用&#43;=和-=代替。
+[&amp;hellip;] 官 &amp;hellip;">
+      <meta property="og:description" content="&amp;lt;?php $a = null; $a &#43;&#43;; var_dump($a); echo &amp;quot;\n&amp;quot;; $a = null; $a --; var_dump($a); 执行结果为
+int(1) NULL &#43;&#43;的时候为1我还可以理解 &amp;ndash;的时候为null我就凌乱了
+解决这种&#43;&#43;和&amp;ndash;中的不一致的办法就是根本不用它们，用&#43;=和-=代替。
+[&amp;hellip;] 官 &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="program">
+    <header class="masthead">
+      <h1><a href="/">zoco</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/book/">书单</a></li>
+  
+  <li><a href="/posts/">日志</a></li>
+  
+  <li><a href="/program/">程序</a></li>
+  
+  <li><a href="/poem/">诗</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>PHP是世界上最好的语言！之……</h1>
+
+<h3>
+  2015-03-02</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h4 id="1与--">1.++与&ndash;</h4>
+<pre><code>&lt;?php
+$a = null;
+$a ++;  
+var_dump($a);
+
+echo &quot;\n&quot;;
+
+$a = null;
+$a --; 
+var_dump($a);
+
+</code></pre><p>执行结果为</p>
+<pre><code>int(1)
+
+NULL
+</code></pre><p>++的时候为1我还可以理解
+&ndash;的时候为null我就凌乱了</p>
+<p>解决这种++和&ndash;中的不一致的办法就是根本不用它们，用+=和-=代替。</p>
+<h4 id="2strrchr函数">2.strrchr函数</h4>
+<p>官方解释</p>
+<blockquote>
+<p>strrchr() 函数查找字符串在另一个字符串中最后一次出现的位置，并返回从该位置到字符串结尾的所有字符。
+如果成失败，否则返回 false。</p>
+</blockquote>
+<p>实际上，这个函数是查找某个字符，而不是查找字符串</p>
+<pre><code>&lt;?php
+$a = 'abcdef.txt';
+$b = '.php';
+echo strrchr($a, $b);
+</code></pre><p>上面的代码输出是：.txt
+也就是说，如果$b是字符串，只使用第一个字符，后面的其它字符会忽略</p>
+<h4 id="3trim函数遇到中文空格时会乱码">3.trim函数遇到中文空格时，会乱码</h4>
+<pre><code>&lt;?php
+$str = ' 　《前后有全半角空格》　 ';
+var_dump($str);
+
+$str2 = trim($str, ' 　');
+var_dump($str2);
+</code></pre><p>执行结果为：</p>
+<pre><code>string(38) &quot; 　《前后有全半角空格》　 &quot;
+string(28) &quot;�前后有全半角空格》&quot;
+</code></pre><p>这个问题的修改方法是采用正则</p>
+<pre><code>&lt;?php
+$str = ' 　《前后有全半角空格》　 ';
+var_dump($str);
+
+$str3 = mb_ereg_replace('^(?:\s|　)+|(?:\s|　)+$', '', $str);
+var_dump($str3);
+</code></pre><p>执行结果为：</p>
+<pre><code>string(38) &quot; 　《前后有全半角空格》　 &quot;
+string(30) &quot;《前后有全半角空格》&quot;
+</code></pre><h4 id="4执行sql后不判断返回值或判断逻辑错误">4.执行SQL后不判断返回值，或判断逻辑错误</h4>
+<pre><code>$sql = 'insert into app_log(id)  select 0 from dual where 1=2';
+$this-&gt;db-&gt;query($sql);
+return true; // 不加判断，直接返回true
+
+$sql = 'insert into app_log(id)  select 0 from dual where 1=2';
+$result = $this-&gt;db-&gt;query($sql);
+if ($result) { // 有bug，插入不成功，result也是true
+    return true;
+}
+return false;
+</code></pre><p>上面的2段代码应该改成：</p>
+<pre><code>
+$sql = 'insert into app_log(id)  select 0 from dual where 1=2';
+$this-&gt;db-&gt;query($sql);
+// 如果sql有语法问题，affected_rows是-1
+if ($this-&gt;db-&gt;affected_rows() &gt; 0) {
+    return true;
+}
+return false;
+</code></pre>
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+
+
+
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">zoco</a> 2020</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>php-fpm的一些实验 - zoco</title>
+    <meta property="og:title" content="php-fpm的一些实验 - zoco">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="每次请求，程序末尾包括exit()和不包括exit()的形式，php-fpm的子进程都不会被杀死。
+[&amp;hellip;] 每次请求，程序末尾包括exit()和不包括exit()的形式，php-fpm的子进程都会被杀死。
+[&amp;hellip;] &amp;lt;?php class a { public $a; public function __construct() { $this-&amp;gt;a = 1; &amp;hellip;">
+      <meta property="og:description" content="每次请求，程序末尾包括exit()和不包括exit()的形式，php-fpm的子进程都不会被杀死。
+[&amp;hellip;] 每次请求，程序末尾包括exit()和不包括exit()的形式，php-fpm的子进程都会被杀死。
+[&amp;hellip;] &amp;lt;?php class a { public $a; public function __construct() { $this-&amp;gt;a = 1; &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="program">
+    <header class="masthead">
+      <h1><a href="/">zoco</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/book/">书单</a></li>
+  
+  <li><a href="/posts/">日志</a></li>
+  
+  <li><a href="/program/">程序</a></li>
+  
+  <li><a href="/poem/">诗</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>php-fpm的一些实验</h1>
+
+<h3>
+  2017-02-07</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="实验一">实验一</h2>
+<ol>
+<li>将pm设置成static方式</li>
+<li>将pm.max_children设置为1</li>
+<li>将pm.max_requests设置成500</li>
+</ol>
+<p>每次请求，程序末尾包括exit()和不包括exit()的形式，php-fpm的子进程都不会被杀死。</p>
+<h2 id="实验二">实验二</h2>
+<ol>
+<li>将pm设置成static方式</li>
+<li>将pm.max_children设置为1</li>
+<li>将pm.max_requests设置成1</li>
+</ol>
+<p>每次请求，程序末尾包括exit()和不包括exit()的形式，php-fpm的子进程都会被杀死。</p>
+<h2 id="实验三">实验三</h2>
+<pre><code>&lt;?php
+class a {
+    public $a;
+    public function __construct() {
+        $this-&gt;a = 1;
+        exit();
+    }
+
+    public function __destruct() {
+        echo $this-&gt;a.&quot;\n&quot;;
+        echo '123'.&quot;\n&quot;;
+    }
+}
+
+$a = new a();
+echo $a-&gt;a;
+</code></pre><p>输出</p>
+<pre><code>1
+123
+</code></pre><p>结论：php中的exit()并不能使这个进程直接结束。尽管调用了exit(),Shutdown函数以及object destructors总是会被执行。</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+
+
+
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">zoco</a> 2020</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>php使用redis连接数过高问题 - zoco</title>
+    <meta property="og:title" content="php使用redis连接数过高问题 - zoco">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="最近发生了几次php连接数过高导致的问题，由于业务体量上涨导致php机器扩容，某个库的连接数过高导致redis cpu跑满。
+系统解释一下php为什么会出现连接过高的问题。
+[&amp;hellip;] 根据上图能够得到：
+[&amp;hellip;] 每个redis实例的连接数 = php的实例数 * 每个实例上的进程数
+[&amp;hellip;] 比如有200个redis实例，每个php实例上有100个进程，那么每 &amp;hellip;">
+      <meta property="og:description" content="最近发生了几次php连接数过高导致的问题，由于业务体量上涨导致php机器扩容，某个库的连接数过高导致redis cpu跑满。
+系统解释一下php为什么会出现连接过高的问题。
+[&amp;hellip;] 根据上图能够得到：
+[&amp;hellip;] 每个redis实例的连接数 = php的实例数 * 每个实例上的进程数
+[&amp;hellip;] 比如有200个redis实例，每个php实例上有100个进程，那么每 &amp;hellip;">
+      
+    
+
+    
+    
+    <meta name="twitter:image" content="https://s1.ax1x.com/2020/06/19/NuILy6.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="program">
+    <header class="masthead">
+      <h1><a href="/">zoco</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/book/">书单</a></li>
+  
+  <li><a href="/posts/">日志</a></li>
+  
+  <li><a href="/program/">程序</a></li>
+  
+  <li><a href="/poem/">诗</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>php使用redis连接数过高问题</h1>
+
+<h3>
+  2019-03-19</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>最近发生了几次php连接数过高导致的问题，由于业务体量上涨导致php机器扩容，某个库的连接数过高导致redis cpu跑满。</p>
+<p>系统解释一下php为什么会出现连接过高的问题。</p>
+<h2 id="php进程模型">php进程模型</h2>
+<p><img src="https://s1.ax1x.com/2020/06/19/NuILy6.png" alt="NuILy6.png"></p>
+<p>根据上图能够得到：</p>
+<blockquote>
+<p>每个redis实例的连接数 = php的实例数 * 每个实例上的进程数</p>
+</blockquote>
+<p>比如有200个redis实例，每个php实例上有100个进程，那么每个redis上会存在 200 * 100 = 2w个连接。</p>
+<p>当请求量上涨时，php业务需要扩容，扩容之后会加大redis的连接数</p>
+<p>(200 + 100)个php实例 * 100 进程数 = 3w连接</p>
+<p>经过一次故障，对于redis库我们大概得出的结论是：</p>
+<blockquote>
+<p>单个redis实例所能承担的连接数上限为5w，3w以下认为无风险，3w-4w之间存在风险，4w-5w之间出现超时，对业务产生影响，超过5w redis server的cpu会上升直至100%，redis开始拒绝服务。</p>
+</blockquote>
+<p>（其他服务有待测试，某单实例连接数6w业务层没有异常，虽然redis号称10w连接无问题，实际因为命令不一样，所用cpu不一样）</p>
+<p>所以现有的php服务面临了一个困境，业务扩容会导致redis的连接数上涨，redis的连接数上涨又会拖慢业务，进入了一个死锁。</p>
+<p>解释了每次php负载上升都同时会有redis连接数的各种报警</p>
+<h2 id="疑问">疑问</h2>
+<p>Q：扩容redis有没有效果，我扩10000个redis难道也解决不了吗</p>
+<p>A：很遗憾，是没有效果的，此举反而会加重php实例的连接数，如下图</p>
+<p><img src="https://s1.ax1x.com/2020/06/19/NuokOf.png" alt="NuokOf.png"></p>
+<blockquote>
+<p>redis的连接数只和php的实例数以及每个实例上的进程数相关，所以单实例的连接数不会变小，同时由于redis的实例数增多，会使php建立的连接数增多。</p>
+</blockquote>
+<h2 id="解决方案">解决方案</h2>
+<ol>
+<li>php层建立连接池，现在的连接是进程级别复用的，而非实例级别复用
+<ul>
+<li>但是php没有非常成熟的本地连接池，有一些例如swoole等，但是测试起来需要成本</li>
+</ul>
+</li>
+<li>php连接集群时单个进程只和一个实例建立连接，例如php的32333进程只和39400端口建立连接
+<ul>
+<li>这种情况只适用于队列的方式，其他情况下不适合</li>
+</ul>
+</li>
+<li>业务拆分，将s1改为s1+s2从库，业务上根据不同业务连接不同从库，在解决连接数过高的时候临时采用了这个方案，是有效果的，如下图</li>
+</ol>
+<p><img src="https://s1.ax1x.com/2020/06/19/Nuoy7D.png" alt="Nuoy7D.png"></p>
+<p>问题：但非长久之计，业务体量上涨迟早有一天s1和s2的连接数也会到达瓶颈</p>
+<ol>
+<li>php和redis之间建立proxy层，类似codis，twemproxy
+<ul>
+<li>会有性能损耗，但是从长期来看是一个根本解决问题的方法</li>
+</ul>
+</li>
+</ol>
+<h2 id="一个故障是如何发生的">一个故障是如何发生的</h2>
+<p><img src="https://s1.ax1x.com/2020/06/19/NuoO9s.png" alt="NuoO9s.png"></p>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">zoco</a> 2020</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

@@ -327,6 +327,26 @@ clipboardTriggerTime = Timer.periodic( const Duration(seconds: 5), (timer) { Cli
     </item>
     
     <item>
+      <title>镜中</title>
+      <link>http://yezuozuo.github.io/poem/%E9%95%9C%E4%B8%AD/</link>
+      <pubDate>Thu, 07 May 2020 14:16:50 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/poem/%E9%95%9C%E4%B8%AD/</guid>
+      <description>镜中 张枣 只要想起一生中后悔的事
+梅花便落了下来
+比如看她游泳到河的另一岸
+比如登上一株松木梯子
+危险的事固然美丽
+不如看她骑马归来
+面颊温暖
+羞惭。低下头，回答着皇帝
+一面镜子永远等候她
+让她坐到镜中常坐的地方
+望着窗外，只要想起一生中后悔的事
+梅花便落满了南山</description>
+    </item>
+    
+    <item>
       <title>《生存还是毁灭》——拜拜</title>
       <link>http://yezuozuo.github.io/posts/%E7%94%9F%E5%AD%98%E8%BF%98%E6%98%AF%E6%AF%81%E7%81%AD%E6%8B%9C%E6%8B%9C/</link>
       <pubDate>Thu, 07 May 2020 13:30:14 +0800</pubDate>
@@ -423,6 +443,73 @@ clipboardTriggerTime = Timer.periodic( const Duration(seconds: 5), (timer) { Cli
 可没有一只是全身黑色，尾巴带一点白的大黑猫，那些猫也不会冲我哈气。
  每次放假都会来姥爷家，看到满院的树又长出了新的叶子，想到这句：庭有枇杷树，吾妻死之年所手植也，今已亭亭如盖矣。
 多希望进门姥爷还穿着二股筋坐在椅子上，喝着小酒，电风扇转着，看着电视。</description>
+    </item>
+    
+    <item>
+      <title>我用什么才能留住你</title>
+      <link>http://yezuozuo.github.io/poem/%E6%88%91%E7%94%A8%E4%BB%80%E4%B9%88%E6%89%8D%E8%83%BD%E7%95%99%E4%BD%8F%E4%BD%A0/</link>
+      <pubDate>Sun, 26 Apr 2020 14:17:46 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/poem/%E6%88%91%E7%94%A8%E4%BB%80%E4%B9%88%E6%89%8D%E8%83%BD%E7%95%99%E4%BD%8F%E4%BD%A0/</guid>
+      <description>我用什么才能留住你 博尔赫斯 What can I hold you with?
+I offer you lean streets, desperate sunsets, the moon of the jagged suburbs.
+I offer you the bitterness of a man who has looked long and long at the lonely moon.
+I offer you my ancestors, my dead men, the ghosts that living men have honoured in marble: my father’s father killed in the frontier of Buenos Aires, two bullets through his lungs, bearded and dead, wrapped by his soldiers in the hide of a cow; my mother’s grandfather -just twentyfour- heading a charge of three hundred men in Perú, now ghosts on vanished horses.</description>
+    </item>
+    
+    <item>
+      <title>歧路行</title>
+      <link>http://yezuozuo.github.io/poem/%E6%AD%A7%E8%B7%AF%E8%A1%8C/</link>
+      <pubDate>Sun, 26 Apr 2020 14:15:01 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/poem/%E6%AD%A7%E8%B7%AF%E8%A1%8C/</guid>
+      <description>歧路行 北岛 逝去的是大海返回的是泡沫
+逝去的是一江春水返回的是空空河床
+逝去的是晴空返回的是响箭
+逝去的是种子返回的是流水帐
+逝去的是树返回的是柴
+逝去的是大火返回的是冰霜
+逝去的是古老传说返回的是谣言
+逝去的是飞鸟返回的是诗行
+逝去的是星星盛宴返回的是夜的暴政
+逝去的是百姓返回的是帝王
+逝去的是梦返回的是歌
+逝去的是歌返回的是路
+逝去的是路返回的是异乡
+逝去的逝去的是无穷的追问
+返回的没有声响</description>
+    </item>
+    
+    <item>
+      <title>四月</title>
+      <link>http://yezuozuo.github.io/poem/%E5%9B%9B%E6%9C%88/</link>
+      <pubDate>Sun, 26 Apr 2020 14:11:49 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/poem/%E5%9B%9B%E6%9C%88/</guid>
+      <description>四月 芒克 这是四月
+四月和其它月份一样
+使人回顾，也使人瞬间就会想起什么
+想起昨天，想起遥远
+或者，想起冬天里的一场雪
+当然，那落在地上的雪早已变成了泪水
+要么就早已变成了一群鸽子
+不知飞到哪里去了
+四月，它使你想起一个个
+只要走去就不再回来的日子
+它使你想起了人
+想起了那些不论是活着的
+还是已经死去的人
+想起了那些也许有着幸福
+也许注定悲惨的人
+想起了男人和女人……
+这是四月
+四月和其它月份一样
+但若是他驱使你
+无法不去把往事回想
+无法不再一次潜入记忆深处
+——那是块已葬下死者的地方
+我想，即使你就是一块站着的石头
+你也一定会流泪的</description>
     </item>
     
     <item>
@@ -703,6 +790,19 @@ A：
 而我们似乎忘了这些，或者说从来就没有想起来过，所以在看熊培云的《重新发现社会》时觉得异常无力，你让从来没有体验过自由的人去想象自由为何物，却不知要为自由付出多大的代价，不是轻易一句“Freedom”就能解决的事。
 却见互联网上喧嚣，常识几乎殆尽，不知未来如何，可能也不会坏到哪里去吧。
 最近在看林达的《历史深处的忧虑》，也太棒了。</description>
+    </item>
+    
+    <item>
+      <title>姑息</title>
+      <link>http://yezuozuo.github.io/poem/%E5%A7%91%E6%81%AF/</link>
+      <pubDate>Wed, 01 Apr 2020 14:04:41 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/poem/%E5%A7%91%E6%81%AF/</guid>
+      <description>姑息 从小裂缝
+到整片玻璃破掉之间
+有5句没关系
+11句等一下处理
+87句世上还有其他更重要的事</description>
     </item>
     
     <item>
@@ -1465,8 +1565,8 @@ A：
       
       <guid>http://yezuozuo.github.io/posts/%E5%90%B5%E5%90%B5%E7%9A%84%E4%B8%96%E7%95%8C/</guid>
       <description>社交网络的创办者们最初的愿景是把人和人连接在一起，让不同的观念、看法和生活方式能够互相交流。 但问题是，这个世界上不同的观念和价值观根本就是不可调和的，强行把这些观念连接在一起，让它们有机会出现在同一个平台上，那就会出现灾难性的后果，不但不能促进交流，反而只能形成交锋，由此激化矛盾、造成激烈的对抗和冲突。 不同的国家、不同的文化之间，原本就存在巨大的信息鸿沟，很多时候人和人之间是无法交流的。造成的结果就是，大家都觉得被对方非常严重地冒犯了”
- — 《假如NBA事件发生在2004年》
-不必再去费力描述社交媒体世界的崩坏。 每个人，无论你身在英文、华语、还是其它语种的网络空间，只要你曾见识过卷起千万种仇恨言辞的言论械斗；曾体会过「世界那么大而我的脸书上却只有一个声音」；曾发现，比家人还懂你的广告静悄悄爬满你随机打开的每一个页面，大概都能感受到这种崩坏。不知不觉间，在追逐利润最大化的科技巨头面前，我们毫无防范地交托出自己的数字生活，任其主导，形同裸奔。
+  By《假如NBA事件发生在2004年》
+ 不必再去费力描述社交媒体世界的崩坏。 每个人，无论你身在英文、华语、还是其它语种的网络空间，只要你曾见识过卷起千万种仇恨言辞的言论械斗；曾体会过「世界那么大而我的脸书上却只有一个声音」；曾发现，比家人还懂你的广告静悄悄爬满你随机打开的每一个页面，大概都能感受到这种崩坏。不知不觉间，在追逐利润最大化的科技巨头面前，我们毫无防范地交托出自己的数字生活，任其主导，形同裸奔。
 也不必过度哀叹新闻媒体失守。
 以往，新闻业以「守门人」的姿态，主导公共舆论，这是时代的产物，而非行业的必然。自从人人皆可发声，传统的新闻媒体已经失去了垄断的地位，进而失去了主导公共舆论场的能力。今天，公共生活的新秩序，是由踩在时代浪尖上的技术天才们主导的。他们所创立的新平台，给每个普通人打开了话筒，并对瞬间爆发的海量内容，做出了基于商业利益的评判。
 整个互联网经济由广告模式主导。在这种经济模式中，衡量价值的终极指标只有两个：流量、时间。谁能吸引最多的人，谁能吸引人们最多的时间，谁就是赢家。至于人们花费的这些时间得到了什么，对社会公共文化有何进益，不是这一盘生意会思考的问题。更不用说是垄断性的生意。
@@ -1490,6 +1590,70 @@ A：
 所以觉得彭磊真酷，微信上就一百多个好友，好多人要么被拉黑要么就不加，管你他妈的是什么社会名流还是什么潜在金主，谁也不能代替你过生活。
 三年来，逐渐迷失，所谓本心不过自己一直追寻的原则，比如善良，诚实，忠诚。必须要时刻告诉自己，坚持这些，不然一旦迈出一步的成本就很高。
 今儿下了一天雨。</description>
+    </item>
+    
+    <item>
+      <title>php性能优化之并行与异步</title>
+      <link>http://yezuozuo.github.io/program/php%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%B9%B6%E8%A1%8C%E4%B8%8E%E5%BC%82%E6%AD%A5/</link>
+      <pubDate>Sun, 05 May 2019 21:35:29 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/php%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%B9%B6%E8%A1%8C%E4%B8%8E%E5%BC%82%E6%AD%A5/</guid>
+      <description>PHP性能优化之并行与异步 在我们的一个核心接口中会请求大量的RPC服务，用来获取各种数据，比如一个接口一次请求将会产生平均7~8次RPC，调用虽然每个接口都非常的快（ms级），但8次累加起来的消耗还是相当的可观，所以我最近的优化工作主要是:
+ 通过某种方式并行（异步）调用各RPC请求，以缩短执行时间。
+ 当我开始接手这项工作的时候，脑海中想到的第一个对应思想就是Lazy evaluation（ 缓式求值 ），维基百科上对于缓式求值的定义是：
+ In programming language theory, lazy evaluation, or call-by-need[1] is an evaluation strategy which delays the evaluation of an expression until its value is needed (non-strict evaluation) and which also avoids repeated evaluations (sharing).
+ Lazy evaluation是编程语言设计领域中的一个表达式求值策略，它延缓对表达式的求值直到你需要它的时候。看上去lazy evaluation好像和我们的问题挨不上边，而且php也不支持 lazy evaluation，不过仔细想一下，如果我们能把对RPC请求的后续操作延缓到对返回结果的使用时，就可以用一种优雅的实现来使框架支持并行执行，而且对于业务层的改动也非常的小。
+具体点说就是在进行RPC调用的时候，不再返回结果，而是返回一个句柄，这个句柄标识了一个被提交到后台的请求，它被加入到一个变量中，你不再关心它，由其他服务替你完成，你的代码可以继续往下执行，去完成其他的业务逻辑。而当我们需要这个结果时，检查这个句柄是否已经完成，如果已经完成则执行接受结果之后的所有操作，返回结果。
+解决这样的问题大概有这样几种方式：多线程、协程、如果是HTTP请求的话可以用CURL提供的 multi*方法。
+但是，在我们这里统统不适用，PHP语言本身对并行的处理能力有限，需要借助其他的服务。
+方案 我们会在调用的时候，将多个RPC请求进行合并，统一发送给一个新的RPC服务（暂时称作Multi RPC）,Multi RPC将以代理的身份，并行获取多个数据。处理完成或者整体超时后，会将所有数据返回，由API进行下一步的处理。
+关键问题  超时问题，使用最大超时，调用方比指定超时多设置10ms 服务拆分逻辑，对互不依赖代码进行拆分 提前打包后缓存再取，还是当次请求直接返回  协议方案 service uri, method, protocal, params, timeout, retry</description>
+    </item>
+    
+    <item>
+      <title>php使用redis连接数过高问题</title>
+      <link>http://yezuozuo.github.io/program/php%E4%BD%BF%E7%94%A8redis%E8%BF%9E%E6%8E%A5%E6%95%B0%E8%BF%87%E9%AB%98%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Tue, 19 Mar 2019 13:07:02 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/php%E4%BD%BF%E7%94%A8redis%E8%BF%9E%E6%8E%A5%E6%95%B0%E8%BF%87%E9%AB%98%E9%97%AE%E9%A2%98/</guid>
+      <description>最近发生了几次php连接数过高导致的问题，由于业务体量上涨导致php机器扩容，某个库的连接数过高导致redis cpu跑满。
+系统解释一下php为什么会出现连接过高的问题。
+php进程模型 根据上图能够得到：
+ 每个redis实例的连接数 = php的实例数 * 每个实例上的进程数
+ 比如有200个redis实例，每个php实例上有100个进程，那么每个redis上会存在 200 * 100 = 2w个连接。
+当请求量上涨时，php业务需要扩容，扩容之后会加大redis的连接数
+(200 + 100)个php实例 * 100 进程数 = 3w连接
+经过一次故障，对于redis库我们大概得出的结论是：
+ 单个redis实例所能承担的连接数上限为5w，3w以下认为无风险，3w-4w之间存在风险，4w-5w之间出现超时，对业务产生影响，超过5w redis server的cpu会上升直至100%，redis开始拒绝服务。
+ （其他服务有待测试，某单实例连接数6w业务层没有异常，虽然redis号称10w连接无问题，实际因为命令不一样，所用cpu不一样）
+所以现有的php服务面临了一个困境，业务扩容会导致redis的连接数上涨，redis的连接数上涨又会拖慢业务，进入了一个死锁。
+解释了每次php负载上升都同时会有redis连接数的各种报警
+疑问 Q：扩容redis有没有效果，我扩10000个redis难道也解决不了吗
+A：很遗憾，是没有效果的，此举反而会加重php实例的连接数，如下图
+ redis的连接数只和php的实例数以及每个实例上的进程数相关，所以单实例的连接数不会变小，同时由于redis的实例数增多，会使php建立的连接数增多。
+ 解决方案  php层建立连接池，现在的连接是进程级别复用的，而非实例级别复用  但是php没有非常成熟的本地连接池，有一些例如swoole等，但是测试起来需要成本   php连接集群时单个进程只和一个实例建立连接，例如php的32333进程只和39400端口建立连接  这种情况只适用于队列的方式，其他情况下不适合   业务拆分，将s1改为s1+s2从库，业务上根据不同业务连接不同从库，在解决连接数过高的时候临时采用了这个方案，是有效果的，如下图  问题：但非长久之计，业务体量上涨迟早有一天s1和s2的连接数也会到达瓶颈
+ php和redis之间建立proxy层，类似codis，twemproxy  会有性能损耗，但是从长期来看是一个根本解决问题的方法    一个故障是如何发生的 </description>
+    </item>
+    
+    <item>
+      <title>cmd=NULL空连接的排查方式</title>
+      <link>http://yezuozuo.github.io/program/cmdnull%E7%A9%BA%E8%BF%9E%E6%8E%A5%E7%9A%84%E6%8E%92%E6%9F%A5%E6%96%B9%E5%BC%8F/</link>
+      <pubDate>Mon, 18 Feb 2019 20:13:02 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/cmdnull%E7%A9%BA%E8%BF%9E%E6%8E%A5%E7%9A%84%E6%8E%92%E6%9F%A5%E6%96%B9%E5%BC%8F/</guid>
+      <description>现象 dba收到连接数过多的报警，在redis上client list看有哪些连接，如下图，发现大多数都是cmd=NULL的连接，cmd=NULL一般是客户端建立了连接，但是没有任何操作。
+初步排查 要么是redis问题，要么是业务问题。
+登上php机器，找一个端口查看连接的建立情况，如下图：
+然后持续的看同一个端口的建联情况，发现过一会儿就没有这个连接了。
+目前为止得到的结论：
+ 连接是会断开的，现在的问题是一直有新连接在建立，但是建立完没有任何行为。 这么来看大概率是业务代码的问题。
+ 对业务进行排查 发现php代码里面有
+public function __construct($ctx){ $this-&amp;gt;ctx = $ctx; $this-&amp;gt;expireRedis = $this-&amp;gt;ctx-&amp;gt;expireRedis; }  在构造方法里创建了一个redis对象的实例，有些php的开发人员为了context的写法简单会使用这种方式。 但是该class下有非常多的方法，如果有的请求不用这个redis，而只是用到了class中的其他方法，就会导致白白创建了一个连接。
+ 看一下创建的时候都做了什么
+public function getExpireRedis() { return $this-&amp;gt;ctx-&amp;gt;redis-&amp;gt;getClient(&#39;host&#39;, &#39;port&#39;); } public function getClient($host, $port, $time_out = 3) { return new Redis_Client($host, $port, $time_out); } Redis_Client在构造方法里就会进行对host和port的connect，所以一旦创建了redis的实例，那么就会进行连接，如果之后对这个redis实例什么都不做的话，那么就会在一段时间内，redis server就会存在一条cmd=NULL的连接。
+复现 为了证实上述的说法，我们进行一下简单的复现
+php-fpm的方式下，对下述代码进行请求：
+$redis = new Redis(); for ($i = 1; $i &amp;lt; 10000;$i++) { $redis = new Redis(); $redis-&amp;gt;pconnect(&#39;127.</description>
     </item>
     
     <item>
@@ -1548,6 +1712,20 @@ A：
     </item>
     
     <item>
+      <title>php中的trait</title>
+      <link>http://yezuozuo.github.io/program/php%E4%B8%AD%E7%9A%84trait/</link>
+      <pubDate>Mon, 03 Dec 2018 21:31:49 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/php%E4%B8%AD%E7%9A%84trait/</guid>
+      <description>为什么要使用trait?
+先来看一个情景，如果想要写一个继承模型该怎么做。
+最常见的一种时创建一个父类，让子类来继承父类。这个方法有一个问题，就是有可能子类之间是无关的，只是为了继承而写在一起，逻辑上说不通。
+第二种是创建一个接口，然后类来实现这个接口，这种方法比第一种方法要好，但是在两个类中有可能会重复实现相同的功能，违背了DRY原则（Don’t Repeat Yourself）。
+最后也是最好的一种方法就是创建trait，定义并实现公有的方法，然后需要的时候混入这个trait即可。这么做不会搅乱子类原有的自然继承层次结构。
+PHP解释器在编译时会把trait复制粘贴到类的定义体中，但是不会处理这个操作引入的不兼容问题。如果trait假定类中有特定的属性活着方法（在trait中没有定义），要确保相应的类中有对应的属性和方法。</description>
+    </item>
+    
+    <item>
       <title>日月光华,旦复旦兮</title>
       <link>http://yezuozuo.github.io/posts/%E6%97%A5%E6%9C%88%E5%85%89%E5%8D%8E%E6%97%A6%E5%A4%8D%E6%97%A6%E5%85%AE/</link>
       <pubDate>Mon, 03 Sep 2018 15:48:51 +0800</pubDate>
@@ -1587,6 +1765,34 @@ A：
     </item>
     
     <item>
+      <title>php Switch的一个注意点</title>
+      <link>http://yezuozuo.github.io/program/php-switch%E7%9A%84%E4%B8%80%E4%B8%AA%E6%B3%A8%E6%84%8F%E7%82%B9/</link>
+      <pubDate>Mon, 23 Jul 2018 18:49:11 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/php-switch%E7%9A%84%E4%B8%80%E4%B8%AA%E6%B3%A8%E6%84%8F%E7%82%B9/</guid>
+      <description>public function formatTime($timestamp) { $now = time(); $diff = $now - $timestamp; switch ($diff) { case $diff &amp;lt; 60: $re = &#39;1分钟&#39;; break; case $diff &amp;lt; 60 * 60: $re = strval(intval($diff / 60)) . &#39;分钟&#39;; break; case $diff &amp;lt; 60 * 60 * 48: $re = strval(intval($diff / (60 * 60))) . &#39;小时&#39;; break; default: $re = strval(intval($diff / (60 * 60 * 24))) . &#39;天&#39;; break; } return $re; } 当时间戳是time()的时候，diff为0，想的得到的结果应该是返回1分钟，结果却返回了0天。</description>
+    </item>
+    
+    <item>
+      <title>一个php编译器的问题</title>
+      <link>http://yezuozuo.github.io/program/%E4%B8%80%E4%B8%AAphp%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sat, 23 Jun 2018 19:39:29 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/%E4%B8%80%E4%B8%AAphp%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>看一个问题$a=1; $a+$a++ 的值是多少
+答案是3，根据下图，先执行$a++,在执行+。
+$a + ($a++) = 3
+那么$a+$a+$a++呢？是4吗
+看下图
+答案还是3，执行过程是($a+$a) + ($a++) = 3。
+那么$a+$a+$a+$a++呢？是4吗？
+答案也不是5，答案是4
+(($a+$a)+$a) + ($a++) = 4。
+原因：
+也就是 这个问题没啥意义…… 每个编译器都不一样。</description>
+    </item>
+    
+    <item>
       <title>文化大革命</title>
       <link>http://yezuozuo.github.io/posts/%E6%96%87%E5%8C%96%E5%A4%A7%E9%9D%A9%E5%91%BD/</link>
       <pubDate>Thu, 24 May 2018 15:50:12 +0800</pubDate>
@@ -1610,6 +1816,51 @@ A：
     </item>
     
     <item>
+      <title> php 7.2.1 &#43; redis 3.1.6 超时问题</title>
+      <link>http://yezuozuo.github.io/program/php-7.2.1-&#43;-redis-3.1.6-%E8%B6%85%E6%97%B6%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Wed, 23 May 2018 19:50:52 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/php-7.2.1-&#43;-redis-3.1.6-%E8%B6%85%E6%97%B6%E9%97%AE%E9%A2%98/</guid>
+      <description>在升级php 7.2.1之后发现某集群的超时时间骤增，从平均80ms变成了120ms。
+同时在报错日志中发现了较多的如下错误：
+本来设置的超时都没生效，可能导致性能下降。
+然后strace看一下进程执行记录：
+发现poll的时候的timeout都是60000，而php 7.0.13 + redis 3.0.0的机器的timeout都是pconnect对应的时间，由此可以看出pconnect传的参数在这个版本搭配下并未生效。
+看一下源码：
+pconnect-&amp;gt;redis_sock_create-&amp;gt;redis_sock_server_open-&amp;gt;redis_sock_connect。
+ tv.tv_sec = (time_t)redis_sock-&amp;gt;timeout; tv.tv_usec = (int)((redis_sock-&amp;gt;timeout - tv.tv_sec) * 1000000); if(tv.tv_sec != 0 || tv.tv_usec != 0) { tv_ptr = &amp;amp;tv; }  redis_sock-&amp;gt;stream = php_stream_xport_create(host, host_len, 0, STREAM_XPORT_CLIENT | STREAM_XPORT_CONNECT, persistent_id, tv_ptr, NULL, NULL, &amp;amp;err); 在php源码里看一下php_stream_xport_create
+PHPAPI php_stream *_php_stream_xport_create(const char *name, size_t namelen, int options, int flags, const char *persistent_id, struct timeval *timeout, php_stream_context *context, zend_string **error_string, int *error_code STREAMS_DC) { struct timeval default_timeout = { 0, 0 }; default_timeout.</description>
+    </item>
+    
+    <item>
+      <title>基于Upsync模块实现Nginx动态配置</title>
+      <link>http://yezuozuo.github.io/program/%E5%9F%BA%E4%BA%8Eupsync%E6%A8%A1%E5%9D%97%E5%AE%9E%E7%8E%B0nginx%E5%8A%A8%E6%80%81%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sun, 22 Apr 2018 10:14:33 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/%E5%9F%BA%E4%BA%8Eupsync%E6%A8%A1%E5%9D%97%E5%AE%9E%E7%8E%B0nginx%E5%8A%A8%E6%80%81%E9%85%8D%E7%BD%AE/</guid>
+      <description>Upsync是新浪微博开源的基于Nginx实现动态配置的三方模块。Nginx-Upsync-Module的功能是拉取Consul的后端server的列表，并动态更新Nginx的路由信息。此模块不依赖于任何第三方模块。Consul作为Nginx的DB，利用Consul的KV服务，每个Nginx Work进程独立的去拉取各个upstream的配置，并更新各自的路由。
+Upsync模块工作原理 在Nginx的设计中，每一个upstream维护了一张静态路由表，存储了backend的ip、port以及其他的meta信息。每次请求到达后，会依据location检索路由表，然后依据具体的调度算法(如round robin )选择一个backend转发请求。但这张路由表是静态的，如果变更后，则必须reload，经常reload的话这对SLA有较大影响。
+为了达到减少reload的目的，大多通过动态更新维护路由表来解决这个问题。通常路由表的维护有Push与Pull两种方式。
+Push方案 通过Nginx API向Nginx发出请求,操作简单、便利。
+架构图如下：
+http api除了操作简单、方便，而且实时性好；缺点是有多台Nginx时，不同Nginx路由表的一致性难于保证，如果某一条注册失败，便会造成服务配置的不一致，容错复杂。另外扩容Nginx服务器，需要从其他的Nginx中同步路由表。
+Pull方案 路由表中所有的backend信息(含meta)存储到Consul，所有的Nginx从Consul拉取相关信息。有变更则更新路由表，利用Consul解决一致性问题，同时利用Consul的wait机制解决实时性问题。利用Consul的index进行增量摘取，解决带宽占用问题。
+在Consul中，一个K/V对代表一个backend信息，增加一个即视作扩容，减少一个即为缩容。调整meta信息，如权重，也可以达到动态流量调整的目的。
+架构图如下：
+基于动态路由的方案实现 Upsync模块使用了第二种模式，通过拉取Consul的后端Server的列表，并动态更新Nginx的路由信息。Upsync模块工作流程图如下：
+每个Work进程定时的去Consul拉取相应upstream的配置，若Consul发现对应upstream的值没有变化，便会hang住这个请求五分钟(默认值)。在这五分钟内对此upstream的任何操作，都会立刻返回给Nginx对相应路由进行更新。
+upstream变更后，除了更新Nginx的缓存路由信息，还会把本upstream的后端server列表dump到本地，保持本地server信息与consul的一致性。
+除了注册／注销后端的server到consul，会更新到Nginx的upstream路由信息外，对后端server属性的修改也会同步到nginx的upstream路由。
+Upsync模块支持修改的属性有：weight、max_fails、fail_timeout、down。
+ 修改server的权重可以动态的调整后端的流量。 若想要临时移除server，可以把server的down属性置为1。 若要恢复流量，可重新把down置为0。  每个work进程各自拉取、更新各自的路由表，采用这种方式的原因：
+ 基于Nginx的进程模型，彼此间数据独立、互不干扰。 若采用共享内存，需要提前预分配，灵活性可能受限制，而且还需要读写锁，对性能可能存在潜在的影响。 若采用共享内存，进程间协调去拉取配置，会增加它的复杂性，拉取的稳定性也会受到影响。  Upsync模块高可用性
+Nginx的后端列表更新依赖于Consul，但是不强依赖于它，具体表现为：
+ 即使中途Consul意外挂了，也不会影响Nginx的服务，Nginx会沿用最后一次更新的服务列表继续提供服务。 若Consul重新启动提供服务，这个时候Nginx会继续去Consul探测，这个时候Consul的后端服务列表发生了变化，也会及时的更新到Nginx。 work进程每次更新都会把后端列表dump到本地，目的是降低对Consul的依赖性，即使在consul不可用时，也可以Reload Nginx。   Nginx启动流程图如下：
+Nginx启动时，master进程首先会解析本地的配置文件，解析完成功，接着进行一系列的初始化，之后便会开始work进程的初始化。work初始化时会去Consul拉取配置，进行work进程upstream路由信息的更新，若拉取成功，便直接更新，若拉取失败，便会打开配置的dump后端列表的文件，提取之前dump下来的server信息，进行upstream路由的更新，之后便开始正常的提供服务。
+每次去拉取Consul都会设置连接超时，由于Consul在无更新的情况下默认会hang五分钟，所以响应超时配置时间应大于五分钟。大于五分钟之后，Consul依旧没有返回，便直接做超时处理。</description>
+    </item>
+    
+    <item>
       <title>北京三年</title>
       <link>http://yezuozuo.github.io/posts/%E5%8C%97%E4%BA%AC%E4%B8%89%E5%B9%B4/</link>
       <pubDate>Tue, 10 Apr 2018 15:57:43 +0800</pubDate>
@@ -1622,6 +1873,19 @@ A：
 我们的社会已经如此依赖技术，为了适应外界，你至少要知道如何使用它。糟糕的是，技术已经变得如此复杂，没有人能够全部搞懂。系统越来越复杂，分工越来越细，一个人已经不可能从头到尾掌握整个系统了。根本无法预测和判断，某个领域的技术发展会引起整个系统怎样的变化。也不可能去制定五年规划或十年规划…在科技行业，整体的准确安排和控制，不存在的。
 技术已经到了这样一个地步，我们走一步看一步，谁也不知道五年十年后，技术会突破到什么程度。
 未来10年，哪些东西会变？  I very frequently get the question: &amp;lsquo;What&amp;rsquo;s going to change in the next 10 years?&amp;rsquo; And that is a very interesting question; it&amp;rsquo;s a very common one. I almost never get the question: &amp;lsquo;What&amp;rsquo;s not going to change in the next 10 years?&amp;rsquo; And I submit to you that that second question is actually the more important of the two — because you can build a business strategy around the things that are stable in time.</description>
+    </item>
+    
+    <item>
+      <title>php连接检查</title>
+      <link>http://yezuozuo.github.io/program/php%E8%BF%9E%E6%8E%A5%E6%A3%80%E6%9F%A5/</link>
+      <pubDate>Tue, 06 Mar 2018 19:45:26 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/php%E8%BF%9E%E6%8E%A5%E6%A3%80%E6%9F%A5/</guid>
+      <description>长连接可以减少建立连接的过程, 使用长连接可以提高服务的性能。php 很多扩展都支持长连接，如 redis, memcache, mysql 的主流扩展都支持。
+我们知道长连接就是一次建立连接，使用之后不会马上释放，而是把这个连接放到连接池。那么引发的一个问题就是，我们下次使用时如何知道这个连接是否已经被关闭。
+我们来看看 phpredis 是如何来判断，连接是否可用。 phpredis 检查的函数在 library.c 的 redis_check_eof 的方法，而这个方法调用的是 php 内部的方法 php_stream_eof, 我们来看这个方法的具体实现。
+PHPAPI int _php_stream_eof(php_stream *stream TSRMLS_DC) { // 如果有数据未读取，说明 socket 还是可用 if (stream-&amp;gt;writepos - stream-&amp;gt;readpos &amp;gt; 0) { return 0; } // 咦? 这里通过 php_stream_set_option 来检查 if (!stream-&amp;gt;eof &amp;amp;&amp;amp; PHP_STREAM_OPTION_RETURN_ERR == php_stream_set_option(stream, PHP_STREAM_OPTION_CHECK_LIVENESS, 0, NULL)) { stream-&amp;gt;eof = 1; } return stream-&amp;gt;eof; } 判断socket 是否可用, 有两个条件:
+ writepos &amp;gt; readpos, 说明还有数据未读, 连接正在使用中 php_stream_set_option 通过PHP_STREAM_OPTION_CHECK_LIVENESS 选项来判断  解析来看看 php_stream_set_option 是如何实现的:</description>
     </item>
     
     <item>
@@ -1649,6 +1913,60 @@ NBA就是一个利益至上的生意场，有的时候，为了利益变脸的�
     </item>
     
     <item>
+      <title>调redis就进程crash</title>
+      <link>http://yezuozuo.github.io/program/%E8%B0%83redis%E5%B0%B1%E8%BF%9B%E7%A8%8Bcrash/</link>
+      <pubDate>Fri, 23 Feb 2018 11:23:44 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/%E8%B0%83redis%E5%B0%B1%E8%BF%9B%E7%A8%8Bcrash/</guid>
+      <description>[07-Feb-2018 18:50:06] WARNING: [pool www] child 597 exited on signal 11 (SIGSEGV) after 6502.027154 seconds from start [07-Feb-2018 18:50:06] NOTICE: [pool www] child 640 started 多次测试后必现。
+ SIGSEGV是当一个进程执行了一个无效的内存引用，或发生段错误时发送给它的信号。
+ SIGSEGV会导致php进程的crash，同时观察php的存货进程，确定每次调用该接口的时候所在进程会被kill掉。
+查一下php的代码调用什么会造成这个结果，最终定位到的代码是：
+$redis-&amp;gt;zRevRangeByScore($key,&#39;+inf&#39;,&#39;0&#39;,[&#39;withscores&#39;=&amp;gt;false,&#39;limit&#39;=&amp;gt;1111]); 这个的确是官方的写法，但是我在物理机上执行这个命令的时候，却没有crash。
+查看系统环境：php版本是一致的，redis的版本不一致，docker上是3.0.0，物理机上是3.1.2，根据经验很可能是redis版本造成的问题。
+通过以下方式可以暂时解决这个问题
+ zRevRangeByScore换一种写法 换redis版本  从根本上看一下这个问题的原因：
+先strace看一下日志：
+可以看到从redis已经返回数据了，但是返回数据之后马上收到一个SIGSEGV的报错，还看不出报错的具体原因。
+再用gdb看一下：
+可以看出报错是发生在zend_hash_index_find()函数上，在执行这个函数的时候发生了内存错误。
+看一下最新的phpredis和phpredis3.0.0在这个函数上的对比：
+3.0.0:
+ // Check for an options array if(z_opt &amp;amp;&amp;amp; Z_TYPE_P(z_opt)==IS_ARRAY) { ht_opt = Z_ARRVAL_P(z_opt); // Check for WITHSCORES *withscores = ((z_ele = zend_hash_str_find(ht_opt,&amp;quot;withscores&amp;quot;,sizeof(&amp;quot;withscores&amp;quot;) - 1)) !</description>
+    </item>
+    
+    <item>
+      <title>APP API需要同时维护多个版本的一些想法</title>
+      <link>http://yezuozuo.github.io/program/app-api%E9%9C%80%E8%A6%81%E5%90%8C%E6%97%B6%E7%BB%B4%E6%8A%A4%E5%A4%9A%E4%B8%AA%E7%89%88%E6%9C%AC%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/</link>
+      <pubDate>Sat, 20 Jan 2018 20:13:02 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/app-api%E9%9C%80%E8%A6%81%E5%90%8C%E6%97%B6%E7%BB%B4%E6%8A%A4%E5%A4%9A%E4%B8%AA%E7%89%88%E6%9C%AC%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/</guid>
+      <description>第一种形式：
+Controller/V1.0.0/ -----------------/UserController.php -----------------/UploadController.php Controller/V2.1.0/ -----------------/UserController.php -----------------/UploadController.php 第二种形式：
+Controller/ ----------/UserCreateController.php ----------/UserInfoController.php ----------/UploadImageController.php UserCreateController.php 内容如下：
+classUserCreateextendsApiController{ publicfunctionv1_0_0(){} publicfunctionv2_0_0(){} } 第三种形式：
+客户端在做请求的时候在接口中添加version字段，标识出请求的是哪个接口：
+api.xxx.com/api?version=v1&amp;amp;&amp;hellip; api.xxx.com/api?version=v2&amp;amp;&amp;hellip;
+这种做起来比较简单也容易理解，但是在你的每个接口逻辑里面都得需要写判断版本的代码了。比如：
+if(version == &#39;v1&#39;) { do_something_with_v1_style }else if (version ==&#39;v2&#39;) { do_something_with_v2_style } 这样的代码看起来感觉很不舒服。而且会维护一大堆的if-else，以后会越来越长。
+第四种形式：
+客户端在做请求的时候在HTTP HEAD里面中添加API-VERSION字段，标识出请求的是哪个接口：
+-H&amp;quot;API-VERSION: v1&amp;quot; -H&amp;quot;API-VERSION: v2&amp;quot; 这个需要统一做的事情稍微有点多，但之后的接口逻辑会比较好些。在入口的地方获取接口版本，然后把请求分发到对应版本的接口处理器上。
+api(req): if(req.HEADS[&amp;quot;API-VERSION&amp;quot;] ==&#39;v1&#39;) { distribute_to_v1_api(req) } else if (ver ==&#39;v2&#39;) { distribute_to_v2_api(req) } 第五种形式：
+不同版本使用不同的域名，这样：
+v1.api.xxx.com
+v2.api.xxx.com
+域名的方式可以采用下面的两种方式：
+1、不同版本的api部署成不同的应用（甚至可以部署到不同的服务器上），彼此间独立，其好处是部署的过程不会影响其他版本api的使用，并且可以减轻单台服务器的负担。 2、部署在一个应用上面，但是和第四种一样，在接口入口出分发到不同版本的接口处理器上进行处理。好处是不同版本间能够直接复用相同的功能。
+总结一下：
+我个人比较倾向于第一种(xxx.com/v1/、xxx.com/v2/)：
+在整个产品的生命周期中接口的数目和功能可能会不停的增加，但对于某个接口而言，不会频繁的变动（修改接口的输入输出约定），而增加接口对于老的接口是没有影响的，也就不会到必须升级接口的地步（你的老app只是在用原来就存在的老接口而已，新增加的接口对它没有影响）。
+如果你的接口变化已经到了今天v1、明天v2、后天v3的地步，那么得考虑你们一开始对产品的需求是否足够准确了（估计需要维护的接口文档也会让人头疼）。
+不同版本接口相互独立在某种程度上限制了你，让你不会随随便便就v1、v2、v3。（当你每天都要用一个新域名的时候你自己一定会不自然的反思是不是变换太频繁了）。
+接口版本信息能够直接在url里面体现，清晰易懂，也比较容易做接口调试（没错，给我一个Chrome就够了）。</description>
+    </item>
+    
+    <item>
       <title>&lt;2017&gt;&lt;2018&gt;</title>
       <link>http://yezuozuo.github.io/posts/20172018/</link>
       <pubDate>Mon, 01 Jan 2018 15:56:31 +0800</pubDate>
@@ -1672,6 +1990,41 @@ NBA就是一个利益至上的生意场，有的时候，为了利益变脸的�
 ………
 36年未动的主要矛盾，在今年被更换了，但我觉得下边这个版本更好——
 当前社会的主要矛盾，是人们日益增长的物质生活水平与依旧稀缺的尊严感之间的矛盾。</description>
+    </item>
+    
+    <item>
+      <title>Linux Slab分配器</title>
+      <link>http://yezuozuo.github.io/program/linux-slab%E5%88%86%E9%85%8D%E5%99%A8/</link>
+      <pubDate>Fri, 29 Dec 2017 10:17:49 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/linux-slab%E5%88%86%E9%85%8D%E5%99%A8/</guid>
+      <description>动态内存管理 内存管理的目标是提供一种方法，为实现各种目的而在各个用户之间实现内存共享。内存管理方法应该实现以下两个功能：
+ 最小化管理内存所需的时间 最大化用于一般应用的可用内存（最小化管理开销）  内存管理实际上是一种关于权衡的零和游戏。可以开发一种使用少量内存进行管理的算法，但是要花费更多时间来管理可用内存。也可以开发一个算法来有效地管理内存，但却要使用更多的内存。最终，特定应用程序的需求将促使对这种权衡作出选择。
+每个内存管理器都使用了一种基于堆的分配策略。在这种方法中，大块内存（称为堆）用来为用户定义的目的提供内存。当用户需要一块内存时，就请求给自己分配一定大小的内存。堆管理器会查看可用内存的情况（使用特定算法）并返回一块内存。搜索过程中使用的一些算法有first-fit（在堆中搜索到的第一个满足请求的内存块）和best-fit（使用堆中满足请求的最合适的内存块）。当用户使用完内存后，就将内存返回给堆。
+这种基于堆的分配策略的根本问题是碎片（fragmentation）。当内存块被分配后，它们会以不同的顺序在不同的时间返回。这样会在堆中留下一些洞，需要花一些时间才能有效地管理空闲内存。这种算法通常具有较高的内存使用效率（分配需要的内存），但是却需要花费更多时间来对堆进行管理。
+另外一种方法称为buddy memory allocation，是一种更快的内存分配技术，它将内存划分为 2 的幂次方个分区，并使用 best-fit 方法来分配内存请求。当用户释放内存时，就会检查 buddy 块，查看其相邻的内存块是否也已经被释放。如果是的话，将合并内存块以最小化内存碎片。这个算法的时间效率更高，但是由于使用 best-fit 方法的缘故，会产生内存浪费。
+slab 缓存 Linux 所使用的 slab 分配器的基础是 Jeff Bonwick 为 SunOS 操作系统首次引入的一种算法。Jeff 的分配器是围绕对象缓存进行的。在内核中，会为有限的对象集（例如文件描述符和其他常见结构）分配大量内存。Jeff 发现对内核中普通对象进行初始化所需的时间超过了对其进行分配和释放所需的时间。因此他的结论是不应该将内存释放回一个全局的内存池，而是将内存保持为针对特定目而初始化的状态。例如，如果内存被分配给了一个互斥锁，那么只需在为互斥锁首次分配内存时执行一次互斥锁初始化函数（mutex_init）即可。后续的内存分配不需要执行这个初始化函数，因为从上次释放和调用析构之后，它已经处于所需的状态中了。
+Linux slab 分配器使用了这种思想和其他一些思想来构建一个在空间和时间上都具有高效性的内存分配器。
+下图给出了 slab 结构的高层组织结构。在最高层是 cache_chain，这是一个 slab 缓存的链接列表。这对于 best-fit 算法非常有用，可以用来查找最适合所需要的分配大小的缓存（遍历列表）。cache_chain 的每个元素都是一个 kmem_cache 结构的引用（称为一个 cache）。它定义了一个要管理的给定大小的对象池。
+https://www.ibm.com/developerworks/cn/linux/l-linux-slab-allocator/figure1.gif
+每个缓存都包含了一个 slabs 列表，这是一段连续的内存块（通常都是页面）。存在 3 种 slab：
+slabs_full 完全分配的 slab slabs_partial 部分分配的 slab slabs_empty 空 slab，或者没有对象被分配 注意 slabs_empty 列表中的 slab 是进行回收（reaping）的主要备选对象。正是通过此过程，slab 所使用的内存被返回给操作系统供其他用户使用。</description>
+    </item>
+    
+    <item>
+      <title>Centos上node彻底删除与安装并更新到最新版</title>
+      <link>http://yezuozuo.github.io/program/centos%E4%B8%8Anode%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4%E4%B8%8E%E5%AE%89%E8%A3%85%E5%B9%B6%E6%9B%B4%E6%96%B0%E5%88%B0%E6%9C%80%E6%96%B0%E7%89%88/</link>
+      <pubDate>Fri, 03 Nov 2017 13:23:20 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/centos%E4%B8%8Anode%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4%E4%B8%8E%E5%AE%89%E8%A3%85%E5%B9%B6%E6%9B%B4%E6%96%B0%E5%88%B0%E6%9C%80%E6%96%B0%E7%89%88/</guid>
+      <description>删除 进入 /usr/local/lib 删除所有 node 和 node_modules文件夹
+进入 /usr/local/include 删除所有 node 和 node_modules 文件夹
+检查 ~ 文件夹里面的&amp;quot;local&amp;rdquo; &amp;ldquo;lib&amp;rdquo; &amp;ldquo;include&amp;rdquo; 文件夹，然后删除里面的所有 &amp;ldquo;node&amp;rdquo; 和 &amp;ldquo;node_modules&amp;rdquo; 文件夹
+可以使用以下命令查找
+find ~/ -name node find ~/ -name node_modules 进入 /usr/local/bin 删除 node 的可执行文件
+以下步骤可选:
+删除: /usr/local/bin/npm 删除: /usr/local/share/man/man1/node.1 删除: /usr/local/lib/dtrace/node.d 删除: rm -rf /home/[homedir]/.npm 删除: rm -rf /home/root/.npm 安装 方法一 下载 可将对应版本修改
+wget https://nodejs.org/dist/v6.10.3/node-v6.10.3-linux-x64.tar.gz tar -zvxf node-v6.10.3-linux-x64.tar.gz 共享至全局 ln -s /path/node-v6.10.3/bin/node /usr/local/bin/node ln -s /path/node-v6.10.3/bin/npm /usr/local/bin/npm 方法二 准备 sudo yum -y install gcc make gcc-c++ openssl-devel wget 下载 可将对应版本修改</description>
     </item>
     
     <item>
@@ -1792,6 +2145,27 @@ NBA就是一个利益至上的生意场，有的时候，为了利益变脸的�
     </item>
     
     <item>
+      <title>php底层rtrim的一个“bug”</title>
+      <link>http://yezuozuo.github.io/program/php%E5%BA%95%E5%B1%82rtrim%E7%9A%84%E4%B8%80%E4%B8%AAbug/</link>
+      <pubDate>Thu, 19 Oct 2017 10:53:35 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/php%E5%BA%95%E5%B1%82rtrim%E7%9A%84%E4%B8%80%E4%B8%AAbug/</guid>
+      <description>背景 trim系列函数是用于去除字符串中首尾的空格或其他字符。ltrim函数只去除掉字符串首部的字符，rtrim函数只去除字符串尾部的字符。
+string trim ( string $str [, string $character_mask = &amp;quot; \t\n\r\0\x0B&amp;quot; ] ) 看一个例子：
+$str = &amp;quot;e?type&amp;quot;; echo $str; echo &amp;quot;\n&amp;quot;; echo rtrim($str, &#39;?type&#39;); echo &amp;quot;\n&amp;quot;; 不知道别人怎么想，我觉得这个返回的应该是”e”吧。
+但是实际上返回了一个空的字符串。
+又是一个黑魔法吗？
+源码 看一下php的底层实现：
+这个是php7 trim系列函数的源码，红框内就是rtrim的代码。
+这个是php_charmask的源码。
+执行步骤 trim执行步骤 trim、ltrim、rtrim三个函数都是调用了php_do_trim函数，区别在于第二个参数mode的不同。本文主要对trim函数进行分析，ltrim和rtrim函数跟trim的类似。然后php_do_trim会调用了php_trim来实现功能，因此trim函数的核心函数时php_trim函数。其执行步骤如下：
+ 根据what的值设置保存过滤字符的mask数组 过滤在字符串首部的待过滤字符 过滤在字符串尾部的待过滤字符  php_trim函数执行的流程图如下：
+源码解读 php_trim函数先调用了php_charmask，这个函数试将过滤字符设置为mask[char] = 1的形式，这样就是一个哈希数组，然后可用于后面的判断。如果第二个参数是范围值时，调用了memset函数给mask数组赋值。
+根据源码提炼出了以下的小demo:
+#include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #include &amp;lt;string.h&amp;gt; void php_charmask(unsigned char *input, size_t len, char *mask); char *rtrim(char *str,char *character_mask); int main(int argc, char const *argv[]) { printf(&amp;quot;%s\n&amp;quot;,rtrim(&amp;quot;e?</description>
+    </item>
+    
+    <item>
       <title>有点儿残酷</title>
       <link>http://yezuozuo.github.io/posts/%E6%9C%89%E7%82%B9%E5%84%BF%E6%AE%8B%E9%85%B7/</link>
       <pubDate>Sat, 14 Oct 2017 16:05:29 +0800</pubDate>
@@ -1805,6 +2179,30 @@ NBA就是一个利益至上的生意场，有的时候，为了利益变脸的�
 一直致力于研究人与人之间的关系，感觉人与人的关系真的好奇妙，上一秒可以谈笑风生，下一秒却又可以视而不见
 最近在看熊培云的书，不能说排疑解惑吧，里面还有很多不敢苟同的，但还是有所脾益。应了那句老话儿：“不知道的干嘛的时候，要么赚钱，要么看书”。
 一些无法言语的地方，在等一个结果，而不是答案。答案是需要有疑惑的。如果一个人不存疑惑而只是等待的话，那总没错。</description>
+    </item>
+    
+    <item>
+      <title>让你的PHP7更快 GCC PGO</title>
+      <link>http://yezuozuo.github.io/program/%E8%AE%A9%E4%BD%A0%E7%9A%84php7%E6%9B%B4%E5%BF%AB_gccpgo/</link>
+      <pubDate>Mon, 11 Sep 2017 09:58:02 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/%E8%AE%A9%E4%BD%A0%E7%9A%84php7%E6%9B%B4%E5%BF%AB_gccpgo/</guid>
+      <description>依据来源：让你的PHP7更快(GCC PGO) | 风雪之隅
+执行步骤 下载最新的 php-7.2.0RC4.tar.gz https://downloads.php.net/~remi/php-7.2.0RC4.tar.gz
+./configure --enable-fpm --with-config-file-path=/etc --with-config-file-scan-dir=/etc/php.d 第一遍编译PHP7, 让它生成会产生profile数据的可执行文件
+make prof-gen -j 8 prof-gen参数是PHP7的Makefile特有的。
+然后, 开始训练GCC:
+需要在文件app.php中指定file和controller，不然会报404或者其他错误，这里的更改只是为了训练用，训练结束还需要将代码改回去。
+$file = &#39;nearby_controller.php&#39;; $controller = &#39;nearby_controller&#39; 在nearby_controller.php中指定id和count，不然之后的代码无法训练到（尽量训练多的代码）。
+进行训练，可以是100或者更多次，要注意看报错
+sapi/cgi/php-cgi -T 100 /api_v2.php 训练结束，开始安装
+make prof-clean make prof-use -j 8 sudo make install 压测结果 训练之前：
+Requests per second: 326.02 [#/sec] (mean) 训练之后：
+Requests per second: 361.31 [#/sec] (mean) 这个结果压测多次，发现有时训练之后的qps比训练之前的或高或低，但差距都不是很明显。
+最终结论 GCC PGO在api的代码中优化效果不明显，而且操作起来较为复杂，不具备上线条件。
+PGO相关解释 有编译器用到概率的，但我不知道最先进的编译器用到的概型有哪些先进的做法。编译器使用到概率的地方，最常见是跟profile-guided optimization（PGO）相关的。通过收集profile信息来估算某些代码执行的频繁程度，并对其做相应的优化。
+例如说，
+ cold code outlining  如果有：</description>
     </item>
     
     <item>
@@ -1827,6 +2225,35 @@ NBA就是一个利益至上的生意场，有的时候，为了利益变脸的�
 一位来自邯郸的代驾说，他做代驾是为了娶媳妇，在他们那儿，娶媳妇，至少要给女方家里30万元。
 那岂不是要干10年？
 是呀，是呀，所以我们就是饿了，也不会随便在外面吃的。太贵了。</description>
+    </item>
+    
+    <item>
+      <title>swoole 1.9.17 一个bug的处理过程</title>
+      <link>http://yezuozuo.github.io/program/swoole-1.9.17-%E4%B8%80%E4%B8%AAbug%E7%9A%84%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B/</link>
+      <pubDate>Wed, 02 Aug 2017 19:45:26 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/swoole-1.9.17-%E4%B8%80%E4%B8%AAbug%E7%9A%84%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B/</guid>
+      <description>背景 在用最新版swoole 1.9.17 跑websocket服务时，在重启服务时worker进程会产生异常。
+除了swoole版本不一样之外，在swoole1.9.13和2.0.7版本的环境中均未发现此问题。
+而1.9.17版本刚刚重构了底层WorkerStop的机制：https://wiki.swoole.com/wiki/page/775.html
+复现 issue详情：https://github.com/swoole/swoole-src/issues/1309
+环境
+websocket server端代码为官网的例子，设置worker_num为5。
+运行server代码，查看进程
+一个master进程，一个manager进程，5个worker进程，一切正常。
+但是在多次重启时，kill -USR1 pid，会出现如下问题
+然后查看进程数，发现进程数会增加。
+排查过程 首先看多出的进程都是什么进程 多次对比，多出的都是worker进程，而且当发生上述错误的时候，就会多出进程，在之后重启时，该进程一直没有被kill掉。
+咨询韩老师，回答：
+ worker进程数量不一致是有可能的，新版本实现了异步安全reload，底层会先创建新的worker进程，因此统一时间可能会出现 worker_num * 2 数量的进程，老的 worker 进程会自然消亡并退出。
+ 但实际上多出的进程一直都没有被kill掉。
+然后strace一下这些进程，首先是master进程，master进程一直只是event_loop和接收信号，没有异常。
+看manager进程 发现在接收到USR1信号量的时候，对某些worker进程并没有全部发送信号量。
+看有问题的worker进程 发现在master发送信号量的时候，该进程没有收到信号，而且在过一段时间接收到SIGTSTP信号的时候，该进程也没有退出。
+解决 底层有BUG，异步安全reload 特性带来的，有一个特殊情况会出现，同时并发了2个信号。
+解决代码如下：https://github.com/swoole/swoole-src/commit/9a79829cd0d16d1ce8af76a8e68fa444957d2992
+完成 韩老师在1.9.18分支中fix了该问题，安装了该分支后重新测试上述场景：
+已经没有上述问题。</description>
     </item>
     
     <item>
@@ -1914,6 +2341,22 @@ NBA就是一个利益至上的生意场，有的时候，为了利益变脸的�
     </item>
     
     <item>
+      <title>深入浅出FastCGI和php Fpm</title>
+      <link>http://yezuozuo.github.io/program/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAfastcgi%E5%92%8Cphp-fpm/</link>
+      <pubDate>Mon, 05 Jun 2017 09:46:30 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAfastcgi%E5%92%8Cphp-fpm/</guid>
+      <description>先看个图，标准的PHP单进程CLI和CGI生命周期。php进程启动，需要zend core、Module的Init(MINIT)、Request 的Init(RINIT) 这样的。一个进程只服务一次命令行或HTTP请求，就退出。
+而FastCGI/php-fpm 就是改造后的多进程的 CGI，类似于资源池，预先启动 100个 php-fpm 进程，提前MINT，nginx的请求来了，直接进入 RINIT -&amp;gt; RSHUTDOWN 循环。请求结束，进程不退出，一个进程至少服务上万次请求才退出。
+为什么一定要退出？怕RINIT-&amp;gt;RSHUTDOWN循环，有哪个代码写的不好，变量一直没释放，内存泄露GC又回收不了。php-fpm里的pm.max_requests配置就是设置RINT循环多少次，退出进程。
+再来看几个 TSF、swoole、workerman、php-pm，都是 php 启动cli进程，用php管理子进程，php解析HTTP协议。
+生命周期连RINIT-&amp;gt;MINIT循环都省了，没写在类属性里的变量，裸写的变量都是进程级全局变量，比php-fpm下的$_GET、$_POST、$_SERVER、$_SESSION、$_COOKIE这些全局变量范围还大，是进程级的。意味着你写了个a.php，里面定义了$a=1;赋值之后，下次请求过来，只要正好分配到了这个进程，依然还能取到普通定义的$a变量。
+这意味着什么？像Laravel里的$app这些变量，只要写在最外面，因为没有触发RSHUTDOWN，又没有主动unset，GC引用计数器一直大于0，变量不会消失。
+那怎么解决每次请求$_GET和$_POST不一样的问题？这些swoole、workerman进程管理器自己实现了小型化的INIT-&amp;gt;SHUTDOWN过程，维护一些引用计数呗，自己的a.php完成后，这种框架帮你unset($_GET)。
+问题来了，稳定不稳定？swoole、workman框架本身稳定，但因为完全改变了php生命周期，业务开发人员不熟悉，一不小心写了global、static这样的变量，全局用了，内存越占越大，崩溃。又或者写了个exit，把整个进程exit而不是requestext了。</description>
+    </item>
+    
+    <item>
       <title>为什么跳槽加薪会比内部调薪要高？</title>
       <link>http://yezuozuo.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%B7%B3%E6%A7%BD%E5%8A%A0%E8%96%AA%E4%BC%9A%E6%AF%94%E5%86%85%E9%83%A8%E8%B0%83%E8%96%AA%E8%A6%81%E9%AB%98/</link>
       <pubDate>Sun, 04 Jun 2017 16:07:34 +0800</pubDate>
@@ -1932,6 +2375,39 @@ NBA就是一个利益至上的生意场，有的时候，为了利益变脸的�
 第二：如果你不提加薪，我也没有理由主动给你加薪，事实上有许多人不会提加薪，默默地干着，作为老板的我不提这茬多好，我主动提这茬，员工都顺坡下驴来给我提条件，我不是吃饱了撑的？ 第三：你如果要跳槽，我给你 counter offer，这会产生一个问题，对老板而言你已经有了贰心，我如果聪明点的话就会快点开始找你的替补，免得你尝到了甜头拿加薪当勒索。
 第四：HR的任务并非保证每个员工都获得完全公平的待遇。尤其是办公室政治气氛浓郁的大公司，你的本事是次要的，你的站队才是主要的。如果是人浮于事的那种公司，对HR而言，你加不加薪管我屁事？跳槽走人很正常，最多一个exit interview（离职面谈）, 找老板大幅加薪那才是麻烦事，多一事不如少一事。
 第五：给你加薪，加多少？加得比例高了，一旦风声走漏出去，其他员工会眼红，搞得团队人心不稳，那又何必。更何况，许多公司对升职加薪都有严格的规章，除非你升职，否则在原职上的加薪幅度也有可能是限定的，甚至原职的薪水上限都有限制。给你加薪加少了，还是留不住，加的多了，等于破坏公司的规章。你看，加薪这个事情多麻烦，还不如你走人算了。</description>
+    </item>
+    
+    <item>
+      <title>php级别性能优化分享</title>
+      <link>http://yezuozuo.github.io/program/php%E7%BA%A7%E5%88%AB%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%88%86%E4%BA%AB/</link>
+      <pubDate>Wed, 17 May 2017 21:28:51 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/php%E7%BA%A7%E5%88%AB%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%88%86%E4%BA%AB/</guid>
+      <description>前言 指导思想：能自动化的，要自动化；不能自动化的，要半自动化。
+性能分析最理想的方式是强智能，也就是让机器独立处理所有事情，自动发现问题并解决问题。但是需要用到人工智能，深度学习等等。要学的东西还很多，暂时还做不了那么牛逼的事，既然现在强智能还不够强，那么我们暂时先用弱智能+人工确认的方式，来实现「半智能化」：用机器帮咱们做预选，人工来做最终选择，虽然依然包含了人工干预，但却可以把生产效率提升几十倍。
+性能分析  方法、工具、思路 查找瓶颈 重点优化（耗时多、请求多、超过150ms的接口） 查看单个请求调用链（次数，时间） 各个性能参数变化率 机器流量，负载，内存，qps，php.ini+php-fpm.conf  性能分析-工具 xhprof源码分析： https://zoco.fun/program/Xhprof源码分析
+性能分析-方法  耗时 次数 聚合分析 增量分析 实时分析 数据报表 性能报表  耗时 原则：耗时是可控的
+ 找到耗时最多的调用：发现递归，循环，不合理的用法，异常的服务。 数据源调用耗时异常，去推动他们优化。 curl替代file_get_contents并且增加超时时间。 微服务的超时时间在合理的范围内尽量小一些。  次数 原则：越少越好
+ 找到调用次数异常的调用：寻找批量方案或者预加载方案。 对多个无上下关联的数据源并行化或者异步化。  聚合分析  能看到当前接口所有运行过的函数。 平均值处理，也避免了程序运行中的不规律事件。 统计值比孤立值更具说服力。 为增量统计做准备。  增量分析 检测每个接口多余出的方法以及此类方法的耗时从而得出业务变化对性能的影响。（对新上的代码）
+实时分析 因为数据量相对较少，所以每小时跑一次数据，暂时针对各个数据源整体耗时和该接口所有微服务进行聚合。
+如果有全量的日志，那么这个做起来就很有意义了。
+数据报表 项目性能分析总览，调用次数，总耗时，平均耗时，趋势。
+ 单日性能统计，天级别（次数、平均耗时、最大耗时、平均内存、最大内存） 所有uri性能总览，uri级别（uri、次数、平均耗时、最大耗时、平均内存、最大内存、微服务(Max)、Redis(Max)、Mongo(Max)） 单个uri性能分析（时间、耗时、内存、微服务、Redis、Mongo、Host） 单个uri性能整合分析（耗时分布饼图、整体耗时、耗时分布面积图、耗时折线图、各功能耗时、实时数据） xhprof html xhprof graph  性能报表 这里是根据已有的数据进行二次分析
+ 邮件汇总接口图表（每日邮件数据汇总） 超出150ms的接口（重点分析） 所有接口分析（接口内的方法聚合） 微服务分析（每个接口调用了哪些微服务） 微服务排行榜（所有微服务调用的耗时和次数）  性能分析－优化方案  预加载 批量 短路 降维 并行和异步化 抽象 缓存  预加载 事先将请求到的数据放到内存中，同一次请求同一份数据不要取两次，用的时候随时取（bridge）。</description>
+    </item>
+    
+    <item>
+      <title>如何进行一次简单的性能分析</title>
+      <link>http://yezuozuo.github.io/program/%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%B8%80%E6%AC%A1%E7%AE%80%E5%8D%95%E7%9A%84%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/</link>
+      <pubDate>Mon, 03 Apr 2017 20:29:42 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%B8%80%E6%AC%A1%E7%AE%80%E5%8D%95%E7%9A%84%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/</guid>
+      <description>基于xhprof开发php性能优化系统全文
+安装 安装php msgpack扩展 安装php xhprof扩展 php5 https://github.com/phacility/xhprof
+php7 https://github.com/Yaoguais/phpng-xhprof
+安装supervisor 打桩 这一步是将xhprof产生的数据存入redis中。
+在程序入口文件，比如index.php中添加下列代码：
+// xhprof打点频率 define(&#39;XHPROF_FREQUENCY&#39;,1000); if ((mt_rand(1, XHPROF_FREQUENCY) === 1) &amp;amp;&amp;amp; function_exists(&#39;xhprof_enable&#39;)) { xhprof_enable(XHPROF_FLAGS_MEMORY|XHPROF_FLAGS_CPU); } register_shutdown_function(function () { $uname = php_uname(&#39;n&#39;); $time = time(); $xhprofData = xhprof_disable(); $log = array( &#39;REQUEST_URI&#39; =&amp;gt; parse_url($_SERVER[&#39;REQUEST_URI&#39;], PHP_URL_PATH), &#39;HTTP_HOST&#39;	=&amp;gt; $uname, &#39;REQUEST_METHOD&#39; =&amp;gt; $_SERVER[&#39;REQUEST_METHOD&#39;], &#39;REQUEST_TIME&#39; =&amp;gt; $time, &#39;xhprof_data&#39; =&amp;gt; $xhprofData, ); // 压缩日志 $log = msgpack_pack($log); $key = &#39;chan-xhprof-log&#39;; $redis = new Redis(); $redis-&amp;gt;connect(&#39;127.</description>
     </item>
     
     <item>
@@ -1957,6 +2433,66 @@ NBA就是一个利益至上的生意场，有的时候，为了利益变脸的�
     </item>
     
     <item>
+      <title>程序的本质复杂性和元语言抽象</title>
+      <link>http://yezuozuo.github.io/program/%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9C%AC%E8%B4%A8%E5%A4%8D%E6%9D%82%E6%80%A7%E5%92%8C%E5%85%83%E8%AF%AD%E8%A8%80%E6%8A%BD%E8%B1%A1/</link>
+      <pubDate>Wed, 01 Mar 2017 20:26:20 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9C%AC%E8%B4%A8%E5%A4%8D%E6%9D%82%E6%80%A7%E5%92%8C%E5%85%83%E8%AF%AD%E8%A8%80%E6%8A%BD%E8%B1%A1/</guid>
+      <description>参考： http://www.cnblogs.com/weidagang2046/p/the-nature-of-meta.html
+ 如果目标还是代码“简短、优雅、易理解、易维护”，那么代码优化是否有一个理论极限？这个极限是由什么决定的？普通代码比起最优代码多出来的“冗余部分”到底干了些什么事情？
+ 回答这个问题要从程序的本质说起。Pascal语言之父Niklaus Wirth在70年代提出：
+Program = Data Structure + Algorithm 随后逻辑学家和计算机科学家R Kowalski进一步提出：
+Algorithm = Logic + Control 谁更深刻更有启发性？当然是后者！而且我认为数据结构和算法都属于控制策略，程序包含了逻辑和控制两个维度。
+逻辑就是问题的定义，比如，对于排序问题来讲，逻辑就是“什么叫做有序，什么叫大于，什么叫小于，什么叫相等”？控制就是如何合理地安排时间和空间资源去实现逻辑。逻辑是程序的灵魂，它定义了程序的本质；控制是为逻辑服务的，是非本质的，可以变化的，如同排序有几十种不同的方法，时间空间效率各不相同，可以根据需要采用不同的实现。
+程序的复杂性包含了本质复杂性和非本质复杂性两个方面。套用这里的术语， 程序的本质复杂性就是逻辑，非本质复杂性就是控制。逻辑决定了代码复杂性的下限，也就是说不管怎么做代码优化，Office程序永远比Notepad程序复杂，这是因为前者的逻辑就更为复杂。如果要代码简洁优雅，任何语言和技术所能做的只是尽量接近这个本质复杂性，而不可能超越这个理论下限。
+理解&amp;quot;程序的本质复杂性是由逻辑决定的&amp;quot;从理论上为我们指明了代码优化的方向：让逻辑和控制这两个维度保持正交关系。来看Java的Collections.sort方法的例子：
+interface Comparator&amp;lt;T&amp;gt; { int compare(T o1, T o2); } public static &amp;lt;T&amp;gt; void sort(List&amp;lt;T&amp;gt; list, Comparator&amp;lt;? super T&amp;gt; comparator) 使用者只关心逻辑部份，即提供一个Comparator对象表明序在类型T上的定义；控制的部分完全交给方法实现者，可以有多种不同的实现，这就是逻辑和控制解耦。同时，我们也可以断定，这个设计已经达到了代码优化的理论极限，不会有比本质上比它更简洁的设计（忽略相同语义的语法差异），为什么呢？因为逻辑决定了它的本质复杂度，Comparator和Collections.sort的定义完全是逻辑的体现，不包含任何非本质的控制部分。
+另外需要强调的是，上面讲的“控制是非本质复杂性”并不是说控制不重要，控制往往直接决定了程序的性能，当我们因为性能等原因必须采用某种控制的时候，实际上被固化的控制策略也是一种逻辑。比如，当你的需求是“从进程虚拟地址ptr1拷贝1024个字节到地址ptr2“，那么它就是问题的定义，它就是逻辑，这时，提供进程虚拟地址直接访问语义的底层语言就与之完全匹配，反而是更高层次的语言对这个需求无能为力。
+介绍了逻辑和控制的关系，可能很多朋友已经开始意识到了上面二进制文件解析实现的问题在哪里，其实这也是 绝大多数程序不够简洁优雅的根本原因：逻辑与控制耦合。上面那个消息定义表格就是不包含控制的纯逻辑，我相信即使不是程序员也能读懂它；而相应的代码把逻辑和控制搅在一起之后就不那么容易读懂了。
+元抽象表达 思考一个问题：
+ 逻辑决定了程序的本质复杂性，但接口不是表达逻辑的通用方式，那么是否存在表达逻辑的通用方式呢？
+ 答案是：有！这就是元(Meta)，包括元语言(Meta Language)和元数据(Meta Data)两个方面。元并不神秘，我们通常所说的配置就是元，元语言就是配置的语法和语义，元数据就是具体的配置，它们之间的关系就是C语言和C程序之间的关系；但是，同时元又非常神奇，因为元既是数据也是代码，在表达逻辑和语义方面具有无与伦比的灵活性。至此，我们终于找到了让代码变得简洁、优雅、易理解、易维护的终极方法，这就是： 通过元语言抽象让逻辑和控制彻底解耦！
+比如，对于二进制消息解析，经典的做法是类似Google的Protocol Buffers，把消息结构特征抽象出来，定义消息描述元语言，再通过元数据描述消息结构。下面是Protocol Buffers元数据的例子，这个元数据是纯逻辑的表达，它的复杂度体现的是消息结构的本质复杂度，而如何序列化和解析这些控制相关的部分被Protocol Buffers编译器隐藏起来了。
+message Person { required int32 id = 1; required string name = 2; optional string email = 3; } 元语言解决了逻辑表达问题，但是最终要与控制相结合成为具体实现，这就是元语言到目标语言的映射问题。通常有这两种方法：</description>
+    </item>
+    
+    <item>
+      <title>php-fpm的一些实验</title>
+      <link>http://yezuozuo.github.io/program/php-fpm%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E9%AA%8C/</link>
+      <pubDate>Tue, 07 Feb 2017 19:37:03 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/php-fpm%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E9%AA%8C/</guid>
+      <description>实验一  将pm设置成static方式 将pm.max_children设置为1 将pm.max_requests设置成500  每次请求，程序末尾包括exit()和不包括exit()的形式，php-fpm的子进程都不会被杀死。
+实验二  将pm设置成static方式 将pm.max_children设置为1 将pm.max_requests设置成1  每次请求，程序末尾包括exit()和不包括exit()的形式，php-fpm的子进程都会被杀死。
+实验三 &amp;lt;?php class a { public $a; public function __construct() { $this-&amp;gt;a = 1; exit(); } public function __destruct() { echo $this-&amp;gt;a.&amp;quot;\n&amp;quot;; echo &#39;123&#39;.&amp;quot;\n&amp;quot;; } } $a = new a(); echo $a-&amp;gt;a; 输出
+1 123 结论：php中的exit()并不能使这个进程直接结束。尽管调用了exit(),Shutdown函数以及object destructors总是会被执行。</description>
+    </item>
+    
+    <item>
+      <title>Zabbix怎么搞一个永不过期的session</title>
+      <link>http://yezuozuo.github.io/program/zabbix%E6%80%8E%E4%B9%88%E6%90%9E%E4%B8%80%E4%B8%AA%E6%B0%B8%E4%B8%8D%E8%BF%87%E6%9C%9F%E7%9A%84session/</link>
+      <pubDate>Thu, 19 Jan 2017 20:33:28 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/zabbix%E6%80%8E%E4%B9%88%E6%90%9E%E4%B8%80%E4%B8%AA%E6%B0%B8%E4%B8%8D%E8%BF%87%E6%9C%9F%E7%9A%84session/</guid>
+      <description>zabbix的session会隔一段时间就不可用了，查一下原因
+zabbix的session什么时候过期？ 看zabbix的数据库，session相关的表有两个：
+mysql&amp;gt; desc users; +----------------+---------------------+------+-----+---------+-------+ | Field | Type | Null | Key | Default | Extra | +----------------+---------------------+------+-----+---------+-------+ | userid | bigint(20) unsigned | NO | PRI | NULL | | | alias | varchar(100) | NO | MUL | | | | name | varchar(100) | NO | | | | | surname | varchar(100) | NO | | | | | passwd | char(32) | NO | | | | | url | varchar(255) | NO | | | | | autologin | int(11) | NO | | 0 | | | autologout | int(11) | NO | | 900 | | | lang | varchar(5) | NO | | en_GB | | | refresh | int(11) | NO | | 30 | | | type | int(11) | NO | | 0 | | | theme | varchar(128) | NO | | default | | | attempt_failed | int(11) | NO | | 0 | | | attempt_ip | varchar(39) | NO | | | | | attempt_clock | int(11) | NO | | 0 | | | rows_per_page | int(11) | NO | | 50 | | +----------------+---------------------+------+-----+---------+-------+ mysql&amp;gt; desc sessions; +------------+---------------------+------+-----+---------+-------+ | Field | Type | Null | Key | Default | Extra | +------------+---------------------+------+-----+---------+-------+ | sessionid | varchar(32) | NO | PRI | | | | userid | bigint(20) unsigned | NO | MUL | NULL | | | lastaccess | int(11) | NO | | 0 | | | status | int(11) | NO | | 0 | | +------------+---------------------+------+-----+---------+-------+ 登录时验证sql为</description>
+    </item>
+    
+    <item>
+      <title>Swoole笔记</title>
+      <link>http://yezuozuo.github.io/program/swoole%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 15 Dec 2016 10:00:29 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/swoole%E7%AC%94%E8%AE%B0/</guid>
+      <description>&amp;lt;1&amp;gt;  manager是进程，worker是进程，task是进程，master是线程，reactor是线程，心跳检测是线程，UDP收发是线程 reactor和worker之间的通信是通过IPC实现的 和worker进行通信有两种方式：管道和消息队列 主进程mainReactor负责监听server socket tcp分为nopush和nodelay两种方式 主进程mainReactor:  负责监听server socket，评估每个reactor线程的连接数量，评估方式也就是分配的方式是通过fd%serv-&amp;gt;reactorNum实现的 将监听到的accept请求分配给连接数最少的reactor线程 接管所有信号的signal处理，使reactor线程运行中不受到打扰   管理进程manager  分为worker进程和taskWorker进程 所有的worker进程和task进程都是manager进程fork出来的 当worker进程发生致命错误或者运行生命周期结束时，管理进程会回收此进程，并创建新的进程，防止子进程成为僵尸进程 管理进程可以平滑重启所有worker进程，以实现程序代码的重新加载   异步reactor线程（全异步非阻塞）  收发数据，处理网络I/O 处理TCP连接，将发来的数据缓冲拼接，拆分成完整的请求包 负责监听从mainReactor分配来的socket socket可读时读取数据，进行协议解析，然后将数据投递到worker进程，在socket可读时将数据发给TCP客户端   同步或者异步worker进程，没有用到epoll  处理数据 接受由reactor线程投递的请求数据包，并执行PHP回调函数处理数据 生成响应数据并发给reactor线程，由reactor线程发给客户端   task worker进程（完全是同步阻塞模式）  有些逻辑代码不需要马上执行，可以将一个task任务投递到taskworker进程池，在worker进程空闲时再去捕获任务执行的结果。   factory&amp;lt;-&amp;gt;task  不生产实例 根据类型的不同执行 任务中心，一个task请求进入factory，会通过dispatch分配，onTask处理，onFinish交付结果一系列流程 FactoryProcess用于管理manager和worker进程，也会对单独的writer线程管理   如果reactor最大允许监听的事件数比reactor的事件数小的话用poll/select，否则用epoll/kqueue client的类型：TCP，TCP6，UDP，UDP6，UNIXSTREAM，UNIXDGRAM client  异步：socket从mainReactor中获取 同步：直接创建一个connection   DNS：只可以是异步的查询，hashMap  &amp;lt;2&amp;gt; 腾讯QQ也是有C10K问题的，只不过他们是用了UDP这种原始的包交换协议来实现的，绕开了这个难题。当然过程肯定是痛苦的。如果当时有epoll技术，他们肯定会用TCP。后来的手机QQ，微信都采用TCP协议。实际上当时也有异步模式，如：select/poll模型，这些技术都有一定的缺点，如selelct最大不能超过1024，poll没有限制，但每次收到数据需要遍历每一个连接查看哪个连接有数据请求。既然有了C10K问题，程序员们就开始行动去解决它。于是FreeBSD推出了kqueue，Linux推出了epoll，Windows推出了IOCP。这些操作系统提供的功能就是为了解决C10K问题。因为Linux是互联网企业中使用率最高的操作系统，Epoll就成为C10K killer、高并发、高性能、异步非阻塞这些技术的代名词了。
+epoll技术的编程模型就是异步非阻塞回调，也可以叫做Reactor，事件驱动，事件轮循（EventLoop）。Epoll就是为了解决C10K问题而生。使用Epoll技术，使得小公司也可以玩高并发。不需要购买很多服务器，有几台服务器就可以服务大量用户。Nginx，libevent，node.js这些就是Epoll时代的产物。
+协程的优点是它比系统线程开销小，缺点是如果其中一个协程中有密集计算，其他的协程就不运行了。操作系统进程的缺点是开销大，优点是无论代码怎么写，所有进程都可以并发运行。
+Erlang解决了协程密集计算的问题，它基于自行开发VM，并不执行机器码。即使存在密集计算的场景，VM发现某个协程执行时间过长，也可以进行中止切换。Golang由于是直接执行机器码的，所以无法解决此问题。所以Golang要求用户必须在密集计算的代码中，自行Yield。
+实际上同步阻塞程序的性能并不差，它的效率很高，不会浪费资源。当进程发生阻塞后，操作系统会将它挂起，不会分配CPU。直到数据到达才会分配CPU。多进程只是开多了之后副作用太大，因为进程多了互相切换有开销。所以如果一个服务器程序只有1000左右的并发连接，同步阻塞模式是最好的。</description>
+    </item>
+    
+    <item>
       <title>&lt;2016&gt;&lt;2017&gt;</title>
       <link>http://yezuozuo.github.io/posts/20162017/</link>
       <pubDate>Fri, 09 Dec 2016 15:56:31 +0800</pubDate>
@@ -1975,6 +2511,66 @@ NBA就是一个利益至上的生意场，有的时候，为了利益变脸的�
 博客 搭建了自己的博客。
 在自己的博客上写了33篇博客。
 2017 剔除污质。</description>
+    </item>
+    
+    <item>
+      <title>教你一步一步写一个phpunit testcase</title>
+      <link>http://yezuozuo.github.io/program/%E6%95%99%E4%BD%A0%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E5%86%99%E4%B8%80%E4%B8%AAphpunit-testcase/</link>
+      <pubDate>Sat, 05 Nov 2016 10:53:35 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/%E6%95%99%E4%BD%A0%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E5%86%99%E4%B8%80%E4%B8%AAphpunit-testcase/</guid>
+      <description>程序地址 https://github.com/yezuozuo/how-to-write-a-phpunit-testcase
+使用方法  composer install phpunit tests/EventTest.php  背景 https://phpunit.de/manual/current/zh_cn/index.html 这个是phpunit的文档,但是看完了我完全不知道怎么入手好吗,从0到1这个过程就在下面。
+综述 目录结构
+. |-- reports |-- src | -- PHPUnitEventDemo | -- Event.php | -- EventException.php | -- User.php |-- tests | -- EventTest.php |-- .gitignore |-- composer.json |-- phpunit.xml |-- README.md  PHPUnitEventDemo - 下面是要测试的类 * Event.php - Event类 * EventException.php - Event异常类 * User.php - User类 tests - 单元测试目录 * EventTest.php - 测试Event类的测试用例  Assertions（断言） 断言为PHPUnit的主要功能，用来验证单元的执行结果是不是预期值。</description>
+    </item>
+    
+    <item>
+      <title>Nginx&#43;php Fpm模式php内存泄漏探究</title>
+      <link>http://yezuozuo.github.io/program/nginx&#43;php-fpm%E6%A8%A1%E5%BC%8Fphp%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E6%8E%A2%E7%A9%B6/</link>
+      <pubDate>Fri, 23 Sep 2016 19:50:52 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/nginx&#43;php-fpm%E6%A8%A1%E5%BC%8Fphp%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E6%8E%A2%E7%A9%B6/</guid>
+      <description>昨天遇到过一次服务器内存告警，查看后发现有个php-fpm进程占用了2G的内存。但我明明在php.ini文件里面，有配置 memory_limit = 256M，那为什么会有占用2G内存的php-fpm进程呢？
+这里先简单说一下nginx+php-fpm模式的工作原理。  nginx服务器fork出n个子进程（worker），php-fpm管理器fork出n个子进程。 当有用户请求，nginx的一个worker接收请求，并将请求抛到socket中。 php-fpm空闲的子进程监听到socket中有请求，接收并处理请求。  这里要重点说一下第三步骤。第三步涉及到php-fpm进程生命周期的东西。一个php-fpm的生命周期大致是这样的：模块初始化（MINIT）-&amp;gt; 模块激活（RINIT）-&amp;gt; 请求处理 -&amp;gt; 模块停用（RSHUTDOWN） -&amp;gt; 模块激活（RINIT）-&amp;gt; 请求处理 -&amp;gt; 模块停用（RSHUTDOWN）……. 模块激活（RINIT）-&amp;gt; 请求处理 -&amp;gt; 模块停用（RSHUTDOWN）-&amp;gt; 模块关闭（MSHUTDOWN）。在一个php-fpm进程的生命周期里，会有多次的模块激活（RINIT）-&amp;gt; 请求处理 -&amp;gt; 模块停用（RSHUTDOWN）的过程。这个“请求处理”的大致过程是这样的：php读取相应的php文件，对其进行词法分析，生成opcode，zend虚拟机执行opcode。
+回到一开始说的PHP配置文件里面的memory_limit 这个东西，其实，它限制的只是这个“请求处理”的内存。所以，这个参数跟php-fpm进程占用的内存并没有什么关系。那为什么会有占用2G大小的php-fpm进程呢？原因是这样的：php是用c写的，所以，难免又会一些内存泄露。也就是说，在“请求处理”这个过程结束后，有些变量没有被销毁，然后就导致一个php-fpm进程占用的内存越来越大。
+那么，有什么办法能阻止这个问题呢？方法一：写不泄漏内存的php程序；方法二：在php-fpm配置文件中，将pm.max_requests这个参数设置小一点。这个参数的含义是：一个php-fpm子进程最多处理pm.max_requests个用户请求后，就会被销毁。当一个php-fpm进程被销毁后，它所占用的所有内存都会被回收。</description>
+    </item>
+    
+    <item>
+      <title>动态流量控制（滑动窗口）在api日志中的应用</title>
+      <link>http://yezuozuo.github.io/program/%E5%8A%A8%E6%80%81%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%9C%A8api%E6%97%A5%E5%BF%97%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Sat, 18 Jun 2016 18:33:01 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/%E5%8A%A8%E6%80%81%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%9C%A8api%E6%97%A5%E5%BF%97%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</guid>
+      <description>现在api的所有php-fpm日志都打到了elasticsearch里，我们可以拿这些日志来做很多东西，但首先第一步是怎么取这些数据。
+这些日志的量大概每天有几百万条的规模。
+首先我尝试的是通过from+size的方式取数据，但是elasticsearch默认情况下只可以取from+size&amp;lt;10000的数据（当然也可以调大from+size，但是会带来一个问题就是数据取到最后越来越慢）
+ Result window is too large, from + size must be less than or equal to: [10000] but was [10020]. See the scroll api for a more efficient way to request large data sets. This limit can be set by changing the [index.max_result_window] index level parameter
+ 那么就采取第二个方案，就是按时间来取数据。
+那么问题来了，按多久取一次数据呢？
+之前的取数据一般是按分钟取，但是会遇到一个问题。
+先看下面的图，是redis_warning一天（20170110）的分布情况：
+从图里我们可以看到两个特点：
+ 请求包括报错的分布都是有高峰的。 正常情况下数据的涨跌都不是跳崖式的波动，都是有一个涨跌的过渡过程（当然突然某个redis或者moa挂掉会导致一个突发的增长，这种情况也应该考虑到）。  我们的请求包括报错的分布都是有高峰的，所以说在高峰的时候按分钟取也可能出现from+size&amp;gt;10000的情况，那么我们就来按秒取，按秒取的话一天相当于要请求elasticsearch的接口86400次，在非高峰的时候这样无疑是对带宽的一种浪费。而且执行一次脚本所需要的时间很长，测试和出数据的的时候极其不方便（redis_warning按秒执行一次的时间大概是90分钟）。
+下面就是我现在所采用的方案，就是动态流量控制（滑动窗口）。
+既然非高峰的时候我可以多取一段时间的数据，非高峰的时候少取一些数据，那么我就建立一个模型让脚本动态地根据上一次获得的数据来决定下一次请求所要获取的数据多少。
+if(count($res) == 10000) { //说明此次请求获取的数据超过阈值 //丢弃掉此次请求的数据 //将下一次请求的时间间隔/2（滑动窗口缩小） } else if (count($res) &amp;lt; 2000) { //说明此次请求的数据太少 //保留此次数据 //将下一次请求的时间间隔*2（滑动窗口扩大） } 上面例子中的2000是可以调整的。</description>
+    </item>
+    
+    <item>
+      <title>案例学习：仅使用redis&#43;php设计实现一个简单的Twitter</title>
+      <link>http://yezuozuo.github.io/program/%E6%A1%88%E4%BE%8B%E5%AD%A6%E4%B9%A0%E4%BB%85%E4%BD%BF%E7%94%A8redis&#43;php%E8%AE%BE%E8%AE%A1%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84twitter/</link>
+      <pubDate>Mon, 30 May 2016 18:50:41 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/%E6%A1%88%E4%BE%8B%E5%AD%A6%E4%B9%A0%E4%BB%85%E4%BD%BF%E7%94%A8redis&#43;php%E8%AE%BE%E8%AE%A1%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84twitter/</guid>
+      <description>参考： http://redis.io/topics/twitter-clone
+代码地址： https://github.com/yezuozuo/twitter_clone
+我会在此文中描述如何使用PHP以及仅使用Redis来设计实现一个简单的Twitter克隆。很多编程社区常认为KV储存是一个特别的数据库，在web应用中不能替代关系数据库。本文尝试证明这恰恰相反。
+Key-value 数据库基础 KV数据的精髓，是能够把value储存在key里，此后该数据仅能够通过确切的key来获取，无法搜索一个值。确切的来讲，它更像一个大型HASH/字典，但它是持久化的，比如，当你的程序终止运行，数据不会消失。 比如我们能用SET命令以key foo 来储存值 bar
+SET foo bar Redis会永久储存我们的数据，所以之后我们可以问Redis：“储存在key foo里的数据是什么？”，Redis会返回一个值：bar
+GET foo =&amp;gt; bar KV数据库提供的其他常见操作有:DEL，用于删除指定的key和关联的value； SET-if-not-exists (在Redis上称为SETNX )仅会在key不存在的时候设置一个值； INCR能够对指定的key里储存的数字进行自增。
+ SET foo 10 INCR foo =&amp;gt; 11 INCR foo =&amp;gt; 12 INCR foo =&amp;gt; 13 原子操作 目前为止它是相当简单的，但是INCR有些不同。设想一下，为什么要提供这个操作？毕竟我们自己能用以下简单的命令实现这个功能： x = GET foo x = x + 1 SET foo x 问题在于要使上面的操作正常进行，同时只能有一个客户端操作x的值。看看如果两台电脑同时操作这个值会发生什么： x = GET foo (返回10) y = GET foo (返回10) x = x + 1 (x现在是11) y = y + 1 (y现在是11) SET foo x (foo现在是11) SET foo y (foo现在是11) 问题发生了！我们增加了值两次，本应该从10变成12，现在却停留在了11。这是因为用GET和SET来实现INCR不是一个原子操作(atomic operation)。所以Redis\memcached之类提供了一个原子的INCR命令，服务器会保护get-increment-set操作，以防止同时的操作。让Redis与众不同的是它提供了更多类似INCR的方案，用于解决模型复杂的问题。因此你可以不使用任何SQL数据库、仅用Redis写一个完整的web应用，而不至于抓狂。</description>
     </item>
     
     <item>
@@ -2038,6 +2634,31 @@ NBA就是一个利益至上的生意场，有的时候，为了利益变脸的�
 固然像冯友兰，郭沫若之流红极一时，但公道也自在人心。
 但如今，突然面对着坟墓，我冷眼向过去稍稍回顾，只见它曲折灌溉的悲喜，都消失在一片亘古的荒漠。这才知道我的全部努力，不过完成了普通生活。——穆旦
 人世间很多残酷的事都用道德的名义去施行，也是中外古今一律。</description>
+    </item>
+    
+    <item>
+      <title>php语法性能比较</title>
+      <link>http://yezuozuo.github.io/program/php%E8%AF%AD%E6%B3%95%E6%80%A7%E8%83%BD%E6%AF%94%E8%BE%83/</link>
+      <pubDate>Fri, 29 Apr 2016 21:24:46 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/php%E8%AF%AD%E6%B3%95%E6%80%A7%E8%83%BD%E6%AF%94%E8%BE%83/</guid>
+      <description>Php近似语法的性能分析
+100000次 只是在语法上考虑性能 实际情况应该考虑可读性等问题综合使用 详细代码在 https://github.com/yezuozuo/php-optim
+1.@ @test(); 0.10025715827942 s test(); 0.09039306640625 s 2.deep array $arr[1][2][3][4][5][6][7] = $i; 0.037128925323486 s $arr2[1] = $i; 0.018270969390869 s 3.defined var $a = null; $a = 1; 0.011500120162964 s $b = 1; 0.010693073272705 s 4.print vs echo print($strings); 1.756313085556 s echo $strings; 1.4546310901642 s 5.== vs === if (null == $n) {} 0.015053033828735 s if (null === $n) {} 0.013232946395874 s 6.null vs is_null if (is_null($n)) {} 0.</description>
+    </item>
+    
+    <item>
+      <title>php output buffer</title>
+      <link>http://yezuozuo.github.io/program/php-output-buffer/</link>
+      <pubDate>Wed, 23 Mar 2016 19:50:52 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/php-output-buffer/</guid>
+      <description>LNMP架构中的输出缓冲区 首先来看一下LNMP架构中涉及输出缓冲区的部分，后面会依次验证：
+从图中，可以看出 Nginx层，SAPI层(PHP-FPM)和PHP内核中均有输出缓冲区，由此可见缓冲区是多么重要的一部分。
+PHP-FPM 输出缓冲区 探讨下PHP-FPM 中的输出缓冲区，先来设置一个ini配置: output_buffering，把他设置为 0：
+; Development Value: 4096 ; Production Value: 4096 ; http://php.net/output-buffering output_buffering = 0 设置完这个参数后，便关闭了PHP内核中的默认缓冲区。 来看一段代码，因为nginx中设置的fastcgi buffer的大小是4k，而每次输出的数据都是大于4k的，因此输出不会受到nginx输出缓冲区的影响。
+未使用任何flush函数 &amp;lt;?php /** * 默认页面 */ class IndexController extends AbstractController { public function process() { for($i = 0; $i &amp;lt; 10; ++$i) { echo $i; echo str_repeat(&#39; &#39;, 4096) . &amp;quot;&amp;lt;br /&amp;gt;&amp;quot;; sleep(1); } exit; } } 运行这段代码，预期是每次输出1个数字，可是结果却是每次输出2个数字，即0，1一起输出，2，3一起输出，这是为什么呢？ 由于关闭了PHP内核中的输出缓冲，也没有使用ob_start系列的函数，而且数据量也大于了nginx中的输出缓冲，所以我猜测PHP-FPM中还有一个输出缓冲区,通过查阅fpm的源代码(php-5.6.10/sapi/fpm/fpm/fastcgi.h文件)，我发现在fcgi_request结构中有一个out_buf参数，大小是8k：
+typedef struct _fcgi_request { int listen_socket; #ifdef _WIN32 int tcp; #endif int fd; int id; int keep; int closed; int in_len; int in_pad; fcgi_header *out_hdr; unsigned char *out_pos; unsigned char out_buf[1024*8]; unsigned char reserved[sizeof(fcgi_end_request_rec)]; HashTable *env; } fcgi_request; 于是我觉得这个参数应该就是PHP-FPM中的输出缓冲区大小。 OK，来验证一下，将上面代码中空格的数目改为8192试试，即：</description>
     </item>
     
     <item>
@@ -2122,6 +2743,21 @@ NBA就是一个利益至上的生意场，有的时候，为了利益变脸的�
     </item>
     
     <item>
+      <title>php的压缩函数实现：gzencode、gzdeflate和gzcompress</title>
+      <link>http://yezuozuo.github.io/program/php%E7%9A%84%E5%8E%8B%E7%BC%A9%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0gzencodegzdeflate%E5%92%8Cgzcompress/</link>
+      <pubDate>Wed, 03 Feb 2016 19:57:44 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/php%E7%9A%84%E5%8E%8B%E7%BC%A9%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0gzencodegzdeflate%E5%92%8Cgzcompress/</guid>
+      <description>gzencode 默认使用ZLIB_ENCODING_GZIP编码，使用gzip压缩格式，实际上是使用defalte 算法压缩数据，然后加上文件头和adler32校验 gzdeflate 默认使用ZLIB_ENCODING_RAW编码方式，使用deflate数据压缩算法，实际上是先用 LZ77 压缩，然后用霍夫曼编码压缩 gzcompress ；默认使用ZLIB_ENCODING_DEFLATE编码，使用zlib压缩格式，实际上是用 deflate 压缩数据，然后加上 zlib 头和 CRC 校验  这三个函数的比较实质上是三种压缩方法：deflate, zlib, gzip的比较。
+从性能的维度看：deflate 好于 gzip 好于 zlib
+从文本文件默认压缩率压缩后体积的维度看：deflate 好于 zlib 好于 gzip
+这三种算法中gzip 、zlib的作者都是Jean-Loup Gailly和 Mark Adler。 这两种算法以及图形格式png，使用的压缩算法却都是deflate算法。 deflate算法是同时使用了LZ77算法与哈夫曼编码（Huffman Coding）的一个无损数据压缩算法。 它最初是由Phil Katz为他的PKZIP归档工具第二版所定义的，后来定义在 RFC 1951规范中。
+deflate算法的压缩与解压的实现过程可以在压缩库zlib上找到。 PHP的压缩实现依赖于zlib，zlib是一个提供了 deflate, zlib, gzip 压缩方法的函数库。 我们所使用的上面三个函数，将参数中的encoding转为相同，压缩率设置相同，则其最终调用的是同一个函数，效果和性能一样。
+PHP的zlib实现是以扩展的方式存在于ext/zlib目录中。通过deflateInit2() + deflate() + deflateEnd()三个函数配合完成压缩功能，inflateInit2() + inflate() + inflateEnd()三个函数配合完成解压功能。压缩最终都是通过php_zlib_encode函数实现调用，除了输入的字符串，压缩率，结果的输出外，不同的入口函数调用参数不同的是其encoding。deflateInit2的第四个参数指定encoding，PHP定义了三个常量：
+#define PHP_ZLIB_ENCODING_RAW -0xf //deflate -15 #define PHP_ZLIB_ENCODING_GZIP 0x1f //gzip 15 + 16 #define PHP_ZLIB_ENCODING_DEFLATE 0x0f // zlib 15 三个函数在调用过程可以直接指定encoding使用其它的算法：</description>
+    </item>
+    
+    <item>
       <title>生病</title>
       <link>http://yezuozuo.github.io/posts/%E7%94%9F%E7%97%85/</link>
       <pubDate>Mon, 25 Jan 2016 16:12:40 +0800</pubDate>
@@ -2149,6 +2785,45 @@ NBA就是一个利益至上的生意场，有的时候，为了利益变脸的�
 人不能只为了自己而活着。
 世界这么复杂，我们要彼此帮助才能坚持下去的啊。
 一个人，再怎么也太孤独了。</description>
+    </item>
+    
+    <item>
+      <title>php执行流程</title>
+      <link>http://yezuozuo.github.io/program/php%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B/</link>
+      <pubDate>Mon, 18 Jan 2016 19:54:35 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/php%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B/</guid>
+      <description>一图胜千言，此图详细描述了PHP执行的5个步骤以及过程中做了哪些事情。
+以fpm为例：
+1、fpm启动时，会先执行 module_startup, 并随着fpm进程常驻
+2、当一个请求到达之后，会执行 request_startup, 进行一些请求初始化工作，然后执行代码（execute_script）, 最后，执行request_shutdown，把结果flush, 并做一些收尾工作
+3、当我们关闭fpm或reload fpm的时候，会执行module_shutdown
+最后抛几个问题给大家思考一下：
+1、opcache在哪个阶段，解决了什么问题？
+2、ini的文件加载在哪一步？每个请求到达是否都需要解析？
+3、当出现fatal error，会有一个register_shutdown_function回调，这个是在哪一步？执行完这个之后，fpm进程还在么？</description>
+    </item>
+    
+    <item>
+      <title>爬了人生最大的坑</title>
+      <link>http://yezuozuo.github.io/program/%E7%88%AC%E4%BA%86%E4%BA%BA%E7%94%9F%E6%9C%80%E5%A4%A7%E7%9A%84%E5%9D%91/</link>
+      <pubDate>Fri, 18 Dec 2015 20:31:47 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/%E7%88%AC%E4%BA%86%E4%BA%BA%E7%94%9F%E6%9C%80%E5%A4%A7%E7%9A%84%E5%9D%91/</guid>
+      <description>刚开始做公司的某个业务的时候，要存数据。
+那就存成两部分，一部分zset存列表，一部分string存profile。
+zset的key是userid，score是时间，member是profile的key。
+很简单吧。
+但是，在存string的时候有了麻烦。这次的数据比较多，所以我用了一个redis的集群，按照key%10进行分片。
+当然之前都是没问题的，之前一般我们都是拿userid hash的，userid现在最多是10位。但是这次我存的key是trade no。也就是类似这种东西2016121612292709411017316。
+所以我就按照上面的方案存了。
+之后上线了好久才发现，怎么第7个分片的数据这么多啊，比其他的分片数据多多了。
+然后开始查问题。
+我们的底层封装的hash有这样一行代码
+$res = intval($id); 要把id转换成int。
+那么问题来了，2016121612292709411017316转换成int是多少？
+ 我们存的是字符串，也就是intval(&amp;lsquo;2016121612292709411017316&amp;rsquo;) = 9223372036854775807 这里具体为什么自行Google
+ 这就是坑</description>
     </item>
     
     <item>
@@ -2183,6 +2858,199 @@ NBA就是一个利益至上的生意场，有的时候，为了利益变脸的�
 努力想得到什么东西，其实只要沉着镇静、实事求是，就可以轻易地、神不知鬼不觉地达到目的。而如果过于使劲，闹得太凶，太幼稚，太没有经验，就哭啊，抓啊，拉啊，像一个小孩扯桌布，结果却是一无所获，只不过把桌上的好东西都扯到地上，永远也得不到了。
 中国的古人曾说你所处的世界是你所想的世界，而无所谓什么真是的存在。你拈一朵盛开的花在眼前，你笃信它开得正盛，是因为你看到它开放了；当你闭上眼睛的时候你看不到它的开放，却仍旧相信它是盛开的；这就是人用自己的心把所见所闻的世界补完了，你所见所闻的只是这个世界的一小部分，但在你的心里这个世界却是完整无缺的。
 希望大家都活得精彩。</description>
+    </item>
+    
+    <item>
+      <title>从一个centos裸机一步一步搭建完整的PHP环境</title>
+      <link>http://yezuozuo.github.io/program/%E4%BB%8E%E4%B8%80%E4%B8%AAcentos%E8%A3%B8%E6%9C%BA%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%95%B4%E7%9A%84php%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Sat, 28 Nov 2015 13:37:19 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/%E4%BB%8E%E4%B8%80%E4%B8%AAcentos%E8%A3%B8%E6%9C%BA%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%95%B4%E7%9A%84php%E7%8E%AF%E5%A2%83/</guid>
+      <description>购买服务器：在阿里云上注册账号，如果是学生的话可以买学生套餐，否则买正常的。在用户面板会得到一个密码，用户名默认为root。这个密码是可以修改的。同时会获得一个公网的IP。 非常重要的就是修改完密码要重启一下服务器。 登陆服务器：在terminal执行ssh root@公网IP( ssh root@42.96.142.34)，提示输入密码，输入之后登陆上。 登录后yum update 配置私钥免登录：如果电脑在已经有了.ssh目录下已经有了.pub文件，那就直接使用即可，没有的话把生成一个公钥和私钥(ssh-keygen)。 在服务器上新建一个用户，比如 adduser zoco 给用户设置密码passwd zoco 输入密码和确认密码 把zoco用户加入wheel用户组 usermod -a -G wheel zoco 用scp把.pub文件传到服务器上（scp id_rsa.pub zoco@42.96.142.34:） 用zoco的身份登陆服务器ssh zoco@42.96.142.34，输入之前的密码 mkdir ~/.ssh touch ~/.ssh/authorized_keys cat ~/id_rsa.pub &amp;raquo; ~/.ssh/authorized_keys 一定要保证在服务器上这个文件所属的用户名是你的用户名（zoco）( chown -R zoco:zoco ~/.ssh )，而且权限设置为700( chown -R 700 ~/.ssh)。(这一步如果权限不够的话用root权限su) 然后在自己.ssh目录下打开config文件，加上 成功的话直接ssh ip( ssh 42.96.142.3)就可以登录到服务器中。 （用root用户）之后就可以禁用root用户登录。(打开/etc/ssh/sshd_config，找到 PermitRootLogin yes 这一句，将yes改成no；)然后禁止密码登录，在相同的文件下找到PasswordAuthentication，改成no。 然后重启ssh一下（ service sshd restart）。 安装nginx:sudo yum install nginx 测试一下nginx的配置文件nginx -t 如果返回这个说明成功 - nginx: the configuration file /etc/nginx/nginx.</description>
+    </item>
+    
+    <item>
+      <title>深入php redis pconnect</title>
+      <link>http://yezuozuo.github.io/program/%E6%B7%B1%E5%85%A5php-redis-pconnect/</link>
+      <pubDate>Thu, 08 Oct 2015 20:31:47 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/%E6%B7%B1%E5%85%A5php-redis-pconnect/</guid>
+      <description>pconnect是phpredis中用于client连接server的api。
+API文档中的一句原文：
+ The connection will not be closed on close or end of request until the php process ends.
+ 那么问题来了：
+ php process ends是指一次php执行完结，还是fpm的终结？如果是后者，那意味着即使一次php执行完毕，redis连接也不会被释放，下一次执行时redis连接会被重用。 The connection will not be closed on close是 说如果使用了pconnect, 即使在代码中显示的调用close(), 也不会关闭连接？  带着这两个问题，我们做下实验，深入看一下pconnect究竟做了些什么。
+准备工作 环境：
+nginx + fpm php5.3 我们将fpm配置为
+pm.max_children =1 pm.start_servers =1 pm.max_spare_servers =1 这样，我们的页面请求会由一个确定的fpm进程执行，方便strace跟踪。
+对应页面请求的php代码：
+$ip=“10.136.30.144”; $port=7777; $redis=newRedis(); $redis-&amp;gt;pconnect($ip,$port,1); $key=“test”; $value=“this is test”; $redis-&amp;gt;set($key,$value); $d=$redis-&amp;gt;get($key); var_dump($d); 代码的功能很简单，连接redis，先设置一个值，再取出。
+测试问题一 思路：
+使用strace观察fpm的系统调用，如果连接的生命周期是一次php执行，那么每次页面调用，都会有connect系统调用，用以连接redis；如果连接的生命周期是fpm的终结，那么只有第一次页面调用会有connect系统调用 ，之后由于连接被重用，无需connect，直接发命令请求即可。 启动一个新的fpm（进程号28082）。</description>
+    </item>
+    
+    <item>
+      <title>新浪微博关系服务与Redis的故事</title>
+      <link>http://yezuozuo.github.io/program/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%E5%85%B3%E7%B3%BB%E6%9C%8D%E5%8A%A1%E4%B8%8Eredis%E7%9A%84%E6%95%85%E4%BA%8B/</link>
+      <pubDate>Wed, 30 Sep 2015 13:34:27 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%E5%85%B3%E7%B3%BB%E6%9C%8D%E5%8A%A1%E4%B8%8Eredis%E7%9A%84%E6%95%85%E4%BA%8B/</guid>
+      <description>参考：http://os.51cto.com/art/201404/436521.htm
+风起 2009年微博刚刚上线的时候，微博关系服务使用的是最传统的 Memcache+Mysql 的方案。Mysql 按 uid hash 进行了分库分表，表结构非常简单：
+业务方存在两种查询：
+查询用户的关注列表：
+select touid from table where fromuid=？order by addTime desc 查询用户的粉丝列表：
+select fromuid from table where touid=？order by addTime desc 两种查询的业务需求与分库分表的架构设计存在矛盾，最终导致了冗余存储：以 fromuid 为hash key存一份，以 touid 为hash key再存一份。memcache key 为 fromuid.suffix ，使用不同的 suffix 来区分是关注列表还是粉丝列表，cache value 则为 PHP Serialize 后的 Array。后来为了优化性能，将 value 换成了自己拼装的 byte 数组。
+云涌 2011年微博进行平台化改造过程中，业务提出了新的需求：在核心接口中增加了“判断两个用户的关系”的步骤，并增加了“双向关注”的概念。因此两个用户的关系存在四种状态：关注，粉丝，双向关注和无任何关系。为了高效的实现这个需求，平台引入了 Redis 来存储关系。平台使用 Redis 的 hash 来存储关系：key 依然是 uid.suffix，关注列表，粉丝列表及双向关注列表各自有一个不同的 suffix，value 是一个hash，field 是 touid，value 是 addTime。order by addTime 的功能则由 Service 内部 sort 实现。部分大V的粉丝列表可能很长，与产品人员的沟通协商后，将存储限定为“最新的5000个粉丝列表”。</description>
+    </item>
+    
+    <item>
+      <title>empty的一个bug</title>
+      <link>http://yezuozuo.github.io/program/empty%E7%9A%84%E4%B8%80%E4%B8%AAbug/</link>
+      <pubDate>Mon, 31 Aug 2015 20:13:02 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/empty%E7%9A%84%E4%B8%80%E4%B8%AAbug/</guid>
+      <description>先看一段代码例子：
+class x { public function __get($k) { return 1; } public function __isset($k) { return true; } } $x = new x(); var_dump($x-&amp;gt;b); var_dump(empty($x-&amp;gt;b)); 这个返回 1 false
+把__isset的代码注释掉，例子为：
+class x { public function __get($k) { return 1; } //public function __isset($k) { // return true; //} } $x = new x(); var_dump($x-&amp;gt;b); var_dump(empty($x-&amp;gt;b)); 返回变为 1 true
+原因为：
+empty() will call __isset() first, and only if it returns true will it call __get().</description>
+    </item>
+    
+    <item>
+      <title>一个Bad gateway的bug</title>
+      <link>http://yezuozuo.github.io/program/%E4%B8%80%E4%B8%AAbad-gateway%E7%9A%84bug/</link>
+      <pubDate>Thu, 16 Jul 2015 19:48:25 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/%E4%B8%80%E4%B8%AAbad-gateway%E7%9A%84bug/</guid>
+      <description>线上机器有回调的接口，会时不时的报502 Bad Gateway的错误，本来也没什么，但是天天每隔几分钟来一条报警的短信，很烦的。让sa那边把报警取消了他们又说这个业务不能取消，只能尝试解决一下了。
+首先上网查了一下，都是什么配置错误啊，程序错误啊之类的。
+但是我们的问题诡异就诡异在：PHP层面没有任何报错的信息。而且配置错误是一个非常小概率的事情，差不多100台机器只有两台报警而且不会影响到线上的业务。（最主要的原因是改配置的话需要所有机器都改一遍，在流量小的情况下是不会报警的，测试风险和成本太大，所以只能从别的地方入手）。
+遇到bug不可怕，但是那种没有线索的bug才是让人头疼的。
+那么既然php层面没有问题，那么就来看nginx层面，通过对报警时间和日志的分析，发现报警前几乎error.log里面都会有这样一段日志：
+2015/07/15 09:24:04 [error] 10853#0: *6453 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 219.136.34.244, server: 203.20.249.124, request: &amp;quot;POST /api.php/pay/uc/callback HTTP/1.1&amp;quot;, upstream: &amp;quot;fastcgi://127.0.0.1:7777&amp;quot;, host: &amp;quot;203.20.249.124:81&amp;quot; 这是nginx的错误日志, 看字面意思是nginx发现没有存活的后端了，但是很奇怪的事情是，这段时间一直访问都正常。
+现在只能从nginx源码的角度来看了。
+因为是upstream有关的报错，所以在ngx_http_upstream.c中查找“no live upstreams”的关键字，可以找到如下代码（其实，你会发现，如果在nginx全局代码中找的话，也只有这个文件里面有这个关键字）：
+rc = ngx_event_connect_peer(&amp;amp;u-&amp;gt;peer); ngx_log_debug1(NGX_LOG_DEBUG_HTTP, r-&amp;gt;connection-&amp;gt;log, 0, &amp;quot;http upstream connect: %i&amp;quot;, rc); if (rc == NGX_ERROR) { ngx_http_upstream_finalize_request(r, u, NGX_HTTP_INTERNAL_SERVER_ERROR); return; } u-&amp;gt;state-&amp;gt;peer = u-&amp;gt;peer.name; if (rc == NGX_BUSY) { ngx_log_error(NGX_LOG_ERR, r-&amp;gt;connection-&amp;gt;log, 0, &amp;quot;no live upstreams&amp;quot;); ngx_http_upstream_next(r, u, NGX_HTTP_UPSTREAM_FT_NOLIVE); return; } if (rc == NGX_DECLINED) { ngx_http_upstream_next(r, u, NGX_HTTP_UPSTREAM_FT_ERROR); return; } 在这里可以看出，当rc等于NGX_BUSY的时候，就会记录“no live upstreams”的错误。</description>
+    </item>
+    
+    <item>
+      <title>xhprof源码分析</title>
+      <link>http://yezuozuo.github.io/program/xhprof%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</link>
+      <pubDate>Thu, 04 Jun 2015 19:48:25 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/xhprof%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</guid>
+      <description>源码位置：/path/xhprof/extension/xhprof.c
+数据结构 两个重要的数据结构：
+typedef struct hp_entry_t { char *name_hprof; /* function name */ int rlvl_hprof; /* recursion level for function */ uint64 tsc_start; /* start value for TSC counter */ long int mu_start_hprof; /* memory usage */ long int pmu_start_hprof; /* peak memory usage */ struct rusage ru_start_hprof; /* user/sys time start */ struct hp_entry_t *prev_hprof; /* ptr to prev entry being profiled */ uint8 hash_code; /* hash_code for the function name */ } hp_entry_t; typedef struct hp_global_t { /* ---------- Global attributes: ----------- */ /* Indicates if xhprof is currently enabled */ int enabled; /* Indicates if xhprof was ever enabled during this request */ int ever_enabled; /* Holds all the xhprof statistics */ zval *stats_count; /* Indicates the current xhprof mode or level */ int profiler_level; /* Top of the profile stack */ hp_entry_t *entries; /* freelist of hp_entry_t chunks for reuse.</description>
+    </item>
+    
+    <item>
+      <title>Laravel学习笔记——神奇的服务容器</title>
+      <link>http://yezuozuo.github.io/program/laravel%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E7%A5%9E%E5%A5%87%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8/</link>
+      <pubDate>Tue, 05 May 2015 09:50:26 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/laravel%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E7%A5%9E%E5%A5%87%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8/</guid>
+      <description>参考：https://www.insp.top/learn-laravel-container
+ 容器，字面上理解就是装东西的东西。常见的变量、对象属性等都可以算是容器。一个容器能够装什么，全部取决于你对该容器的定义。当然，有这样一种容器，它存放的不是文本、数值，而是对象、对象的描述（类、接口）或者是提供对象的回调，通过这种容器，我们得以实现许多高级的功能，其中最常提到的，就是 “解耦” 、“依赖注入（DI）”。本文就从这里开始。
+ IoC 容器， laravel 的核心 Laravel 的核心就是一个 IoC 容器，根据文档，称其为“服务容器”，顾名思义，该容器提供了整个框架中需要的一系列服务。作为初学者，很多人会在这一个概念上犯难，因此，我打算从一些基础的内容开始讲解，通过理解面向对象开发中依赖的产生和解决方法，来逐渐揭开“依赖注入”的面纱，逐渐理解这一神奇的设计理念。
+IoC 容器诞生的故事 面向对象编程，有以下几样东西无时不刻的接触：接口、类还有对象。这其中，接口是类的原型，一个类必须要遵守其实现的接口；对象则是一个类实例化后的产物，我们称其为一个实例。
+我们把一个“超人”作为一个类，
+class Superman {} 我们可以想象，一个超人诞生的时候肯定拥有至少一个超能力，这个超能力也可以抽象为一个对象，为这个对象定义一个描述他的类吧。一个超能力肯定有多种属性、（操作）方法，这个尽情的想象，但是目前我们先大致定义一个只有属性的“超能力”，至于能干啥，我们以后再丰富：
+class Power { /** * 能力值 */ protected $ability; /** * 能力范围或距离 */ protected $range; public function __construct($ability, $range) { $this-&amp;gt;ability = $ability; $this-&amp;gt;range = $range; } } 这时候我们回过头，修改一下之前的“超人”类，让一个“超人”创建的时候被赋予一个超能力：
+class Superman { protected $power; public function __construct() { $this-&amp;gt;power = new Power(999, 100); } } 这样的话，当我们创建一个“超人”实例的时候，同时也创建了一个“超能力”的实例，但是，我们看到了一点，“超人”和“超能力”之间不可避免的产生了一个依赖。
+ 所谓“依赖”，就是 “我若依赖你，我就不能离开你”。</description>
+    </item>
+    
+    <item>
+      <title>php黑魔法</title>
+      <link>http://yezuozuo.github.io/program/php%E9%BB%91%E9%AD%94%E6%B3%95/</link>
+      <pubDate>Mon, 13 Apr 2015 14:00:02 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/php%E9%BB%91%E9%AD%94%E6%B3%95/</guid>
+      <description>猜猜 echo 1&amp;hellip;1输出多少？
+10.1
+1.意思是1.0，.1意思是0.1，中间的点是连接字符串、前浮点数转成1而后浮点数转换成字符串，结果成了&#39;1&amp;rsquo;.&amp;lsquo;0.1&amp;rsquo;，最终变成了10.1的字符串</description>
+    </item>
+    
+    <item>
+      <title>PHP是世界上最好的语言！之array_merge</title>
+      <link>http://yezuozuo.github.io/program/php%E6%98%AF%E4%B8%96%E7%95%8C%E4%B8%8A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%AF%AD%E8%A8%80%E4%B9%8Barray_merge/</link>
+      <pubDate>Mon, 02 Mar 2015 13:53:06 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/php%E6%98%AF%E4%B8%96%E7%95%8C%E4%B8%8A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%AF%AD%E8%A8%80%E4%B9%8Barray_merge/</guid>
+      <description>最近在使用函数 array_merge 合并两个数组时，得到的结果总是不确定，代码如这样：
+$arrResult = array_merge($arrInput1, $arrInput2); 如果已踩过这个坑，肯定能一眼看出代码的潜在问题，以及如何避免，但是问题究竟是什么呢？变量 $arrResult 的值会根据函数 array_merge 的两个参数的类型及值而变化，如：键为数字的字典、null 等，详细问题解释说明请继续往下看！
+来自 PHP 官方网站的array_merge函数说明
+ 函数功能：合并一个或多个数组
+ 函数原型：
+array array_merge(array $array1[, array $...]) 函数 array_merge 将一个或多个数组的单元合并，后一个数组中的值追加到前一个数组的后面，并作为函数结果返回。
+示例场景1：如果输入数组中有相同的字符串键名，则该键名后面的值将覆盖前一个值，如： &amp;lt;?php // PHP 5.6.15 $a = array(&#39;hello&#39; =&amp;gt; 1, &#39;world&#39; =&amp;gt; 2); $b = array(&#39;hi&#39; =&amp;gt; 1, &#39;world&#39; =&amp;gt; 3); $c = array_merge($a, $b); var_dump($c); $d = array_merge($b, $a); var_dump($d); 执行脚本后的结果为：
+array(3) { [&amp;quot;hello&amp;quot;]=&amp;gt; int(1) [&amp;quot;world&amp;quot;]=&amp;gt; int(3) [&amp;quot;hi&amp;quot;]=&amp;gt; int(1) } array(3) { [&amp;quot;hi&amp;quot;]=&amp;gt; int(1) [&amp;quot;world&amp;quot;]=&amp;gt; int(2) [&amp;quot;hello&amp;quot;]=&amp;gt; int(1) } 示例场景2：如果输入数组只有一个且为数字索引，即其中一个数组为 array()，则键名会以连续方式重新索引，如： &amp;lt;?</description>
+    </item>
+    
+    <item>
+      <title>PHP是世界上最好的语言！之==</title>
+      <link>http://yezuozuo.github.io/program/php%E6%98%AF%E4%B8%96%E7%95%8C%E4%B8%8A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%AF%AD%E8%A8%80%E4%B9%8B/</link>
+      <pubDate>Mon, 02 Mar 2015 13:52:31 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/php%E6%98%AF%E4%B8%96%E7%95%8C%E4%B8%8A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%AF%AD%E8%A8%80%E4%B9%8B/</guid>
+      <description>我决定从“==”说起
+PHP 是弱类型的语言，会自动进行数据类型转换，这无疑给我们的开发带来了极大的方便。可事实真是如此吗？那就先就从==说起。
+首先，看一下这段代码。猜猜看结果会是什么
+&amp;lt;?php var_dump(md5(&#39;240610708&#39;) == md5(&#39;QNKCDZO&#39;)); var_dump(md5(&#39;aabg7XSs&#39;) == md5(&#39;aabC9RqS&#39;)); var_dump(sha1(&#39;aaroZmOk&#39;) == sha1(&#39;aaK1STfY&#39;)); var_dump(sha1(&#39;aaO8zKZF&#39;) == sha1(&#39;aa3OFF9m&#39;)); var_dump(&#39;0010e2&#39; == &#39;1e3&#39;); var_dump(&#39;0x1234Ab&#39; == &#39;1193131&#39;); var_dump(&#39;0xABCdef&#39; == &#39; 0xABCdef&#39;); var_dump(0 == &#39;abcdefg&#39;); var_dump(1 == &#39;1abcdef&#39;); ?&amp;gt; 一眼看过，很明显肯定都是false吧，但运行代码后发现全是true！
+WTF!
+为什么会这样？ PHP 是弱类型的语言。使用==对比两个变量时，当有一个变量为整数，另外一个变量也会转换为整数。这也就解释了，为什么0 == &amp;lsquo;abcdefg&amp;rsquo;和1 == &amp;lsquo;1abcdef&amp;rsquo;会成立。
+但是，其他的代码呢？字符串难道还会转换？
+PHP 手册上为我们提供了解释说明。
+ If you compare a number with a string or the comparison involves numerical strings, then each string is converted to a number and the comparison performed numerically.</description>
+    </item>
+    
+    <item>
+      <title>PHP是世界上最好的语言！之……</title>
+      <link>http://yezuozuo.github.io/program/php%E6%98%AF%E4%B8%96%E7%95%8C%E4%B8%8A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%AF%AD%E8%A8%80%E4%B9%8B/</link>
+      <pubDate>Mon, 02 Mar 2015 13:50:33 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/php%E6%98%AF%E4%B8%96%E7%95%8C%E4%B8%8A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%AF%AD%E8%A8%80%E4%B9%8B/</guid>
+      <description>1.++与&amp;ndash; &amp;lt;?php $a = null; $a ++; var_dump($a); echo &amp;quot;\n&amp;quot;; $a = null; $a --; var_dump($a); 执行结果为
+int(1) NULL ++的时候为1我还可以理解 &amp;ndash;的时候为null我就凌乱了
+解决这种++和&amp;ndash;中的不一致的办法就是根本不用它们，用+=和-=代替。
+2.strrchr函数 官方解释
+ strrchr() 函数查找字符串在另一个字符串中最后一次出现的位置，并返回从该位置到字符串结尾的所有字符。 如果成失败，否则返回 false。
+ 实际上，这个函数是查找某个字符，而不是查找字符串
+&amp;lt;?php $a = &#39;abcdef.txt&#39;; $b = &#39;.php&#39;; echo strrchr($a, $b); 上面的代码输出是：.txt 也就是说，如果$b是字符串，只使用第一个字符，后面的其它字符会忽略
+3.trim函数遇到中文空格时，会乱码 &amp;lt;?php $str = &#39; 《前后有全半角空格》　&#39;; var_dump($str); $str2 = trim($str, &#39; &#39;); var_dump($str2); 执行结果为：
+string(38) &amp;quot; 《前后有全半角空格》　&amp;quot; string(28) &amp;quot;�前后有全半角空格》&amp;quot; 这个问题的修改方法是采用正则
+&amp;lt;?php $str = &#39; 《前后有全半角空格》　&#39;; var_dump($str); $str3 = mb_ereg_replace(&#39;^(?</description>
+    </item>
+    
+    <item>
+      <title>php语法优化实践</title>
+      <link>http://yezuozuo.github.io/program/php%E8%AF%AD%E6%B3%95%E4%BC%98%E5%8C%96%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Thu, 19 Feb 2015 13:44:14 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/php%E8%AF%AD%E6%B3%95%E4%BC%98%E5%8C%96%E5%AE%9E%E8%B7%B5/</guid>
+      <description>1. 避免使用array_walk_recursive或其他形式的递归 比如想要对一个多位数组的内容进行过滤 使用array_walk_recursive的写法为
+function outputFilter(&amp;amp;$value) { $value = preg_replace(&#39;&#39;, &#39;&#39;, $value); } } array_walk_recursive($output, &#39;outputFilter&#39;); 其实我们可以把多维数组降成一维，使用array_reduce或者json_encode将数组变为字符串进行处理。
+function outputFilter_u(&amp;amp;$value) { $value = preg_replace(&#39;&#39;, &#39;&#39;, $value); } $json = json_encode($output); outputFilter_u($json); 2. 用isset代替in_array 尤其是越大的数组这种对比越明显
+避免
+if (in_array(&#39;1&#39;, $array)) {} 使用
+if (isset($array[&#39;1&#39;])) {} 3. 少用@错误抑制符 虽然会减少了warning和notice，但是实际上会带来性能的下降
+避免
+@test(); 4.避免Deep Array 对于C来说, 符号在执行器都会变成地址(绝大部分), 而对于PHP来说, 符号都需要经过查找(Hash Lookup)才能使用, 于是我也看到了类似下面的代码
+for ($i=0; i&amp;lt;10;i++) { $arr[1][2][3][4][5] = $i; } 这样的话，每一次循环, 都会带来6次的Hash Lookup…..
+5. 变量先定义再引用 这样不仅会在性能上得到一定的提升，而且最重要的是代码的可读性会提升，毕竟看代码看的看的突然出现一个不知道什么意思的变量，你懂的……
+6. 用isset($string[5])代替strlen($string)（不建议在生产环境使用） 避免</description>
+    </item>
+    
+    <item>
+      <title>php与rand相关的函数</title>
+      <link>http://yezuozuo.github.io/program/php%E4%B8%8Erand%E7%9B%B8%E5%85%B3%E7%9A%84%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Mon, 12 Jan 2015 14:00:30 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/php%E4%B8%8Erand%E7%9B%B8%E5%85%B3%E7%9A%84%E5%87%BD%E6%95%B0/</guid>
+      <description>mcrypt_create_iv make_http_soap_request shuffle array_rand php_password_make_salt rand crypt 这些函数在php底层都用到了php_rand的方法，会导致随机数随机不均匀的问题，慎用。</description>
     </item>
     
     <item>

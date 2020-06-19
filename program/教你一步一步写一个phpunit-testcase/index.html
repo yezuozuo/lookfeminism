@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>教你一步一步写一个phpunit testcase - zoco</title>
+    <meta property="og:title" content="教你一步一步写一个phpunit testcase - zoco">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="https://github.com/yezuozuo/how-to-write-a-phpunit-testcase
+[&amp;hellip;] https://phpunit.de/manual/current/zh_cn/index.html 这个是phpunit的文档,但是看完了我完全不知道怎么入手好吗,从0到1这个过程就在下面。
+[&amp;hellip;] 目录结构
+. |-- reports &amp;hellip;">
+      <meta property="og:description" content="https://github.com/yezuozuo/how-to-write-a-phpunit-testcase
+[&amp;hellip;] https://phpunit.de/manual/current/zh_cn/index.html 这个是phpunit的文档,但是看完了我完全不知道怎么入手好吗,从0到1这个过程就在下面。
+[&amp;hellip;] 目录结构
+. |-- reports &amp;hellip;">
+      
+    
+
+    
+    
+    <meta name="twitter:image" content="https://s1.ax1x.com/2020/06/18/Nnu1IO.png">
+    
+    
+
+    
+
+    
+    
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="program">
+    <header class="masthead">
+      <h1><a href="/">zoco</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/book/">书单</a></li>
+  
+  <li><a href="/posts/">日志</a></li>
+  
+  <li><a href="/program/">程序</a></li>
+  
+  <li><a href="/poem/">诗</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>教你一步一步写一个phpunit testcase</h1>
+
+<h3>
+  2016-11-05</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h3 id="程序地址">程序地址</h3>
+<p><a href="https://github.com/yezuozuo/how-to-write-a-phpunit-testcase">https://github.com/yezuozuo/how-to-write-a-phpunit-testcase</a></p>
+<h3 id="使用方法">使用方法</h3>
+<ol>
+<li>composer install</li>
+<li>phpunit tests/EventTest.php</li>
+</ol>
+<h3 id="背景">背景</h3>
+<p><a href="https://phpunit.de/manual/current/zh_cn/index.html">https://phpunit.de/manual/current/zh_cn/index.html</a> 这个是phpunit的文档,但是看完了我完全不知道怎么入手好吗,从0到1这个过程就在下面。</p>
+<h3 id="综述">综述</h3>
+<p>目录结构</p>
+<pre><code>.
+|-- reports
+|-- src
+|   -- PHPUnitEventDemo
+|      -- Event.php
+|      -- EventException.php
+|      -- User.php
+|-- tests
+|   -- EventTest.php
+|-- .gitignore
+|-- composer.json
+|-- phpunit.xml
+|-- README.md
+</code></pre><ul>
+<li>PHPUnitEventDemo - 下面是要测试的类
+* Event.php - Event类
+* EventException.php - Event异常类
+* User.php - User类</li>
+<li>tests - 单元测试目录
+* EventTest.php - 测试Event类的测试用例</li>
+</ul>
+<h4 id="assertions断言">Assertions（断言）</h4>
+<p>断言为PHPUnit的主要功能，用来验证单元的执行结果是不是预期值。</p>
+<p>例子:</p>
+<pre><code>assertTrue(true);   # SUCCESSFUL
+assertEquals('orz', 'oxz', 'The string is not equal with orz');   #UNSUCCESSFUL
+assertCount(1, array('Monday'));   # SUCCESSFUL
+assertContains('PHP', array('PHP', 'Java', 'Ruby'));   # SUCCESSFUL
+</code></pre><p>assertTrue()：判断实际值是否为true。</p>
+<p>assertEquals()：预期值是orz，实际值是oxz，因为两个值不相等，所以这一个断言失败，会显示The string is not equal with orz的字串。</p>
+<p>assertCount()：预期数组大小为1。</p>
+<p>assertContains()：预期数组中有一个PHP字串的元素存在。</p>
+<p>从上面的后三个assertions可以发现，预期值都是在第一个参数，而后面则是实际值。</p>
+<h3 id="代码示例">代码示例</h3>
+<p><strong>src/PHPUnitEventDemo/User.php</strong></p>
+<pre><code>&lt;?php
+
+namespace PHPUnitEventDemo;
+
+/**
+ * Class User
+ *
+ * @package PHPUnitEventDemo
+ */
+class User {
+    /**
+     * @var int 用户id
+     */
+    public $id;
+
+    /**
+     * @var string 用户名
+     */
+    public $name;
+
+    /**
+     * @var string 用户邮箱
+     */
+    public $email;
+
+    /**
+     * User constructor.
+     *
+     * @param $id
+     * @param $name
+     * @param $email
+     */
+    public function __construct($id, $name, $email) {
+        $this-&gt;id    = $id;
+        $this-&gt;name  = $name;
+        $this-&gt;email = $email;
+    }
+}
+</code></pre><p>User类很单纯，主要就是建立User对象。</p>
+<p><strong>src/PHPUnitEventDemo/Event.php</strong></p>
+<pre><code>&lt;?php
+
+namespace PHPUnitEventDemo;
+
+/**
+ * Class Event
+ *
+ * @package PHPUnitEventDemo
+ */
+class Event {
+    /**
+     * @var int event id
+     */
+    public $id;
+
+    /**
+     * @var string 事件名
+     */
+    public $name;
+
+    /**
+     * @var string 事件开始时间
+     */
+    public $startDate;
+
+    /**
+     * @var string 事件结束时间
+     */
+    public $endDate;
+
+    /**
+     * @var int 参加者限制
+     */
+    public $attendLimit;
+
+    /**
+     * @var array 参加者列表
+     */
+    public $attendArr = array();
+
+    /**
+     * Event constructor.
+     *
+     * @param $id
+     * @param $name
+     * @param $startDate
+     * @param $endDate
+     * @param $attendLimit
+     */
+    public function __construct($id, $name, $startDate, $endDate, $attendLimit) {
+        $this-&gt;id          = $id;
+        $this-&gt;name        = $name;
+        $this-&gt;startDate   = $startDate;
+        $this-&gt;endDate     = $endDate;
+        $this-&gt;attendLimit = $attendLimit;
+    }
+
+    /**
+     * 用户报名，将报名的用户存在数组中，数组的索引值就是用户的id
+     *
+     * @param $user
+     * @return bool
+     * @throws EventException
+     */
+    public function reserve($user) {
+        // 报名人数是否超过限制
+        if ($this-&gt;attendLimit &gt; $this-&gt;getAttendNumber()) {
+            if (array_key_exists($user-&gt;id, $this-&gt;attendArr)) {
+                throw new EventException('Duplicated reservation', EventException::DUPLICATED_RESERVATION);
+            }
+            // 使用者报名
+            $this-&gt;attendArr[$user-&gt;id] = $user;
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * 获取报名用户的人数
+     *
+     * @return int
+     */
+    public function getAttendNumber() {
+        return sizeof($this-&gt;attendArr);
+    }
+
+    /**
+     * 取消报名
+     *
+     * @param $user
+     */
+    public function unReserve($user) {
+        unset($this-&gt;attendArr[$user-&gt;id]);
+    }
+}
+</code></pre><p>Event类就是用来让用户报名的,也很简单。</p>
+<p>接着我们需要写EventTest来测试Event的单元测试结果是不是符合预期。</p>
+<pre><code>&lt;?php
+
+/**
+ * Class EventTest
+ */
+class EventTest extends PHPUnit_Framework_TestCase {
+    /**
+     * @var PHPUnitEventDemo\Event 事件
+     */
+    private $event;
+
+    /**
+     * @var PHPUnitEventDemo\User 用户
+     */
+    private $user;
+
+    public function setUp() {
+        $eventId          = 1;
+        $eventName        = '活动1';
+        $eventStartDate   = '2016-11-01 18:00:00';
+        $eventEndDate     = '2016-11-01 20:00:00';
+        $eventAttendLimit = 10;
+        $this-&gt;event      = new \PHPUnitEventDemo\Event($eventId, $eventName, $eventStartDate, $eventEndDate, $eventAttendLimit);
+
+        $userId     = 1;
+        $userName   = 'User1';
+        $userEmail  = 'user1@zoco.space';
+        $this-&gt;user = new \PHPUnitEventDemo\User($userId, $userName, $userEmail);
+    }
+
+    public function tearDown() {
+        $this-&gt;event = null;
+        $this-&gt;user  = null;
+    }
+
+    /**
+     * 测试报名
+     *
+     * @return array
+     */
+    public function testReserve() {
+        $this-&gt;event-&gt;reserve($this-&gt;user);
+        $expectedNumber = 1;
+
+        // 预期报名人数
+        $this-&gt;assertEquals($expectedNumber, $this-&gt;event-&gt;getAttendNumber());
+
+        // 报名清单中有已经报名的人
+        $this-&gt;assertContains($this-&gt;user, $this-&gt;event-&gt;attendArr);
+
+        return [$this-&gt;event, $this-&gt;user];
+    }
+
+    /**
+     * 测试取消报名
+     *
+     * @param $obj
+     * @depends testReserve
+     */
+    public function testUnReserve($obj) {
+        $event = $obj[0];
+        $user  = $obj[1];
+
+        // 使用者取消报名
+        $event-&gt;unReserve($user);
+
+        $unReserveExpectedCount = 0;
+
+        // 预期报名人数
+        $this-&gt;assertEquals($unReserveExpectedCount, $event-&gt;getAttendNumber());
+
+        // 报名清单中没有已经取消报名的人
+        $this-&gt;assertNotContains($user, $event-&gt;attendArr);
+    }
+
+    /**
+     * @param $eventId
+     * @param $eventName
+     * @param $eventStartDate
+     * @param $eventEndDate
+     * @param $eventAttendLimit
+     * @dataProvider eventsDataProvider
+     */
+    public function testAttendeeLimitReserve($eventId, $eventName, $eventStartDate, $eventEndDate, $eventAttendLimit) {
+        // 测试报名人数限制
+        $event      = new \PHPUnitEventDemo\Event($eventId, $eventName, $eventStartDate, $eventEndDate, $eventAttendLimit);
+        $userNumber = 6;
+
+        // 建立不同使用者报名
+        for ($userCount = 1; $userCount &lt; $userNumber; $userCount++) {
+            $userId    = $userCount;
+            $userName  = 'User ' . $userId;
+            $userEmail = 'user' . $userId . '@zoco.space';
+            $user      = new \PHPUnitEventDemo\User($userId, $userName, $userEmail);
+
+            $reservedResult = $event-&gt;reserve($user);
+
+            // 报名人數是否超过
+            if ($userCount &gt; $eventAttendLimit) {
+                // 无法报名
+                $this-&gt;assertFalse($reservedResult);
+            } else {
+                $this-&gt;assertTrue($reservedResult);
+            }
+        }
+    }
+
+    /**
+     * @return array
+     */
+    public function eventsDataProvider() {
+        $eventId                   = 1;
+        $eventName                 = '活动1';
+        $eventStartDate            = '2016-11-01 12:00:00';
+        $eventEndDate              = '2016-11-01 13:00:00';
+        $eventAttendeeLimitNotFull = 5;
+        $eventAttendeeFull         = 10;
+
+        $eventsData = array(
+            array(
+                $eventId,
+                $eventName,
+                $eventStartDate,
+                $eventEndDate,
+                $eventAttendeeLimitNotFull
+            ),
+            array(
+                $eventId,
+                $eventName,
+                $eventStartDate,
+                $eventEndDate,
+                $eventAttendeeFull
+            )
+        );
+
+        return $eventsData;
+    }
+
+    /**
+     * @expectedException \PHPUnitEventDemo\EventException
+     * @expectedExceptionMessage Duplicated reservation
+     * @expectedExceptionCode    1
+     */
+    public function testDuplicatedReservationWithException() {
+        // 测试重复报名，预期丢出异常
+        // 同一个使用者报名两次
+        $this-&gt;event-&gt;reserve($this-&gt;user);
+        $this-&gt;event-&gt;reserve($this-&gt;user);
+    }
+}
+</code></pre><p>EventTest会继承phpunit的类PHPUnit_Framework_TestCase。</p>
+<p>EventTest内有一个测试用例testReserve（）。</p>
+<p>testReserve（）内主要会建立一个用户及事件，使用者去报名一个活动，所以活动已经有一个人报名了。</p>
+<p>接下来的断言，assertEquals（）会预期活动报名人数有1个人。</p>
+<p>assertContains（）预期在活动报名清单内，已经有已报名的使用者。</p>
+<p>其中有一个@depends testReserve,这个叫做依赖测试。</p>
+<blockquote>
+<p>依赖测试，如果有两个测试用例，具有依赖关系，就可以使用测试依赖在两个测试用例建立依赖关系。</p>
+</blockquote>
+<p>这里将报名与取消报名分成两个测试用例，让取消报名的测试依赖于报名的测试。</p>
+<p>执行测试</p>
+<pre><code>➜  how-to-write-a-phpunit-testcase git:(master) ✗ phpunit --bootstrap vendor/autoload.php tests/EventTest.php 
+PHPUnit 5.4.8 by Sebastian Bergmann and contributors.
+
+.....                                                               5 / 5 (100%)
+
+Time: 78 ms, Memory: 10.00MB
+
+OK (5 tests, 17 assertions)
+
+</code></pre><h3 id="producer-与-consumer">Producer 与 Consumer</h3>
+<p>testUnReserve（）在注释内利用@depends testReserve（）标记依赖于testReserve（）测试，而被依赖的测试可以当作producer，将值传给依赖的测试testUnReserve（）为consumer，通过参数接收。</p>
+<p>这样就能够报名testReserve（）与取消报名testUneserve（）测试分开，testUneserve（）会接收来自testReserve（）的返回值，为一个两个元素的数组，数组的第一个元素为，已经有人报名的对象，第二个元素为用户对象，是已经报名的使用者。</p>
+<blockquote>
+<p>Q:如果testReserve（）执行失败，testUnReserve（）会执行吗？</p>
+</blockquote>
+<blockquote>
+<p>A:是不会的，当被依赖的测试案例如果测试失败，那依赖的测试就会忽略执行。</p>
+</blockquote>
+<p>我们可以试着将testReserve（）故意测试失败，只需要针对事件物件的getAttendNumber（）断言的预期值，从1改成0就可以让testReserve（）测试失败，接着再执行测试：</p>
+<pre><code>➜  how-to-write-a-phpunit-testcase git:(master) ✗ phpunit --bootstrap vendor/autoload.php tests/EventTest.php
+PHPUnit 5.4.8 by Sebastian Bergmann and contributors.
+
+FS..
+
+Time: 110 ms, Memory: 10.00MB
+
+There was 1 failure:
+
+1) EventTest::testReserve
+Failed asserting that 1 matches expected 0.
+
+/Users/wangzhihao/git/how-to-write-a-phpunit-testcase/tests/EventTest.php:52
+
+FAILURES!
+Tests: 4, Assertions: 14, Failures: 1, Skipped: 1.
+
+</code></pre><h3 id="data-providers数据提供者">Data Providers（数据提供者）</h3>
+<p>数据提供者，能提供多次的测试数据进行多次的测试。</p>
+<p>使用数据提供者，能让测试更简洁，因为，可以将测试的断言与测试数据分开写。</p>
+<p>在EventTest内增加一个testDuplicatedReservationWithException（）测试用例，在注释内标注：</p>
+<pre><code>@expectedException \PHPUnitEventDemo\EventException 预期的异常类。
+@expectedExceptionMessage 预期的异常消息。
+@expectedExceptionCode 预期的异常代码。
+</code></pre><p>也就是，预期在这个测试用例内会接收到EventException的异常类别，异常消息为预留的值，异常代码为1。</p>
+<p>数据提供者为:</p>
+<pre><code>    public function eventsDataProvider() {
+        $eventId                   = 1;
+        $eventName                 = '活动1';
+        $eventStartDate            = '2016-11-01 12:00:00';
+        $eventEndDate              = '2016-11-01 13:00:00';
+        $eventAttendeeLimitNotFull = 5;
+        $eventAttendeeFull         = 10;
+
+        $eventsData = array(
+            array(
+                $eventId,
+                $eventName,
+                $eventStartDate,
+                $eventEndDate,
+                $eventAttendeeLimitNotFull
+            ),
+            array(
+                $eventId,
+                $eventName,
+                $eventStartDate,
+                $eventEndDate,
+                $eventAttendeeFull
+            )
+        );
+
+        return $eventsData;
+    }
+</code></pre><p>在数据提供者的基础上进行对报名人数限制的测试:</p>
+<pre><code>    public function testAttendeeLimitReserve($eventId, $eventName, $eventStartDate, $eventEndDate, $eventAttendLimit) {
+        // 测试报名人数限制
+        $event      = new \PHPUnitEventDemo\Event($eventId, $eventName, $eventStartDate, $eventEndDate, $eventAttendLimit);
+        $userNumber = 6;
+
+        // 建立不同使用者报名
+        for ($userCount = 1; $userCount &lt; $userNumber; $userCount++) {
+            $userId    = $userCount;
+            $userName  = 'User ' . $userId;
+            $userEmail = 'user' . $userId . '@zoco.space';
+            $user      = new \PHPUnitEventDemo\User($userId, $userName, $userEmail);
+
+            $reservedResult = $event-&gt;reserve($user);
+
+            // 报名人數是否超过
+            if ($userCount &gt; $eventAttendLimit) {
+                // 无法报名
+                $this-&gt;assertFalse($reservedResult);
+            } else {
+                $this-&gt;assertTrue($reservedResult);
+            }
+        }
+    }
+</code></pre><h3 id="fixtures">Fixtures</h3>
+<p>Fixture能协助建立测试时需要用到的测试环境，对象的建立，在测试完后，把测试环境，对象析构掉，还原到初始化前的状态。</p>
+<p>主要透过setUp（）与tearDown（）分别来初始化测试与还原到初始化前的状态。</p>
+<p>代码如下:</p>
+<pre><code>    public function setUp() {
+        $eventId          = 1;
+        $eventName        = '活动1';
+        $eventStartDate   = '2016-11-01 18:00:00';
+        $eventEndDate     = '2016-11-01 20:00:00';
+        $eventAttendLimit = 10;
+        $this-&gt;event      = new \PHPUnitEventDemo\Event($eventId, $eventName, $eventStartDate, $eventEndDate, $eventAttendLimit);
+
+        $userId     = 1;
+        $userName   = 'User1';
+        $userEmail  = 'user1@zoco.space';
+        $this-&gt;user = new \PHPUnitEventDemo\User($userId, $userName, $userEmail);
+    }
+
+    public function tearDown() {
+        $this-&gt;event = null;
+        $this-&gt;user  = null;
+    }
+</code></pre><p>把$event，$user类修改成全局变量，接着把构造类写在setUp（）中，析构类写在tearDown（）,testReserve（）与testDuplicatedReservationWithException中使用这两个变量。</p>
+<p>所以在执行测试的时候，运行顺序会是：</p>
+<pre><code>setUp（）-&gt;testReserve（）-&gt;tearDown（）-&gt;...-&gt;setUp（）-&gt;testDuplicatedReservationWithException
+</code></pre><h3 id="设定phpunit">设定phpunit</h3>
+<p>在前面使用phpunit工具来执行测试时，有用到&ndash;bootstrap，在执行测试前先执行vendor/autoload.php来注入自动加载的功能。但是每次执行测试，都要加上参数有点麻烦，phpunit可以使用XML来设定测试。</p>
+<p>phpunit.xml的内容如下:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;phpunit bootstrap=&quot;../vendor/autoload.php&quot; verbose=&quot;true&quot;&gt;
+    &lt;testsuite&gt;
+        &lt;directory suffix=&quot;Test.php&quot;&gt;../tests&lt;/directory&gt;
+    &lt;/testsuite&gt;
+
+    &lt;filter&gt;
+        &lt;whitelist processUncoveredFilesFromWhitelist=&quot;true&quot;&gt;
+            &lt;directory suffix=&quot;.php&quot;&gt;../src&lt;/directory&gt;
+        &lt;/whitelist&gt;
+    &lt;/filter&gt;
+&lt;/phpunit&gt;
+</code></pre><p>加入bootstrap和filter屬性。</p>
+<p>执行测试，如果XML名字不是phpunit.xml的话，可以利用&ndash;configuration来指定。</p>
+<p>直接执行,结果如下:</p>
+<pre><code>➜  how-to-write-a-phpunit-testcase git:(master) ✗ phpunit tests/EventTest.php
+PHPUnit 5.4.8 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 7.0.12 with Xdebug 2.4.0
+Configuration: /Users/wangzhihao/git/how-to-write-a-phpunit-testcase/phpunit.xml
+
+.....                                                               5 / 5 (100%)
+
+Time: 101 ms, Memory: 10.00MB
+
+OK (5 tests, 17 assertions)
+</code></pre><p>还有更多的phpunit.xml在这里https://phpunit.de/manual/current/en/appendixes.configuration.html</p>
+<h3 id="code-coverage-分析">Code Coverage 分析</h3>
+<p>写好单元测试之后，该如何了解到哪些程序还没有经过测试？目标程序被测试百分比有多少？</p>
+<p>phpunit利用PHP CodeCoverage來计算程序代码覆盖率(code coverage)，需要安裝 Xdebug。</p>
+<p>该如何产生Code coverage呢？</p>
+<p>先在项目下建立一个reports/目录，存放code coverage分析的结果。</p>
+<p>然后执行</p>
+<pre><code>phpunit --coverage-html reports/ tests/
+</code></pre><p>或者执行</p>
+<pre><code>phpunit --bootstrap vendor/autoload.php --coverage-html reports/ tests/
+</code></pre><p>当然,也可以使用XML来设定。</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;phpunit bootstrap=&quot;./vendor/autoload.php&quot; verbose=&quot;true&quot;&gt;
+    &lt;testsuite&gt;
+        &lt;directory suffix=&quot;Test.php&quot;&gt;./tests&lt;/directory&gt;
+    &lt;/testsuite&gt;
+
+    &lt;filter&gt;
+        &lt;whitelist processUncoveredFilesFromWhitelist=&quot;true&quot;&gt;
+            &lt;directory suffix=&quot;.php&quot;&gt;./src&lt;/directory&gt;
+        &lt;/whitelist&gt;
+    &lt;/filter&gt;
+
+    &lt;logging&gt;
+        &lt;log type=&quot;coverage-html&quot; target=&quot;./report&quot; charset=&quot;UTF-8&quot;/&gt;
+    &lt;/logging&gt;
+&lt;/phpunit&gt;
+</code></pre><p>接着执行测试:</p>
+<pre><code>phpunit tests/EventTest.php
+</code></pre><p>就可以在reports/下打开index.html或其他html页面，浏览code coverage分析的结果。</p>
+<p>如图所示:</p>
+<p><img src="https://s1.ax1x.com/2020/06/18/Nnu1IO.png" alt="Nnu1IO.png"></p>
+<p><img src="https://s1.ax1x.com/2020/06/18/NnuGJe.png" alt="NnuGJe.png"></p>
+<p>结束。</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+
+
+
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">zoco</a> 2020</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

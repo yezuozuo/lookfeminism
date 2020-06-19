@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>php Switch的一个注意点 - zoco</title>
+    <meta property="og:title" content="php Switch的一个注意点 - zoco">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content=" public function formatTime($timestamp) { $now = time(); $diff = $now - $timestamp; switch ($diff) { case $diff &amp;lt; 60: $re = &#39;1分钟&#39;; break; case $diff &amp;lt; 60 * 60: $re = strval(intval($diff / 60)) . &amp;hellip;">
+      <meta property="og:description" content=" public function formatTime($timestamp) { $now = time(); $diff = $now - $timestamp; switch ($diff) { case $diff &amp;lt; 60: $re = &#39;1分钟&#39;; break; case $diff &amp;lt; 60 * 60: $re = strval(intval($diff / 60)) . &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="program">
+    <header class="masthead">
+      <h1><a href="/">zoco</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/book/">书单</a></li>
+  
+  <li><a href="/posts/">日志</a></li>
+  
+  <li><a href="/program/">程序</a></li>
+  
+  <li><a href="/poem/">诗</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>php Switch的一个注意点</h1>
+
+<h3>
+  2018-07-23</h3>
+<hr>
+
+
+      </header>
+
+
+
+<pre><code>    public function formatTime($timestamp) {
+        $now = time();
+        $diff = $now - $timestamp;
+        switch ($diff) {
+            case $diff &lt; 60:
+                $re = '1分钟';
+                break;
+            case $diff &lt; 60 * 60:
+                $re = strval(intval($diff / 60)) . '分钟';
+                break;
+            case $diff &lt; 60 * 60 * 48:
+                $re = strval(intval($diff / (60 * 60))) . '小时';
+                break;
+            default:
+                $re = strval(intval($diff / (60 * 60 * 24))) . '天';
+                break;
+        }
+
+        return $re;
+    }
+</code></pre><p>当时间戳是time()的时候，diff为0，想的得到的结果应该是返回1分钟，结果却返回了0天。</p>
+<p>问题的原因就是switch case在执行的流程是 switch 位置的条件和 case 位置的条件做比较，再继续执行程序。</p>
+<p>a.当$diff大于0时，switch位置的条件为“真” true，然后用true 和 case 位置的条件作比较。这时程序是没有问题的，因为只要case位置的条件为true语句就跳出了。</p>
+<p>b.当$diff等于0时，就需要主要了。这个时候switch位置的条件为“假” false，语句继续执行的时候，只有当 case 位置的条件也为false 程序才会执行 case 冒号位置后的程序。而事实是 case 位置的所有调教都为“真”，所以最终的结果是执行default冒号后的语句。</p>
+<p>这种情况将switch($diff)变为switch(true)就好了</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+
+
+
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">zoco</a> 2020</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

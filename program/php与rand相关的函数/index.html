@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>php与rand相关的函数 - zoco</title>
+    <meta property="og:title" content="php与rand相关的函数 - zoco">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="mcrypt_create_iv make_http_soap_request shuffle array_rand php_password_make_salt rand crypt 这些函数在php底层都用到了php_rand的方法，会导致随机数随机不均匀的问题，慎用。
+">
+      <meta property="og:description" content="mcrypt_create_iv make_http_soap_request shuffle array_rand php_password_make_salt rand crypt 这些函数在php底层都用到了php_rand的方法，会导致随机数随机不均匀的问题，慎用。
+">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="program">
+    <header class="masthead">
+      <h1><a href="/">zoco</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/book/">书单</a></li>
+  
+  <li><a href="/posts/">日志</a></li>
+  
+  <li><a href="/program/">程序</a></li>
+  
+  <li><a href="/poem/">诗</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>php与rand相关的函数</h1>
+
+<h3>
+  2015-01-12</h3>
+<hr>
+
+
+      </header>
+
+
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">mcrypt_create_iv
+make_http_soap_request
+shuffle
+array_rand
+php_password_make_salt
+rand
+crypt
+</code></pre></div><p>这些函数在php底层都用到了php_rand的方法，会导致随机数随机不均匀的问题，慎用。</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+
+
+
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">zoco</a> 2020</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
