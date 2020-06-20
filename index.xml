@@ -5,10 +5,28 @@
     <link>http://yezuozuo.github.io/</link>
     <description>Recent content on zoco</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 19 Jun 2020 14:16:50 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jun 2020 15:03:16 +0800</lastBuildDate>
     
 	<atom:link href="http://yezuozuo.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>计算机中的时间是什么</title>
+      <link>http://yezuozuo.github.io/program/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E6%97%B6%E9%97%B4%E6%98%AF%E4%BB%80%E4%B9%88/</link>
+      <pubDate>Sat, 20 Jun 2020 15:03:16 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E6%97%B6%E9%97%B4%E6%98%AF%E4%BB%80%E4%B9%88/</guid>
+      <description>ぎょうき前几天问我，计算机时间咋实现的，为什么写程序的时候能获取到准确的时间，而且全世界的时间都一致。
+把我问住了，最先想到的是联网获取的，但是没网怎么办？然后想到是不是系统计算的，那么关机怎么办？难道计算机里有电池？可是电池没电怎么办？
+总不可能是计算机感受到地球的自传速度自己算的吧……所以简单整理一下，先看下 Linux 时间处理的一般过程：
+应用层 （以下都基于X86体系）
+从应用层面，这里我直接用C语言来获取时间。
+#include &amp;lt;time.h&amp;gt;int main () { time_t time_raw_format; time(&amp;amp;time_raw_format); // get current time  printf(&amp;#34;time is [%d]\n&amp;#34;, time_raw_format); //use ctime format time  printf(&amp;#34;The current local time: %s&amp;#34;, ctime(&amp;amp;time_raw_format)); return 0; } time is [1592624759] The current local time: Sat Jun 20 11:45:59 2020 很好，时间和我手机上的一模一样。
+这里出现的1592624759叫做时间戳，是从 1970年1月1日0点到当前的秒数。一会儿解释下为什么从这个时间开始。
+目前我们得到的时间是一个数字，无论精度如何，它代表的仅是一个差值。比如精度为秒的 time() 函数，返回一个 time_t 类型的整数。假设当前时间为2020年6月20日上午11点45分59秒，那么 time_t 的值为：1592624759。即距离1970年1月1日0点，我们已经过去了1592624759秒。（这里的1970年1月1日零点是格林威治时间，而不是北京时间。）我们下面讨论的时间如果不特别说明都是格林威治时间，也叫GMT时间，或者UTC时间。
+那么这个时间从哪来的呢？计算机如何实现这一切的呢？在那些应用层 API 和底层系统硬件之间，操作系统和库函数究竟做了些什么？
+GlibC层  Glibc是 GNU 发布的libc库，即c 运行库 。glibc是 linux系统 中最底层的 api ，几乎其它任何运行库都会依赖于glibc。glibc除了封装 linux 操作系统所提供的 系统服务 外，它本身也提供了许多其它一些必要功能服务的实现。</description>
+    </item>
     
     <item>
       <title>镜中</title>
