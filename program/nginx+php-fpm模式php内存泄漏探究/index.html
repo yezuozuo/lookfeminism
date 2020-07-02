@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>Nginx&#43;php Fpm模式php内存泄漏探究 - zoco</title>
-    <meta property="og:title" content="Nginx&#43;php Fpm模式php内存泄漏探究 - zoco">
+    <title>Nginx&#43;php Fpm模式php内存泄漏探究 - 叶左</title>
+    <meta property="og:title" content="Nginx&#43;php Fpm模式php内存泄漏探究 - 叶左">
     
     <meta name="twitter:card" content="summary">
 
@@ -24,7 +24,7 @@
 
     
     
-    <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1270516-5201af6a5497357e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    <meta name="twitter:image" content="https://s1.ax1x.com/2020/07/01/NT83hF.png">
     
     
 
@@ -41,7 +41,7 @@
   
   <body class="program">
     <header class="masthead">
-      <h1><a href="/">zoco</a></h1>
+      <h1><a href="/">叶左</a></h1>
 
 
 
@@ -85,7 +85,7 @@
 
 <p>昨天遇到过一次服务器内存告警，查看后发现有个php-fpm进程占用了2G的内存。但我明明在php.ini文件里面，有配置 memory_limit = 256M，那为什么会有占用2G内存的php-fpm进程呢？</p>
 <p>这里先简单说一下nginx+php-fpm模式的工作原理。 </p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1270516-5201af6a5497357e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="a.png"></p>
+<p><img src="https://s1.ax1x.com/2020/07/01/NT83hF.png" alt="NT83hF.png"></p>
 <ol>
 <li>nginx服务器fork出n个子进程（worker），php-fpm管理器fork出n个子进程。</li>
 <li>当有用户请求，nginx的一个worker接收请求，并将请求抛到socket中。</li>

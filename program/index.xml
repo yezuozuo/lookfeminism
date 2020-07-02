@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Programs on zoco</title>
+    <title>Programs on 叶左</title>
     <link>http://yezuozuo.github.io/program/</link>
-    <description>Recent content in Programs on zoco</description>
+    <description>Recent content in Programs on 叶左</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 20 Jun 2020 15:03:16 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2020 13:52:30 +0800</lastBuildDate>
     
 	<atom:link href="http://yezuozuo.github.io/program/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>我为什么喜欢php</title>
+      <link>http://yezuozuo.github.io/program/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%96%9C%E6%AC%A2php/</link>
+      <pubDate>Wed, 01 Jul 2020 13:52:30 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%96%9C%E6%AC%A2php/</guid>
+      <description>会的语言也不少了，但是还是最喜欢PHP。
+PHP的最大优势便是他的数据结构和内置函数，具体地说便是字符串和数组，以及字符串和数组的函数。
+PHP的字符串既能表示一般文本，也能表示任意二进制数据，也就是说，PHP的字符串就是一段内存。PHP的的字符串操作函数囊括了大部分常见和不常见的文本操作：截取，查找，正则，字符集编码转换……每一个都是一把利器。
+PHP的数组是整合了列表和哈希表的数据结构。由于“树”是最能描述现实世界的数据结构，而PHP的数组可以(轻松地)表示任意树，所以，PHP的数组也最能描述现实世界(建模)。
+如果要用一句话来描述PHP的优势，我会用这一句：“PHP语言的数据结构和内置函数，可以几乎直接地描述和处理实际业务，PHP是计算机与现实业务的最直接胶合剂。”
+说到底我们用计算机语言的目的是为了将现实世界翻译成计算机能懂的语言，将两个世界之间建立联系的方式越简单，他的生命力就越长久。</description>
+    </item>
     
     <item>
       <title>计算机中的时间是什么</title>
@@ -48,6 +62,21 @@ CPU 高速缓存基本原理 现代计算机处理器是基于一种叫对称多
     </item>
     
     <item>
+      <title>从零开始搭建创业公司后台技术栈</title>
+      <link>http://yezuozuo.github.io/program/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E5%88%9B%E4%B8%9A%E5%85%AC%E5%8F%B8%E5%90%8E%E5%8F%B0%E6%8A%80%E6%9C%AF%E6%A0%88/</link>
+      <pubDate>Fri, 03 Jan 2020 14:07:19 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E5%88%9B%E4%B8%9A%E5%85%AC%E5%8F%B8%E5%90%8E%E5%8F%B0%E6%8A%80%E6%9C%AF%E6%A0%88/</guid>
+      <description>说到后台技术栈，脑海中是不是浮现的是这样一幅图？
+有点眼晕，以上只是我们会用到的一些语言的合集，而且只是语言层面的一部分，就整个后台技术栈来说，这只是一个开始，从语言开始，还有很多很多的内容。今天要说的后台是大后台的概念，放在服务器上的东西都属于后台的东西，比如使用的框架，语言，数据库，服务，操作系统等等，整个后台技术栈我的理解包括4个层面的内容：
+ 语言： 用了哪些开发语言，如：c++/java/go/php/python/ruby等等； 组件：用了哪些组件，如：MQ组件，数据库组件等等； 流程：怎样的流程和规范，如：开发流程，项目流程，发布流程，监控告警流程，代码规范等等； 系统：系统化建设，上面的流程需要有系统来保证，如：规范发布流程的发布系统，代码管理系统等等；  结合以上的的4个层面的内容，整个后台技术栈的结构如下图所示：
+以上的这些内容都需要我们从零开始搭建，在创业公司，没有大公司那些完善的基础设施，需要我们从开源界，从云服务商甚至有些需要自己去组合，去拼装，去开发一个适合自己的组件或系统以达成我们的目标。咱们一个个系统和组件的做选型，最终形成我们的后台技术栈。
+一、各系统组件选型 1、项目管理/Bug管理/问题管理 项目管理软件是整个业务的需求，问题，流程等等的集中地，大家的跨部门沟通协同大多依赖于项目管理工具。有一些 SAAS 的项目管理服务可以使用，但是很多时间不满足需求，此时我们可以选择一些开源的项目，这些项目本身有一定的定制能力，有丰富的插件可以使用，一般的创业公司需求基本上都能得到满足，常用的项目如下：
+ Redmine： 用 Ruby 开发的，有较多的插件可以使用，能自定义字段，集成了项目管理，BUG 问题跟踪，WIKI 等功能，不过好多插件 N 年没有更新了; Phabricator: 用 PHP 开发的，facebook 之前的内部工具，开发这工具的哥们离职后自己搞了一个公司专门做这个软件，集成了代码托管， Code Review，任务管理，文档管理，问题跟踪等功能，强烈推荐较敏捷的团队使用； Jira：用 Java 开发的，有用户故事，task 拆分，燃尽图等等，可以做项目管理，也可以应用于跨部门沟通场景，较强大； 悟空CRM ：这个不是项目管理，这个是客户管理，之所以在这里提出来，是因为在 To B 的创业公司里面，往往是以客户为核心来做事情的，可以将项目管理和问题跟进的在悟空 CRM 上面来做，他的开源版本已经基本实现了 CR&amp;lt; 的核心 功能，还带有一个任务管理功能，用于问题跟进，不过用这个的话，还是需要另一个项目管理的软件协助，顺便说一嘴，这个系统的代码写得很难维护，只能适用于客户规模小（1万以内）时。  2、DNS DNS 是一个很通用的服务，创业公司基本上选择一个合适的云厂商就行了，国内主要是两家：
+ 阿里万网：阿里 2014 年收购了万网，整合了其域名服务，最终形成了现在的阿里万网，其中就包含 DNS 这块的服务； 腾讯 DNSPod: 腾讯 2012 年以 4000 万收购 DNSPod 100% 股份，主要提供域名解析和一些防护功能；  如果你的业务是在国内，主要就是这两家，选 一个就好，像今日头条这样的企业用的也是 DNSPod 的服务，除非一些特殊的原因才需要自建，比如一些 CDN 厂商，或者对区域有特殊限制的。要实惠一点用阿里最便宜的基础版就好了，要成功率高一些，还是用DNSPod 的贵的那种。</description>
+    </item>
+    
+    <item>
       <title>php性能优化之并行与异步</title>
       <link>http://yezuozuo.github.io/program/php%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%B9%B6%E8%A1%8C%E4%B8%8E%E5%BC%82%E6%AD%A5/</link>
       <pubDate>Sun, 05 May 2019 21:35:29 +0800</pubDate>
@@ -63,6 +92,27 @@ CPU 高速缓存基本原理 现代计算机处理器是基于一种叫对称多
 但是，在我们这里统统不适用，PHP语言本身对并行的处理能力有限，需要借助其他的服务。
 方案 我们会在调用的时候，将多个RPC请求进行合并，统一发送给一个新的RPC服务（暂时称作Multi RPC）,Multi RPC将以代理的身份，并行获取多个数据。处理完成或者整体超时后，会将所有数据返回，由API进行下一步的处理。
 关键问题  超时问题，使用最大超时，调用方比指定超时多设置10ms 服务拆分逻辑，对互不依赖代码进行拆分 提前打包后缓存再取，还是当次请求直接返回  协议方案 service uri, method, protocal, params, timeout, retry</description>
+    </item>
+    
+    <item>
+      <title>名词解释</title>
+      <link>http://yezuozuo.github.io/program/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/</link>
+      <pubDate>Sat, 20 Apr 2019 14:55:48 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/</guid>
+      <description>布隆过滤器 (Bloom Filter)是由Burton Howard Bloom于1970年提出，它是一种space efficient的概率型数据结构，用于判断一个元素是否在集合中。在垃圾邮件过滤的黑白名单方法、爬虫(Crawler)的网址判重模块中等等经常被用到。哈希表也能用于判断元素是否在集合中，但是布隆过滤器只需要哈希表的1/8或1/4的空间复杂度就能完成同样的问题。布隆过滤器可以插入元素，但不可以删除已有元素。其中的元素越多，false positive rate(误报率)越大，但是false negative (漏报)是不可能的。
+C10k:指的是服务器同时支持成千上万个客户端的问题，也就是concurrent 10000 connnection。
+彩虹表：彩虹表是一个用于加密散列函数逆运算的预先计算好的表, 常用于破解加密过的密码散列。一般主流的彩虹表都在100G以上。 查找表常常用于包含有限字符固定长度纯文本密码的加密。这是以空间换时间的典型实践, 在每一次尝试都计算的暴力破解中使用更少的计算能力和更多的储存空间，但却比简单的每个输入一条散列的翻查表使用更少的储存空间和更多的计算性能。使用加盐的KDF函数可以使这种攻击难以实现。
+2Z原则
+Zoomin聚焦，指对事实和细节进行详情、透彻的分析。
+Zoom out退一步，从全局来看，需要跳出数据和细节来分析全貌。
+php的zts太弱，不要用。
+开发swoole和开发php是两种不同的概念，默念一百次生命周期不一样。
+如果sleep 100秒，万一10秒时窗口关闭了 100秒后还会执行代码吗？http://php.net/manual/en/misc.configuration.php#ini.ignore-user-abort 浏览器关闭，php是否继续执行，受到此参数的影响。默认是浏览器关闭，php不会继续执行，当然不是立即停止，而是完成一次系统调用之后才会停止。至于怎么认为一次系统调用，就是触发一次 declare(ticks=1); sleep 100; 关闭浏览器php不会立即停止，可能到php完全结束了，是没有触发系统调用。死循环 sleep 1; 循环了几次，关闭浏览器之后，延迟几十或几百毫秒php停止。
+简而言之，其他常规语言使用字母 “ymd” 编写时间格式，而 golang 使用固定的时刻 &amp;ldquo;2006-01-02 15:04:05&amp;rdquo; 编写时间格式。 优点就是所见即所得，立刻看到效果，缺点就是，你要记住这个时刻，这是目前为止遇到的第一个挑战。至于为什么是这个时时刻？它有什么意义？我不知道。
+mysql rank居然是个函数，所以字段名不能叫rank，sql的报错居然体现不出来，fuck
+P对象(processor) 代表上下文（或者可以认为是cpu），M(work thread)代表工作线程，G对象（goroutine）
+Time工具用于初步分析程序性能很有用，real项就是程序执行的时间，user 项就是好在用户态CPU的时间，sys 表示内核态CPU的时间。real - user - sys不一定是0，这正好是程序IOWait的时间。</description>
     </item>
     
     <item>
@@ -88,6 +138,34 @@ A：很遗憾，是没有效果的，此举反而会加重php实例的连接数�
  redis的连接数只和php的实例数以及每个实例上的进程数相关，所以单实例的连接数不会变小，同时由于redis的实例数增多，会使php建立的连接数增多。
  解决方案  php层建立连接池，现在的连接是进程级别复用的，而非实例级别复用  但是php没有非常成熟的本地连接池，有一些例如swoole等，但是测试起来需要成本   php连接集群时单个进程只和一个实例建立连接，例如php的32333进程只和39400端口建立连接  这种情况只适用于队列的方式，其他情况下不适合   业务拆分，将s1改为s1+s2从库，业务上根据不同业务连接不同从库，在解决连接数过高的时候临时采用了这个方案，是有效果的，如下图  问题：但非长久之计，业务体量上涨迟早有一天s1和s2的连接数也会到达瓶颈
  php和redis之间建立proxy层，类似codis，twemproxy  会有性能损耗，但是从长期来看是一个根本解决问题的方法    一个故障是如何发生的 </description>
+    </item>
+    
+    <item>
+      <title>Java一些记录</title>
+      <link>http://yezuozuo.github.io/program/java%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Fri, 22 Feb 2019 14:12:27 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/java%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/</guid>
+      <description>线程安全的优先级高于性能。
+Java中的多线程你只要看这一篇就够了 - ImportNew
+Java 之 synchronized 详解 - 掘金
+Java并发编程：volatile关键字解析 - Matrix海子 - 博客园
+缓存使用过程中最重要问题是什么时候创建缓存和缓存的失效机制。缓存可以在第一次获取的时候创建也可以在程序启动和缓存失效之后立即创建，缓存的失效可以定期失效，也可以在数据发生变化的时候失效，如果按数据发生变化让缓存失效，还可以分粗粒度失效和细粒度失效。
+网站架构的整个演变过程主要是围绕大数据和高并发这两个问题展开的，解决的方案主要分为使用缓存和使用多资源两种类型。多资源主要指多存储（包括多内存）、多CPU和多网络，对于多资源来说又可以分为单个资源处理一个完整的请求和多个资源合作处理一个请求两种类型，如多存储和多CPU中的集群和分布式，多网络中的CDN和静态资源分离。理解了整个思路之后就抓住了架构演变的本质，而且自己可能还可以设计出更好的架构。
+无论架构还是协议都要以正确的态度对待，它们都是为了解决特定的问题而设计出来的，我们要认真并且谦虚地学习，不过也不需要将它们当成神圣不可侵犯的东西，它们的本质还是为我们解决问题的工具。另外这些架构、协议以及相关的产品都是经过实际的考验可以解决问题的，不过也并不是说它们就是最优的解决方案，我们只有真正理解了它们所针对的问题才能对它们理解得更透彻、使用得更灵活。
+记录类型：域名解析有很多种解析的类型，如常用的A记录和CNAME记录。A记录是将域名解析到IP（一个域名可以有多条A记录），CNAME记录是将域名解析到另一个域名（也就是作为另一个域名的别名），查找时会返回目标域名所对应的IP，
+① www.excelib.com 可能会有多条解析记录，而 excelib.com 用一条CNAME记录就可以完成了；②在 www.excelib.com 的IP发生变化时， excelib.com 不需要修改解析内容直接就可以自动改变；③使用CDN时可以将用户直接访问的域名作为一个别名，然后将指向的域名通过ns记录指定CDN专用的DNS服务器进行解析，这样用户访问的域名解析使用的还是正常的DNS服务器但是可以获取到CDN的DNS服务器解析的结果。
+Servlet是Server+Applet的缩写，表示一个服务器应用。通过上面的分析我们知道Servlet其实就是一套规范，我们按照这套规范写的代码就可以直接在Java的服务器上面运行。Servlet3.1中Servlet的结构如图6-1所示。
+Arrays类为所有基本数据类型的数组提供了一个过载的sort()和binarySearch()，它们亦可用于String和Object。
+类加载有三种方式：  1、命令行启动应用时候由JVM初始化加载 2、通过Class.forName()方法动态加载 3、通过ClassLoader.loadClass()方法动态加载  Class.forName()和ClassLoader.loadClass()区别  Class.forName()：将类的.class文件加载到jvm中之外，还会对类进行解释，执行类中的static块； ClassLoader.loadClass()：只干一件事情，就是将.class文件加载到jvm中，不会执行static中的内容,只有在newInstance才会去执行static块。 Class.forName(name,initialize,loader)带参函数也可控制是否加载static块。并且只有调用了newInstance()方法采用调用构造函数，创建类的对象 。  减少上下文切换的方法有无锁并发编程、CAS算法、使用最少线程和使用协程。
+·无锁并发编程。多线程竞争锁时，会引起上下文切换，所以多线程处理数据时，可以用一 些办法来避免使用锁，如将数据的ID按照Hash算法取模分段，不同的线程处理不同段的数据。 ·CAS算法。Java的Atomic包使用CAS算法来更新数据，而不需要加锁。 ·使用最少线程。避免创建不需要的线程，比如任务很少，但是创建了很多线程来处理，这 样会造成大量线程都处于等待状态。 ·协程：在单线程里实现多任务的调度，并在单线程里维持多个任务间的切换。
+是值传递。Java语言的方法调用只支持参数的值传递。
+String和StringBuilder、StringBuffer的区别？
+答：Java平台提供了两种类型的字符串：String和StringBuffer/StringBuilder，它们可以储存和操作字符串。其中String是只读字符串，也就意味着String引用的字符串内容是不能被改变的。而StringBuffer/StringBuilder类表示的字符串对象可以直接进行修改。StringBuilder是Java 5中引入的，它和StringBuffer的方法完全相同，区别在于它是在单线程环境下使用的，因为它的所有方面都没有被synchronized修饰，因此它的效率也比StringBuffer要高。
+Java中的线程可以分为守护线程（Daemon Thread）和用户线程（User Thread）。用户线程会阻止JVM的正常停止，即JVM正常停止前应用程序中的所有用户线程必须先停止完毕；否则JVM无法停止。而守护线程则不会影响JVM的正常停止，即应用程序中有守护线程在运行也不影响JVM的正常停止。因此，守护线程通常用于执行一些重要性不是很高的任务，例如用于监视其他线程的运行情况。
+Java语言中，子线程是否是一个守护线程取决于其父线程：默认情况下父线程是守护线程则子线程也是守护线程，父线程是用户线程则子线程也是用户线程。当然，父线程在创建子线程后，启动子线程之前可以调用Thread实例的setDaemon方法来修改线程的这一属性。
+从上述描述可知，一个线程在其整个生命周期中，只可能一次处于NEW状态和TERMINATED状态。而一个线程的状态从RUNNABLE状态转换为BLOCKED、WAITING和TIMED_WAITING这几个状态中的任何一个状态都意味着上下文切换（Context Switch）的产生。
+synchronized关键字可以实现操作的原子性，其本质是通过该关键字所包括的临界区（Critical Section）的排他性保证在任何一个时刻只有一个线程能够执行临界区中的代码，这使得临界区中的代码代表了一个原子操作。这一点，读者可能已经很清楚。但是，synchronized关键字所起的另外一个作用——保证内存的可见性（Memory Visibility），也是值得我们回顾的。</description>
     </item>
     
     <item>
@@ -375,6 +453,23 @@ websocket server端代码为官网的例子，设置worker_num为5。
     </item>
     
     <item>
+      <title>性能优化的一些思考</title>
+      <link>http://yezuozuo.github.io/program/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/</link>
+      <pubDate>Mon, 03 Jul 2017 13:41:50 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/</guid>
+      <description>性能优化服务诉求
+接口运行的怎么样？ 信息透明
+接口调用时延为啥变高了？ 自动化诊断优化
+接口刚优化了怎么又慢了？ 持续优化
+上次的优化效果怎么样？ 量化跟踪，流程闭环
+我们也想接入这个系统啊…… 产品化输出
+这个自动化系统的悖论是我无意中看到的，在讲飞机的自动驾驶的时候，因为自动驾驶做的足够好，当出现紧急问题的时候，飞机驾驶员反而没有足够的能力去处理紧急的情况，这就是自动化系统的悖论。
+技术体系的基本架构原则
+ 围绕业务发展。 结合团队规模和特点。 自动化、组件化、标准化。 聚焦效率、体验和质量。 如无必要，勿增实体。  </description>
+    </item>
+    
+    <item>
       <title>深入浅出FastCGI和php Fpm</title>
       <link>http://yezuozuo.github.io/program/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAfastcgi%E5%92%8Cphp-fpm/</link>
       <pubDate>Mon, 05 Jun 2017 09:46:30 +0800</pubDate>
@@ -496,6 +591,45 @@ Erlang解决了协程密集计算的问题，它基于自行开发VM，并不执
     </item>
     
     <item>
+      <title>谈消息安全传输中的技术点</title>
+      <link>http://yezuozuo.github.io/program/%E8%B0%88%E6%B6%88%E6%81%AF%E5%AE%89%E5%85%A8%E4%BC%A0%E8%BE%93%E4%B8%AD%E7%9A%84%E6%8A%80%E6%9C%AF%E7%82%B9/</link>
+      <pubDate>Sat, 29 Oct 2016 14:04:02 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/%E8%B0%88%E6%B6%88%E6%81%AF%E5%AE%89%E5%85%A8%E4%BC%A0%E8%BE%93%E4%B8%AD%E7%9A%84%E6%8A%80%E6%9C%AF%E7%82%B9/</guid>
+      <description>一、初级阶段：信息裸传 特点：在网络上传递明文
+黑客定理一：网络上传递的数据是不安全的，属网络于黑客公共场所，能被截取。
+结果：传递明文无异于不穿衣服裸奔
+改进方案：先加密，再在网络上传输
+二、进阶阶段：传输密文 特点：
+ 服务端和客户端先约定好加密算法，加密密钥 客户端，传输前用约定好的密钥加密 传输密文 服务端，收到消息后用约定好的密钥解密  这么传输消息安全么？
+黑客定理二：客户端的代码是不安全的，属于黑客本地范畴，能被逆向工程，任何客户端与服务端提前约定好的算法与密钥都是不安全的
+结果：任何客户端的代码混淆，二进制化都只能提高黑客的破解门槛，本质是不安全的
+改进方案：不能固定密钥
+三、中级阶段：服务端为每个用户生成密钥 特点：
+ 客户端和服务端提前约定好加密算法，在传递消息前，先协商密钥 客户端，请求密钥 服务端，返回密钥 然后用协商密钥加密消息，传输密文  这么传输安全么？
+结果：
+ 如黑客定理一，网上传输的内容是不安全的，于是乎，黑客能得到加密key=X 如黑客定理二，客户端和服务端提前约定的加密算法是不安全的，于是乎，黑客能得到加密算法 于是乎，黑客截取后续传递的密文，可以用对应的算法和密钥解密  改进方案：协商的密钥不能在网络上传递
+四、再进阶阶段：客户端确定密钥，密钥不再传输 特点：
+ 协商的密钥无需在网络传输 使用“具备用户特性的东西”作为加密密钥，例如：用户密码的散列值 一人一密，每个人的密钥不同 然后密钥加密消息，传输密文 服务端从db里获取这个“具备用户特性的东西”，解密  这么传输安全么？
+黑客定理三：用户客户端内存是安全的，属于黑客远端范畴，不能被破解
+当然，用户中了木马，用户的机器被控制的情况不在此列，如果机器真被控制，监控用户屏幕就好了，就不用搞得这么麻烦了
+结果：使用“具备用户特性的东西”作为加密密钥，一人一密，是安全的。只是，当“具备用户特性的东西”泄漏，就有潜在风险
+五、高级阶段：一次一密，密钥协商 特点：每次通信前，进行密钥协商，一次一密
+密钥协商过程，如下图所述，需要随机生成三次密钥，两次非对称加密密钥（公钥，私钥），一次对称加密密钥，简称安全信道建立的“三次握手”，在客户端发起安全信道建立请求后：
+ 服务端随机生成公私钥对(公钥pk1，私钥pk2)，并将公钥pk1传给客户端  (注意：此时黑客能截获pk1)
+ 客户端随机生成公私钥对(公钥pk11，私钥pk22)，并将公钥pk22，通过pk1加密，传给服务端  (注意：此时黑客能截获密文，也知道是通过pk1加密的，但由于黑客不知道私钥pk2，是无法解密的)
+服务端收到密文，用私钥pk2解密，得到pk11
+ 服务端随机生成对称加密密钥key=X，用pk11加密，传给客户端  (注意：同理，黑客由密文无法解密出key)
+客户端收到密文，用私钥pk22解密，可到key=X
+至此，安全信道建立完毕，后续通讯用key=X加密，以保证信息的安全性
+六、总结 黑客定理一：网络上传递的数据是不安全的，属于黑客公共场所，能被截取
+黑客定理二：客户端的代码是不安全的，属于黑客本地范畴，能被逆向工程，任何客户端与服务端提前约定好的算法与密钥都是不安全的
+黑客定理三：用户客户端内存是安全的，属于黑客远端范畴，不能被破解
+对于不同加密方法明：
+ 明文消息传递如同裸奔，不安全 客户端和服务端提前约定加密算法和密钥，不安全（好多公司都是这么实现的=_=） 服务端随机生成密钥，发送给客户端，不安全 一人一密，客户端使用“具备用户特性的东西”作为加密密钥，弱安全 一次一密，三次握手建立安全信道，安全  只要即时通讯公司有良知，不从服务端偷看，一切都是安全的。额，这个“只要”的假设，貌似不成立</description>
+    </item>
+    
+    <item>
       <title>Nginx&#43;php Fpm模式php内存泄漏探究</title>
       <link>http://yezuozuo.github.io/program/nginx&#43;php-fpm%E6%A8%A1%E5%BC%8Fphp%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E6%8E%A2%E7%A9%B6/</link>
       <pubDate>Fri, 23 Sep 2016 19:50:52 +0800</pubDate>
@@ -544,6 +678,15 @@ GET foo =&amp;gt; bar KV数据库提供的其他常见操作有:DEL，用于删�
     </item>
     
     <item>
+      <title>《七周七数据库》</title>
+      <link>http://yezuozuo.github.io/program/%E4%B8%83%E5%91%A8%E4%B8%83%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+      <pubDate>Mon, 30 May 2016 13:43:45 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/%E4%B8%83%E5%91%A8%E4%B8%83%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>php语法性能比较</title>
       <link>http://yezuozuo.github.io/program/php%E8%AF%AD%E6%B3%95%E6%80%A7%E8%83%BD%E6%AF%94%E8%BE%83/</link>
       <pubDate>Fri, 29 Apr 2016 21:24:46 +0800</pubDate>
@@ -566,6 +709,20 @@ PHP-FPM 输出缓冲区 探讨下PHP-FPM 中的输出缓冲区，先来设置一
 ; Development Value: 4096 ; Production Value: 4096 ; http://php.net/output-buffering output_buffering = 0 设置完这个参数后，便关闭了PHP内核中的默认缓冲区。 来看一段代码，因为nginx中设置的fastcgi buffer的大小是4k，而每次输出的数据都是大于4k的，因此输出不会受到nginx输出缓冲区的影响。
 未使用任何flush函数 &amp;lt;?php /** * 默认页面 */ class IndexController extends AbstractController { public function process() { for($i = 0; $i &amp;lt; 10; ++$i) { echo $i; echo str_repeat(&#39; &#39;, 4096) . &amp;quot;&amp;lt;br /&amp;gt;&amp;quot;; sleep(1); } exit; } } 运行这段代码，预期是每次输出1个数字，可是结果却是每次输出2个数字，即0，1一起输出，2，3一起输出，这是为什么呢？ 由于关闭了PHP内核中的输出缓冲，也没有使用ob_start系列的函数，而且数据量也大于了nginx中的输出缓冲，所以我猜测PHP-FPM中还有一个输出缓冲区,通过查阅fpm的源代码(php-5.6.10/sapi/fpm/fpm/fastcgi.h文件)，我发现在fcgi_request结构中有一个out_buf参数，大小是8k：
 typedef struct _fcgi_request { int listen_socket; #ifdef _WIN32 int tcp; #endif int fd; int id; int keep; int closed; int in_len; int in_pad; fcgi_header *out_hdr; unsigned char *out_pos; unsigned char out_buf[1024*8]; unsigned char reserved[sizeof(fcgi_end_request_rec)]; HashTable *env; } fcgi_request; 于是我觉得这个参数应该就是PHP-FPM中的输出缓冲区大小。 OK，来验证一下，将上面代码中空格的数目改为8192试试，即：</description>
+    </item>
+    
+    <item>
+      <title>《Linux高性能服务器编程》</title>
+      <link>http://yezuozuo.github.io/program/linux%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Mon, 21 Mar 2016 13:44:46 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/linux%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BC%96%E7%A8%8B/</guid>
+      <description>使用“池”以牺牲空间换取效率，使用零拷贝函数以避免内核和用户空间的切换等 ；其次，介绍一些高效的编程模式及其应用，比如使用有限状态机来分析用户数据，使用进程池或线程池来处理用户请求。
+正向代理要求客户端自己设置代理服务器的地址。客户的每次请求都将直接发送到该代理服务器，并由代理服务器来请求目标资源。比如处于防火墙内的局域网机器要访问Internet，或者要访问一些被屏蔽掉的国外网站。
+反向代理则被设置在服务器端，因而客户端无需进行任何设置。反向代理是指用代理服务器来接收Internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从内部服务器上得到的结果返回给客户端。在这种情况下，代理服务器对外就表现为一个真实的服务器。
+Linux服务器程序必须处理三类事件：I/O事件、信号和定时事件。
+两种高效的事件处理模式：Reactor和Proactor事件处理模式。同步I/O模型通常用于实现Reactor模式，异步I/O模型则用于实现Proactor模式。
+如果程序是计算密集型的，并发编程并没有优势，反而由于任务的切换使效率降低。但如果程序是I/O密集型的，比如经常读写文件、操作数据库等，则情况就不一样了。</description>
     </item>
     
     <item>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>名词解释 - 叶左</title>
+    <meta property="og:title" content="名词解释 - 叶左">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="布隆过滤器 (Bloom Filter)是由Burton Howard Bloom于1970年提出，它是一种space efficient的概率型数据结构，用于判断一个元素是否在集合中。在垃圾邮件过滤的黑白名单方法、爬虫(Crawler)的网址判重模块中等等经常被用到。哈希表也能用于判断元素是否在集合中，但是布隆过滤器只需要哈希表的1/8或1/4的空间复杂度就能完成同样的问题。布隆过滤器可以插入元 &amp;hellip;">
+      <meta property="og:description" content="布隆过滤器 (Bloom Filter)是由Burton Howard Bloom于1970年提出，它是一种space efficient的概率型数据结构，用于判断一个元素是否在集合中。在垃圾邮件过滤的黑白名单方法、爬虫(Crawler)的网址判重模块中等等经常被用到。哈希表也能用于判断元素是否在集合中，但是布隆过滤器只需要哈希表的1/8或1/4的空间复杂度就能完成同样的问题。布隆过滤器可以插入元 &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="program">
+    <header class="masthead">
+      <h1><a href="/">叶左</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/book/">书单</a></li>
+  
+  <li><a href="/posts/">日志</a></li>
+  
+  <li><a href="/program/">程序</a></li>
+  
+  <li><a href="/poem/">诗</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>名词解释</h1>
+
+<h3>
+  2019-04-20</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>布隆过滤器 (Bloom Filter)是由Burton Howard Bloom于1970年提出，它是一种space efficient的概率型数据结构，用于判断一个元素是否在集合中。在垃圾邮件过滤的黑白名单方法、爬虫(Crawler)的网址判重模块中等等经常被用到。哈希表也能用于判断元素是否在集合中，但是布隆过滤器只需要哈希表的1/8或1/4的空间复杂度就能完成同样的问题。布隆过滤器可以插入元素，但不可以删除已有元素。其中的元素越多，false positive rate(误报率)越大，但是false negative (漏报)是不可能的。</p>
+<p>C10k:指的是服务器同时支持成千上万个客户端的问题，也就是concurrent 10000 connnection。</p>
+<p>彩虹表：彩虹表是一个用于加密散列函数逆运算的预先计算好的表, 常用于破解加密过的密码散列。一般主流的彩虹表都在100G以上。 查找表常常用于包含有限字符固定长度纯文本密码的加密。这是以空间换时间的典型实践, 在每一次尝试都计算的暴力破解中使用更少的计算能力和更多的储存空间，但却比简单的每个输入一条散列的翻查表使用更少的储存空间和更多的计算性能。使用加盐的KDF函数可以使这种攻击难以实现。</p>
+<p>2Z原则</p>
+<p>Zoomin聚焦，指对事实和细节进行详情、透彻的分析。<br>
+Zoom out退一步，从全局来看，需要跳出数据和细节来分析全貌。</p>
+<p>php的zts太弱，不要用。</p>
+<p>开发swoole和开发php是两种不同的概念，默念一百次生命周期不一样。</p>
+<p>如果sleep 100秒，万一10秒时窗口关闭了 100秒后还会执行代码吗？http://php.net/manual/en/misc.configuration.php#ini.ignore-user-abort 浏览器关闭，php是否继续执行，受到此参数的影响。默认是浏览器关闭，php不会继续执行，当然不是立即停止，而是完成一次<code>系统调用</code>之后才会停止。至于怎么认为一次系统调用，就是触发一次 declare(ticks=1); sleep 100; 关闭浏览器php不会立即停止，可能到php完全结束了，是没有触发系统调用。死循环 sleep 1;  循环了几次，关闭浏览器之后，延迟几十或几百毫秒php停止。</p>
+<p>简而言之，其他常规语言使用字母 “ymd” 编写时间格式，而 golang 使用固定的时刻 &ldquo;2006-01-02 15:04:05&rdquo; 编写时间格式。 优点就是所见即所得，立刻看到效果，缺点就是，你要记住这个时刻，这是目前为止遇到的第一个挑战。至于为什么是这个时时刻？它有什么意义？我不知道。</p>
+<p>mysql rank居然是个函数，所以字段名不能叫rank，sql的报错居然体现不出来，fuck</p>
+<p>P对象(processor) 代表上下文（或者可以认为是cpu），M(work thread)代表工作线程，G对象（goroutine）</p>
+<p>Time工具用于初步分析程序性能很有用，real项就是程序执行的时间，user 项就是好在用户态CPU的时间，sys 表示内核态CPU的时间。real - user - sys不一定是0，这正好是程序IOWait的时间。</p>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">zoco</a> 2020</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

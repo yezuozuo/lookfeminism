@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Poems on zoco</title>
+    <title>Poems on 叶左</title>
     <link>http://yezuozuo.github.io/poem/</link>
-    <description>Recent content in Poems on zoco</description>
+    <description>Recent content in Poems on 叶左</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 19 Jun 2020 14:16:50 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2020 14:51:26 +0800</lastBuildDate>
     
 	<atom:link href="http://yezuozuo.github.io/poem/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>维特根斯坦</title>
+      <link>http://yezuozuo.github.io/poem/%E7%BB%B4%E7%89%B9%E6%A0%B9%E6%96%AF%E5%9D%A6/</link>
+      <pubDate>Wed, 01 Jul 2020 14:51:26 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/poem/%E7%BB%B4%E7%89%B9%E6%A0%B9%E6%96%AF%E5%9D%A6/</guid>
+      <description>就改善你自己好了
+那是你为改善世界能做的一切</description>
+    </item>
     
     <item>
       <title>镜中</title>
