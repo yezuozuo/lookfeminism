@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programs on 叶左</title>
-    <link>https://yezuozuo.github.io/program/</link>
+    <link>https://zoco.fun/program/</link>
     <description>Recent content in Programs on 叶左</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 16 Jul 2020 20:02:47 +0800</lastBuildDate>
     
-	<atom:link href="https://yezuozuo.github.io/program/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zoco.fun/program/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>PHP8JIT是什么</title>
-      <link>https://yezuozuo.github.io/program/php8jit%E6%98%AF%E4%BB%80%E4%B9%88/</link>
+      <link>https://zoco.fun/program/php8jit%E6%98%AF%E4%BB%80%E4%B9%88/</link>
       <pubDate>Thu, 16 Jul 2020 20:02:47 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/php8jit%E6%98%AF%E4%BB%80%E4%B9%88/</guid>
+      <guid>https://zoco.fun/program/php8jit%E6%98%AF%E4%BB%80%E4%B9%88/</guid>
       <description>在谈JIT之前我们先回到比较根本的一个问题。
 怎么优化 PHP 性能  方案1，迁移到性能更好的语言上，如Go、Java、C++。 方案2，通过 RPC 将功能分离出来用其它语言实现，让 PHP 做更少的事情。 方案3，写 PHP 扩展，在性能瓶颈地方换 C/C++。 方案4，优化 PHP语言本身的性能。  方案1 方案1的问题在于成本问题，如果代码库已经很大的话，迁移是个非常耗费成本的工作，团队将不但放弃多年的经验积累，而且整个团队成员重新学习也是个成本很高的事情。而且PHP语言的数据结构和内置函数，可以几乎直接地描述和处理实际业务，PHP是计算机与现实业务的最直接胶合剂。这也是我一直喜欢PHP的原因。
 方案2 方案2是最保险的方案，我们现在也是这样做的，把一些计算比较多的放在Java执行，通过RPC调用。但是PHP本身的机制以及我们实际业务的场景带来的最大问题是IO场景非常多，而PHP本身也没有多线程和异步IO的机制，所以我们现在是依赖RPC提供的并行和异步处理，但这样也不是最优的方案，还是需要等待一定的时长，而这个等待目前来看又是必须的，所以也就是JIT在实际项目中的效果不会特别明显的原因。
@@ -31,10 +31,10 @@
     
     <item>
       <title>晚到的PHP8测评</title>
-      <link>https://yezuozuo.github.io/program/%E6%99%9A%E5%88%B0%E7%9A%84php8%E6%B5%8B%E8%AF%84/</link>
+      <link>https://zoco.fun/program/%E6%99%9A%E5%88%B0%E7%9A%84php8%E6%B5%8B%E8%AF%84/</link>
       <pubDate>Tue, 14 Jul 2020 19:52:48 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/%E6%99%9A%E5%88%B0%E7%9A%84php8%E6%B5%8B%E8%AF%84/</guid>
+      <guid>https://zoco.fun/program/%E6%99%9A%E5%88%B0%E7%9A%84php8%E6%B5%8B%E8%AF%84/</guid>
       <description>6月25号php 8 alpha 1发布，7月9号 php 8 alpha 2发布，一般alpha 2是一个稍微能用的版本，所以周末测评了一下php8 JIT到底是个什么？
 测试方式部分参考鸟哥的blog PHP 8新特性之JIT简介 - 风雪之隅
 先看一下结果：
@@ -45,10 +45,10 @@ php -d -d opcache.jit_buffer_size=64M -d opcache.jit=1205 Zend/bench.php simple 
     
     <item>
       <title>GRPC源码分析</title>
-      <link>https://yezuozuo.github.io/program/grpc%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</link>
+      <link>https://zoco.fun/program/grpc%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</link>
       <pubDate>Tue, 14 Jul 2020 14:49:40 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/grpc%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</guid>
+      <guid>https://zoco.fun/program/grpc%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</guid>
       <description>写在前面 grpc 介绍 grpc 是 google 开源的一款高性能的 rpc 框架。github 上介绍如下：
  gRPC is a modern, open source, high-performance remote procedure call (RPC) framework that can run anywhere
  市面上的 rpc 框架数不胜数，包括 alibaba dubbo 和微博的 motan 等。grpc 能够在众多的框架中脱颖而出是跟其高性能是密切相关的。
@@ -59,10 +59,10 @@ https://github.com/grpc/grpc/blob/master/CONCEPTS.md
     
     <item>
       <title>我为什么喜欢php</title>
-      <link>https://yezuozuo.github.io/program/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%96%9C%E6%AC%A2php/</link>
+      <link>https://zoco.fun/program/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%96%9C%E6%AC%A2php/</link>
       <pubDate>Wed, 01 Jul 2020 13:52:30 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%96%9C%E6%AC%A2php/</guid>
+      <guid>https://zoco.fun/program/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%96%9C%E6%AC%A2php/</guid>
       <description>会的语言也不少了，但是还是最喜欢PHP。
 PHP的最大优势便是他的数据结构和内置函数，具体地说便是字符串和数组，以及字符串和数组的函数。
 PHP的字符串既能表示一般文本，也能表示任意二进制数据，也就是说，PHP的字符串就是一段内存。PHP的的字符串操作函数囊括了大部分常见和不常见的文本操作：截取，查找，正则，字符集编码转换……每一个都是一把利器。
@@ -73,10 +73,10 @@ PHP的数组是整合了列表和哈希表的数据结构。由于“树”是�
     
     <item>
       <title>计算机中的时间是什么</title>
-      <link>https://yezuozuo.github.io/program/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E6%97%B6%E9%97%B4%E6%98%AF%E4%BB%80%E4%B9%88/</link>
+      <link>https://zoco.fun/program/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E6%97%B6%E9%97%B4%E6%98%AF%E4%BB%80%E4%B9%88/</link>
       <pubDate>Sat, 20 Jun 2020 15:03:16 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E6%97%B6%E9%97%B4%E6%98%AF%E4%BB%80%E4%B9%88/</guid>
+      <guid>https://zoco.fun/program/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E6%97%B6%E9%97%B4%E6%98%AF%E4%BB%80%E4%B9%88/</guid>
       <description>ぎょうき前几天问我，计算机时间咋实现的，为什么写程序的时候能获取到准确的时间，而且全世界的时间都一致。
 把我问住了，最先想到的是联网获取的，但是没网怎么办？然后想到是不是系统计算的，那么关机怎么办？难道计算机里有电池？可是电池没电怎么办？
 总不可能是计算机感受到地球的自传速度自己算的吧……所以简单整理一下，先看下 Linux 时间处理的一般过程：
@@ -91,10 +91,10 @@ GlibC层  Glibc是 GNU 发布的libc库，即c 运行库 。glibc是 linux系统
     
     <item>
       <title>机械同感</title>
-      <link>https://yezuozuo.github.io/program/%E6%9C%BA%E6%A2%B0%E5%90%8C%E6%84%9F/</link>
+      <link>https://zoco.fun/program/%E6%9C%BA%E6%A2%B0%E5%90%8C%E6%84%9F/</link>
       <pubDate>Tue, 16 Jun 2020 10:53:35 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/%E6%9C%BA%E6%A2%B0%E5%90%8C%E6%84%9F/</guid>
+      <guid>https://zoco.fun/program/%E6%9C%BA%E6%A2%B0%E5%90%8C%E6%84%9F/</guid>
       <description>机械同感 本篇一部分翻译自Go and CPU Caches - Teiva Harsanyi - Medium，和 【译】CPU 高速缓存原理和应用 - 云+社区 - 腾讯云。
 其中代码部分亲自做了基准测试，和作者的有出入，本文会加入我的解释。
  很早很早以前，面试过一个同学，他说他对底层非常感兴趣，看过很多底层设计的书，我问他说这些对日常的工作有什么帮助吗，他说每天的工作就是CURD，底层知识几乎用不到，所以很苦恼。
@@ -110,10 +110,10 @@ CPU 高速缓存基本原理 现代计算机处理器是基于一种叫对称多
     
     <item>
       <title>从零开始搭建创业公司后台技术栈</title>
-      <link>https://yezuozuo.github.io/program/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E5%88%9B%E4%B8%9A%E5%85%AC%E5%8F%B8%E5%90%8E%E5%8F%B0%E6%8A%80%E6%9C%AF%E6%A0%88/</link>
+      <link>https://zoco.fun/program/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E5%88%9B%E4%B8%9A%E5%85%AC%E5%8F%B8%E5%90%8E%E5%8F%B0%E6%8A%80%E6%9C%AF%E6%A0%88/</link>
       <pubDate>Fri, 03 Jan 2020 14:07:19 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E5%88%9B%E4%B8%9A%E5%85%AC%E5%8F%B8%E5%90%8E%E5%8F%B0%E6%8A%80%E6%9C%AF%E6%A0%88/</guid>
+      <guid>https://zoco.fun/program/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E5%88%9B%E4%B8%9A%E5%85%AC%E5%8F%B8%E5%90%8E%E5%8F%B0%E6%8A%80%E6%9C%AF%E6%A0%88/</guid>
       <description>说到后台技术栈，脑海中是不是浮现的是这样一幅图？
 有点眼晕，以上只是我们会用到的一些语言的合集，而且只是语言层面的一部分，就整个后台技术栈来说，这只是一个开始，从语言开始，还有很多很多的内容。今天要说的后台是大后台的概念，放在服务器上的东西都属于后台的东西，比如使用的框架，语言，数据库，服务，操作系统等等，整个后台技术栈我的理解包括4个层面的内容：
  语言： 用了哪些开发语言，如：c++/java/go/php/python/ruby等等； 组件：用了哪些组件，如：MQ组件，数据库组件等等； 流程：怎样的流程和规范，如：开发流程，项目流程，发布流程，监控告警流程，代码规范等等； 系统：系统化建设，上面的流程需要有系统来保证，如：规范发布流程的发布系统，代码管理系统等等；  结合以上的的4个层面的内容，整个后台技术栈的结构如下图所示：
@@ -125,10 +125,10 @@ CPU 高速缓存基本原理 现代计算机处理器是基于一种叫对称多
     
     <item>
       <title>php性能优化之并行与异步</title>
-      <link>https://yezuozuo.github.io/program/php%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%B9%B6%E8%A1%8C%E4%B8%8E%E5%BC%82%E6%AD%A5/</link>
+      <link>https://zoco.fun/program/php%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%B9%B6%E8%A1%8C%E4%B8%8E%E5%BC%82%E6%AD%A5/</link>
       <pubDate>Sun, 05 May 2019 21:35:29 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/php%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%B9%B6%E8%A1%8C%E4%B8%8E%E5%BC%82%E6%AD%A5/</guid>
+      <guid>https://zoco.fun/program/php%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%B9%B6%E8%A1%8C%E4%B8%8E%E5%BC%82%E6%AD%A5/</guid>
       <description>PHP性能优化之并行与异步 在我们的一个核心接口中会请求大量的RPC服务，用来获取各种数据，比如一个接口一次请求将会产生平均7~8次RPC，调用虽然每个接口都非常的快（ms级），但8次累加起来的消耗还是相当的可观，所以我最近的优化工作主要是:
  通过某种方式并行（异步）调用各RPC请求，以缩短执行时间。
  当我开始接手这项工作的时候，脑海中想到的第一个对应思想就是Lazy evaluation（ 缓式求值 ），维基百科上对于缓式求值的定义是：
@@ -143,10 +143,10 @@ CPU 高速缓存基本原理 现代计算机处理器是基于一种叫对称多
     
     <item>
       <title>名词解释</title>
-      <link>https://yezuozuo.github.io/program/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/</link>
+      <link>https://zoco.fun/program/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/</link>
       <pubDate>Sat, 20 Apr 2019 14:55:48 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/</guid>
+      <guid>https://zoco.fun/program/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/</guid>
       <description>布隆过滤器 (Bloom Filter)是由Burton Howard Bloom于1970年提出，它是一种space efficient的概率型数据结构，用于判断一个元素是否在集合中。在垃圾邮件过滤的黑白名单方法、爬虫(Crawler)的网址判重模块中等等经常被用到。哈希表也能用于判断元素是否在集合中，但是布隆过滤器只需要哈希表的1/8或1/4的空间复杂度就能完成同样的问题。布隆过滤器可以插入元素，但不可以删除已有元素。其中的元素越多，false positive rate(误报率)越大，但是false negative (漏报)是不可能的。
 C10k:指的是服务器同时支持成千上万个客户端的问题，也就是concurrent 10000 connnection。
 彩虹表：彩虹表是一个用于加密散列函数逆运算的预先计算好的表, 常用于破解加密过的密码散列。一般主流的彩虹表都在100G以上。 查找表常常用于包含有限字符固定长度纯文本密码的加密。这是以空间换时间的典型实践, 在每一次尝试都计算的暴力破解中使用更少的计算能力和更多的储存空间，但却比简单的每个输入一条散列的翻查表使用更少的储存空间和更多的计算性能。使用加盐的KDF函数可以使这种攻击难以实现。
@@ -164,10 +164,10 @@ Time工具用于初步分析程序性能很有用，real项就是程序执行的
     
     <item>
       <title>php使用redis连接数过高问题</title>
-      <link>https://yezuozuo.github.io/program/php%E4%BD%BF%E7%94%A8redis%E8%BF%9E%E6%8E%A5%E6%95%B0%E8%BF%87%E9%AB%98%E9%97%AE%E9%A2%98/</link>
+      <link>https://zoco.fun/program/php%E4%BD%BF%E7%94%A8redis%E8%BF%9E%E6%8E%A5%E6%95%B0%E8%BF%87%E9%AB%98%E9%97%AE%E9%A2%98/</link>
       <pubDate>Tue, 19 Mar 2019 13:07:02 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/php%E4%BD%BF%E7%94%A8redis%E8%BF%9E%E6%8E%A5%E6%95%B0%E8%BF%87%E9%AB%98%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://zoco.fun/program/php%E4%BD%BF%E7%94%A8redis%E8%BF%9E%E6%8E%A5%E6%95%B0%E8%BF%87%E9%AB%98%E9%97%AE%E9%A2%98/</guid>
       <description>最近发生了几次php连接数过高导致的问题，由于业务体量上涨导致php机器扩容，某个库的连接数过高导致redis cpu跑满。
 系统解释一下php为什么会出现连接过高的问题。
 php进程模型 根据上图能够得到：
@@ -189,10 +189,10 @@ A：很遗憾，是没有效果的，此举反而会加重php实例的连接数�
     
     <item>
       <title>Java一些记录</title>
-      <link>https://yezuozuo.github.io/program/java%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/</link>
+      <link>https://zoco.fun/program/java%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/</link>
       <pubDate>Fri, 22 Feb 2019 14:12:27 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/java%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/</guid>
+      <guid>https://zoco.fun/program/java%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/</guid>
       <description>线程安全的优先级高于性能。
 Java中的多线程你只要看这一篇就够了 - ImportNew
 Java 之 synchronized 详解 - 掘金
@@ -217,10 +217,10 @@ synchronized关键字可以实现操作的原子性，其本质是通过该关�
     
     <item>
       <title>cmd=NULL空连接的排查方式</title>
-      <link>https://yezuozuo.github.io/program/cmdnull%E7%A9%BA%E8%BF%9E%E6%8E%A5%E7%9A%84%E6%8E%92%E6%9F%A5%E6%96%B9%E5%BC%8F/</link>
+      <link>https://zoco.fun/program/cmdnull%E7%A9%BA%E8%BF%9E%E6%8E%A5%E7%9A%84%E6%8E%92%E6%9F%A5%E6%96%B9%E5%BC%8F/</link>
       <pubDate>Mon, 18 Feb 2019 20:13:02 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/cmdnull%E7%A9%BA%E8%BF%9E%E6%8E%A5%E7%9A%84%E6%8E%92%E6%9F%A5%E6%96%B9%E5%BC%8F/</guid>
+      <guid>https://zoco.fun/program/cmdnull%E7%A9%BA%E8%BF%9E%E6%8E%A5%E7%9A%84%E6%8E%92%E6%9F%A5%E6%96%B9%E5%BC%8F/</guid>
       <description>现象 dba收到连接数过多的报警，在redis上client list看有哪些连接，如下图，发现大多数都是cmd=NULL的连接，cmd=NULL一般是客户端建立了连接，但是没有任何操作。
 初步排查 要么是redis问题，要么是业务问题。
 登上php机器，找一个端口查看连接的建立情况，如下图：
@@ -238,10 +238,10 @@ $redis = new Redis(); for ($i = 1; $i &amp;lt; 10000;$i++) { $redis = new Redis(
     
     <item>
       <title>php中的trait</title>
-      <link>https://yezuozuo.github.io/program/php%E4%B8%AD%E7%9A%84trait/</link>
+      <link>https://zoco.fun/program/php%E4%B8%AD%E7%9A%84trait/</link>
       <pubDate>Mon, 03 Dec 2018 21:31:49 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/php%E4%B8%AD%E7%9A%84trait/</guid>
+      <guid>https://zoco.fun/program/php%E4%B8%AD%E7%9A%84trait/</guid>
       <description>为什么要使用trait?
 先来看一个情景，如果想要写一个继承模型该怎么做。
 最常见的一种时创建一个父类，让子类来继承父类。这个方法有一个问题，就是有可能子类之间是无关的，只是为了继承而写在一起，逻辑上说不通。
@@ -252,19 +252,19 @@ PHP解释器在编译时会把trait复制粘贴到类的定义体中，但是不
     
     <item>
       <title>php Switch的一个注意点</title>
-      <link>https://yezuozuo.github.io/program/php-switch%E7%9A%84%E4%B8%80%E4%B8%AA%E6%B3%A8%E6%84%8F%E7%82%B9/</link>
+      <link>https://zoco.fun/program/php-switch%E7%9A%84%E4%B8%80%E4%B8%AA%E6%B3%A8%E6%84%8F%E7%82%B9/</link>
       <pubDate>Mon, 23 Jul 2018 18:49:11 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/php-switch%E7%9A%84%E4%B8%80%E4%B8%AA%E6%B3%A8%E6%84%8F%E7%82%B9/</guid>
+      <guid>https://zoco.fun/program/php-switch%E7%9A%84%E4%B8%80%E4%B8%AA%E6%B3%A8%E6%84%8F%E7%82%B9/</guid>
       <description>public function formatTime($timestamp) { $now = time(); $diff = $now - $timestamp; switch ($diff) { case $diff &amp;lt; 60: $re = &#39;1分钟&#39;; break; case $diff &amp;lt; 60 * 60: $re = strval(intval($diff / 60)) . &#39;分钟&#39;; break; case $diff &amp;lt; 60 * 60 * 48: $re = strval(intval($diff / (60 * 60))) . &#39;小时&#39;; break; default: $re = strval(intval($diff / (60 * 60 * 24))) . &#39;天&#39;; break; } return $re; } 当时间戳是time()的时候，diff为0，想的得到的结果应该是返回1分钟，结果却返回了0天。</description>
     </item>
     
     <item>
       <title>一个php编译器的问题</title>
-      <link>https://yezuozuo.github.io/program/%E4%B8%80%E4%B8%AAphp%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <link>https://zoco.fun/program/%E4%B8%80%E4%B8%AAphp%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sat, 23 Jun 2018 19:39:29 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/%E4%B8%80%E4%B8%AAphp%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://zoco.fun/program/%E4%B8%80%E4%B8%AAphp%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>看一个问题$a=1; $a+$a++ 的值是多少
 答案是3，根据下图，先执行$a++,在执行+。
 $a + ($a++) = 3
@@ -280,10 +280,10 @@ $a + ($a++) = 3
     
     <item>
       <title> php 7.2.1 &#43; redis 3.1.6 超时问题</title>
-      <link>https://yezuozuo.github.io/program/php-7.2.1-&#43;-redis-3.1.6-%E8%B6%85%E6%97%B6%E9%97%AE%E9%A2%98/</link>
+      <link>https://zoco.fun/program/php-7.2.1-&#43;-redis-3.1.6-%E8%B6%85%E6%97%B6%E9%97%AE%E9%A2%98/</link>
       <pubDate>Wed, 23 May 2018 19:50:52 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/php-7.2.1-&#43;-redis-3.1.6-%E8%B6%85%E6%97%B6%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://zoco.fun/program/php-7.2.1-&#43;-redis-3.1.6-%E8%B6%85%E6%97%B6%E9%97%AE%E9%A2%98/</guid>
       <description>在升级php 7.2.1之后发现某集群的超时时间骤增，从平均80ms变成了120ms。
 同时在报错日志中发现了较多的如下错误：
 本来设置的超时都没生效，可能导致性能下降。
@@ -297,10 +297,10 @@ PHPAPI php_stream *_php_stream_xport_create(const char *name, size_t namelen, in
     
     <item>
       <title>基于Upsync模块实现Nginx动态配置</title>
-      <link>https://yezuozuo.github.io/program/%E5%9F%BA%E4%BA%8Eupsync%E6%A8%A1%E5%9D%97%E5%AE%9E%E7%8E%B0nginx%E5%8A%A8%E6%80%81%E9%85%8D%E7%BD%AE/</link>
+      <link>https://zoco.fun/program/%E5%9F%BA%E4%BA%8Eupsync%E6%A8%A1%E5%9D%97%E5%AE%9E%E7%8E%B0nginx%E5%8A%A8%E6%80%81%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Sun, 22 Apr 2018 10:14:33 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/%E5%9F%BA%E4%BA%8Eupsync%E6%A8%A1%E5%9D%97%E5%AE%9E%E7%8E%B0nginx%E5%8A%A8%E6%80%81%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://zoco.fun/program/%E5%9F%BA%E4%BA%8Eupsync%E6%A8%A1%E5%9D%97%E5%AE%9E%E7%8E%B0nginx%E5%8A%A8%E6%80%81%E9%85%8D%E7%BD%AE/</guid>
       <description>Upsync是新浪微博开源的基于Nginx实现动态配置的三方模块。Nginx-Upsync-Module的功能是拉取Consul的后端server的列表，并动态更新Nginx的路由信息。此模块不依赖于任何第三方模块。Consul作为Nginx的DB，利用Consul的KV服务，每个Nginx Work进程独立的去拉取各个upstream的配置，并更新各自的路由。
 Upsync模块工作原理 在Nginx的设计中，每一个upstream维护了一张静态路由表，存储了backend的ip、port以及其他的meta信息。每次请求到达后，会依据location检索路由表，然后依据具体的调度算法(如round robin )选择一个backend转发请求。但这张路由表是静态的，如果变更后，则必须reload，经常reload的话这对SLA有较大影响。
 为了达到减少reload的目的，大多通过动态更新维护路由表来解决这个问题。通常路由表的维护有Push与Pull两种方式。
@@ -325,10 +325,10 @@ Nginx启动时，master进程首先会解析本地的配置文件，解析完成
     
     <item>
       <title>php连接检查</title>
-      <link>https://yezuozuo.github.io/program/php%E8%BF%9E%E6%8E%A5%E6%A3%80%E6%9F%A5/</link>
+      <link>https://zoco.fun/program/php%E8%BF%9E%E6%8E%A5%E6%A3%80%E6%9F%A5/</link>
       <pubDate>Tue, 06 Mar 2018 19:45:26 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/php%E8%BF%9E%E6%8E%A5%E6%A3%80%E6%9F%A5/</guid>
+      <guid>https://zoco.fun/program/php%E8%BF%9E%E6%8E%A5%E6%A3%80%E6%9F%A5/</guid>
       <description>长连接可以减少建立连接的过程, 使用长连接可以提高服务的性能。php 很多扩展都支持长连接，如 redis, memcache, mysql 的主流扩展都支持。
 我们知道长连接就是一次建立连接，使用之后不会马上释放，而是把这个连接放到连接池。那么引发的一个问题就是，我们下次使用时如何知道这个连接是否已经被关闭。
 我们来看看 phpredis 是如何来判断，连接是否可用。 phpredis 检查的函数在 library.c 的 redis_check_eof 的方法，而这个方法调用的是 php 内部的方法 php_stream_eof, 我们来看这个方法的具体实现。
@@ -338,10 +338,10 @@ PHPAPI int _php_stream_eof(php_stream *stream TSRMLS_DC) { // 如果有数据未
     
     <item>
       <title>调redis就进程crash</title>
-      <link>https://yezuozuo.github.io/program/%E8%B0%83redis%E5%B0%B1%E8%BF%9B%E7%A8%8Bcrash/</link>
+      <link>https://zoco.fun/program/%E8%B0%83redis%E5%B0%B1%E8%BF%9B%E7%A8%8Bcrash/</link>
       <pubDate>Fri, 23 Feb 2018 11:23:44 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/%E8%B0%83redis%E5%B0%B1%E8%BF%9B%E7%A8%8Bcrash/</guid>
+      <guid>https://zoco.fun/program/%E8%B0%83redis%E5%B0%B1%E8%BF%9B%E7%A8%8Bcrash/</guid>
       <description>[07-Feb-2018 18:50:06] WARNING: [pool www] child 597 exited on signal 11 (SIGSEGV) after 6502.027154 seconds from start [07-Feb-2018 18:50:06] NOTICE: [pool www] child 640 started 多次测试后必现。
  SIGSEGV是当一个进程执行了一个无效的内存引用，或发生段错误时发送给它的信号。
  SIGSEGV会导致php进程的crash，同时观察php的存货进程，确定每次调用该接口的时候所在进程会被kill掉。
@@ -361,10 +361,10 @@ $redis-&amp;gt;zRevRangeByScore($key,&#39;+inf&#39;,&#39;0&#39;,[&#39;withscores
     
     <item>
       <title>APP API需要同时维护多个版本的一些想法</title>
-      <link>https://yezuozuo.github.io/program/app-api%E9%9C%80%E8%A6%81%E5%90%8C%E6%97%B6%E7%BB%B4%E6%8A%A4%E5%A4%9A%E4%B8%AA%E7%89%88%E6%9C%AC%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/</link>
+      <link>https://zoco.fun/program/app-api%E9%9C%80%E8%A6%81%E5%90%8C%E6%97%B6%E7%BB%B4%E6%8A%A4%E5%A4%9A%E4%B8%AA%E7%89%88%E6%9C%AC%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/</link>
       <pubDate>Sat, 20 Jan 2018 20:13:02 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/app-api%E9%9C%80%E8%A6%81%E5%90%8C%E6%97%B6%E7%BB%B4%E6%8A%A4%E5%A4%9A%E4%B8%AA%E7%89%88%E6%9C%AC%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/</guid>
+      <guid>https://zoco.fun/program/app-api%E9%9C%80%E8%A6%81%E5%90%8C%E6%97%B6%E7%BB%B4%E6%8A%A4%E5%A4%9A%E4%B8%AA%E7%89%88%E6%9C%AC%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/</guid>
       <description>第一种形式：
 Controller/V1.0.0/ -----------------/UserController.php -----------------/UploadController.php Controller/V2.1.0/ -----------------/UserController.php -----------------/UploadController.php 第二种形式：
 Controller/ ----------/UserCreateController.php ----------/UserInfoController.php ----------/UploadImageController.php UserCreateController.php 内容如下：
@@ -392,10 +392,10 @@ v2.api.xxx.com
     
     <item>
       <title>Linux Slab分配器</title>
-      <link>https://yezuozuo.github.io/program/linux-slab%E5%88%86%E9%85%8D%E5%99%A8/</link>
+      <link>https://zoco.fun/program/linux-slab%E5%88%86%E9%85%8D%E5%99%A8/</link>
       <pubDate>Fri, 29 Dec 2017 10:17:49 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/linux-slab%E5%88%86%E9%85%8D%E5%99%A8/</guid>
+      <guid>https://zoco.fun/program/linux-slab%E5%88%86%E9%85%8D%E5%99%A8/</guid>
       <description>动态内存管理 内存管理的目标是提供一种方法，为实现各种目的而在各个用户之间实现内存共享。内存管理方法应该实现以下两个功能：
  最小化管理内存所需的时间 最大化用于一般应用的可用内存（最小化管理开销）  内存管理实际上是一种关于权衡的零和游戏。可以开发一种使用少量内存进行管理的算法，但是要花费更多时间来管理可用内存。也可以开发一个算法来有效地管理内存，但却要使用更多的内存。最终，特定应用程序的需求将促使对这种权衡作出选择。
 每个内存管理器都使用了一种基于堆的分配策略。在这种方法中，大块内存（称为堆）用来为用户定义的目的提供内存。当用户需要一块内存时，就请求给自己分配一定大小的内存。堆管理器会查看可用内存的情况（使用特定算法）并返回一块内存。搜索过程中使用的一些算法有first-fit（在堆中搜索到的第一个满足请求的内存块）和best-fit（使用堆中满足请求的最合适的内存块）。当用户使用完内存后，就将内存返回给堆。
@@ -411,10 +411,10 @@ slabs_full 完全分配的 slab slabs_partial 部分分配的 slab slabs_empty �
     
     <item>
       <title>Centos上node彻底删除与安装并更新到最新版</title>
-      <link>https://yezuozuo.github.io/program/centos%E4%B8%8Anode%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4%E4%B8%8E%E5%AE%89%E8%A3%85%E5%B9%B6%E6%9B%B4%E6%96%B0%E5%88%B0%E6%9C%80%E6%96%B0%E7%89%88/</link>
+      <link>https://zoco.fun/program/centos%E4%B8%8Anode%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4%E4%B8%8E%E5%AE%89%E8%A3%85%E5%B9%B6%E6%9B%B4%E6%96%B0%E5%88%B0%E6%9C%80%E6%96%B0%E7%89%88/</link>
       <pubDate>Fri, 03 Nov 2017 13:23:20 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/centos%E4%B8%8Anode%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4%E4%B8%8E%E5%AE%89%E8%A3%85%E5%B9%B6%E6%9B%B4%E6%96%B0%E5%88%B0%E6%9C%80%E6%96%B0%E7%89%88/</guid>
+      <guid>https://zoco.fun/program/centos%E4%B8%8Anode%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4%E4%B8%8E%E5%AE%89%E8%A3%85%E5%B9%B6%E6%9B%B4%E6%96%B0%E5%88%B0%E6%9C%80%E6%96%B0%E7%89%88/</guid>
       <description>删除 进入 /usr/local/lib 删除所有 node 和 node_modules文件夹
 进入 /usr/local/include 删除所有 node 和 node_modules 文件夹
 检查 ~ 文件夹里面的&amp;quot;local&amp;rdquo; &amp;ldquo;lib&amp;rdquo; &amp;ldquo;include&amp;rdquo; 文件夹，然后删除里面的所有 &amp;ldquo;node&amp;rdquo; 和 &amp;ldquo;node_modules&amp;rdquo; 文件夹
@@ -427,10 +427,10 @@ wget https://nodejs.org/dist/v6.10.3/node-v6.10.3-linux-x64.tar.gz tar -zvxf nod
     
     <item>
       <title>php底层rtrim的一个“bug”</title>
-      <link>https://yezuozuo.github.io/program/php%E5%BA%95%E5%B1%82rtrim%E7%9A%84%E4%B8%80%E4%B8%AAbug/</link>
+      <link>https://zoco.fun/program/php%E5%BA%95%E5%B1%82rtrim%E7%9A%84%E4%B8%80%E4%B8%AAbug/</link>
       <pubDate>Thu, 19 Oct 2017 10:53:35 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/php%E5%BA%95%E5%B1%82rtrim%E7%9A%84%E4%B8%80%E4%B8%AAbug/</guid>
+      <guid>https://zoco.fun/program/php%E5%BA%95%E5%B1%82rtrim%E7%9A%84%E4%B8%80%E4%B8%AAbug/</guid>
       <description>背景 trim系列函数是用于去除字符串中首尾的空格或其他字符。ltrim函数只去除掉字符串首部的字符，rtrim函数只去除字符串尾部的字符。
 string trim ( string $str [, string $character_mask = &amp;quot; \t\n\r\0\x0B&amp;quot; ] ) 看一个例子：
 $str = &amp;quot;e?type&amp;quot;; echo $str; echo &amp;quot;\n&amp;quot;; echo rtrim($str, &#39;?type&#39;); echo &amp;quot;\n&amp;quot;; 不知道别人怎么想，我觉得这个返回的应该是”e”吧。
@@ -448,10 +448,10 @@ $str = &amp;quot;e?type&amp;quot;; echo $str; echo &amp;quot;\n&amp;quot;; echo 
     
     <item>
       <title>让你的PHP7更快 GCC PGO</title>
-      <link>https://yezuozuo.github.io/program/%E8%AE%A9%E4%BD%A0%E7%9A%84php7%E6%9B%B4%E5%BF%AB_gccpgo/</link>
+      <link>https://zoco.fun/program/%E8%AE%A9%E4%BD%A0%E7%9A%84php7%E6%9B%B4%E5%BF%AB_gccpgo/</link>
       <pubDate>Mon, 11 Sep 2017 09:58:02 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/%E8%AE%A9%E4%BD%A0%E7%9A%84php7%E6%9B%B4%E5%BF%AB_gccpgo/</guid>
+      <guid>https://zoco.fun/program/%E8%AE%A9%E4%BD%A0%E7%9A%84php7%E6%9B%B4%E5%BF%AB_gccpgo/</guid>
       <description>依据来源：让你的PHP7更快(GCC PGO) | 风雪之隅
 执行步骤 下载最新的 php-7.2.0RC4.tar.gz https://downloads.php.net/~remi/php-7.2.0RC4.tar.gz
 ./configure --enable-fpm --with-config-file-path=/etc --with-config-file-scan-dir=/etc/php.d 第一遍编译PHP7, 让它生成会产生profile数据的可执行文件
@@ -472,10 +472,10 @@ PGO相关解释 有编译器用到概率的，但我不知道最先进的编译�
     
     <item>
       <title>swoole 1.9.17 一个bug的处理过程</title>
-      <link>https://yezuozuo.github.io/program/swoole-1.9.17-%E4%B8%80%E4%B8%AAbug%E7%9A%84%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B/</link>
+      <link>https://zoco.fun/program/swoole-1.9.17-%E4%B8%80%E4%B8%AAbug%E7%9A%84%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B/</link>
       <pubDate>Wed, 02 Aug 2017 19:45:26 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/swoole-1.9.17-%E4%B8%80%E4%B8%AAbug%E7%9A%84%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B/</guid>
+      <guid>https://zoco.fun/program/swoole-1.9.17-%E4%B8%80%E4%B8%AAbug%E7%9A%84%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B/</guid>
       <description>背景 在用最新版swoole 1.9.17 跑websocket服务时，在重启服务时worker进程会产生异常。
 除了swoole版本不一样之外，在swoole1.9.13和2.0.7版本的环境中均未发现此问题。
 而1.9.17版本刚刚重构了底层WorkerStop的机制：https://wiki.swoole.com/wiki/page/775.html
@@ -501,10 +501,10 @@ websocket server端代码为官网的例子，设置worker_num为5。
     
     <item>
       <title>性能优化的一些思考</title>
-      <link>https://yezuozuo.github.io/program/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/</link>
+      <link>https://zoco.fun/program/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/</link>
       <pubDate>Mon, 03 Jul 2017 13:41:50 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/</guid>
+      <guid>https://zoco.fun/program/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/</guid>
       <description>性能优化服务诉求
 接口运行的怎么样？ 信息透明
 接口调用时延为啥变高了？ 自动化诊断优化
@@ -518,10 +518,10 @@ websocket server端代码为官网的例子，设置worker_num为5。
     
     <item>
       <title>深入浅出FastCGI和php Fpm</title>
-      <link>https://yezuozuo.github.io/program/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAfastcgi%E5%92%8Cphp-fpm/</link>
+      <link>https://zoco.fun/program/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAfastcgi%E5%92%8Cphp-fpm/</link>
       <pubDate>Mon, 05 Jun 2017 09:46:30 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAfastcgi%E5%92%8Cphp-fpm/</guid>
+      <guid>https://zoco.fun/program/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAfastcgi%E5%92%8Cphp-fpm/</guid>
       <description>先看个图，标准的PHP单进程CLI和CGI生命周期。php进程启动，需要zend core、Module的Init(MINIT)、Request 的Init(RINIT) 这样的。一个进程只服务一次命令行或HTTP请求，就退出。
 而FastCGI/php-fpm 就是改造后的多进程的 CGI，类似于资源池，预先启动 100个 php-fpm 进程，提前MINT，nginx的请求来了，直接进入 RINIT -&amp;gt; RSHUTDOWN 循环。请求结束，进程不退出，一个进程至少服务上万次请求才退出。
 为什么一定要退出？怕RINIT-&amp;gt;RSHUTDOWN循环，有哪个代码写的不好，变量一直没释放，内存泄露GC又回收不了。php-fpm里的pm.max_requests配置就是设置RINT循环多少次，退出进程。
@@ -534,10 +534,10 @@ websocket server端代码为官网的例子，设置worker_num为5。
     
     <item>
       <title>php级别性能优化分享</title>
-      <link>https://yezuozuo.github.io/program/php%E7%BA%A7%E5%88%AB%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%88%86%E4%BA%AB/</link>
+      <link>https://zoco.fun/program/php%E7%BA%A7%E5%88%AB%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%88%86%E4%BA%AB/</link>
       <pubDate>Wed, 17 May 2017 21:28:51 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/php%E7%BA%A7%E5%88%AB%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%88%86%E4%BA%AB/</guid>
+      <guid>https://zoco.fun/program/php%E7%BA%A7%E5%88%AB%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%88%86%E4%BA%AB/</guid>
       <description>前言 指导思想：能自动化的，要自动化；不能自动化的，要半自动化。
 性能分析最理想的方式是强智能，也就是让机器独立处理所有事情，自动发现问题并解决问题。但是需要用到人工智能，深度学习等等。要学的东西还很多，暂时还做不了那么牛逼的事，既然现在强智能还不够强，那么我们暂时先用弱智能+人工确认的方式，来实现「半智能化」：用机器帮咱们做预选，人工来做最终选择，虽然依然包含了人工干预，但却可以把生产效率提升几十倍。
 性能分析  方法、工具、思路 查找瓶颈 重点优化（耗时多、请求多、超过150ms的接口） 查看单个请求调用链（次数，时间） 各个性能参数变化率 机器流量，负载，内存，qps，php.ini+php-fpm.conf  性能分析-工具 xhprof源码分析： https://zoco.fun/program/Xhprof源码分析
@@ -553,10 +553,10 @@ websocket server端代码为官网的例子，设置worker_num为5。
     
     <item>
       <title>如何进行一次简单的性能分析</title>
-      <link>https://yezuozuo.github.io/program/%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%B8%80%E6%AC%A1%E7%AE%80%E5%8D%95%E7%9A%84%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/</link>
+      <link>https://zoco.fun/program/%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%B8%80%E6%AC%A1%E7%AE%80%E5%8D%95%E7%9A%84%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/</link>
       <pubDate>Mon, 03 Apr 2017 20:29:42 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%B8%80%E6%AC%A1%E7%AE%80%E5%8D%95%E7%9A%84%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/</guid>
+      <guid>https://zoco.fun/program/%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%B8%80%E6%AC%A1%E7%AE%80%E5%8D%95%E7%9A%84%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/</guid>
       <description>基于xhprof开发php性能优化系统全文
 安装 安装php msgpack扩展 安装php xhprof扩展 php5 https://github.com/phacility/xhprof
 php7 https://github.com/Yaoguais/phpng-xhprof
@@ -567,10 +567,10 @@ php7 https://github.com/Yaoguais/phpng-xhprof
     
     <item>
       <title>程序的本质复杂性和元语言抽象</title>
-      <link>https://yezuozuo.github.io/program/%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9C%AC%E8%B4%A8%E5%A4%8D%E6%9D%82%E6%80%A7%E5%92%8C%E5%85%83%E8%AF%AD%E8%A8%80%E6%8A%BD%E8%B1%A1/</link>
+      <link>https://zoco.fun/program/%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9C%AC%E8%B4%A8%E5%A4%8D%E6%9D%82%E6%80%A7%E5%92%8C%E5%85%83%E8%AF%AD%E8%A8%80%E6%8A%BD%E8%B1%A1/</link>
       <pubDate>Wed, 01 Mar 2017 20:26:20 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9C%AC%E8%B4%A8%E5%A4%8D%E6%9D%82%E6%80%A7%E5%92%8C%E5%85%83%E8%AF%AD%E8%A8%80%E6%8A%BD%E8%B1%A1/</guid>
+      <guid>https://zoco.fun/program/%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9C%AC%E8%B4%A8%E5%A4%8D%E6%9D%82%E6%80%A7%E5%92%8C%E5%85%83%E8%AF%AD%E8%A8%80%E6%8A%BD%E8%B1%A1/</guid>
       <description>参考： http://www.cnblogs.com/weidagang2046/p/the-nature-of-meta.html
  如果目标还是代码“简短、优雅、易理解、易维护”，那么代码优化是否有一个理论极限？这个极限是由什么决定的？普通代码比起最优代码多出来的“冗余部分”到底干了些什么事情？
  回答这个问题要从程序的本质说起。Pascal语言之父Niklaus Wirth在70年代提出：
@@ -591,10 +591,10 @@ message Person { required int32 id = 1; required string name = 2; optional strin
     
     <item>
       <title>php-fpm的一些实验</title>
-      <link>https://yezuozuo.github.io/program/php-fpm%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E9%AA%8C/</link>
+      <link>https://zoco.fun/program/php-fpm%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E9%AA%8C/</link>
       <pubDate>Tue, 07 Feb 2017 19:37:03 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/php-fpm%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E9%AA%8C/</guid>
+      <guid>https://zoco.fun/program/php-fpm%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E9%AA%8C/</guid>
       <description>实验一  将pm设置成static方式 将pm.max_children设置为1 将pm.max_requests设置成500  每次请求，程序末尾包括exit()和不包括exit()的形式，php-fpm的子进程都不会被杀死。
 实验二  将pm设置成static方式 将pm.max_children设置为1 将pm.max_requests设置成1  每次请求，程序末尾包括exit()和不包括exit()的形式，php-fpm的子进程都会被杀死。
 实验三 &amp;lt;?php class a { public $a; public function __construct() { $this-&amp;gt;a = 1; exit(); } public function __destruct() { echo $this-&amp;gt;a.&amp;quot;\n&amp;quot;; echo &#39;123&#39;.&amp;quot;\n&amp;quot;; } } $a = new a(); echo $a-&amp;gt;a; 输出
@@ -603,10 +603,10 @@ message Person { required int32 id = 1; required string name = 2; optional strin
     
     <item>
       <title>Zabbix怎么搞一个永不过期的session</title>
-      <link>https://yezuozuo.github.io/program/zabbix%E6%80%8E%E4%B9%88%E6%90%9E%E4%B8%80%E4%B8%AA%E6%B0%B8%E4%B8%8D%E8%BF%87%E6%9C%9F%E7%9A%84session/</link>
+      <link>https://zoco.fun/program/zabbix%E6%80%8E%E4%B9%88%E6%90%9E%E4%B8%80%E4%B8%AA%E6%B0%B8%E4%B8%8D%E8%BF%87%E6%9C%9F%E7%9A%84session/</link>
       <pubDate>Thu, 19 Jan 2017 20:33:28 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/zabbix%E6%80%8E%E4%B9%88%E6%90%9E%E4%B8%80%E4%B8%AA%E6%B0%B8%E4%B8%8D%E8%BF%87%E6%9C%9F%E7%9A%84session/</guid>
+      <guid>https://zoco.fun/program/zabbix%E6%80%8E%E4%B9%88%E6%90%9E%E4%B8%80%E4%B8%AA%E6%B0%B8%E4%B8%8D%E8%BF%87%E6%9C%9F%E7%9A%84session/</guid>
       <description>zabbix的session会隔一段时间就不可用了，查一下原因
 zabbix的session什么时候过期？ 看zabbix的数据库，session相关的表有两个：
 mysql&amp;gt; desc users; +----------------+---------------------+------+-----+---------+-------+ | Field | Type | Null | Key | Default | Extra | +----------------+---------------------+------+-----+---------+-------+ | userid | bigint(20) unsigned | NO | PRI | NULL | | | alias | varchar(100) | NO | MUL | | | | name | varchar(100) | NO | | | | | surname | varchar(100) | NO | | | | | passwd | char(32) | NO | | | | | url | varchar(255) | NO | | | | | autologin | int(11) | NO | | 0 | | | autologout | int(11) | NO | | 900 | | | lang | varchar(5) | NO | | en_GB | | | refresh | int(11) | NO | | 30 | | | type | int(11) | NO | | 0 | | | theme | varchar(128) | NO | | default | | | attempt_failed | int(11) | NO | | 0 | | | attempt_ip | varchar(39) | NO | | | | | attempt_clock | int(11) | NO | | 0 | | | rows_per_page | int(11) | NO | | 50 | | +----------------+---------------------+------+-----+---------+-------+ mysql&amp;gt; desc sessions; +------------+---------------------+------+-----+---------+-------+ | Field | Type | Null | Key | Default | Extra | +------------+---------------------+------+-----+---------+-------+ | sessionid | varchar(32) | NO | PRI | | | | userid | bigint(20) unsigned | NO | MUL | NULL | | | lastaccess | int(11) | NO | | 0 | | | status | int(11) | NO | | 0 | | +------------+---------------------+------+-----+---------+-------+ 登录时验证sql为</description>
@@ -614,10 +614,10 @@ mysql&amp;gt; desc users; +----------------+---------------------+------+-----+-
     
     <item>
       <title>Swoole笔记</title>
-      <link>https://yezuozuo.github.io/program/swoole%E7%AC%94%E8%AE%B0/</link>
+      <link>https://zoco.fun/program/swoole%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Thu, 15 Dec 2016 10:00:29 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/swoole%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://zoco.fun/program/swoole%E7%AC%94%E8%AE%B0/</guid>
       <description>&amp;lt;1&amp;gt;  manager是进程，worker是进程，task是进程，master是线程，reactor是线程，心跳检测是线程，UDP收发是线程 reactor和worker之间的通信是通过IPC实现的 和worker进行通信有两种方式：管道和消息队列 主进程mainReactor负责监听server socket tcp分为nopush和nodelay两种方式 主进程mainReactor:  负责监听server socket，评估每个reactor线程的连接数量，评估方式也就是分配的方式是通过fd%serv-&amp;gt;reactorNum实现的 将监听到的accept请求分配给连接数最少的reactor线程 接管所有信号的signal处理，使reactor线程运行中不受到打扰   管理进程manager  分为worker进程和taskWorker进程 所有的worker进程和task进程都是manager进程fork出来的 当worker进程发生致命错误或者运行生命周期结束时，管理进程会回收此进程，并创建新的进程，防止子进程成为僵尸进程 管理进程可以平滑重启所有worker进程，以实现程序代码的重新加载   异步reactor线程（全异步非阻塞）  收发数据，处理网络I/O 处理TCP连接，将发来的数据缓冲拼接，拆分成完整的请求包 负责监听从mainReactor分配来的socket socket可读时读取数据，进行协议解析，然后将数据投递到worker进程，在socket可读时将数据发给TCP客户端   同步或者异步worker进程，没有用到epoll  处理数据 接受由reactor线程投递的请求数据包，并执行PHP回调函数处理数据 生成响应数据并发给reactor线程，由reactor线程发给客户端   task worker进程（完全是同步阻塞模式）  有些逻辑代码不需要马上执行，可以将一个task任务投递到taskworker进程池，在worker进程空闲时再去捕获任务执行的结果。   factory&amp;lt;-&amp;gt;task  不生产实例 根据类型的不同执行 任务中心，一个task请求进入factory，会通过dispatch分配，onTask处理，onFinish交付结果一系列流程 FactoryProcess用于管理manager和worker进程，也会对单独的writer线程管理   如果reactor最大允许监听的事件数比reactor的事件数小的话用poll/select，否则用epoll/kqueue client的类型：TCP，TCP6，UDP，UDP6，UNIXSTREAM，UNIXDGRAM client  异步：socket从mainReactor中获取 同步：直接创建一个connection   DNS：只可以是异步的查询，hashMap  &amp;lt;2&amp;gt; 腾讯QQ也是有C10K问题的，只不过他们是用了UDP这种原始的包交换协议来实现的，绕开了这个难题。当然过程肯定是痛苦的。如果当时有epoll技术，他们肯定会用TCP。后来的手机QQ，微信都采用TCP协议。实际上当时也有异步模式，如：select/poll模型，这些技术都有一定的缺点，如selelct最大不能超过1024，poll没有限制，但每次收到数据需要遍历每一个连接查看哪个连接有数据请求。既然有了C10K问题，程序员们就开始行动去解决它。于是FreeBSD推出了kqueue，Linux推出了epoll，Windows推出了IOCP。这些操作系统提供的功能就是为了解决C10K问题。因为Linux是互联网企业中使用率最高的操作系统，Epoll就成为C10K killer、高并发、高性能、异步非阻塞这些技术的代名词了。
 epoll技术的编程模型就是异步非阻塞回调，也可以叫做Reactor，事件驱动，事件轮循（EventLoop）。Epoll就是为了解决C10K问题而生。使用Epoll技术，使得小公司也可以玩高并发。不需要购买很多服务器，有几台服务器就可以服务大量用户。Nginx，libevent，node.js这些就是Epoll时代的产物。
 协程的优点是它比系统线程开销小，缺点是如果其中一个协程中有密集计算，其他的协程就不运行了。操作系统进程的缺点是开销大，优点是无论代码怎么写，所有进程都可以并发运行。
@@ -627,10 +627,10 @@ Erlang解决了协程密集计算的问题，它基于自行开发VM，并不执
     
     <item>
       <title>教你一步一步写一个phpunit testcase</title>
-      <link>https://yezuozuo.github.io/program/%E6%95%99%E4%BD%A0%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E5%86%99%E4%B8%80%E4%B8%AAphpunit-testcase/</link>
+      <link>https://zoco.fun/program/%E6%95%99%E4%BD%A0%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E5%86%99%E4%B8%80%E4%B8%AAphpunit-testcase/</link>
       <pubDate>Sat, 05 Nov 2016 10:53:35 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/%E6%95%99%E4%BD%A0%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E5%86%99%E4%B8%80%E4%B8%AAphpunit-testcase/</guid>
+      <guid>https://zoco.fun/program/%E6%95%99%E4%BD%A0%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E5%86%99%E4%B8%80%E4%B8%AAphpunit-testcase/</guid>
       <description>程序地址 https://github.com/yezuozuo/how-to-write-a-phpunit-testcase
 使用方法  composer install phpunit tests/EventTest.php  背景 https://phpunit.de/manual/current/zh_cn/index.html 这个是phpunit的文档,但是看完了我完全不知道怎么入手好吗,从0到1这个过程就在下面。
 综述 目录结构
@@ -639,10 +639,10 @@ Erlang解决了协程密集计算的问题，它基于自行开发VM，并不执
     
     <item>
       <title>谈消息安全传输中的技术点</title>
-      <link>https://yezuozuo.github.io/program/%E8%B0%88%E6%B6%88%E6%81%AF%E5%AE%89%E5%85%A8%E4%BC%A0%E8%BE%93%E4%B8%AD%E7%9A%84%E6%8A%80%E6%9C%AF%E7%82%B9/</link>
+      <link>https://zoco.fun/program/%E8%B0%88%E6%B6%88%E6%81%AF%E5%AE%89%E5%85%A8%E4%BC%A0%E8%BE%93%E4%B8%AD%E7%9A%84%E6%8A%80%E6%9C%AF%E7%82%B9/</link>
       <pubDate>Sat, 29 Oct 2016 14:04:02 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/%E8%B0%88%E6%B6%88%E6%81%AF%E5%AE%89%E5%85%A8%E4%BC%A0%E8%BE%93%E4%B8%AD%E7%9A%84%E6%8A%80%E6%9C%AF%E7%82%B9/</guid>
+      <guid>https://zoco.fun/program/%E8%B0%88%E6%B6%88%E6%81%AF%E5%AE%89%E5%85%A8%E4%BC%A0%E8%BE%93%E4%B8%AD%E7%9A%84%E6%8A%80%E6%9C%AF%E7%82%B9/</guid>
       <description>一、初级阶段：信息裸传 特点：在网络上传递明文
 黑客定理一：网络上传递的数据是不安全的，属网络于黑客公共场所，能被截取。
 结果：传递明文无异于不穿衣服裸奔
@@ -678,10 +678,10 @@ Erlang解决了协程密集计算的问题，它基于自行开发VM，并不执
     
     <item>
       <title>Nginx&#43;php Fpm模式php内存泄漏探究</title>
-      <link>https://yezuozuo.github.io/program/nginx&#43;php-fpm%E6%A8%A1%E5%BC%8Fphp%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E6%8E%A2%E7%A9%B6/</link>
+      <link>https://zoco.fun/program/nginx&#43;php-fpm%E6%A8%A1%E5%BC%8Fphp%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E6%8E%A2%E7%A9%B6/</link>
       <pubDate>Fri, 23 Sep 2016 19:50:52 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/nginx&#43;php-fpm%E6%A8%A1%E5%BC%8Fphp%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E6%8E%A2%E7%A9%B6/</guid>
+      <guid>https://zoco.fun/program/nginx&#43;php-fpm%E6%A8%A1%E5%BC%8Fphp%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E6%8E%A2%E7%A9%B6/</guid>
       <description>昨天遇到过一次服务器内存告警，查看后发现有个php-fpm进程占用了2G的内存。但我明明在php.ini文件里面，有配置 memory_limit = 256M，那为什么会有占用2G内存的php-fpm进程呢？
 这里先简单说一下nginx+php-fpm模式的工作原理。  nginx服务器fork出n个子进程（worker），php-fpm管理器fork出n个子进程。 当有用户请求，nginx的一个worker接收请求，并将请求抛到socket中。 php-fpm空闲的子进程监听到socket中有请求，接收并处理请求。  这里要重点说一下第三步骤。第三步涉及到php-fpm进程生命周期的东西。一个php-fpm的生命周期大致是这样的：模块初始化（MINIT）-&amp;gt; 模块激活（RINIT）-&amp;gt; 请求处理 -&amp;gt; 模块停用（RSHUTDOWN） -&amp;gt; 模块激活（RINIT）-&amp;gt; 请求处理 -&amp;gt; 模块停用（RSHUTDOWN）……. 模块激活（RINIT）-&amp;gt; 请求处理 -&amp;gt; 模块停用（RSHUTDOWN）-&amp;gt; 模块关闭（MSHUTDOWN）。在一个php-fpm进程的生命周期里，会有多次的模块激活（RINIT）-&amp;gt; 请求处理 -&amp;gt; 模块停用（RSHUTDOWN）的过程。这个“请求处理”的大致过程是这样的：php读取相应的php文件，对其进行词法分析，生成opcode，zend虚拟机执行opcode。
 回到一开始说的PHP配置文件里面的memory_limit 这个东西，其实，它限制的只是这个“请求处理”的内存。所以，这个参数跟php-fpm进程占用的内存并没有什么关系。那为什么会有占用2G大小的php-fpm进程呢？原因是这样的：php是用c写的，所以，难免又会一些内存泄露。也就是说，在“请求处理”这个过程结束后，有些变量没有被销毁，然后就导致一个php-fpm进程占用的内存越来越大。
@@ -690,10 +690,10 @@ Erlang解决了协程密集计算的问题，它基于自行开发VM，并不执
     
     <item>
       <title>动态流量控制（滑动窗口）在api日志中的应用</title>
-      <link>https://yezuozuo.github.io/program/%E5%8A%A8%E6%80%81%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%9C%A8api%E6%97%A5%E5%BF%97%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</link>
+      <link>https://zoco.fun/program/%E5%8A%A8%E6%80%81%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%9C%A8api%E6%97%A5%E5%BF%97%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</link>
       <pubDate>Sat, 18 Jun 2016 18:33:01 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/%E5%8A%A8%E6%80%81%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%9C%A8api%E6%97%A5%E5%BF%97%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</guid>
+      <guid>https://zoco.fun/program/%E5%8A%A8%E6%80%81%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%9C%A8api%E6%97%A5%E5%BF%97%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</guid>
       <description>现在api的所有php-fpm日志都打到了elasticsearch里，我们可以拿这些日志来做很多东西，但首先第一步是怎么取这些数据。
 这些日志的量大概每天有几百万条的规模。
 首先我尝试的是通过from+size的方式取数据，但是elasticsearch默认情况下只可以取from+size&amp;lt;10000的数据（当然也可以调大from+size，但是会带来一个问题就是数据取到最后越来越慢）
@@ -711,10 +711,10 @@ if(count($res) == 10000) { //说明此次请求获取的数据超过阈值 //丢
     
     <item>
       <title>案例学习：仅使用redis&#43;php设计实现一个简单的Twitter</title>
-      <link>https://yezuozuo.github.io/program/%E6%A1%88%E4%BE%8B%E5%AD%A6%E4%B9%A0%E4%BB%85%E4%BD%BF%E7%94%A8redis&#43;php%E8%AE%BE%E8%AE%A1%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84twitter/</link>
+      <link>https://zoco.fun/program/%E6%A1%88%E4%BE%8B%E5%AD%A6%E4%B9%A0%E4%BB%85%E4%BD%BF%E7%94%A8redis&#43;php%E8%AE%BE%E8%AE%A1%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84twitter/</link>
       <pubDate>Mon, 30 May 2016 18:50:41 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/%E6%A1%88%E4%BE%8B%E5%AD%A6%E4%B9%A0%E4%BB%85%E4%BD%BF%E7%94%A8redis&#43;php%E8%AE%BE%E8%AE%A1%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84twitter/</guid>
+      <guid>https://zoco.fun/program/%E6%A1%88%E4%BE%8B%E5%AD%A6%E4%B9%A0%E4%BB%85%E4%BD%BF%E7%94%A8redis&#43;php%E8%AE%BE%E8%AE%A1%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84twitter/</guid>
       <description>参考： http://redis.io/topics/twitter-clone
 代码地址： https://github.com/yezuozuo/twitter_clone
 我会在此文中描述如何使用PHP以及仅使用Redis来设计实现一个简单的Twitter克隆。很多编程社区常认为KV储存是一个特别的数据库，在web应用中不能替代关系数据库。本文尝试证明这恰恰相反。
@@ -726,19 +726,19 @@ GET foo =&amp;gt; bar KV数据库提供的其他常见操作有:DEL，用于删�
     
     <item>
       <title>《七周七数据库》</title>
-      <link>https://yezuozuo.github.io/program/%E4%B8%83%E5%91%A8%E4%B8%83%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+      <link>https://zoco.fun/program/%E4%B8%83%E5%91%A8%E4%B8%83%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
       <pubDate>Mon, 30 May 2016 13:43:45 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/%E4%B8%83%E5%91%A8%E4%B8%83%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+      <guid>https://zoco.fun/program/%E4%B8%83%E5%91%A8%E4%B8%83%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
       <description></description>
     </item>
     
     <item>
       <title>php语法性能比较</title>
-      <link>https://yezuozuo.github.io/program/php%E8%AF%AD%E6%B3%95%E6%80%A7%E8%83%BD%E6%AF%94%E8%BE%83/</link>
+      <link>https://zoco.fun/program/php%E8%AF%AD%E6%B3%95%E6%80%A7%E8%83%BD%E6%AF%94%E8%BE%83/</link>
       <pubDate>Fri, 29 Apr 2016 21:24:46 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/php%E8%AF%AD%E6%B3%95%E6%80%A7%E8%83%BD%E6%AF%94%E8%BE%83/</guid>
+      <guid>https://zoco.fun/program/php%E8%AF%AD%E6%B3%95%E6%80%A7%E8%83%BD%E6%AF%94%E8%BE%83/</guid>
       <description>Php近似语法的性能分析
 100000次 只是在语法上考虑性能 实际情况应该考虑可读性等问题综合使用 详细代码在 https://github.com/yezuozuo/php-optim
 1.@ @test(); 0.10025715827942 s test(); 0.09039306640625 s 2.deep array $arr[1][2][3][4][5][6][7] = $i; 0.037128925323486 s $arr2[1] = $i; 0.018270969390869 s 3.defined var $a = null; $a = 1; 0.011500120162964 s $b = 1; 0.010693073272705 s 4.print vs echo print($strings); 1.756313085556 s echo $strings; 1.4546310901642 s 5.== vs === if (null == $n) {} 0.015053033828735 s if (null === $n) {} 0.013232946395874 s 6.null vs is_null if (is_null($n)) {} 0.</description>
@@ -746,10 +746,10 @@ GET foo =&amp;gt; bar KV数据库提供的其他常见操作有:DEL，用于删�
     
     <item>
       <title>php output buffer</title>
-      <link>https://yezuozuo.github.io/program/php-output-buffer/</link>
+      <link>https://zoco.fun/program/php-output-buffer/</link>
       <pubDate>Wed, 23 Mar 2016 19:50:52 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/php-output-buffer/</guid>
+      <guid>https://zoco.fun/program/php-output-buffer/</guid>
       <description>LNMP架构中的输出缓冲区 首先来看一下LNMP架构中涉及输出缓冲区的部分，后面会依次验证：
 从图中，可以看出 Nginx层，SAPI层(PHP-FPM)和PHP内核中均有输出缓冲区，由此可见缓冲区是多么重要的一部分。
 PHP-FPM 输出缓冲区 探讨下PHP-FPM 中的输出缓冲区，先来设置一个ini配置: output_buffering，把他设置为 0：
@@ -760,10 +760,10 @@ typedef struct _fcgi_request { int listen_socket; #ifdef _WIN32 int tcp; #endif 
     
     <item>
       <title>《Linux高性能服务器编程》</title>
-      <link>https://yezuozuo.github.io/program/linux%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BC%96%E7%A8%8B/</link>
+      <link>https://zoco.fun/program/linux%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BC%96%E7%A8%8B/</link>
       <pubDate>Mon, 21 Mar 2016 13:44:46 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/linux%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BC%96%E7%A8%8B/</guid>
+      <guid>https://zoco.fun/program/linux%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BC%96%E7%A8%8B/</guid>
       <description>使用“池”以牺牲空间换取效率，使用零拷贝函数以避免内核和用户空间的切换等 ；其次，介绍一些高效的编程模式及其应用，比如使用有限状态机来分析用户数据，使用进程池或线程池来处理用户请求。
 正向代理要求客户端自己设置代理服务器的地址。客户的每次请求都将直接发送到该代理服务器，并由代理服务器来请求目标资源。比如处于防火墙内的局域网机器要访问Internet，或者要访问一些被屏蔽掉的国外网站。
 反向代理则被设置在服务器端，因而客户端无需进行任何设置。反向代理是指用代理服务器来接收Internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从内部服务器上得到的结果返回给客户端。在这种情况下，代理服务器对外就表现为一个真实的服务器。
@@ -774,10 +774,10 @@ Linux服务器程序必须处理三类事件：I/O事件、信号和定时事件
     
     <item>
       <title>php的压缩函数实现：gzencode、gzdeflate和gzcompress</title>
-      <link>https://yezuozuo.github.io/program/php%E7%9A%84%E5%8E%8B%E7%BC%A9%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0gzencodegzdeflate%E5%92%8Cgzcompress/</link>
+      <link>https://zoco.fun/program/php%E7%9A%84%E5%8E%8B%E7%BC%A9%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0gzencodegzdeflate%E5%92%8Cgzcompress/</link>
       <pubDate>Wed, 03 Feb 2016 19:57:44 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/php%E7%9A%84%E5%8E%8B%E7%BC%A9%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0gzencodegzdeflate%E5%92%8Cgzcompress/</guid>
+      <guid>https://zoco.fun/program/php%E7%9A%84%E5%8E%8B%E7%BC%A9%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0gzencodegzdeflate%E5%92%8Cgzcompress/</guid>
       <description>gzencode 默认使用ZLIB_ENCODING_GZIP编码，使用gzip压缩格式，实际上是使用defalte 算法压缩数据，然后加上文件头和adler32校验 gzdeflate 默认使用ZLIB_ENCODING_RAW编码方式，使用deflate数据压缩算法，实际上是先用 LZ77 压缩，然后用霍夫曼编码压缩 gzcompress ；默认使用ZLIB_ENCODING_DEFLATE编码，使用zlib压缩格式，实际上是用 deflate 压缩数据，然后加上 zlib 头和 CRC 校验  这三个函数的比较实质上是三种压缩方法：deflate, zlib, gzip的比较。
 从性能的维度看：deflate 好于 gzip 好于 zlib
 从文本文件默认压缩率压缩后体积的维度看：deflate 好于 zlib 好于 gzip
@@ -789,10 +789,10 @@ PHP的zlib实现是以扩展的方式存在于ext/zlib目录中。通过deflateI
     
     <item>
       <title>php执行流程</title>
-      <link>https://yezuozuo.github.io/program/php%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B/</link>
+      <link>https://zoco.fun/program/php%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B/</link>
       <pubDate>Mon, 18 Jan 2016 19:54:35 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/php%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B/</guid>
+      <guid>https://zoco.fun/program/php%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B/</guid>
       <description>一图胜千言，此图详细描述了PHP执行的5个步骤以及过程中做了哪些事情。
 以fpm为例：
 1、fpm启动时，会先执行 module_startup, 并随着fpm进程常驻
@@ -806,10 +806,10 @@ PHP的zlib实现是以扩展的方式存在于ext/zlib目录中。通过deflateI
     
     <item>
       <title>爬了人生最大的坑</title>
-      <link>https://yezuozuo.github.io/program/%E7%88%AC%E4%BA%86%E4%BA%BA%E7%94%9F%E6%9C%80%E5%A4%A7%E7%9A%84%E5%9D%91/</link>
+      <link>https://zoco.fun/program/%E7%88%AC%E4%BA%86%E4%BA%BA%E7%94%9F%E6%9C%80%E5%A4%A7%E7%9A%84%E5%9D%91/</link>
       <pubDate>Fri, 18 Dec 2015 20:31:47 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/%E7%88%AC%E4%BA%86%E4%BA%BA%E7%94%9F%E6%9C%80%E5%A4%A7%E7%9A%84%E5%9D%91/</guid>
+      <guid>https://zoco.fun/program/%E7%88%AC%E4%BA%86%E4%BA%BA%E7%94%9F%E6%9C%80%E5%A4%A7%E7%9A%84%E5%9D%91/</guid>
       <description>刚开始做公司的某个业务的时候，要存数据。
 那就存成两部分，一部分zset存列表，一部分string存profile。
 zset的key是userid，score是时间，member是profile的key。
@@ -828,19 +828,19 @@ $res = intval($id); 要把id转换成int。
     
     <item>
       <title>从一个centos裸机一步一步搭建完整的PHP环境</title>
-      <link>https://yezuozuo.github.io/program/%E4%BB%8E%E4%B8%80%E4%B8%AAcentos%E8%A3%B8%E6%9C%BA%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%95%B4%E7%9A%84php%E7%8E%AF%E5%A2%83/</link>
+      <link>https://zoco.fun/program/%E4%BB%8E%E4%B8%80%E4%B8%AAcentos%E8%A3%B8%E6%9C%BA%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%95%B4%E7%9A%84php%E7%8E%AF%E5%A2%83/</link>
       <pubDate>Sat, 28 Nov 2015 13:37:19 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/%E4%BB%8E%E4%B8%80%E4%B8%AAcentos%E8%A3%B8%E6%9C%BA%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%95%B4%E7%9A%84php%E7%8E%AF%E5%A2%83/</guid>
+      <guid>https://zoco.fun/program/%E4%BB%8E%E4%B8%80%E4%B8%AAcentos%E8%A3%B8%E6%9C%BA%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%95%B4%E7%9A%84php%E7%8E%AF%E5%A2%83/</guid>
       <description>购买服务器：在阿里云上注册账号，如果是学生的话可以买学生套餐，否则买正常的。在用户面板会得到一个密码，用户名默认为root。这个密码是可以修改的。同时会获得一个公网的IP。 非常重要的就是修改完密码要重启一下服务器。 登陆服务器：在terminal执行ssh root@公网IP( ssh root@42.96.142.34)，提示输入密码，输入之后登陆上。 登录后yum update 配置私钥免登录：如果电脑在已经有了.ssh目录下已经有了.pub文件，那就直接使用即可，没有的话把生成一个公钥和私钥(ssh-keygen)。 在服务器上新建一个用户，比如 adduser zoco 给用户设置密码passwd zoco 输入密码和确认密码 把zoco用户加入wheel用户组 usermod -a -G wheel zoco 用scp把.pub文件传到服务器上（scp id_rsa.pub zoco@42.96.142.34:） 用zoco的身份登陆服务器ssh zoco@42.96.142.34，输入之前的密码 mkdir ~/.ssh touch ~/.ssh/authorized_keys cat ~/id_rsa.pub &amp;raquo; ~/.ssh/authorized_keys 一定要保证在服务器上这个文件所属的用户名是你的用户名（zoco）( chown -R zoco:zoco ~/.ssh )，而且权限设置为700( chown -R 700 ~/.ssh)。(这一步如果权限不够的话用root权限su) 然后在自己.ssh目录下打开config文件，加上 成功的话直接ssh ip( ssh 42.96.142.3)就可以登录到服务器中。 （用root用户）之后就可以禁用root用户登录。(打开/etc/ssh/sshd_config，找到 PermitRootLogin yes 这一句，将yes改成no；)然后禁止密码登录，在相同的文件下找到PasswordAuthentication，改成no。 然后重启ssh一下（ service sshd restart）。 安装nginx:sudo yum install nginx 测试一下nginx的配置文件nginx -t 如果返回这个说明成功 - nginx: the configuration file /etc/nginx/nginx.</description>
     </item>
     
     <item>
       <title>深入php redis pconnect</title>
-      <link>https://yezuozuo.github.io/program/%E6%B7%B1%E5%85%A5php-redis-pconnect/</link>
+      <link>https://zoco.fun/program/%E6%B7%B1%E5%85%A5php-redis-pconnect/</link>
       <pubDate>Thu, 08 Oct 2015 20:31:47 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/%E6%B7%B1%E5%85%A5php-redis-pconnect/</guid>
+      <guid>https://zoco.fun/program/%E6%B7%B1%E5%85%A5php-redis-pconnect/</guid>
       <description>pconnect是phpredis中用于client连接server的api。
 API文档中的一句原文：
  The connection will not be closed on close or end of request until the php process ends.
@@ -857,10 +857,10 @@ $ip=“10.136.30.144”; $port=7777; $redis=newRedis(); $redis-&amp;gt;pconnect(
     
     <item>
       <title>新浪微博关系服务与Redis的故事</title>
-      <link>https://yezuozuo.github.io/program/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%E5%85%B3%E7%B3%BB%E6%9C%8D%E5%8A%A1%E4%B8%8Eredis%E7%9A%84%E6%95%85%E4%BA%8B/</link>
+      <link>https://zoco.fun/program/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%E5%85%B3%E7%B3%BB%E6%9C%8D%E5%8A%A1%E4%B8%8Eredis%E7%9A%84%E6%95%85%E4%BA%8B/</link>
       <pubDate>Wed, 30 Sep 2015 13:34:27 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%E5%85%B3%E7%B3%BB%E6%9C%8D%E5%8A%A1%E4%B8%8Eredis%E7%9A%84%E6%95%85%E4%BA%8B/</guid>
+      <guid>https://zoco.fun/program/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%E5%85%B3%E7%B3%BB%E6%9C%8D%E5%8A%A1%E4%B8%8Eredis%E7%9A%84%E6%95%85%E4%BA%8B/</guid>
       <description>参考：http://os.51cto.com/art/201404/436521.htm
 风起 2009年微博刚刚上线的时候，微博关系服务使用的是最传统的 Memcache+Mysql 的方案。Mysql 按 uid hash 进行了分库分表，表结构非常简单：
 业务方存在两种查询：
@@ -872,10 +872,10 @@ select fromuid from table where touid=？order by addTime desc 两种查询的�
     
     <item>
       <title>empty的一个bug</title>
-      <link>https://yezuozuo.github.io/program/empty%E7%9A%84%E4%B8%80%E4%B8%AAbug/</link>
+      <link>https://zoco.fun/program/empty%E7%9A%84%E4%B8%80%E4%B8%AAbug/</link>
       <pubDate>Mon, 31 Aug 2015 20:13:02 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/empty%E7%9A%84%E4%B8%80%E4%B8%AAbug/</guid>
+      <guid>https://zoco.fun/program/empty%E7%9A%84%E4%B8%80%E4%B8%AAbug/</guid>
       <description>先看一段代码例子：
 class x { public function __get($k) { return 1; } public function __isset($k) { return true; } } $x = new x(); var_dump($x-&amp;gt;b); var_dump(empty($x-&amp;gt;b)); 这个返回 1 false
 把__isset的代码注释掉，例子为：
@@ -886,10 +886,10 @@ empty() will call __isset() first, and only if it returns true will it call __ge
     
     <item>
       <title>一个Bad gateway的bug</title>
-      <link>https://yezuozuo.github.io/program/%E4%B8%80%E4%B8%AAbad-gateway%E7%9A%84bug/</link>
+      <link>https://zoco.fun/program/%E4%B8%80%E4%B8%AAbad-gateway%E7%9A%84bug/</link>
       <pubDate>Thu, 16 Jul 2015 19:48:25 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/%E4%B8%80%E4%B8%AAbad-gateway%E7%9A%84bug/</guid>
+      <guid>https://zoco.fun/program/%E4%B8%80%E4%B8%AAbad-gateway%E7%9A%84bug/</guid>
       <description>线上机器有回调的接口，会时不时的报502 Bad Gateway的错误，本来也没什么，但是天天每隔几分钟来一条报警的短信，很烦的。让sa那边把报警取消了他们又说这个业务不能取消，只能尝试解决一下了。
 首先上网查了一下，都是什么配置错误啊，程序错误啊之类的。
 但是我们的问题诡异就诡异在：PHP层面没有任何报错的信息。而且配置错误是一个非常小概率的事情，差不多100台机器只有两台报警而且不会影响到线上的业务。（最主要的原因是改配置的话需要所有机器都改一遍，在流量小的情况下是不会报警的，测试风险和成本太大，所以只能从别的地方入手）。
@@ -903,10 +903,10 @@ rc = ngx_event_connect_peer(&amp;amp;u-&amp;gt;peer); ngx_log_debug1(NGX_LOG_DEB
     
     <item>
       <title>xhprof源码分析</title>
-      <link>https://yezuozuo.github.io/program/xhprof%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</link>
+      <link>https://zoco.fun/program/xhprof%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</link>
       <pubDate>Thu, 04 Jun 2015 19:48:25 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/xhprof%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</guid>
+      <guid>https://zoco.fun/program/xhprof%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</guid>
       <description>源码位置：/path/xhprof/extension/xhprof.c
 数据结构 两个重要的数据结构：
 typedef struct hp_entry_t { char *name_hprof; /* function name */ int rlvl_hprof; /* recursion level for function */ uint64 tsc_start; /* start value for TSC counter */ long int mu_start_hprof; /* memory usage */ long int pmu_start_hprof; /* peak memory usage */ struct rusage ru_start_hprof; /* user/sys time start */ struct hp_entry_t *prev_hprof; /* ptr to prev entry being profiled */ uint8 hash_code; /* hash_code for the function name */ } hp_entry_t; typedef struct hp_global_t { /* ---------- Global attributes: ----------- */ /* Indicates if xhprof is currently enabled */ int enabled; /* Indicates if xhprof was ever enabled during this request */ int ever_enabled; /* Holds all the xhprof statistics */ zval *stats_count; /* Indicates the current xhprof mode or level */ int profiler_level; /* Top of the profile stack */ hp_entry_t *entries; /* freelist of hp_entry_t chunks for reuse.</description>
@@ -914,10 +914,10 @@ typedef struct hp_entry_t { char *name_hprof; /* function name */ int rlvl_hprof
     
     <item>
       <title>Laravel学习笔记——神奇的服务容器</title>
-      <link>https://yezuozuo.github.io/program/laravel%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E7%A5%9E%E5%A5%87%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8/</link>
+      <link>https://zoco.fun/program/laravel%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E7%A5%9E%E5%A5%87%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8/</link>
       <pubDate>Tue, 05 May 2015 09:50:26 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/laravel%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E7%A5%9E%E5%A5%87%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8/</guid>
+      <guid>https://zoco.fun/program/laravel%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E7%A5%9E%E5%A5%87%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8/</guid>
       <description>参考：https://www.insp.top/learn-laravel-container
  容器，字面上理解就是装东西的东西。常见的变量、对象属性等都可以算是容器。一个容器能够装什么，全部取决于你对该容器的定义。当然，有这样一种容器，它存放的不是文本、数值，而是对象、对象的描述（类、接口）或者是提供对象的回调，通过这种容器，我们得以实现许多高级的功能，其中最常提到的，就是 “解耦” 、“依赖注入（DI）”。本文就从这里开始。
  IoC 容器， laravel 的核心 Laravel 的核心就是一个 IoC 容器，根据文档，称其为“服务容器”，顾名思义，该容器提供了整个框架中需要的一系列服务。作为初学者，很多人会在这一个概念上犯难，因此，我打算从一些基础的内容开始讲解，通过理解面向对象开发中依赖的产生和解决方法，来逐渐揭开“依赖注入”的面纱，逐渐理解这一神奇的设计理念。
@@ -931,10 +931,10 @@ class Superman { protected $power; public function __construct() { $this-&amp;gt
     
     <item>
       <title>php黑魔法</title>
-      <link>https://yezuozuo.github.io/program/php%E9%BB%91%E9%AD%94%E6%B3%95/</link>
+      <link>https://zoco.fun/program/php%E9%BB%91%E9%AD%94%E6%B3%95/</link>
       <pubDate>Mon, 13 Apr 2015 14:00:02 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/php%E9%BB%91%E9%AD%94%E6%B3%95/</guid>
+      <guid>https://zoco.fun/program/php%E9%BB%91%E9%AD%94%E6%B3%95/</guid>
       <description>猜猜 echo 1&amp;hellip;1输出多少？
 10.1
 1.意思是1.0，.1意思是0.1，中间的点是连接字符串、前浮点数转成1而后浮点数转换成字符串，结果成了&#39;1&amp;rsquo;.&amp;lsquo;0.1&amp;rsquo;，最终变成了10.1的字符串</description>
@@ -942,10 +942,10 @@ class Superman { protected $power; public function __construct() { $this-&amp;gt
     
     <item>
       <title>PHP是世界上最好的语言！之array_merge</title>
-      <link>https://yezuozuo.github.io/program/php%E6%98%AF%E4%B8%96%E7%95%8C%E4%B8%8A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%AF%AD%E8%A8%80%E4%B9%8Barray_merge/</link>
+      <link>https://zoco.fun/program/php%E6%98%AF%E4%B8%96%E7%95%8C%E4%B8%8A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%AF%AD%E8%A8%80%E4%B9%8Barray_merge/</link>
       <pubDate>Mon, 02 Mar 2015 13:53:06 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/php%E6%98%AF%E4%B8%96%E7%95%8C%E4%B8%8A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%AF%AD%E8%A8%80%E4%B9%8Barray_merge/</guid>
+      <guid>https://zoco.fun/program/php%E6%98%AF%E4%B8%96%E7%95%8C%E4%B8%8A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%AF%AD%E8%A8%80%E4%B9%8Barray_merge/</guid>
       <description>最近在使用函数 array_merge 合并两个数组时，得到的结果总是不确定，代码如这样：
 $arrResult = array_merge($arrInput1, $arrInput2); 如果已踩过这个坑，肯定能一眼看出代码的潜在问题，以及如何避免，但是问题究竟是什么呢？变量 $arrResult 的值会根据函数 array_merge 的两个参数的类型及值而变化，如：键为数字的字典、null 等，详细问题解释说明请继续往下看！
 来自 PHP 官方网站的array_merge函数说明
@@ -958,10 +958,10 @@ array(3) { [&amp;quot;hello&amp;quot;]=&amp;gt; int(1) [&amp;quot;world&amp;quot
     
     <item>
       <title>PHP是世界上最好的语言！之==</title>
-      <link>https://yezuozuo.github.io/program/php%E6%98%AF%E4%B8%96%E7%95%8C%E4%B8%8A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%AF%AD%E8%A8%80%E4%B9%8B/</link>
+      <link>https://zoco.fun/program/php%E6%98%AF%E4%B8%96%E7%95%8C%E4%B8%8A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%AF%AD%E8%A8%80%E4%B9%8B/</link>
       <pubDate>Mon, 02 Mar 2015 13:52:31 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/php%E6%98%AF%E4%B8%96%E7%95%8C%E4%B8%8A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%AF%AD%E8%A8%80%E4%B9%8B/</guid>
+      <guid>https://zoco.fun/program/php%E6%98%AF%E4%B8%96%E7%95%8C%E4%B8%8A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%AF%AD%E8%A8%80%E4%B9%8B/</guid>
       <description>我决定从“==”说起
 PHP 是弱类型的语言，会自动进行数据类型转换，这无疑给我们的开发带来了极大的方便。可事实真是如此吗？那就先就从==说起。
 首先，看一下这段代码。猜猜看结果会是什么
@@ -975,10 +975,10 @@ PHP 手册上为我们提供了解释说明。
     
     <item>
       <title>PHP是世界上最好的语言！之……</title>
-      <link>https://yezuozuo.github.io/program/php%E6%98%AF%E4%B8%96%E7%95%8C%E4%B8%8A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%AF%AD%E8%A8%80%E4%B9%8B/</link>
+      <link>https://zoco.fun/program/php%E6%98%AF%E4%B8%96%E7%95%8C%E4%B8%8A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%AF%AD%E8%A8%80%E4%B9%8B/</link>
       <pubDate>Mon, 02 Mar 2015 13:50:33 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/php%E6%98%AF%E4%B8%96%E7%95%8C%E4%B8%8A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%AF%AD%E8%A8%80%E4%B9%8B/</guid>
+      <guid>https://zoco.fun/program/php%E6%98%AF%E4%B8%96%E7%95%8C%E4%B8%8A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%AF%AD%E8%A8%80%E4%B9%8B/</guid>
       <description>1.++与&amp;ndash; &amp;lt;?php $a = null; $a ++; var_dump($a); echo &amp;quot;\n&amp;quot;; $a = null; $a --; var_dump($a); 执行结果为
 int(1) NULL ++的时候为1我还可以理解 &amp;ndash;的时候为null我就凌乱了
 解决这种++和&amp;ndash;中的不一致的办法就是根本不用它们，用+=和-=代替。
@@ -993,10 +993,10 @@ string(38) &amp;quot; 《前后有全半角空格》　&amp;quot; string(28) &am
     
     <item>
       <title>php语法优化实践</title>
-      <link>https://yezuozuo.github.io/program/php%E8%AF%AD%E6%B3%95%E4%BC%98%E5%8C%96%E5%AE%9E%E8%B7%B5/</link>
+      <link>https://zoco.fun/program/php%E8%AF%AD%E6%B3%95%E4%BC%98%E5%8C%96%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Thu, 19 Feb 2015 13:44:14 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/php%E8%AF%AD%E6%B3%95%E4%BC%98%E5%8C%96%E5%AE%9E%E8%B7%B5/</guid>
+      <guid>https://zoco.fun/program/php%E8%AF%AD%E6%B3%95%E4%BC%98%E5%8C%96%E5%AE%9E%E8%B7%B5/</guid>
       <description>1. 避免使用array_walk_recursive或其他形式的递归 比如想要对一个多位数组的内容进行过滤 使用array_walk_recursive的写法为
 function outputFilter(&amp;amp;$value) { $value = preg_replace(&#39;&#39;, &#39;&#39;, $value); } } array_walk_recursive($output, &#39;outputFilter&#39;); 其实我们可以把多维数组降成一维，使用array_reduce或者json_encode将数组变为字符串进行处理。
 function outputFilter_u(&amp;amp;$value) { $value = preg_replace(&#39;&#39;, &#39;&#39;, $value); } $json = json_encode($output); outputFilter_u($json); 2. 用isset代替in_array 尤其是越大的数组这种对比越明显
@@ -1012,10 +1012,10 @@ for ($i=0; i&amp;lt;10;i++) { $arr[1][2][3][4][5] = $i; } 这样的话，每一�
     
     <item>
       <title>php与rand相关的函数</title>
-      <link>https://yezuozuo.github.io/program/php%E4%B8%8Erand%E7%9B%B8%E5%85%B3%E7%9A%84%E5%87%BD%E6%95%B0/</link>
+      <link>https://zoco.fun/program/php%E4%B8%8Erand%E7%9B%B8%E5%85%B3%E7%9A%84%E5%87%BD%E6%95%B0/</link>
       <pubDate>Mon, 12 Jan 2015 14:00:30 +0800</pubDate>
       
-      <guid>https://yezuozuo.github.io/program/php%E4%B8%8Erand%E7%9B%B8%E5%85%B3%E7%9A%84%E5%87%BD%E6%95%B0/</guid>
+      <guid>https://zoco.fun/program/php%E4%B8%8Erand%E7%9B%B8%E5%85%B3%E7%9A%84%E5%87%BD%E6%95%B0/</guid>
       <description>mcrypt_create_iv make_http_soap_request shuffle array_rand php_password_make_salt rand crypt 这些函数在php底层都用到了php_rand的方法，会导致随机数随机不均匀的问题，慎用。</description>
     </item>
     
