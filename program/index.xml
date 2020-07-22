@@ -5,10 +5,57 @@
     <link>http://yezuozuo.github.io/program/</link>
     <description>Recent content in Programs on 叶左</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 01 Jul 2020 13:52:30 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jul 2020 20:02:47 +0800</lastBuildDate>
     
 	<atom:link href="http://yezuozuo.github.io/program/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PHP8JIT是什么</title>
+      <link>http://yezuozuo.github.io/program/php8jit%E6%98%AF%E4%BB%80%E4%B9%88/</link>
+      <pubDate>Thu, 16 Jul 2020 20:02:47 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/php8jit%E6%98%AF%E4%BB%80%E4%B9%88/</guid>
+      <description>在谈JIT之前我们先回到比较根本的一个问题。
+怎么优化 PHP 性能  方案1，迁移到性能更好的语言上，如Go、Java、C++。 方案2，通过 RPC 将功能分离出来用其它语言实现，让 PHP 做更少的事情。 方案3，写 PHP 扩展，在性能瓶颈地方换 C/C++。 方案4，优化 PHP语言本身的性能。  方案1 方案1的问题在于成本问题，如果代码库已经很大的话，迁移是个非常耗费成本的工作，团队将不但放弃多年的经验积累，而且整个团队成员重新学习也是个成本很高的事情。而且PHP语言的数据结构和内置函数，可以几乎直接地描述和处理实际业务，PHP是计算机与现实业务的最直接胶合剂。这也是我一直喜欢PHP的原因。
+方案2 方案2是最保险的方案，我们现在也是这样做的，把一些计算比较多的放在Java执行，通过RPC调用。但是PHP本身的机制以及我们实际业务的场景带来的最大问题是IO场景非常多，而PHP本身也没有多线程和异步IO的机制，所以我们现在是依赖RPC提供的并行和异步处理，但这样也不是最优的方案，还是需要等待一定的时长，而这个等待目前来看又是必须的，所以也就是JIT在实际项目中的效果不会特别明显的原因。
+方案3 方案3看起来美好，实际执行起来却很难，一般来说性能瓶颈并不会很显著，大多是不断累加的结果，加上 PHP 扩展开发成本高，这种方案一般只用在公共且变化不大的基础库上，所以这种方案解决不了多少问题。
+方案4 所以我们只能想方案4，也就是优化PHP的性能了。
+更快的 PHP 同样，PHP的性能优化也有很方案：
+ 方案1，PHP语言层面的优化。 方案2，优化 PHP 的官方实现（也就是 Zend以及JIT）。 方案3，将 PHP 编译成其它语言的 bytecode（字节码），借助其它语言的虚拟机（如 JVM）来运行。 方案4，将 PHP 转成 C/C++，然后编译成本地代码。 方案5，开发更快的 PHP 虚拟机。  方案1 PHP 语言层面的优化是最简单可行的，比如xhprof，也是我们之前包括现在一直在做的事情。但这个也只能优化一部分，并不能很好的解决我们的问题。
+方案2 涉及我们的主题，放在后面说。
+方案3 开发一个高性能的虚拟机不是件简单的事情，JVM 花了十多年才达到现在的性能，那是否能直接利用这些高性能的虚拟机来优化 PHP 的性能呢？这就是方案3的思路。
+虽然看起来很美好，但实际上VM 总是为某个语言优化的，和器官移植一样，其它语言在上面实现会遇到很多瓶颈，比如动态的方法调用，所以这个方案很多大佬都实现并测试过，没有什么好结果。
+方案4 它正是 HPHPc（HHVM 的前身）的做法，原理是将 PHP 代码转成 C++，然后编译为本地文件，可以认为是一种 AOT（ahead of time）的方式。</description>
+    </item>
+    
+    <item>
+      <title>晚到的PHP8测评</title>
+      <link>http://yezuozuo.github.io/program/%E6%99%9A%E5%88%B0%E7%9A%84php8%E6%B5%8B%E8%AF%84/</link>
+      <pubDate>Tue, 14 Jul 2020 19:52:48 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/%E6%99%9A%E5%88%B0%E7%9A%84php8%E6%B5%8B%E8%AF%84/</guid>
+      <description>6月25号php 8 alpha 1发布，7月9号 php 8 alpha 2发布，一般alpha 2是一个稍微能用的版本，所以周末测评了一下php8 JIT到底是个什么？
+测试方式部分参考鸟哥的blog PHP 8新特性之JIT简介 - 风雪之隅
+先看一下结果：
+JIT不开启的情况下
+php -d opcache.jit_buffer_size=0 Zend/bench.php simple 0.025 simplecall 0.012 simpleucall 0.012 simpleudcall 0.012 mandel 0.135 mandel2 0.211 ackermann(7) 0.082 ary(50000) 0.012 ary2(50000) 0.010 ary3(2000) 0.186 fibo(30) 0.283 hash1(50000) 0.039 hash2(500) 0.041 heapsort(20000) 0.089 matrix(20) 0.110 nestedloop(12) 0.096 sieve(30) 0.045 strcat(200000) 0.019 ------------------------ Total 1.419 JIT开启的情况下：
+php -d -d opcache.jit_buffer_size=64M -d opcache.jit=1205 Zend/bench.php simple 0.001 simplecall 0.</description>
+    </item>
+    
+    <item>
+      <title>GRPC源码分析</title>
+      <link>http://yezuozuo.github.io/program/grpc%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</link>
+      <pubDate>Tue, 14 Jul 2020 14:49:40 +0800</pubDate>
+      
+      <guid>http://yezuozuo.github.io/program/grpc%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</guid>
+      <description>写在前面 grpc 介绍 grpc 是 google 开源的一款高性能的 rpc 框架。github 上介绍如下：
+ gRPC is a modern, open source, high-performance remote procedure call (RPC) framework that can run anywhere
+ 市面上的 rpc 框架数不胜数，包括 alibaba dubbo 和微博的 motan 等。grpc 能够在众多的框架中脱颖而出是跟其高性能是密切相关的。
+CONCEPTS 阅读 grpc 源码之前，我们不妨先了解一些 concepts，github 上也有一些 concepts 介绍
+https://github.com/grpc/grpc/blob/master/CONCEPTS.md
+1.接口设计  Developers using gRPC start with a language agnostic description of an RPC service (a collection of methods). From this description, gRPC will generate client and server side interfaces in any of the supported languages.</description>
+    </item>
     
     <item>
       <title>我为什么喜欢php</title>
