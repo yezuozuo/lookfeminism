@@ -46,7 +46,8 @@
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    
+    <link rel="stylesheet" href="/css/custom.css" />
+
   </head>
 
   
@@ -145,6 +146,45 @@
 
   <footer>
   
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/posts/%E5%81%9A%E5%B7%A5%E7%9A%84%E4%BA%BA/">做工的人</a></span>
+  <span class="nav-next"><a href="/posts/%E8%B5%B0%E5%87%BA%E5%94%AF%E4%B8%80%E7%9C%9F%E7%90%86%E8%A7%82/">《走出唯一真理观》</a> &rarr;</span>
+</nav>
+
+
+
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_config = function () {
+  
+    this.page.url = "https:\/\/zoco.fun\/" +  location.pathname;
+  
+  };
+  (function() {
+    var inIFrame = function() {
+      var iframe = true;
+      try { iframe = window.self !== window.top; } catch (e) {}
+      return iframe;
+    };
+    if (inIFrame()) return;
+    var disqus_js = '//zoco.disqus.com/embed.js';
+    var d = document, s = d.createElement('script');
+    s.src = disqus_js; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
   
 
   

@@ -33,7 +33,8 @@
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    
+    <link rel="stylesheet" href="/css/custom.css" />
+
   </head>
 
   
@@ -306,6 +307,45 @@ ob_clean();
 
   <footer>
   
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/program/%E6%95%99%E4%BD%A0%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E5%86%99%E4%B8%80%E4%B8%AAphpunit-testcase/">教你一步一步写一个phpunit testcase</a></span>
+  <span class="nav-next"><a href="/program/zabbix%E6%80%8E%E4%B9%88%E6%90%9E%E4%B8%80%E4%B8%AA%E6%B0%B8%E4%B8%8D%E8%BF%87%E6%9C%9F%E7%9A%84session/">Zabbix怎么搞一个永不过期的session</a> &rarr;</span>
+</nav>
+
+
+
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_config = function () {
+  
+    this.page.url = "https:\/\/zoco.fun\/" +  location.pathname;
+  
+  };
+  (function() {
+    var inIFrame = function() {
+      var iframe = true;
+      try { iframe = window.self !== window.top; } catch (e) {}
+      return iframe;
+    };
+    if (inIFrame()) return;
+    var disqus_js = '//zoco.disqus.com/embed.js';
+    var d = document, s = d.createElement('script');
+    s.src = disqus_js; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
   
 
 

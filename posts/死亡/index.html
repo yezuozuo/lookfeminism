@@ -34,7 +34,8 @@
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    
+    <link rel="stylesheet" href="/css/custom.css" />
+
   </head>
 
   
@@ -108,6 +109,45 @@
 
   <footer>
   
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/posts/%E4%B8%AD%E5%9B%BD%E5%9C%A8%E6%A2%81%E5%BA%84%E5%87%BA%E6%A2%81%E5%BA%84%E8%AE%B0/">《中国在梁庄》&amp;《出梁庄记》</a></span>
+  <span class="nav-next"><a href="/posts/%E7%88%B1%E4%B8%8E%E9%BB%91%E6%9A%97%E7%9A%84%E6%95%85%E4%BA%8B/">《爱与黑暗的故事》</a> &rarr;</span>
+</nav>
+
+
+
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_config = function () {
+  
+    this.page.url = "https:\/\/zoco.fun\/" +  location.pathname;
+  
+  };
+  (function() {
+    var inIFrame = function() {
+      var iframe = true;
+      try { iframe = window.self !== window.top; } catch (e) {}
+      return iframe;
+    };
+    if (inIFrame()) return;
+    var disqus_js = '//zoco.disqus.com/embed.js';
+    var d = document, s = d.createElement('script');
+    s.src = disqus_js; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
   
 
   
