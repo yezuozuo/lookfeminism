@@ -5,10 +5,29 @@
     <link>https://zoco.fun/</link>
     <description>Recent content on zoco</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 28 Jul 2020 09:42:16 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2020 14:43:02 +0800</lastBuildDate>
     
 	<atom:link href="https://zoco.fun/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>怎么在iTerm2上画个图？</title>
+      <link>https://zoco.fun/program/%E6%80%8E%E4%B9%88%E5%9C%A8iterm2%E4%B8%8A%E7%94%BB%E4%B8%AA%E5%9B%BE/</link>
+      <pubDate>Wed, 29 Jul 2020 14:43:02 +0800</pubDate>
+      
+      <guid>https://zoco.fun/program/%E6%80%8E%E4%B9%88%E5%9C%A8iterm2%E4%B8%8A%E7%94%BB%E4%B8%AA%E5%9B%BE/</guid>
+      <description>工作中经常需要临时跑一些数据，包括自己分析后者最后给别人看的其实就是浓缩出来的几条数据，之前要么是对着terminal看数字，但是看图的确能比纯看数据直观上得到的信息更多，更何况是给其他人看。
+要么是之前写了个echarts-builder的工具把数据套进去看，或者有些数据分析的同学用excel画图表，甚至建个grafana的系统，但这都太不方便了！我就想把生成的数据一行命令把图直接在terminal展示出来。
+我先尝试用字符直接在iterm2上画，结果画出最好看的就是这样的：
+太丑了。
+其实用RStudio也可以直接满足这个需求，而且数据分析的工具也很多，但是和工程上的对接不方便。比如我要从mysql中拿1000w条数据出来，用go开N个协程就很快把结果跑出来。
+然后我找到了GitHub - gonum/plot: A repository for plotting and visualizing data
+Images - Documentation - iTerm2 - macOS Terminal Replacement
+基本原理是
+ iTerm2 extends the xterm protocol with a set of proprietary escape sequences. In general, the pattern is: ESC ] 1337 ; key = value ^G
+ 上述1337被称为一个 OSC code ，全称是 operating system command terminal control sequences，是用来控制 terminal 的行为的。
+在 iTerm2 里要展示一个图像文件，可以用脚本 imgcat 。下载之后，在 iTerm2 里运行下述命令即可。</description>
+    </item>
     
     <item>
       <title>202007读书</title>
