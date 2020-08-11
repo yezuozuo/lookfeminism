@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>怎么在iTerm2上画个图？（二） - zoco</title>
+    <meta property="og:title" content="怎么在iTerm2上画个图？（二） - zoco">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="上次说到在iterm2画个图，实际中用起来非常快乐。但是我又遇到一个新的问题，每张图都是竖着排列的，我的视野小了很多，加个回车就成了一列。
+理论上只需要在渲染完一张图后把光标移动到(one_pic_width,0)的位置就行。
+先看了iterm2的文档，Proprietary Escape Codes - Documentation - iTerm2 - macOS Terminal &amp;hellip;">
+      <meta property="og:description" content="上次说到在iterm2画个图，实际中用起来非常快乐。但是我又遇到一个新的问题，每张图都是竖着排列的，我的视野小了很多，加个回车就成了一列。
+理论上只需要在渲染完一张图后把光标移动到(one_pic_width,0)的位置就行。
+先看了iterm2的文档，Proprietary Escape Codes - Documentation - iTerm2 - macOS Terminal &amp;hellip;">
+      
+    
+
+    
+    
+    <meta name="twitter:image" content="https://upload.cc/i1/2020/08/11/2840An.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="program">
+    <header class="masthead">
+      <h1><a href="/">zoco</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/book/">书单</a></li>
+  
+  <li><a href="/posts/">日志</a></li>
+  
+  <li><a href="/program/">程序</a></li>
+  
+  <li><a href="/poem/">诗</a></li>
+  
+  <li><a href="/book-note/">读书笔记</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>怎么在iTerm2上画个图？（二）</h1>
+
+<h3>
+  2020-08-11</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>上次说到在iterm2画个图，实际中用起来非常快乐。但是我又遇到一个新的问题，每张图都是竖着排列的，我的视野小了很多，加个回车就成了一列。</p>
+<p><img src="https://upload.cc/i1/2020/08/11/2840An.png" alt="4EC4E556-F641-45D3-945F-116C1DD92E15.png"></p>
+<p>理论上只需要在渲染完一张图后把光标移动到(one_pic_width,0)的位置就行。</p>
+<p>先看了iterm2的文档，<a href="https://www.iterm2.com/documentation-escape-codes.html">Proprietary Escape Codes - Documentation - iTerm2 - macOS Terminal Replacement</a>，没找到我想要的，然后找到了OSC CODE 的文档，实在太难找了，<a href="https://chromium.googlesource.com/apps/libapps/+/a5fb83c190aa9d74f4a9bca233dac6be2664e9e9/hterm/doc/ControlSequences.md#CSI">hterm Control Sequences</a>，然后找到了ANSI转义序列的说明
+<a href="https://zh.wikipedia.org/wiki/ANSI%E8%BD%AC%E4%B9%89%E5%BA%8F%E5%88%97">ANSI转义序列 - 维基百科，自由的百科全书</a>。</p>
+<p>ANSI转义序列是一种带内信号(In-band Signaling)的转义序列(escape sequence)标准，用来控制终端上的光标位置，颜色，以及其它选项。</p>
+<p>在文本中嵌入ANSI转义序列，终端会把这些ANSI转义序列解释为相应的指令，而不是普通的字符。</p>
+<p>最后找到了光标上移的字符：</p>
+<p><strong>\x1bM</strong></p>
+<p>每输出一个就会上移一行。</p>
+<p><img src="https://upload.cc/i1/2020/08/11/LiZMk4.png" alt="28E70547-BD50-41EE-871F-E189856F7E6F.png"></p>
+<p>我的iterm可以开出更多的花了。比如：</p>
+<p><img src="https://upload.cc/i1/2020/08/11/9AH1id.png" alt="B9F92377-C9EF-49E2-A8E7-0E3F0D45B962.png"></p>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/program/%E6%80%8E%E4%B9%88%E5%9C%A8iterm2%E4%B8%8A%E7%94%BB%E4%B8%AA%E5%9B%BE/">怎么在iTerm2上画个图？</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_config = function () {
+  
+    this.page.url = "https:\/\/zoco.fun\/" +  location.pathname;
+  
+  };
+  (function() {
+    var inIFrame = function() {
+      var iframe = true;
+      try { iframe = window.self !== window.top; } catch (e) {}
+      return iframe;
+    };
+    if (inIFrame()) return;
+    var disqus_js = '//zoco.disqus.com/embed.js';
+    var d = document, s = d.createElement('script');
+    s.src = disqus_js; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">zoco</a> 2020</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

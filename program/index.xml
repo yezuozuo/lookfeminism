@@ -5,10 +5,27 @@
     <link>https://zoco.fun/program/</link>
     <description>Recent content in Programs on zoco</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 29 Jul 2020 14:43:02 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 11 Aug 2020 11:22:39 +0800</lastBuildDate>
     
 	<atom:link href="https://zoco.fun/program/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>怎么在iTerm2上画个图？（二）</title>
+      <link>https://zoco.fun/program/%E6%80%8E%E4%B9%88%E5%9C%A8iterm2%E4%B8%8A%E7%94%BB%E4%B8%AA%E5%9B%BE%E4%BA%8C/</link>
+      <pubDate>Tue, 11 Aug 2020 11:22:39 +0800</pubDate>
+      
+      <guid>https://zoco.fun/program/%E6%80%8E%E4%B9%88%E5%9C%A8iterm2%E4%B8%8A%E7%94%BB%E4%B8%AA%E5%9B%BE%E4%BA%8C/</guid>
+      <description>上次说到在iterm2画个图，实际中用起来非常快乐。但是我又遇到一个新的问题，每张图都是竖着排列的，我的视野小了很多，加个回车就成了一列。
+理论上只需要在渲染完一张图后把光标移动到(one_pic_width,0)的位置就行。
+先看了iterm2的文档，Proprietary Escape Codes - Documentation - iTerm2 - macOS Terminal Replacement，没找到我想要的，然后找到了OSC CODE 的文档，实在太难找了，hterm Control Sequences，然后找到了ANSI转义序列的说明 ANSI转义序列 - 维基百科，自由的百科全书。
+ANSI转义序列是一种带内信号(In-band Signaling)的转义序列(escape sequence)标准，用来控制终端上的光标位置，颜色，以及其它选项。
+在文本中嵌入ANSI转义序列，终端会把这些ANSI转义序列解释为相应的指令，而不是普通的字符。
+最后找到了光标上移的字符：
+\x1bM
+每输出一个就会上移一行。
+我的iterm可以开出更多的花了。比如：</description>
+    </item>
     
     <item>
       <title>怎么在iTerm2上画个图？</title>
@@ -125,6 +142,42 @@ CPU 高速缓存基本原理 现代计算机处理器是基于一种叫对称多
 越靠近 CPU 核心的缓存，容量就越小，同时访问延迟就越低 (越快)：
 同样的，这些具体的数字因不同的处理器模型而异。不过，我们可以做一个粗略的估算：假设 CPU 访问主存需要耗费 60 ns，那么访问 L1 缓存会快上 50 倍。
 在处理器的世界里，有一个很重要的概念叫访问局部性 (locality of reference)，当处理器访问某个特定的内存地址时，有很大的概率会发生下面的情况：</description>
+    </item>
+    
+    <item>
+      <title>聊聊读书笔记</title>
+      <link>https://zoco.fun/program/%E8%81%8A%E8%81%8A%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 21 May 2020 13:32:23 +0800</pubDate>
+      
+      <guid>https://zoco.fun/program/%E8%81%8A%E8%81%8A%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
+      <description>此篇暴露了我的程序员身份，可以看看一个普通程序员是怎么做读书笔记的……
+首先读书笔记是跟着阅读形式走的。
+阅读形式换过4种：
+ 纸质书阅读  最早没有电子设备辅助，看书的时候都是在书上标记，最后都要通过手写誊到本儿上或者打字到电脑上，很费时间。
+后来有了OCR，拍一张照可以识别其中的文字，省了很多时间，现在我读纸质书大部分读书笔记都是这样做的，有一款app一直在用「滴墨书摘」，已经满足我的需求了。
+Kindle  用过半年的Kindle，但是因为Kindle体积太大，自己不在家看书的时间大多在路途上，或者一些零散的时间，出行的时候不想带那么大的设备，所以很快舍弃了。
+Kindle做笔记会落到Kindle里的txt文件上，把Kindle连到电脑上就可以复制读书笔记。
+手机&amp;amp;iPad  好了，重点来了。
+用过掌阅，用过微信阅读，现在用的是网易蜗牛阅读。
+拿微信阅读和网易蜗牛阅读来说，微信阅读的书更多，社区更活跃，玩儿法更多，所以我看了几本书放弃了。对于我来说那个社区太喧嚣了，不适合看书。所以换到了网易蜗牛阅读。
+网易蜗牛用了几年功能基本没更新，每天都有新书上架，一般想看的书也都能查到，也有社区，但是存在感不强。
+最理想的方案应该是让网易蜗牛阅读加个需求：
+ 网易蜗牛手机app软件上在批注页面有个按钮为一键导出批注，最好是可以分享到bear，但这个不现实，所以可以发送到邮箱或者复制到剪贴板。 能够在电脑版查看批注，微信读书有电脑版，只可以单个复制，但是通过chrome插件可以将所有批注导出来。  理想情况需要网易蜗牛来完成，暂时没有办法。和客服聊过好多次，无果，所以你们等着吧，等我有钱了我就去把网易蜗牛收购了，目的就是让他们把这个需求加上……
+所以作为一个现实主义和理想主义间不停摇摆的人，还是得解决现实的问题：
+为了将书摘从读书app整理到其他的方式有： 【方案一】 从手机app复制到手机bear上，需要频繁的打开两个app，而且需要格式化（网易蜗牛阅读的批注复制出来没有trim，所以会存在回车的问题）
+ 优点：在手机本地，不存在网络传输问题 缺点：效率太低，耗费时间而且还容易走神，复制乱了  【方案二】复制到微信文件传输助手，然后在电脑上复制到bear上：
+ 优点：通过微信传输数据，网络影响较小，较方案一来说能在电脑上复制的时候直接格式化 缺点：又多加入了一个app，时间就比方案一花的稍微多一些  【方案三】依靠ios设备之间的「Handoff」功能，在手机上复制一段批注，在mac上直接粘贴到bear上，这个方案是不是看上去很美好？
+ 优点：不需要切换页面，不需要引入第三方app 缺点：网络问题，下面详细解释。  官网上对于「Handoff」的要求如下
+ 所有设备均 [使用同一 Apple ID 登录 iCloud] 所有设备均已打开蓝牙。 所有设备均已打开 Wi-Fi。 所有设备均已打开接力。  经过测试，正常情况下跨设备剪贴板共享的生效时间一般是1-3s。但要注意的是，我说的是正常情况，不正常的情况就太多了，可能1分钟后Handoff才生效，也可能今天就生效不了了。重启，重新登录appid等方式我都试过，收效不大，至今没搞明白为什么有时候功能会不好用。
+即便如此，「方案三」一直是我采用的功能，我还买了「paste」做加持。注意，paste不能使Handoff的成功率提高，它在这里的作用是能把剪贴板可视化，知道我复制成功了。
+其他考虑过的方案，比如iOS上的shortcuts，但是shortcuts只能单次执行，没法后台常驻，除非我复制一次去操作一次shortcuts，shortcuts也只能调起bear再复制，所以这个方案不行。
+或者利用paste的剪贴板历史功能，我不关心网络问题，直接从手机app都复制一下。测试结果不行，0-9十个数快速复制的话只会成功复制其中的几个数字。猜测paste的原理是循环拿剪贴板数据，因为ios后台没法拿到剪贴板的回调，快速复制可能导致数据被覆盖掉。而且mac版本的paste不能多选，只能在手机端多选然后share，又复杂了。
+所以在目前条件下退而求其次的方案有两个：
+方案一：写一个手机app端的软件，自动获取手机端复制的批注，格式化好，然后批量复制或者发送到其他软件上。相当于我又实现了一个paste，好了，能每年省78块钱了。
+问题：软件需要后台常驻。无法感知到是否复制成功。
+用flutter做了demo：
+核心代码是
+clipboardTriggerTime = Timer.periodic( const Duration(seconds: 5), (timer) { Clipboard.</description>
     </item>
     
     <item>
@@ -792,21 +845,6 @@ Linux服务器程序必须处理三类事件：I/O事件、信号和定时事件
     </item>
     
     <item>
-      <title>php的压缩函数实现：gzencode、gzdeflate和gzcompress</title>
-      <link>https://zoco.fun/program/php%E7%9A%84%E5%8E%8B%E7%BC%A9%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0gzencodegzdeflate%E5%92%8Cgzcompress/</link>
-      <pubDate>Wed, 03 Feb 2016 19:57:44 +0800</pubDate>
-      
-      <guid>https://zoco.fun/program/php%E7%9A%84%E5%8E%8B%E7%BC%A9%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0gzencodegzdeflate%E5%92%8Cgzcompress/</guid>
-      <description>gzencode 默认使用ZLIB_ENCODING_GZIP编码，使用gzip压缩格式，实际上是使用defalte 算法压缩数据，然后加上文件头和adler32校验 gzdeflate 默认使用ZLIB_ENCODING_RAW编码方式，使用deflate数据压缩算法，实际上是先用 LZ77 压缩，然后用霍夫曼编码压缩 gzcompress ；默认使用ZLIB_ENCODING_DEFLATE编码，使用zlib压缩格式，实际上是用 deflate 压缩数据，然后加上 zlib 头和 CRC 校验  这三个函数的比较实质上是三种压缩方法：deflate, zlib, gzip的比较。
-从性能的维度看：deflate 好于 gzip 好于 zlib
-从文本文件默认压缩率压缩后体积的维度看：deflate 好于 zlib 好于 gzip
-这三种算法中gzip 、zlib的作者都是Jean-Loup Gailly和 Mark Adler。 这两种算法以及图形格式png，使用的压缩算法却都是deflate算法。 deflate算法是同时使用了LZ77算法与哈夫曼编码（Huffman Coding）的一个无损数据压缩算法。 它最初是由Phil Katz为他的PKZIP归档工具第二版所定义的，后来定义在 RFC 1951规范中。
-deflate算法的压缩与解压的实现过程可以在压缩库zlib上找到。 PHP的压缩实现依赖于zlib，zlib是一个提供了 deflate, zlib, gzip 压缩方法的函数库。 我们所使用的上面三个函数，将参数中的encoding转为相同，压缩率设置相同，则其最终调用的是同一个函数，效果和性能一样。
-PHP的zlib实现是以扩展的方式存在于ext/zlib目录中。通过deflateInit2() + deflate() + deflateEnd()三个函数配合完成压缩功能，inflateInit2() + inflate() + inflateEnd()三个函数配合完成解压功能。压缩最终都是通过php_zlib_encode函数实现调用，除了输入的字符串，压缩率，结果的输出外，不同的入口函数调用参数不同的是其encoding。deflateInit2的第四个参数指定encoding，PHP定义了三个常量：
-#define PHP_ZLIB_ENCODING_RAW -0xf //deflate -15 #define PHP_ZLIB_ENCODING_GZIP 0x1f //gzip 15 + 16 #define PHP_ZLIB_ENCODING_DEFLATE 0x0f // zlib 15 三个函数在调用过程可以直接指定encoding使用其它的算法：</description>
-    </item>
-    
-    <item>
       <title>php执行流程</title>
       <link>https://zoco.fun/program/php%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B/</link>
       <pubDate>Mon, 18 Jan 2016 19:54:35 +0800</pubDate>
@@ -875,21 +913,6 @@ $ip=“10.136.30.144”; $port=7777; $redis=newRedis(); $redis-&amp;gt;pconnect(
     </item>
     
     <item>
-      <title>新浪微博关系服务与Redis的故事</title>
-      <link>https://zoco.fun/program/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%E5%85%B3%E7%B3%BB%E6%9C%8D%E5%8A%A1%E4%B8%8Eredis%E7%9A%84%E6%95%85%E4%BA%8B/</link>
-      <pubDate>Wed, 30 Sep 2015 13:34:27 +0800</pubDate>
-      
-      <guid>https://zoco.fun/program/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%E5%85%B3%E7%B3%BB%E6%9C%8D%E5%8A%A1%E4%B8%8Eredis%E7%9A%84%E6%95%85%E4%BA%8B/</guid>
-      <description>参考：http://os.51cto.com/art/201404/436521.htm
-风起 2009年微博刚刚上线的时候，微博关系服务使用的是最传统的 Memcache+Mysql 的方案。Mysql 按 uid hash 进行了分库分表，表结构非常简单：
-业务方存在两种查询：
-查询用户的关注列表：
-select touid from table where fromuid=？order by addTime desc 查询用户的粉丝列表：
-select fromuid from table where touid=？order by addTime desc 两种查询的业务需求与分库分表的架构设计存在矛盾，最终导致了冗余存储：以 fromuid 为hash key存一份，以 touid 为hash key再存一份。memcache key 为 fromuid.suffix ，使用不同的 suffix 来区分是关注列表还是粉丝列表，cache value 则为 PHP Serialize 后的 Array。后来为了优化性能，将 value 换成了自己拼装的 byte 数组。
-云涌 2011年微博进行平台化改造过程中，业务提出了新的需求：在核心接口中增加了“判断两个用户的关系”的步骤，并增加了“双向关注”的概念。因此两个用户的关系存在四种状态：关注，粉丝，双向关注和无任何关系。为了高效的实现这个需求，平台引入了 Redis 来存储关系。平台使用 Redis 的 hash 来存储关系：key 依然是 uid.suffix，关注列表，粉丝列表及双向关注列表各自有一个不同的 suffix，value 是一个hash，field 是 touid，value 是 addTime。order by addTime 的功能则由 Service 内部 sort 实现。部分大V的粉丝列表可能很长，与产品人员的沟通协商后，将存储限定为“最新的5000个粉丝列表”。</description>
-    </item>
-    
-    <item>
       <title>empty的一个bug</title>
       <link>https://zoco.fun/program/empty%E7%9A%84%E4%B8%80%E4%B8%AAbug/</link>
       <pubDate>Mon, 31 Aug 2015 20:13:02 +0800</pubDate>
@@ -929,23 +952,6 @@ rc = ngx_event_connect_peer(&amp;amp;u-&amp;gt;peer); ngx_log_debug1(NGX_LOG_DEB
       <description>源码位置：/path/xhprof/extension/xhprof.c
 数据结构 两个重要的数据结构：
 typedef struct hp_entry_t { char *name_hprof; /* function name */ int rlvl_hprof; /* recursion level for function */ uint64 tsc_start; /* start value for TSC counter */ long int mu_start_hprof; /* memory usage */ long int pmu_start_hprof; /* peak memory usage */ struct rusage ru_start_hprof; /* user/sys time start */ struct hp_entry_t *prev_hprof; /* ptr to prev entry being profiled */ uint8 hash_code; /* hash_code for the function name */ } hp_entry_t; typedef struct hp_global_t { /* ---------- Global attributes: ----------- */ /* Indicates if xhprof is currently enabled */ int enabled; /* Indicates if xhprof was ever enabled during this request */ int ever_enabled; /* Holds all the xhprof statistics */ zval *stats_count; /* Indicates the current xhprof mode or level */ int profiler_level; /* Top of the profile stack */ hp_entry_t *entries; /* freelist of hp_entry_t chunks for reuse.</description>
-    </item>
-    
-    <item>
-      <title>Laravel学习笔记——神奇的服务容器</title>
-      <link>https://zoco.fun/program/laravel%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E7%A5%9E%E5%A5%87%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8/</link>
-      <pubDate>Tue, 05 May 2015 09:50:26 +0800</pubDate>
-      
-      <guid>https://zoco.fun/program/laravel%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E7%A5%9E%E5%A5%87%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8/</guid>
-      <description>参考：https://www.insp.top/learn-laravel-container
- 容器，字面上理解就是装东西的东西。常见的变量、对象属性等都可以算是容器。一个容器能够装什么，全部取决于你对该容器的定义。当然，有这样一种容器，它存放的不是文本、数值，而是对象、对象的描述（类、接口）或者是提供对象的回调，通过这种容器，我们得以实现许多高级的功能，其中最常提到的，就是 “解耦” 、“依赖注入（DI）”。本文就从这里开始。
- IoC 容器， laravel 的核心 Laravel 的核心就是一个 IoC 容器，根据文档，称其为“服务容器”，顾名思义，该容器提供了整个框架中需要的一系列服务。作为初学者，很多人会在这一个概念上犯难，因此，我打算从一些基础的内容开始讲解，通过理解面向对象开发中依赖的产生和解决方法，来逐渐揭开“依赖注入”的面纱，逐渐理解这一神奇的设计理念。
-IoC 容器诞生的故事 面向对象编程，有以下几样东西无时不刻的接触：接口、类还有对象。这其中，接口是类的原型，一个类必须要遵守其实现的接口；对象则是一个类实例化后的产物，我们称其为一个实例。
-我们把一个“超人”作为一个类，
-class Superman {} 我们可以想象，一个超人诞生的时候肯定拥有至少一个超能力，这个超能力也可以抽象为一个对象，为这个对象定义一个描述他的类吧。一个超能力肯定有多种属性、（操作）方法，这个尽情的想象，但是目前我们先大致定义一个只有属性的“超能力”，至于能干啥，我们以后再丰富：
-class Power { /** * 能力值 */ protected $ability; /** * 能力范围或距离 */ protected $range; public function __construct($ability, $range) { $this-&amp;gt;ability = $ability; $this-&amp;gt;range = $range; } } 这时候我们回过头，修改一下之前的“超人”类，让一个“超人”创建的时候被赋予一个超能力：
-class Superman { protected $power; public function __construct() { $this-&amp;gt;power = new Power(999, 100); } } 这样的话，当我们创建一个“超人”实例的时候，同时也创建了一个“超能力”的实例，但是，我们看到了一点，“超人”和“超能力”之间不可避免的产生了一个依赖。
- 所谓“依赖”，就是 “我若依赖你，我就不能离开你”。</description>
     </item>
     
     <item>
