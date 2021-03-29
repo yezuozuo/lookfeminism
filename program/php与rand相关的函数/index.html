@@ -86,13 +86,13 @@
 
 
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">mcrypt_create_iv
-make_http_soap_request
-shuffle
-array_rand
-php_password_make_salt
-rand
-crypt
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#a6e22e">mcrypt_create_iv</span>
+<span style="color:#a6e22e">make_http_soap_request</span>
+<span style="color:#a6e22e">shuffle</span>
+<span style="color:#a6e22e">array_rand</span>
+<span style="color:#a6e22e">php_password_make_salt</span>
+<span style="color:#a6e22e">rand</span>
+<span style="color:#a6e22e">crypt</span>
 </code></pre></div><p>这些函数在php底层都用到了php_rand的方法，会导致随机数随机不均匀的问题，慎用。</p>
 
 

@@ -162,7 +162,7 @@ SINTER myset mynewset =&gt; foo,b
 SISMEMBER myset notamember =&gt; 0
 </code></pre><p>Okay，我觉得我们可以开始coding啦！</p>
 <h2 id="数据结构规划">数据结构规划</h2>
-<p>当使用关系数据库的时候，这一步往往是在设计数据表、索引的表单里处理。我们没有表，那我们设计什么呢？ 我们需要确认物体使用的key以及key采用的类型。让我们从用户这块开始设计。当然了，首先需要展示用户的username, userid, password, followers，自己follow的用户等。第一个问题是：如何在我们的系统中标识一个用户？username是个好主意，因为它是唯一的。不过它太大了，我们想要降低内存的使用。如果我们的数据库是关系数据库，我们能关联唯一ID到每一个用户。每一个对用户的引用都通过ID来关联。做起来很简单，因为我们有我们的原子的INCR命令！当我们创建一个新用户，我们假设这个用户叫&quot;antirez&rdquo;：</p>
+<p>当使用关系数据库的时候，这一步往往是在设计数据表、索引的表单里处理。我们没有表，那我们设计什么呢？ 我们需要确认物体使用的key以及key采用的类型。让我们从用户这块开始设计。当然了，首先需要展示用户的username, userid, password, followers，自己follow的用户等。第一个问题是：如何在我们的系统中标识一个用户？username是个好主意，因为它是唯一的。不过它太大了，我们想要降低内存的使用。如果我们的数据库是关系数据库，我们能关联唯一ID到每一个用户。每一个对用户的引用都通过ID来关联。做起来很简单，因为我们有我们的原子的INCR命令！当我们创建一个新用户，我们假设这个用户叫&quot;antirez&quot;：</p>
 <pre><code>INCR global:nextUserId =&gt; 1000 
 SET uid:1000:username antirez 
 SET uid:1000:password 
@@ -180,7 +180,7 @@ users uid:1000:following =&gt; Set of uids of all the following users
 <p>OK，除了验证，或多或少我们已经有了关于该用户的一切东西。我们处理验证用一个简单而健壮(鲁棒)的办法:我们不使用PHP的session或者其他类似方式。我们的系统必须是能够在不同不同服务器上分布式部署的，所以一切状态都必须保存在Redis里。所以我们所需要的一个保存在已验证用户cookie里的随机字符串。包含同样随机字符串的一个key告诉我们用户的ID。我们需要使用两个key来保证这个验证机制的健壮性: </p>
 <pre><code>SET uid:1000:auth fea5e81ac8ca77622bed1c2132a021f9 
 SET auth:fea5e81ac8ca77622bed1c2132a021f9 1000
-</code></pre><p>为了验证一个用户，我们需要做一些简单的工作(login.php): 从登录表单获取用户的用户名和密码检查是否存在一个键 username:<!-- raw HTML omitted -->:uid，如果这个userid存在(假设1000)检查 uid:1000:password 是否匹配，如果不匹配，显示错误信息；匹配则设置cookie为字符串&quot;fea5e81ac8ca77622bed1c2132a021f9&rdquo;(uid:1000:auth的值)</p>
+</code></pre><p>为了验证一个用户，我们需要做一些简单的工作(login.php): 从登录表单获取用户的用户名和密码检查是否存在一个键 username:<!-- raw HTML omitted -->:uid，如果这个userid存在(假设1000)检查 uid:1000:password 是否匹配，如果不匹配，显示错误信息；匹配则设置cookie为字符串&quot;fea5e81ac8ca77622bed1c2132a021f9&quot;(uid:1000:auth的值)</p>
 <h2 id="实例代码">实例代码</h2>
 <pre><code>&lt;?php
 include(&quot;core.php&quot;);

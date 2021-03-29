@@ -158,7 +158,7 @@ memcpy(m, code, <span style="color:#66d9ef">sizeof</span>(code));
 </ul>
 <p>（这两种方法在PHP8JIT中都实现了）</p>
 <p>JIT 的关键是猜测类型，因此某个变量的类型要是老变就很难优化，于是 HHVM 的工程师开始考虑在 PHP 语法上做手脚，加上类型的支持，推出了一个新语言 - Hack</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?</span><span style="color:#a6e22e">hh</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">hh</span>
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Point2</span> {
   <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">float</span> $x, $y;
   <span style="color:#66d9ef">function</span> __construct(<span style="color:#a6e22e">float</span> $x, <span style="color:#a6e22e">float</span> $y) {
