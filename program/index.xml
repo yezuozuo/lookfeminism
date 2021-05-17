@@ -5,7 +5,27 @@
     <link>https://zoco.fun/program/</link>
     <description>Recent content in Programs on zoco</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 11 Aug 2020 11:22:39 +0800</lastBuildDate><atom:link href="https://zoco.fun/program/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 May 2021 11:14:43 +0800</lastBuildDate><atom:link href="https://zoco.fun/program/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CPU使用率低负载高的一个case</title>
+      <link>https://zoco.fun/program/cpu%E4%BD%BF%E7%94%A8%E7%8E%87%E4%BD%8E%E8%B4%9F%E8%BD%BD%E9%AB%98%E7%9A%84%E4%B8%80%E4%B8%AAcase/</link>
+      <pubDate>Fri, 14 May 2021 11:14:43 +0800</pubDate>
+      
+      <guid>https://zoco.fun/program/cpu%E4%BD%BF%E7%94%A8%E7%8E%87%E4%BD%8E%E8%B4%9F%E8%BD%BD%E9%AB%98%E7%9A%84%E4%B8%80%E4%B8%AAcase/</guid>
+      <description>收到了报警，CPU的负载到了800%多，但是idle非常低，产生的原因一句话总结就是： 等待磁盘I/O完成的进程过多，导致进程队列长度过大，但是cpu运行的进程却很少，这样就体现到负载过大了，cpu使用率低。 ￼￼ 看了一些进程都卡在了nvidia-smi上
+$ ps -ef | grep nvidia-smi | wc -l 829 进程Kill不掉，看dmesg的日志，没有指出明确的异常原因。
+查了这台机器和其他机器的对比，各种系统和软件的版本都一致，出问题的这台机器突然卡主了。查了一下，一些人也遇到了，在nvidia上已经出现了很久，没有什么好的办法解决。
+CPU使用率低负载高的原因 负载是什么
+负载就是cpu在一段时间内正在处理以及等待cpu处理的进程数之和的统计信息，也就是cpu使用队列的长度统计信息，这个数字越小越好（如果超过CPU核心*0.7就是不正常）。
+只有进程处于运行态（running）和不可中断状态（interruptible）才会被加入到负载等待进程中，也就是下面这两种情况的进程才会表现为负载的值。
+ 即便需要立即使用CPU，也还需等待其他进程用完CPU 即便需要继续处理，也必须等待磁盘输入输出完成才能进行  负载总结为一句话就是：需要运行处理但又必须等待队列前的进程处理完成的进程个数。具体来说，也就是如下两种情况：
+ 等待被授权予CPU运行权限的进程 等待磁盘I/O完成的进程  cpu低而负载高也就是说等待磁盘I/O完成的进程过多，就会导致队列长度过大，这样就体现到负载过大了，但实际是此时cpu被分配去执行别的任务或空闲，具体场景有如下几种。
+场景一：磁盘读写请求过多就会导致大量I/O等待 cpu的工作效率要高于磁盘，而进程在cpu上面运行需要访问磁盘文件，这个时候cpu会向内核发起调用文件的请求，让内核去磁盘取文件，这个时候会切换到其他进程或者空闲，这个任务就会转换为不可中断睡眠状态。当这种读写请求过多就会导致不可中断睡眠状态的进程过多，从而导致负载高，cpu低的情况。
+场景二：MySQL中存在没有索引的语句或存在死锁等情况 我们都知道MySQL的数据是存储在硬盘中，如果需要进行sql查询，需要先把数据从磁盘加载到内存中。当在数据特别大的时候，如果执行的sql语句没有索引，就会造成扫描表的行数过大导致I/O阻塞，或者是语句中存在死锁，也会造成I/O阻塞，从而导致不可中断睡眠进程过多，导致负载过大。
+具体解决方法可以在MySQL中运行show full processlist命令查看线程等待情况，把其中的语句拿出来进行优化。
+场景三：外接硬盘故障，常见有挂了NFS，但是NFS server故障 比如我们的系统挂载了外接硬盘如NFS共享存储，经常会有大量的读写请求去访问NFS存储的文件，如果这个时候NFS Server故障，那么就会导致进程读写请求一直获取不到资源，从而进程一直是不可中断状态，造成负载很高。</description>
+    </item>
+    
     <item>
       <title>怎么在iTerm2上画个图？（二）</title>
       <link>https://zoco.fun/program/%E6%80%8E%E4%B9%88%E5%9C%A8iterm2%E4%B8%8A%E7%94%BB%E4%B8%AA%E5%9B%BE%E4%BA%8C/</link>

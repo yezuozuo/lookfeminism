@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>CPU使用率低负载高的一个case - zoco</title>
+    <meta property="og:title" content="CPU使用率低负载高的一个case - zoco">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="收到了报警，CPU的负载到了800%多，但是idle非常低，产生的原因一句话总结就是： 等待磁盘I/O完成的进程过多，导致进程队列长度过大，但是cpu运行的进程却很少，这样就体现到负载过大了，cpu使用率低。 ￼￼ 看了一些进程都卡在了nvidia-smi上
+$ ps -ef | grep nvidia-smi | wc -l 829 进程Kill不掉，看dmesg的日志，没有指出明确的异常原因。 &amp;hellip;">
+      <meta property="og:description" content="收到了报警，CPU的负载到了800%多，但是idle非常低，产生的原因一句话总结就是： 等待磁盘I/O完成的进程过多，导致进程队列长度过大，但是cpu运行的进程却很少，这样就体现到负载过大了，cpu使用率低。 ￼￼ 看了一些进程都卡在了nvidia-smi上
+$ ps -ef | grep nvidia-smi | wc -l 829 进程Kill不掉，看dmesg的日志，没有指出明确的异常原因。 &amp;hellip;">
+      
+    
+
+    
+    
+    <meta name="twitter:image" content="https://img01.sogoucdn.com/app/a/100520146/efd70bd65e24d0fd4024eb0341edf2c2">
+    
+    
+
+    
+
+    
+    
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="program">
+    <header class="masthead">
+      <h1><a href="/">zoco</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/book/">书单</a></li>
+  
+  <li><a href="/posts/">日志</a></li>
+  
+  <li><a href="/program/">程序</a></li>
+  
+  <li><a href="/poem/">诗</a></li>
+  
+  <li><a href="/book-note/">读书笔记</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>CPU使用率低负载高的一个case</h1>
+
+<h3>
+  2021-05-14</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>收到了报警，CPU的负载到了800%多，但是idle非常低，产生的原因一句话总结就是： 等待磁盘I/O完成的进程过多，导致进程队列长度过大，但是cpu运行的进程却很少，这样就体现到负载过大了，cpu使用率低。
+￼￼
+<img src="https://img01.sogoucdn.com/app/a/100520146/efd70bd65e24d0fd4024eb0341edf2c2" alt="UTOOLS1621221330518.png"></p>
+<p>看了一些进程都卡在了nvidia-smi上</p>
+<pre><code>$ ps -ef  | grep nvidia-smi | wc -l
+829
+</code></pre><p><img src="https://img04.sogoucdn.com/app/a/100520146/e6b87c8f32318538770310456692eedd" alt="E6B87C8F32318538770310456692EEDD.jpg"></p>
+<p>进程Kill不掉，看dmesg的日志，没有指出明确的异常原因。</p>
+<p><img src="https://img02.sogoucdn.com/app/a/100520146/b84f555eb8aa52eaa211d1a771a001a7" alt="14033FEB-FDDD-4788-B8B1-1A671AB12663.png"></p>
+<p>查了这台机器和其他机器的对比，各种系统和软件的版本都一致，出问题的这台机器突然卡主了。查了一下，一些人也遇到了，在nvidia上已经出现了很久，没有什么好的办法解决。</p>
+<h2 id="cpu使用率低负载高的原因">CPU使用率低负载高的原因</h2>
+<p>负载是什么</p>
+<p>负载就是cpu在一段时间内正在处理以及等待cpu处理的进程数之和的统计信息，也就是cpu使用队列的长度统计信息，这个数字越小越好（如果超过CPU核心*0.7就是不正常）。</p>
+<p>只有进程处于运行态（running）和不可中断状态（interruptible）才会被加入到负载等待进程中，也就是下面这两种情况的进程才会表现为负载的值。</p>
+<ul>
+<li>即便需要立即使用CPU，也还需等待其他进程用完CPU</li>
+<li>即便需要继续处理，也必须等待磁盘输入输出完成才能进行</li>
+</ul>
+<p>负载总结为一句话就是：需要运行处理但又必须等待队列前的进程处理完成的进程个数。具体来说，也就是如下两种情况：</p>
+<ul>
+<li>等待被授权予CPU运行权限的进程</li>
+<li>等待磁盘I/O完成的进程</li>
+</ul>
+<p>cpu低而负载高也就是说等待磁盘I/O完成的进程过多，就会导致队列长度过大，这样就体现到负载过大了，但实际是此时cpu被分配去执行别的任务或空闲，具体场景有如下几种。</p>
+<h3 id="场景一磁盘读写请求过多就会导致大量io等待">场景一：磁盘读写请求过多就会导致大量I/O等待</h3>
+<p>cpu的工作效率要高于磁盘，而进程在cpu上面运行需要访问磁盘文件，这个时候cpu会向内核发起调用文件的请求，让内核去磁盘取文件，这个时候会切换到其他进程或者空闲，这个任务就会转换为不可中断睡眠状态。当这种读写请求过多就会导致不可中断睡眠状态的进程过多，从而导致负载高，cpu低的情况。</p>
+<h3 id="场景二mysql中存在没有索引的语句或存在死锁等情况">场景二：MySQL中存在没有索引的语句或存在死锁等情况</h3>
+<p>我们都知道MySQL的数据是存储在硬盘中，如果需要进行sql查询，需要先把数据从磁盘加载到内存中。当在数据特别大的时候，如果执行的sql语句没有索引，就会造成扫描表的行数过大导致I/O阻塞，或者是语句中存在死锁，也会造成I/O阻塞，从而导致不可中断睡眠进程过多，导致负载过大。</p>
+<p>具体解决方法可以在MySQL中运行show full processlist命令查看线程等待情况，把其中的语句拿出来进行优化。</p>
+<h3 id="场景三外接硬盘故障常见有挂了nfs但是nfs-server故障">场景三：外接硬盘故障，常见有挂了NFS，但是NFS server故障</h3>
+<p>比如我们的系统挂载了外接硬盘如NFS共享存储，经常会有大量的读写请求去访问NFS存储的文件，如果这个时候NFS Server故障，那么就会导致进程读写请求一直获取不到资源，从而进程一直是不可中断状态，造成负载很高。</p>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/program/%E6%80%8E%E4%B9%88%E5%9C%A8iterm2%E4%B8%8A%E7%94%BB%E4%B8%AA%E5%9B%BE%E4%BA%8C/">怎么在iTerm2上画个图？（二）</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_config = function () {
+  
+    this.page.url = "https:\/\/zoco.fun\/" +  location.pathname;
+  
+  };
+  (function() {
+    var inIFrame = function() {
+      var iframe = true;
+      try { iframe = window.self !== window.top; } catch (e) {}
+      return iframe;
+    };
+    if (inIFrame()) return;
+    var disqus_js = '//zoco.disqus.com/embed.js';
+    var d = document, s = d.createElement('script');
+    s.src = disqus_js; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+
+
+
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">zoco</a> 2020</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
