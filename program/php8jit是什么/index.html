@@ -139,11 +139,11 @@
 <p>那么究竟什么是 JIT？如何实现一个 JIT？</p>
 <p>在动态语言中基本上都会有个 eval 方法，可以传给它一段字符串来执行，JIT 做的就是类似的事情，只不过它要拼接不是字符串，而是不同平台下的机器码，然后进行执行，但如何用 C 来实现呢？比如下面这段代码：</p>
 <p>我们要实现</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">long</span> <span style="color:#a6e22e">add4</span>(<span style="color:#66d9ef">long</span> num) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">long</span> <span style="color:#a6e22e">add4</span>(<span style="color:#66d9ef">long</span> num) {
   <span style="color:#66d9ef">return</span> num <span style="color:#f92672">+</span> <span style="color:#ae81ff">4</span>;
 }
 </code></pre></div><p>转化为JIT就是：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> code[] <span style="color:#f92672">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> code[] <span style="color:#f92672">=</span> {
   <span style="color:#ae81ff">0x48</span>, <span style="color:#ae81ff">0x89</span>, <span style="color:#ae81ff">0xf8</span>,                   <span style="color:#75715e">// mov %rdi, %rax
 </span><span style="color:#75715e"></span>  <span style="color:#ae81ff">0x48</span>, <span style="color:#ae81ff">0x83</span>, <span style="color:#ae81ff">0xc0</span>, <span style="color:#ae81ff">0x04</span>,             <span style="color:#75715e">// add $4, %rax
 </span><span style="color:#75715e"></span>  <span style="color:#ae81ff">0xc3</span>                                <span style="color:#75715e">// ret
@@ -158,7 +158,7 @@ memcpy(m, code, <span style="color:#66d9ef">sizeof</span>(code));
 </ul>
 <p>（这两种方法在PHP8JIT中都实现了）</p>
 <p>JIT 的关键是猜测类型，因此某个变量的类型要是老变就很难优化，于是 HHVM 的工程师开始考虑在 PHP 语法上做手脚，加上类型的支持，推出了一个新语言 - Hack</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">hh</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">hh</span>
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Point2</span> {
   <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">float</span> $x, $y;
   <span style="color:#66d9ef">function</span> __construct(<span style="color:#a6e22e">float</span> $x, <span style="color:#a6e22e">float</span> $y) {
@@ -222,39 +222,39 @@ memcpy(m, code, <span style="color:#66d9ef">sizeof</span>(code));
 <h2 id="jit编译机制">JIT编译机制</h2>
 <h4 id="php代码执行流程">php代码执行流程</h4>
 <p>当我运行以下命令时会发生什么？</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">php foo.php 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">php foo.php 
 </code></pre></div><ol>
 <li>sapi/cli/php_cli.c 执行main函数</li>
 <li>Zend/zend.c 调用zend_execute_scripts 函数</li>
 <li>用zend_compile_file函数编译</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">op_array <span style="color:#f92672">=</span> zend_compile_file(file_handle, type);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">op_array <span style="color:#f92672">=</span> zend_compile_file(file_handle, type);
 </code></pre></div><p>上述代码将文件编译为一系列字节码。</p>
 <ol start="4">
 <li>执行zend_execute函数</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">zend_execute(op_array, retval);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">zend_execute(op_array, retval);
 </code></pre></div><p>这个命令用来执行字节码。</p>
 <h4 id="op_array">op_array</h4>
 <p>在 Zend/zend_compile.h</p>
 <p>_zend_op_array结构体：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">struct</span> _zend_op_array {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">struct</span> _zend_op_array {
     <span style="color:#75715e">/* Common elements */</span>
     zend_uchar type;
     zend_uchar arg_flags[<span style="color:#ae81ff">3</span>]; <span style="color:#75715e">/* bitset of arg_info.pass_by_reference */</span>
     ...
-    uint32_t last;      <span style="color:#75715e">/* number of opcodes */</span>
+    <span style="color:#66d9ef">uint32_t</span> last;      <span style="color:#75715e">/* number of opcodes */</span>
     zend_op <span style="color:#f92672">*</span>opcodes;
 	  ...
 };
 </code></pre></div><p>其中的<code>zend_op *opcodes;</code>如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">struct</span> _zend_op {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">struct</span> _zend_op {
     <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>handler;
     znode_op op1;
     znode_op op2;
     znode_op result;
-    uint32_t extended_value;
-    uint32_t lineno;
+    <span style="color:#66d9ef">uint32_t</span> extended_value;
+    <span style="color:#66d9ef">uint32_t</span> lineno;
     zend_uchar opcode;
     zend_uchar op1_type;
     zend_uchar op2_type;
@@ -264,7 +264,7 @@ memcpy(m, code, <span style="color:#66d9ef">sizeof</span>(code));
 <h4 id="execute_ex函数">execute_ex函数</h4>
 <p>in Zend/zend_vm_execute.h</p>
 <p>每个zend_op的handler的执行</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">while</span> (<span style="color:#ae81ff">1</span>) { ...
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">while</span> (<span style="color:#ae81ff">1</span>) { ...
 	<span style="color:#66d9ef">if</span> (UNEXPECTED((ret <span style="color:#f92672">=</span> ((opcode_handler_t)OPLINE<span style="color:#f92672">-&gt;</span>handler)()) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>)){
 		...
 		<span style="color:#66d9ef">return</span>; 
@@ -279,7 +279,7 @@ memcpy(m, code, <span style="color:#66d9ef">sizeof</span>(code));
 <h4 id="opcache的处理">Opcache的处理</h4>
 <p>在启动时替换zend_compile_file函数</p>
 <p>in ext/opcache/ZendAccelerator.c</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">accel_startup</span>(zend_extension <span style="color:#f92672">*</span>extension) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">accel_startup</span>(zend_extension <span style="color:#f92672">*</span>extension) {
 	...
 	<span style="color:#75715e">/* Override compiler */</span> 
 	accelerator_orig_compile_file <span style="color:#f92672">=</span> zend_compile_file; 
@@ -294,7 +294,7 @@ memcpy(m, code, <span style="color:#66d9ef">sizeof</span>(code));
 <p>新增：替换用于JIT编译的handler（仅在启用JIT时）。</p>
 <p>注意了，JIT在这里开始！</p>
 <h4 id="persistent_compile_file">persistent_compile_file</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"> <span style="color:#75715e">/* zend_compile() replacement */</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"> <span style="color:#75715e">/* zend_compile() replacement */</span>
 zend_op_array <span style="color:#f92672">*</span><span style="color:#a6e22e">persistent_compile_file</span>(zend_file_handle <span style="color:#f92672">*</span>file_handle, <span style="color:#66d9ef">int</span> type) {
 	...
 	<span style="color:#75715e">// 如果尚未缓存
@@ -310,13 +310,13 @@ zend_op_array <span style="color:#f92672">*</span><span style="color:#a6e22e">pe
 } ...
 </code></pre></div><h4 id="通往jit之路">通往JIT之路</h4>
 <p>从ext/opcache/ZendAccelerator.c 的</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">static</span> zend_persistent_script <span style="color:#f92672">*</span>cache_script_in_shared_memory( <span style="color:#960050;background-color:#1e0010">…</span> ) 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">static</span> zend_persistent_script <span style="color:#f92672">*</span>cache_script_in_shared_memory( <span style="color:#960050;background-color:#1e0010">…</span> ) 
 </code></pre></div><p>到 ext/opcache/zend_persist.c 的</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">zend_persistent_script <span style="color:#f92672">*</span>zend_accel_script_persist( ... ) 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">zend_persistent_script <span style="color:#f92672">*</span>zend_accel_script_persist( ... ) 
 </code></pre></div><p>到 ext/opcache/zend_persist.c</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> zend_persist_op_array_ex( ... ) 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> zend_persist_op_array_ex( ... ) 
 </code></pre></div><p>到ext/opcache/jit/zend_jit.c 的</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">ZEND_API <span style="color:#66d9ef">int</span> zend_jit_op_array( zend_op_array <span style="color:#f92672">*</span>op_array, zend_script <span style="color:#f92672">*</span>script) 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">ZEND_API <span style="color:#66d9ef">int</span> zend_jit_op_array( zend_op_array <span style="color:#f92672">*</span>op_array, zend_script <span style="color:#f92672">*</span>script) 
 </code></pre></div><p>在这个函数中进行handler的替换。</p>
 <h4 id="jit编译的触发">JIT编译的触发</h4>
 <p>in ext/opcache/jit/zend_jit.h</p>
@@ -330,13 +330,13 @@ zend_op_array <span style="color:#f92672">*</span><span style="color:#a6e22e">pe
 <p>5 ZEND_JIT_ON_HOT_TRACE 当一个Trace执行超过N次（和opcache.jit_hot_loop, jit_hot_return等有关)以后JIT。</p>
 <h4 id="zend_jit_on_script_load">ZEND_JIT_ON_SCRIPT_LOAD</h4>
 <p>in ext/opcache/jit/zend_jit.c</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">return</span> <span style="color:#a6e22e">zend_real_jit_func</span>(op_array, script, NULL); 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">return</span> <span style="color:#a6e22e">zend_real_jit_func</span>(op_array, script, NULL); 
 </code></pre></div><p>Opcache处理op_array时进行编译，从这个意义上讲，这不是 Just In Time。</p>
 <h4 id="zend_jit_on_first_exec">ZEND_JIT_ON_FIRST_EXEC</h4>
 <p>in ext/opcache/jit/zend_jit.c</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">opline<span style="color:#f92672">-&gt;</span>handler <span style="color:#f92672">=</span> (<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span>)zend_runtime_jit; 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">opline<span style="color:#f92672">-&gt;</span>handler <span style="color:#f92672">=</span> (<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span>)zend_runtime_jit; 
 </code></pre></div><p>首次执行zend_runtime_jit函数无条件启动JIT编译：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> ZEND_FASTCALL <span style="color:#a6e22e">zend_runtime_jit</span>(<span style="color:#66d9ef">void</span>) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> ZEND_FASTCALL <span style="color:#a6e22e">zend_runtime_jit</span>(<span style="color:#66d9ef">void</span>) {
 	...
 	<span style="color:#75715e">/* perform real JIT for this function */</span> 
 	<span style="color:#75715e">// 执行JIT编译
@@ -344,10 +344,10 @@ zend_op_array <span style="color:#f92672">*</span><span style="color:#a6e22e">pe
 	...
 }
 </code></pre></div><h4 id="zend_jit_on_prof_request">ZEND_JIT_ON_PROF_REQUEST</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">opline<span style="color:#f92672">-&gt;</span>handler <span style="color:#f92672">=</span> zend_jit_profile_helper; 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">opline<span style="color:#f92672">-&gt;</span>handler <span style="color:#f92672">=</span> zend_jit_profile_helper; 
 </code></pre></div><p>zend_jit_profile_helper计算每个op_array的执行次数。</p>
 <p>in ext/opcache/jit/zend_jit_vm_helpers.c</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">ZEND_OPCODE_HANDLER_RET ZEND_FASTCALL <span style="color:#a6e22e">zend_jit_profile_helper</span>(ZEND_OPCODE_HANDLER_ARGS)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">ZEND_OPCODE_HANDLER_RET ZEND_FASTCALL <span style="color:#a6e22e">zend_jit_profile_helper</span>(ZEND_OPCODE_HANDLER_ARGS)
 {
 	zend_op_array <span style="color:#f92672">*</span>op_array <span style="color:#f92672">=</span> (zend_op_array<span style="color:#f92672">*</span>)EX(func);
 	zend_jit_op_array_extension <span style="color:#f92672">*</span>jit_extension <span style="color:#f92672">=</span> (zend_jit_op_array_extension<span style="color:#f92672">*</span>)ZEND_FUNC_INFO(op_array);
@@ -366,7 +366,7 @@ zend_op_array <span style="color:#f92672">*</span><span style="color:#a6e22e">pe
 }
 </code></pre></div><p>Opcache资源释放时进行JIT编译。</p>
 <p>in ext/opcache/jit/zend_jit.c</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">zend_jit_check_funcs</span>(HashTable <span style="color:#f92672">*</span>function_table, zend_bool is_method) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">zend_jit_check_funcs</span>(HashTable <span style="color:#f92672">*</span>function_table, zend_bool is_method) {
 	...
 	zend_ulong counter <span style="color:#f92672">=</span> (zend_ulong)ZEND_COUNTER_INFO(op_array); 
 	<span style="color:#66d9ef">if</span> (((<span style="color:#66d9ef">double</span>)counter <span style="color:#f92672">/</span> (<span style="color:#66d9ef">double</span>)zend_jit_profile_counter) <span style="color:#f92672">&gt;</span> ZEND_JIT_PROF_THRESHOLD) { 
@@ -377,9 +377,9 @@ zend_op_array <span style="color:#f92672">*</span><span style="color:#a6e22e">pe
 </code></pre></div><p>对执行时间占比超过阈值的op_array使用JIT，而是由最初的请求决定。</p>
 <h4 id="zend_jit_on_hot_counters">ZEND_JIT_ON_HOT_COUNTERS</h4>
 <p>in ext/opcache/jit/zend_jit.c</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">return</span> <span style="color:#a6e22e">zend_jit_setup_hot_counters</span>(op_array);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">return</span> <span style="color:#a6e22e">zend_jit_setup_hot_counters</span>(op_array);
 </code></pre></div><p>以基本块为单位测量执行次数</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">zend_jit_setup_hot_counters</span>(zend_op_array <span style="color:#f92672">*</span>op_array) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">zend_jit_setup_hot_counters</span>(zend_op_array <span style="color:#f92672">*</span>op_array) {
 	... 
 	opline<span style="color:#f92672">-&gt;</span>handler <span style="color:#f92672">=</span> (<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span>)zend_jit_func_counter_helper; 
 
@@ -392,7 +392,7 @@ zend_op_array <span style="color:#f92672">*</span><span style="color:#a6e22e">pe
 }
 </code></pre></div><p>in ext/opcache/jit/zend_jit_vm_helpers.c</p>
 <p>每次执行时，都会去减hot counter，如果小于等于0，则进行编译。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">void</span> ZEND_FASTCALL <span style="color:#a6e22e">zend_jit_func_counter_helper</span>(<span style="color:#66d9ef">void</span>) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">void</span> ZEND_FASTCALL <span style="color:#a6e22e">zend_jit_func_counter_helper</span>(<span style="color:#66d9ef">void</span>) {
 	...
 
 	<span style="color:#f92672">*</span>(jit_extension<span style="color:#f92672">-&gt;</span>counter) <span style="color:#f92672">-=</span> ((ZEND_JIT_COUNTER_INIT <span style="color:#f92672">+</span> JIT_G(hot_func) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> JIT_G(hot_func));
@@ -410,7 +410,7 @@ zend_op_array <span style="color:#f92672">*</span><span style="color:#a6e22e">pe
 }
 </code></pre></div><p>zend_jit_loop_counter_helper 也是同样的执行逻辑。</p>
 <h4 id="zend_jit_on_doc_comment">ZEND_JIT_ON_DOC_COMMENT</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">if</span> (zend_needs_manual_jit(op_array)) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">if</span> (zend_needs_manual_jit(op_array)) {
   	<span style="color:#66d9ef">return</span> zend_real_jit_func(op_array, script, NULL);
 } <span style="color:#66d9ef">else</span> {
 	<span style="color:#66d9ef">return</span> SUCCESS;
@@ -419,7 +419,7 @@ zend_op_array <span style="color:#f92672">*</span><span style="color:#a6e22e">pe
 <h2 id="jit编译处理内容">JIT编译处理内容</h2>
 <h4 id="zend_real_jit_func">zend_real_jit_func</h4>
 <p>in ext/opcache/jit/zend_jit.c</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">zend_real_jit_func</span>(zend_op_array <span style="color:#f92672">*</span>op_array, zend_script <span style="color:#f92672">*</span>script, <span style="color:#66d9ef">const</span> zend_op <span style="color:#f92672">*</span>rt_opline) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">zend_real_jit_func</span>(zend_op_array <span style="color:#f92672">*</span>op_array, zend_script <span style="color:#f92672">*</span>script, <span style="color:#66d9ef">const</span> zend_op <span style="color:#f92672">*</span>rt_opline) {
 </code></pre></div><p>解析JIT编译（使用Opcache）</p>
 <ul>
 <li>控制流程图(Control Flow Graph，CFG)的构建</li>
@@ -434,7 +434,7 @@ zend_op_array <span style="color:#f92672">*</span><span style="color:#a6e22e">pe
 <h4 id="代码生成">代码生成</h4>
 <p>in ext/opcache/jit/zend_jit.c</p>
 <p>JIT编译的主体</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">zend_jit</span>(zend_op_array <span style="color:#f92672">*</span>op_array, zend_ssa <span style="color:#f92672">*</span>ssa, <span style="color:#66d9ef">const</span> zend_op <span style="color:#f92672">*</span>rt_opline) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">zend_jit</span>(zend_op_array <span style="color:#f92672">*</span>op_array, zend_ssa <span style="color:#f92672">*</span>ssa, <span style="color:#66d9ef">const</span> zend_op <span style="color:#f92672">*</span>rt_opline) {
 	... 
 	<span style="color:#75715e">// 编译op_array中包含的每个opcode
 </span><span style="color:#75715e"></span>	<span style="color:#66d9ef">switch</span> (opline<span style="color:#f92672">-&gt;</span>opcode) {
@@ -452,7 +452,7 @@ zend_op_array <span style="color:#f92672">*</span><span style="color:#a6e22e">pe
 </code></pre></div><h4 id="代码生成的实现">代码生成的实现</h4>
 <p>以DynASM格式(.dasc)描述</p>
 <p>in ext/opcache/jit/zend_jit_x86.dasc</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">zend_jit_inc_dec</span>(dasm_State <span style="color:#f92672">**</span>Dst, <span style="color:#66d9ef">const</span> zend_op <span style="color:#f92672">*</span>opline, <span style="color:#66d9ef">const</span> zend_op_array <span style="color:#f92672">*</span>op_array, uint32_t op1_info, zend_jit_addr op1_addr, uint32_t op1_def_info, zend_jit_addr op1_def_addr, uint32_t res_use_info, uint32_t res_info, zend_jit_addr res_addr, <span style="color:#66d9ef">int</span> may_overflow, <span style="color:#66d9ef">int</span> may_throw)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">zend_jit_inc_dec</span>(dasm_State <span style="color:#f92672">**</span>Dst, <span style="color:#66d9ef">const</span> zend_op <span style="color:#f92672">*</span>opline, <span style="color:#66d9ef">const</span> zend_op_array <span style="color:#f92672">*</span>op_array, <span style="color:#66d9ef">uint32_t</span> op1_info, zend_jit_addr op1_addr, <span style="color:#66d9ef">uint32_t</span> op1_def_info, zend_jit_addr op1_def_addr, <span style="color:#66d9ef">uint32_t</span> res_use_info, <span style="color:#66d9ef">uint32_t</span> res_info, zend_jit_addr res_addr, <span style="color:#66d9ef">int</span> may_overflow, <span style="color:#66d9ef">int</span> may_throw)
 {
 	<span style="color:#66d9ef">if</span> (op1_info <span style="color:#f92672">&amp;</span> ((MAY_BE_UNDEF<span style="color:#f92672">|</span>MAY_BE_ANY)<span style="color:#f92672">-</span>MAY_BE_LONG)) {
 		<span style="color:#f92672">|</span>	IF_NOT_ZVAL_TYPE op1_addr, IS_LONG, <span style="color:#f92672">&gt;</span><span style="color:#ae81ff">2</span>
@@ -474,14 +474,14 @@ zend_op_array <span style="color:#f92672">*</span><span style="color:#a6e22e">pe
 <h4 id="dynasm">DynASM</h4>
 <p>之后单独讲这个，简单来说DynASM就是一个方便写汇编的框架。</p>
 <p>in ext/opcache/jit/zend_jit_x86.dasc</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">if</span> (opline<span style="color:#f92672">-&gt;</span>opcode <span style="color:#f92672">==</span> ZEND_PRE_INC <span style="color:#f92672">||</span> opline<span style="color:#f92672">-&gt;</span>opcode <span style="color:#f92672">==</span> ZEND_POST_INC) { 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">if</span> (opline<span style="color:#f92672">-&gt;</span>opcode <span style="color:#f92672">==</span> ZEND_PRE_INC <span style="color:#f92672">||</span> opline<span style="color:#f92672">-&gt;</span>opcode <span style="color:#f92672">==</span> ZEND_POST_INC) { 
 	<span style="color:#f92672">|</span> inc aword [FP <span style="color:#f92672">+</span> opline<span style="color:#f92672">-&gt;</span>op1.var]
 } <span style="color:#66d9ef">else</span> {
 	<span style="color:#f92672">|</span> dec aword [FP <span style="color:#f92672">+</span> opline<span style="color:#f92672">-&gt;</span>op1.var]
 }
 </code></pre></div><p>生成以下C代码</p>
 <p>in ext/opcache/jit/zend_jit_x86.c</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">if</span> (opline<span style="color:#f92672">-&gt;</span>opcode <span style="color:#f92672">==</span> ZEND_PRE_INC <span style="color:#f92672">||</span> opline<span style="color:#f92672">-&gt;</span>opcode <span style="color:#f92672">==</span> ZEND_POST_INC) { 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">if</span> (opline<span style="color:#f92672">-&gt;</span>opcode <span style="color:#f92672">==</span> ZEND_PRE_INC <span style="color:#f92672">||</span> opline<span style="color:#f92672">-&gt;</span>opcode <span style="color:#f92672">==</span> ZEND_POST_INC) { 
 	<span style="color:#75715e">//| inc aword [FP + opline-&gt;op1.var]
 </span><span style="color:#75715e"></span>	dasm_put(Dst, <span style="color:#ae81ff">749</span>, opline<span style="color:#f92672">-&gt;</span>op1.var);
 } <span style="color:#66d9ef">else</span> {
@@ -489,7 +489,7 @@ zend_op_array <span style="color:#f92672">*</span><span style="color:#a6e22e">pe
 </span><span style="color:#75715e"></span>}
 </code></pre></div><p>简单描述一下就是</p>
 <p><img src="&amp;&amp;&amp;SFLOCALFILEPATH&amp;&amp;&amp;B10D10D2-2BBF-41F1-A5A3-B2248AC4879C.png" alt=""></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">	<span style="color:#75715e">// 处理所有操作码后之后，将生成的机器语言作为处理程序执行
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">	<span style="color:#75715e">// 处理所有操作码后之后，将生成的机器语言作为处理程序执行
 </span><span style="color:#75715e"></span>	handler <span style="color:#f92672">=</span> dasm_link_and_encode(<span style="color:#f92672">&amp;</span>dasm_state, op_array, <span style="color:#f92672">&amp;</span>ssa<span style="color:#f92672">-&gt;</span>cfg, rt_opline, NULL);
 </code></pre></div><h2 id="dynasm-1">DynASM</h2>
 <p>最后说一下为什么要用DynASM？</p>
@@ -498,12 +498,12 @@ zend_op_array <span style="color:#f92672">*</span><span style="color:#a6e22e">pe
 <p>DynASM 是为 luajit 编写的 JIT 汇编预处理器和微型运行时库 (简单来讲, DynASM完成两个工作, 一个是预处理, 把你写的汇编指令 (对, 没有Elixir, DynASM并不能直接把逻辑变成汇编, 需要你手动把你的逻辑用汇编语言重写一遍, 因此性能也取决于你的汇编代码写的好坏) 变成真正的二进制机器码, 另一个是提供一个微型运行时, 来处理那些必须推迟到运行时才能执行的代码).</p>
 <p>一个JIT的例子</p>
 <h4 id="brainfuck">brainfuck</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">++++++++++<span style="color:#f92672">[</span>&gt;+++++++&gt;++++++++++&gt;+++&gt;+<span style="color:#f92672">&lt;&lt;&lt;</span>&lt;-<span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">++++++++++<span style="color:#f92672">[</span>&gt;+++++++&gt;++++++++++&gt;+++&gt;+<span style="color:#f92672">&lt;&lt;&lt;</span>&lt;-<span style="color:#f92672">]</span>
 &gt;++.&gt;+.+++++++..+++.&gt;++.&lt;&lt;+++++++++++++++.
 &gt;.+++.------.--------.&gt;+.&gt;.
 </code></pre></div><p>这个编译完是输出</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Hello World!
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Hello World!
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
 <span style="color:#75715e">#define TAPE_SIZE 30000
@@ -632,13 +632,13 @@ zend_op_array <span style="color:#f92672">*</span><span style="color:#a6e22e">pe
   }
 }
 </code></pre></div><p>这个程序用来渲染曼德博集合(Mandelbrot set):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> gcc -o tutorial tutorial.c
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> gcc -o tutorial tutorial.c
 ./tutorial mandelbrot.bf
 </code></pre></div><p><img src="https://s1.ax1x.com/2020/07/22/UbQKOK.png" alt="UbQKOK.png"></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./tutorial mandelbrot.bf  67.48s user 0.59s system 44% cpu 2:33.30 total
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./tutorial mandelbrot.bf  67.48s user 0.59s system 44% cpu 2:33.30 total
 </code></pre></div><p>花了67.48s</p>
 <p>然后用dynasm重新写一下</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#f92672">||</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#66d9ef">if</span> ((defined(_M_X64) <span style="color:#f92672">||</span> defined(__amd64__)) <span style="color:#f92672">!=</span> X64) <span style="color:#f92672">||</span> (defined(_WIN32) <span style="color:#f92672">!=</span> WIN)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#f92672">||</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#66d9ef">if</span> ((defined(_M_X64) <span style="color:#f92672">||</span> defined(__amd64__)) <span style="color:#f92672">!=</span> X64) <span style="color:#f92672">||</span> (defined(_WIN32) <span style="color:#f92672">!=</span> WIN)
 <span style="color:#75715e">#error &#34;Wrong DynASM flags used: pass `-D X64` and/or `-D WIN` to dynasm.lua as appropriate&#34;
 </span><span style="color:#75715e">#endif
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
@@ -904,13 +904,13 @@ zend_op_array <span style="color:#f92672">*</span><span style="color:#a6e22e">pe
   }
 }
 </code></pre></div><p>为了编译, 首先需要通过 DynASM 预处理程序运行它. 预处理器是用 Lua 编写的, 因此首先编译一个 minimal Lua 解释器 (如果有luajit也可以直接用luajit运行dynasm.lua, 就可以省略这一步):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gcc -o minilua luajit-2.0/src/host/minilua.c
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gcc -o minilua luajit-2.0/src/host/minilua.c
 </code></pre></div><p>然后运行 DynASM 预处理器:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./minilua luajit-2.0/dynasm/dynasm.lua -o tutorial.posix64.c -D X64 tutorial.c
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./minilua luajit-2.0/dynasm/dynasm.lua -o tutorial.posix64.c -D X64 tutorial.c
 </code></pre></div><p>完成预处理后, 调用 C 编译器:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gcc -o tutorial tutorial.posix64.c
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gcc -o tutorial tutorial.posix64.c
 </code></pre></div><p>然后, 我们可以运行生成的可执行文件, 该可执行文件将很快运行 Mandelbrot set:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./tutorial mandelbrot.bf
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./tutorial mandelbrot.bf
 </code></pre></div><p><img src="https://s1.ax1x.com/2020/07/22/UbQQeO.png" alt="UbQQeO.png"></p>
 <p>只花了2.11s，jit之前是67.48s，jit后是2.11s，性能提升了接近32倍。</p>
 <p>参考的文章，感谢巨人们的肩膀：</p>

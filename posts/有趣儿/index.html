@@ -162,7 +162,7 @@ https://drunksandlampposts.wordpress.com/2012/06/13/graphing-the-history-of-phil
 <p><img src="https://s1.ax1x.com/2020/10/22/BkkpSH.png" alt="BkkpSH.png"></p>
 <p>阮一峰这篇博客写的入门挺好：http://www.ruanyifeng.com/blog/2020/02/sparql.html。</p>
 <p>最后查哲学家数据的方式很简单，在 <a href="http://dbpedia.org/snorql/">snorql</a> 上提交</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span>
 <span style="color:#66d9ef">WHERE</span> <span style="color:#960050;background-color:#1e0010">{</span>
 <span style="color:#f92672">?</span>p a <span style="color:#f92672">&lt;</span>http:<span style="color:#f92672">//</span>dbpedia.org<span style="color:#f92672">/</span>ontology<span style="color:#f92672">/</span>Philosopher <span style="color:#f92672">&gt;</span> .
 <span style="color:#f92672">?</span>p <span style="color:#f92672">&lt;</span>http:<span style="color:#f92672">//</span>dbpedia.org<span style="color:#f92672">/</span>ontology<span style="color:#f92672">/</span>influenced <span style="color:#f92672">&gt;</span> <span style="color:#f92672">?</span>influenced.

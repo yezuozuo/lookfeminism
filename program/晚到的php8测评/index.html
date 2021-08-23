@@ -99,7 +99,7 @@ JIT不开启的情况下
 <p>测试方式部分参考鸟哥的blog <a href="https://www.laruence.com/2020/06/27/5963.html">PHP 8新特性之JIT简介 - 风雪之隅</a></p>
 <p>先看一下结果：</p>
 <p>JIT不开启的情况下</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#a6e22e">php</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">d</span> <span style="color:#a6e22e">opcache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">jit_buffer_size</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> <span style="color:#a6e22e">Zend</span><span style="color:#f92672">/</span><span style="color:#a6e22e">bench</span><span style="color:#f92672">.</span><span style="color:#a6e22e">php</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#a6e22e">php</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">d</span> <span style="color:#a6e22e">opcache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">jit_buffer_size</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> <span style="color:#a6e22e">Zend</span><span style="color:#f92672">/</span><span style="color:#a6e22e">bench</span><span style="color:#f92672">.</span><span style="color:#a6e22e">php</span>
 <span style="color:#a6e22e">simple</span>             <span style="color:#ae81ff">0.025</span>
 <span style="color:#a6e22e">simplecall</span>         <span style="color:#ae81ff">0.012</span>
 <span style="color:#a6e22e">simpleucall</span>        <span style="color:#ae81ff">0.012</span>
@@ -121,7 +121,7 @@ JIT不开启的情况下
 <span style="color:#f92672">------------------------</span>
 <span style="color:#a6e22e">Total</span>              <span style="color:#ae81ff">1.419</span>
 </code></pre></div><p>JIT开启的情况下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#a6e22e">php</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">d</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">d</span> <span style="color:#a6e22e">opcache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">jit_buffer_size</span><span style="color:#f92672">=</span><span style="color:#ae81ff">64</span><span style="color:#a6e22e">M</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">d</span> <span style="color:#a6e22e">opcache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">jit</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1205</span> <span style="color:#a6e22e">Zend</span><span style="color:#f92672">/</span><span style="color:#a6e22e">bench</span><span style="color:#f92672">.</span><span style="color:#a6e22e">php</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#a6e22e">php</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">d</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">d</span> <span style="color:#a6e22e">opcache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">jit_buffer_size</span><span style="color:#f92672">=</span><span style="color:#ae81ff">64</span><span style="color:#a6e22e">M</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">d</span> <span style="color:#a6e22e">opcache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">jit</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1205</span> <span style="color:#a6e22e">Zend</span><span style="color:#f92672">/</span><span style="color:#a6e22e">bench</span><span style="color:#f92672">.</span><span style="color:#a6e22e">php</span>
 <span style="color:#a6e22e">simple</span>             <span style="color:#ae81ff">0.001</span>
 <span style="color:#a6e22e">simplecall</span>         <span style="color:#ae81ff">0.000</span>
 <span style="color:#a6e22e">simpleucall</span>        <span style="color:#ae81ff">0.000</span>
@@ -143,7 +143,7 @@ JIT不开启的情况下
 <span style="color:#f92672">------------------------</span>
 <span style="color:#a6e22e">Total</span>              <span style="color:#ae81ff">0.155</span>
 </code></pre></div><p>还有不打开Opcache的情况下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#a6e22e">php</span> <span style="color:#a6e22e">Zend</span><span style="color:#f92672">/</span><span style="color:#a6e22e">bench</span><span style="color:#f92672">.</span><span style="color:#a6e22e">php</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#a6e22e">php</span> <span style="color:#a6e22e">Zend</span><span style="color:#f92672">/</span><span style="color:#a6e22e">bench</span><span style="color:#f92672">.</span><span style="color:#a6e22e">php</span>
 <span style="color:#a6e22e">simple</span>             <span style="color:#ae81ff">0.051</span>
 <span style="color:#a6e22e">simplecall</span>         <span style="color:#ae81ff">0.017</span>
 <span style="color:#a6e22e">simpleucall</span>        <span style="color:#ae81ff">0.083</span>
@@ -176,11 +176,11 @@ JIT不开启的情况下
 php8.test.com php-fpm一个进程</p>
 <p>Mpf两个接口</p>
 <p>/v1/hello/index1</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">index1</span>() {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">index1</span>() {
     $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">output</span>(<span style="color:#e6db74">&#39;123&#39;</span>);
 }
 </code></pre></div><p>/v1/hello/index2</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">index2</span>() {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">index2</span>() {
     $a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
     <span style="color:#66d9ef">for</span> ($i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; $i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1000000</span>; $i<span style="color:#f92672">++</span>)
         $a<span style="color:#f92672">++</span>;
@@ -189,7 +189,7 @@ php8.test.com php-fpm一个进程</p>
 }
 </code></pre></div><p>我们压测一下</p>
 <p>php7  计算少情况</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wrk -c36 -d 5s -t12 https://php7.test.com/v1/hello/index1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wrk -c36 -d 5s -t12 https://php7.test.com/v1/hello/index1
 Running 5s test @ https://php7.test.com/v1/hello/index1
   <span style="color:#ae81ff">12</span> threads and <span style="color:#ae81ff">36</span> connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -199,7 +199,7 @@ Running 5s test @ https://php7.test.com/v1/hello/index1
 Requests/sec:     77.78
 Transfer/sec:     23.85KB
 </code></pre></div><p>php7  计算多情况</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wrk -c36 -d 5s -t12 https://php7.test.com/v1/hello/index2
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wrk -c36 -d 5s -t12 https://php7.test.com/v1/hello/index2
 Running 5s test @ https://php7.test.com/v1/hello/index2
   <span style="color:#ae81ff">12</span> threads and <span style="color:#ae81ff">36</span> connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -210,7 +210,7 @@ Running 5s test @ https://php7.test.com/v1/hello/index2
 Requests/sec:     13.91
 Transfer/sec:      4.29KB
 </code></pre></div><p>php8  JIT开启计算少情况</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wrk -c36 -d 5s -t12 https://php8.test.com/v1/hello/index1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wrk -c36 -d 5s -t12 https://php8.test.com/v1/hello/index1
 Running 5s test @ https://php8.test.com/v1/hello/index1
   <span style="color:#ae81ff">12</span> threads and <span style="color:#ae81ff">36</span> connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -220,7 +220,7 @@ Running 5s test @ https://php8.test.com/v1/hello/index1
 Requests/sec:   1010.55
 Transfer/sec:    340.43KB
 </code></pre></div><p>php8  JIT开启计算多情况</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wrk -c36 -d 5s -t12 https://php8.test.com/v1/hello/index2
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wrk -c36 -d 5s -t12 https://php8.test.com/v1/hello/index2
 Running 5s test @ https://php8.test.com/v1/hello/index2
   <span style="color:#ae81ff">12</span> threads and <span style="color:#ae81ff">36</span> connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -257,7 +257,7 @@ Transfer/sec:     14.31KB
 <h4 id="环境-1">环境</h4>
 <p>aliyun centos 6.9。</p>
 <h4 id="php源码编译">php源码编译</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget https://downloads.php.net/~carusogabriel/php-8.0.0alpha2.tar.gz
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget https://downloads.php.net/~carusogabriel/php-8.0.0alpha2.tar.gz
 
 tar -zxf php-8.0.0alpha2.tar.gz
 
@@ -265,14 +265,14 @@ cd php-8.0.0alpha2
 
 ./configure --prefix<span style="color:#f92672">=</span>/yourdir/php8 --with-config-file-path<span style="color:#f92672">=</span>/yourdir/php8/etc --enable-mysqlnd --with-mysqli<span style="color:#f92672">=</span>mysqlnd --with-pdo-mysql<span style="color:#f92672">=</span>mysqlnd --enable-fpm --enable-static --enable-sockets --with-zip --enable-calendar --enable-bcmath --enable-mbstring --with-zlib --with-iconv<span style="color:#f92672">=</span>/usr/local/libiconv --enable-gd --enable-mbstring --with-freetype --with-mysql-sock<span style="color:#f92672">=</span>/tmp/mysql.sock --disable-ipv6 --enable-debug --with-openssl --enable-opcache
 </code></pre></div><p>这里一般都是makefile生成失败的，后面有生成失败的例子，生成成功后</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">make -j <span style="color:#ae81ff">8</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">make -j <span style="color:#ae81ff">8</span>
 
 make install
 
 cp php.ini-production /yourdir/php8/etc/php.ini
 </code></pre></div><h4 id="配置phpini">配置php.ini</h4>
 <p>记住一定要把opcache.ini旧的配置也写上，JIT说到底还是对Opcache的优化。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">zend_extension<span style="color:#f92672">=</span>opcache.so
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">zend_extension<span style="color:#f92672">=</span>opcache.so
 opcache.enable<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
 
 ; 命令行测试的话这里一定要打开
@@ -294,7 +294,7 @@ opcache.jit_buffer_size<span style="color:#f92672">=</span>64M
 <h5 id="问题一">问题一</h5>
 <pre><code>No package 'sqlite3' found
 </code></pre><p>解决办法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget https://www.sqlite.org/2020/sqlite-autoconf-3320300.tar.gz
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget https://www.sqlite.org/2020/sqlite-autoconf-3320300.tar.gz
 
 tar -zxf sqlite-autoconf-3320300.tar.gz
 
@@ -309,11 +309,11 @@ make install
 export PKG_CONFIG_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$PKG_CONFIG_PATH<span style="color:#e6db74">:/usr/local/lib/sqlite-3.32.0/lib/pkgconfig&#34;</span>
 </code></pre></div><p>注意</p>
 <p>直接这样是不行的，yum仓库里的版本太低。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">yum install sqlite-devel 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">yum install sqlite-devel 
 </code></pre></div><h4 id="问题二">问题二</h4>
 <pre><code>configure: error: Please reinstall the iconv library.
 </code></pre><p>解决办法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.14.tar.gz
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.14.tar.gz
 
 tar -zxf libiconv-1.14.tar.gz
 
@@ -327,9 +327,9 @@ make install
 </code></pre></div><h4 id="问题三">问题三</h4>
 <pre><code>No package 'oniguruma' found
 </code></pre><p>同样yum也是不行的，版本太低。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">yum install oniguruma-devel 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">yum install oniguruma-devel 
 </code></pre></div><p>解决办法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget https://github.com/kkos/oniguruma/archive/v6.9.5_rev1.tar.gz
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget https://github.com/kkos/oniguruma/archive/v6.9.5_rev1.tar.gz
 
 tar -zxf v6.9.5_rev1.tar.gz
 
@@ -347,7 +347,7 @@ export PKG_CONFIG_PATH<span style="color:#f92672">=</span><span style="color:#e6
 </code></pre></div><h4 id="问题四">问题四</h4>
 <pre><code>No package 'libzip' found
 </code></pre><p>解决办法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget https://libzip.org/download/libzip-1.7.2.tar.gz
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget https://libzip.org/download/libzip-1.7.2.tar.gz
 
 tar -zxf libzip-1.7.2.tar.gz
 

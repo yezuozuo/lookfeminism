@@ -102,7 +102,7 @@
 <h2 id="应用层">应用层</h2>
 <p>（以下都基于X86体系）</p>
 <p>从应用层面，这里我直接用C语言来获取时间。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;time.h&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;time.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
     time_t time_raw_format;
     time(<span style="color:#f92672">&amp;</span>time_raw_format); <span style="color:#75715e">// get current time
@@ -122,7 +122,7 @@ The current local time: Sat Jun 20 11:45:59 2020
 <p>Glibc是 <a href="https://baike.baidu.com/item/GNU">GNU</a> 发布的libc库，即c <a href="https://baike.baidu.com/item/%E8%BF%90%E8%A1%8C%E5%BA%93/5587282">运行库</a> 。glibc是 <a href="https://baike.baidu.com/item/linux%E7%B3%BB%E7%BB%9F/1732935">linux系统</a> 中最底层的 <a href="https://baike.baidu.com/item/api/10154">api</a> ，几乎其它任何运行库都会依赖于glibc。glibc除了封装 <a href="https://baike.baidu.com/item/linux">linux</a> 操作系统所提供的 <a href="https://baike.baidu.com/item/%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1/11027121">系统服务</a> 外，它本身也提供了许多其它一些必要功能服务的实现。</p>
 </blockquote>
 <p>看一下time的GlibC实现</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">time_t <span style="color:#a6e22e">time</span> (time_t <span style="color:#f92672">*</span>t) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">time_t <span style="color:#a6e22e">time</span> (time_t <span style="color:#f92672">*</span>t) {
     INTERNAL_SYSCALL_DECL (err);
     time_t res <span style="color:#f92672">=</span> INTERNAL_SYSCALL (time, err, <span style="color:#ae81ff">1</span>, NULL);
     <span style="color:#66d9ef">return</span> res;
@@ -143,7 +143,7 @@ The current local time: Sat Jun 20 11:45:59 2020
 <p>第二大功能：维护系统时间。</p>
 <p>RTC (Real Time Clock) 有独立的电池供电，始终保存着系统时间。Linux 系统初始化时，读取 RTC，得到当前时间值。
 读取 RTC 是一个体系结构相关的操作，对于 x86 机器，定义在 arch\x86\kernel\time.c 中。可以看到最终的实现函数为 mach_get_cmos_time，它直接读取 RTC 的 CMOS 芯片获得当前时间。如前所述，RTC 芯片一般都可以直接通过 IO 操作来读取年月日等时间信息。得到存储在 RTC 中的时间值之后，内核调用 mktime () 将 RTC 值转换为一个距离 Epoch（既 1970 年元旦）的时间值。此后直到下次重新启动，Linux 不会再读取硬件 RTC 了。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat /proc/driver/rtc
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat /proc/driver/rtc
 
 rtc_time	: 12:59:52
 rtc_date	: 2020-06-20
