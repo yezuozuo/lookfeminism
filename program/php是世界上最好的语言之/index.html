@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>PHP是世界上最好的语言！之…… - zoco</title>
-    <meta property="og:title" content="PHP是世界上最好的语言！之…… - zoco">
+    <title>PHP是世界上最好的语言！之== - zoco</title>
+    <meta property="og:title" content="PHP是世界上最好的语言！之== - zoco">
     
     <meta name="twitter:card" content="summary">
 
@@ -15,14 +15,14 @@
 
     
       
-      <meta property="description" content="&amp;lt;?php $a = null; $a &#43;&#43;; var_dump($a); echo &amp;quot;\n&amp;quot;; $a = null; $a --; var_dump($a); 执行结果为
-int(1) NULL &#43;&#43;的时候为1我还可以理解 &amp;ndash;的时候为null我就凌乱了
-解决这种&#43;&#43;和&amp;ndash;中的不一致的办法就是根本不用它们，用&#43;=和-=代替。
-[&amp;hellip;] 官 &amp;hellip;">
-      <meta property="og:description" content="&amp;lt;?php $a = null; $a &#43;&#43;; var_dump($a); echo &amp;quot;\n&amp;quot;; $a = null; $a --; var_dump($a); 执行结果为
-int(1) NULL &#43;&#43;的时候为1我还可以理解 &amp;ndash;的时候为null我就凌乱了
-解决这种&#43;&#43;和&amp;ndash;中的不一致的办法就是根本不用它们，用&#43;=和-=代替。
-[&amp;hellip;] 官 &amp;hellip;">
+      <meta property="description" content="我决定从“==”说起
+PHP 是弱类型的语言，会自动进行数据类型转换，这无疑给我们的开发带来了极大的方便。可事实真是如此吗？那就先就从==说起。
+首先，看一下这段代码。猜猜看结果会是什么
+&amp;lt;?php var_dump(md5(&#39;240610708&#39;) == md5(&#39;QNKCDZO&#39;)); var_dump(md5(&#39;aabg7XSs&#39;) == md5(&#39;aabC9RqS&#39;)); &amp;hellip;">
+      <meta property="og:description" content="我决定从“==”说起
+PHP 是弱类型的语言，会自动进行数据类型转换，这无疑给我们的开发带来了极大的方便。可事实真是如此吗？那就先就从==说起。
+首先，看一下这段代码。猜猜看结果会是什么
+&amp;lt;?php var_dump(md5(&#39;240610708&#39;) == md5(&#39;QNKCDZO&#39;)); var_dump(md5(&#39;aabg7XSs&#39;) == md5(&#39;aabC9RqS&#39;)); &amp;hellip;">
       
     
 
@@ -79,7 +79,7 @@ int(1) NULL &#43;&#43;的时候为1我还可以理解 &amp;ndash;的时候为nul
     <article class="main">
       <header class="title">
       
-<h1>PHP是世界上最好的语言！之……</h1>
+<h1>PHP是世界上最好的语言！之==</h1>
 
 <h3>
   2015-03-02</h3>
@@ -90,85 +90,44 @@ int(1) NULL &#43;&#43;的时候为1我还可以理解 &amp;ndash;的时候为nul
 
 
 
-<h4 id="1与--">1.++与&ndash;</h4>
+<p>我决定从“==”说起</p>
+<p>PHP 是弱类型的语言，会自动进行数据类型转换，这无疑给我们的开发带来了极大的方便。可事实真是如此吗？那就先就从==说起。</p>
+<p>首先，看一下这段代码。猜猜看结果会是什么</p>
 <pre><code>&lt;?php
-$a = null;
-$a ++;  
-var_dump($a);
+var_dump(md5('240610708') == md5('QNKCDZO'));
+var_dump(md5('aabg7XSs') == md5('aabC9RqS'));
+var_dump(sha1('aaroZmOk') == sha1('aaK1STfY'));
+var_dump(sha1('aaO8zKZF') == sha1('aa3OFF9m'));
+var_dump('0010e2' == '1e3');
+var_dump('0x1234Ab' == '1193131');
+var_dump('0xABCdef' == ' 0xABCdef');
 
-echo &quot;\n&quot;;
-
-$a = null;
-$a --; 
-var_dump($a);
-
-</code></pre><p>执行结果为</p>
-<pre><code>int(1)
-
-NULL
-</code></pre><p>++的时候为1我还可以理解
-&ndash;的时候为null我就凌乱了</p>
-<p>解决这种++和&ndash;中的不一致的办法就是根本不用它们，用+=和-=代替。</p>
-<h4 id="2strrchr函数">2.strrchr函数</h4>
-<p>官方解释</p>
+var_dump(0 == 'abcdefg');
+var_dump(1 == '1abcdef');
+?&gt;
+</code></pre><p>一眼看过，很明显肯定都是false吧，但运行代码后发现全是true！</p>
+<p>WTF!</p>
+<h3 id="为什么会这样">为什么会这样？</h3>
+<p>PHP 是弱类型的语言。使用==对比两个变量时，当有一个变量为整数，另外一个变量也会转换为整数。这也就解释了，为什么0 == &lsquo;abcdefg&rsquo;和1 == &lsquo;1abcdef&rsquo;会成立。</p>
+<p>但是，其他的代码呢？字符串难道还会转换？</p>
+<p>PHP 手册上为我们提供了解释说明。</p>
 <blockquote>
-<p>strrchr() 函数查找字符串在另一个字符串中最后一次出现的位置，并返回从该位置到字符串结尾的所有字符。
-如果成失败，否则返回 false。</p>
+<p>If you compare a number with a string or the comparison involves numerical strings, then each string is converted to a number and the comparison performed numerically.</p>
 </blockquote>
-<p>实际上，这个函数是查找某个字符，而不是查找字符串</p>
-<pre><code>&lt;?php
-$a = 'abcdef.txt';
-$b = '.php';
-echo strrchr($a, $b);
-</code></pre><p>上面的代码输出是：.txt
-也就是说，如果$b是字符串，只使用第一个字符，后面的其它字符会忽略</p>
-<h4 id="3trim函数遇到中文空格时会乱码">3.trim函数遇到中文空格时，会乱码</h4>
-<pre><code>&lt;?php
-$str = ' 　《前后有全半角空格》　 ';
-var_dump($str);
+<p>也就是说，如果你比较的两个字符串涉及到数字（如：&ldquo;0&rdquo;），那么每个字符串都会转换成数字。</p>
+<p>在这里，我不得不说：PHP是最好的语言！</p>
+<h3 id="危害">危害</h3>
+<p>当我们的服务是直接MD5或Sha1加密而没有加盐，碰巧某用户密码加密涉及到数字，那么就有可能被碰撞破解！</p>
+<h3 id="解决">解决</h3>
+<p>1.在开发过程中尽可能避免使用==判断两个变量的值，少偷点懒多写个=，用===来判断。
+2.密码加密最好使用password_hash()或者加盐md5($pwd.$salt)。</p>
 
-$str2 = trim($str, ' 　');
-var_dump($str2);
-</code></pre><p>执行结果为：</p>
-<pre><code>string(38) &quot; 　《前后有全半角空格》　 &quot;
-string(28) &quot;�前后有全半角空格》&quot;
-</code></pre><p>这个问题的修改方法是采用正则</p>
-<pre><code>&lt;?php
-$str = ' 　《前后有全半角空格》　 ';
-var_dump($str);
-
-$str3 = mb_ereg_replace('^(?:\s|　)+|(?:\s|　)+$', '', $str);
-var_dump($str3);
-</code></pre><p>执行结果为：</p>
-<pre><code>string(38) &quot; 　《前后有全半角空格》　 &quot;
-string(30) &quot;《前后有全半角空格》&quot;
-</code></pre><h4 id="4执行sql后不判断返回值或判断逻辑错误">4.执行SQL后不判断返回值，或判断逻辑错误</h4>
-<pre><code>$sql = 'insert into app_log(id)  select 0 from dual where 1=2';
-$this-&gt;db-&gt;query($sql);
-return true; // 不加判断，直接返回true
-
-$sql = 'insert into app_log(id)  select 0 from dual where 1=2';
-$result = $this-&gt;db-&gt;query($sql);
-if ($result) { // 有bug，插入不成功，result也是true
-    return true;
-}
-return false;
-</code></pre><p>上面的2段代码应该改成：</p>
-<pre><code>
-$sql = 'insert into app_log(id)  select 0 from dual where 1=2';
-$this-&gt;db-&gt;query($sql);
-// 如果sql有语法问题，affected_rows是-1
-if ($this-&gt;db-&gt;affected_rows() &gt; 0) {
-    return true;
-}
-return false;
-</code></pre>
 
   <footer>
   
 <nav class="post-nav">
-  <span class="nav-prev">&larr; <a href="/program/php%E8%AF%AD%E6%B3%95%E4%BC%98%E5%8C%96%E5%AE%9E%E8%B7%B5/">php语法优化实践</a></span>
-  <span class="nav-next"><a href="/program/php%E6%98%AF%E4%B8%96%E7%95%8C%E4%B8%8A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%AF%AD%E8%A8%80%E4%B9%8B/">PHP是世界上最好的语言！之==</a> &rarr;</span>
+  <span class="nav-prev">&larr; <a href="/program/php%E6%98%AF%E4%B8%96%E7%95%8C%E4%B8%8A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%AF%AD%E8%A8%80%E4%B9%8B/">PHP是世界上最好的语言！之……</a></span>
+  <span class="nav-next"><a href="/program/php%E6%98%AF%E4%B8%96%E7%95%8C%E4%B8%8A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%AF%AD%E8%A8%80%E4%B9%8Barray_merge/">PHP是世界上最好的语言！之array_merge</a> &rarr;</span>
 </nav>
 
 
