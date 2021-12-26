@@ -27,6 +27,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -42,6 +43,7 @@
       <workItem from="1629694345302" duration="40000" />
       <workItem from="1629726701103" duration="458000" />
       <workItem from="1636528649351" duration="131000" />
+      <workItem from="1636529611235" duration="549000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1629726724566</created>
@@ -57,7 +59,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629726991417</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="init">
+      <created>1636529635999</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1636529635999</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
