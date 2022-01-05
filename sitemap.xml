@@ -3,21 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://lookfeminism.top/</loc>
-    <lastmod>2021-10-01T00:40:57+08:00</lastmod>
+    <lastmod>2022-01-04T13:16:24+08:00</lastmod>
+    <priority>0</priority>
   </url><url>
     <loc>https://lookfeminism.top/magazine/</loc>
-    <lastmod>2021-10-01T00:40:57+08:00</lastmod>
+    <lastmod>2022-01-04T13:16:24+08:00</lastmod>
+  </url><url>
+    <loc>https://lookfeminism.top/magazine/%E7%9C%8B%E8%A7%81%E5%A5%B3%E6%80%A7%E5%86%99%E4%BD%9C-vol.5-%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%902021.12%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2022-01-04T13:16:24+08:00</lastmod>
+  </url><url>
+    <loc>https://lookfeminism.top/magazine/%E7%9C%8B%E8%A7%81%E5%A5%B3%E6%80%A7%E5%86%99%E4%BD%9C-vol.4-%E6%98%9F%E7%A9%BA%E7%92%80%E7%92%A82021.11%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2021-12-01T11:49:03+08:00</lastmod>
+  </url><url>
+    <loc>https://lookfeminism.top/magazine/%E7%9C%8B%E8%A7%81%E5%A5%B3%E6%80%A7%E5%86%99%E4%BD%9C-vol.3-2021.10%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2021-11-01T12:00:10+08:00</lastmod>
   </url><url>
     <loc>https://lookfeminism.top/magazine/%E7%9C%8B%E8%A7%81%E5%A5%B3%E6%80%A7%E5%86%99%E4%BD%9C-vol.2-%E5%81%9A%E4%B8%BB%E4%BD%93%E8%80%8C%E9%9D%9E%E5%AE%A2%E4%BD%932021.9%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2021-10-01T00:40:57+08:00</lastmod>
   </url><url>
     <loc>https://lookfeminism.top/magazine/%E7%9C%8B%E8%A7%81%E5%A5%B3%E6%80%A7%E5%86%99%E4%BD%9C-vol.1-%E8%B7%AF%E8%BF%98%E5%BE%88%E8%BF%9C2021.8%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2021-09-02T09:24:26+08:00</lastmod>
-  </url><url>
-    <loc>https://lookfeminism.top/magazine/%E7%9C%8B%E8%A7%81%E5%A5%B3%E6%80%A7%E5%86%99%E4%BD%9C-vol.3-2021.10%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2021-09-02T09:24:26+08:00</lastmod>
-  </url><url>
-    <loc>https://lookfeminism.top/magazine/%E7%9C%8B%E8%A7%81%E5%A5%B3%E6%80%A7%E5%86%99%E4%BD%9C-vol.4-%E6%98%9F%E7%A9%BA%E7%92%80%E7%92%A82021.11%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2021-09-02T09:24:26+08:00</lastmod>
   </url><url>
     <loc>https://lookfeminism.top/magazine/%E5%85%B1%E8%AF%BB%E9%82%80%E8%AF%B7-%E7%9C%8B%E8%A7%81%E5%A5%B3%E6%80%A7%E5%86%99%E4%BD%9C/</loc>
@@ -26,5 +30,7 @@
     <loc>https://lookfeminism.top/categories/</loc>
   </url><url>
     <loc>https://lookfeminism.top/tags/</loc>
+  </url><url>
+    <loc>https://lookfeminism.top/friend/</loc>
   </url>
 </urlset>
